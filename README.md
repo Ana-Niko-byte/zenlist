@@ -1,39 +1,158 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+## Note: This application and its README is Work-In-Progress.
 
-Welcome,
+# Zenlist
+The application is available for viewing [here]().
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## A Little Bit About Zenlist
+Zenlist is designed to provide a manageable and customisable way of organising and managing day-to-day tasks, based on a user's environmenta needs. Complete with organise-by-category functionality, time-tracking, alerts, and filters, zenlist is the all inclusive go-to for anyone who wishes to improve their time-management skills. 
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+# Business/Social Goals
+- Allow for organisation/categorisation of assets with a clear filtering system to make the platform easily accessible and understandable.
 
-## Codeanywhere Reminders
+- Design the platform to be accessible for all ages (or at minimum for those over 12 years of age).
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+- Set up email alerts for tasks approaching due date. 
 
-`python3 -m http.server`
+- As a certified Scrum Master II, spread knowledge of the scrum framework and explain how this framework benefits workplaces and personal time-management. Add links to relevant medias and opensource documents. 
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+# UX Goals
+- Create a simple and intuitive UI for young and first time users to foster a sense of comfort and reassurance. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+- Design a simple and easy navigation system (primary navigation and breadcrumbs so the user knows where they are at all times and can back track when needed).
 
-`http_server`
+- Set up Email alerts for personalised experiences and functional reminders. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- Establish a colour scheme and font family that ties the theme of _zen_ together to create a cohesive and comprehensive branding with accents in both where needed.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- Keep the application visually minimalistic with white spacing and simple accents to maintain the _zen_ theme and branding. 
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+# Wireframes
+# Structure 
+The structure of _Zenlist_ is as follows: 
+### Home Page
+### Sign in/Sign Up
+### Agile Features
+### Logout
 
-To log into the Heroku toolbelt CLI:
+# Scope of Application
+The application is scope is currently to the following: 
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### User Interaction
+Once registered and logged in, the user can access their zenlists in the _Your Workspaces_ tab. All tasks (due, in progress and completed) are visible within their relevant zenlists. The user can add another task into the _to do_ section by clicking the '+' sign. Here they give a title, assign a category, a due date, a priority, and a brief description to the task they wish to add. Once finished and logged to the _to do_ body, the user may:
+- view (through the 'click' event).
+- edit the task (change anything except the task name).
+- move the task to a different list.
+- delete the task as needed. 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Categorisation
+When creating a zenlist, the user is presented with a selection of _categories_ for their environment - this helps keep work tasks separate from home chores, from study-related tasks, separate from hobbies.
 
----
+### Filtering
+To enable users to comfortably control their tasks, a filtering system was adopted to allow for quick access to all relevant data. The tasks can be filtered by the following: 
+- _by category_
+- _by priority_
+- _by due date_
+    - _by approaching_
+    - _by way-off_
+    - _by late tasks_
 
-Happy coding!
+### Email Reminders
+As a task is approaching its due date, an email reminder is sent to the user's registered address (the one used to sign up to _zenlist_).
+
+### Scrum & Agile Knowledge Sharing
+
+# Aesthetics
+# Strategy
+This application aims at optimising task and time management leveraging the benefits of an accessible and intuative UI, timely reminders connected to registered email addresses, a customisable categorisation and filtering system, and the ability to manage assets with ease. 
+
+The application is designed as a mobile-first app, with an easy to use UI with hints where necessary. 
+
+# Target Audience
+- Users over 12 years of age. 
+- Hobbyists.
+- Students.
+- Anybody who wishes to improve their time-management skills. 
+
+# Key Information Deliverables
+- Categorisation of assets.
+- Time-tracking capabilities with email alerts for approaching tasks.
+- Filtering system (by category, priority, due date).
+- Ability to add/view/edit/move/delete assets. 
+
+# Features
+# Technologies
+1. HTML5 - Used for structuring and content.
+2. CSS3 - Used for adding styles to the content for legibility and aesthetic appeal.
+3. Vanilla Javascript - To add the interactivity, validation and page display toggling for the application to work.
+4. FontAwesome - used for icons.
+5. Firefox Developer Tools - used for debugging the website during production.
+6. Lighthouse - An extension I used for testing the performance, accessibility, best practices and SEO of my site (result shown under debugging below).
+7. GitHub - For code storage,version control and deployment.
+8. Git - For commiting through terminal and pushing to Github for storage.
+9. VSC - The IDE I developed the project in.
+10. Balsamiq - For a clear understanding of the structure I wanted my application to follow. The project has since deviated slightly from the design for improved user experience.
+11. Color Contrast Accessibility Validator - check legibility of my text on different backgrounds for better accessibility.
+12. W3C Markup Validation Service - to validate my HTML for potential errors.
+13. W3C CSS Validation Service - to validate my CSS code for potential errors.
+14. JSHint - for checking and validating my JS code. 
+15. Freeformatter CSS Beautify - to ensure I formatted my CSS correctly.
+16. Beautifier.io - to beautify my JS. 
+16. AmIResponsive - to create the responsive image.
+17. Looka.com - for logo ideas (Ai tool). -->
+
+# Testing & Debugging
+| Feature | Expected Outcome | Testing Procedure | Result | Remark |
+|---|---|---|---|---|
+||||| <img src="docs/images/thumbs-up.jpg"> |
+||||| <img src="docs/images/thumbs-up.jpg"> |
+||||| <img src="docs/images/thumbs-up.jpg"> |
+||||| <img src="docs/images/thumbs-up.jpg"> |
+||||| <img src="docs/images/thumbs-up.jpg"> |
+||||| <img src="docs/images/thumbs-up.jpg"> |
+||||| <img src="docs/images/thumbs-up.jpg"> |
+||||| <img src="docs/images/thumbs-up.jpg"> |
+||||| <img src="docs/images/thumbs-up.jpg"> |
+||||| <img src="docs/images/thumbs-up.jpg"> |
+||||| <img src="docs/images/thumbs-up.jpg"> |
+||||| <img src="docs/images/thumbs-up.jpg"> |
+### Issues
+### Debugging
+# Accessibility & Performance
+### Lighthouse
+### Colour Accessibility Validator 
+### HTML Validation
+### CSS Validation
+### JSHint Validation
+# Deployment
+The application is deployed on Gitpages through github, and is available for viewing in the link at the top of this README.md document. To deploy a github repository, follow the following steps: 
+
+1. Login to your github account
+2. Click on your repository section under your profile icon, and select the repository you want to deploy.
+3. Once you are in your repository, click ' Settings' in the top bar. 
+4. Select 'Pages' from the menu on the left. 
+5. Ensure the 'Source' section is set to 'Deploy from a branch'.
+6. Ensure you deploy from the main branch in your root directory. The screen should look something like this: 
+<!-- ![github pages](docs/images/github-one.png) -->
+7. The site you want to deploy is given a URL, available above the source section, as in the image above. It might take a while for this link to become visible and active. 
+
+### Forking a Github Repository
+If you want to make changes to your repository (or part of it) without affecting it, you can 'fork' it (make a copy of it). This ensures the original repository remains unchanged. To fork a github repository, follow the following steps: 
+
+1. Click into the github repository you want to fork. 
+2. Click 'Fork' in the top right hand side of the top bar, and this should take you to a page titled 'Create a new fork'
+3. You can now work in this copy of your repository without it affecting the original. 
+
+### Cloning a Github Repository
+Cloning a repository essentially means downloading a copy of your repository that can be worked on locally. This method allows for version control and back up of code. To clone a github repository, follow the following steps: 
+
+1. Click into the github repository you want to clone. 
+2. Press the 'Code' button. This should open a section similar to the one below. 
+<!-- ![Clone Code Button Dropdown](docs/images/github-two.png) -->
+3. Copy the link in this dropdown
+4. Open a terminal within your VSC (or whatever IDE you choose to use). 
+5. In the terminal type 'git clone' and paste the URL. 
+6. Press Enter - you now have a cloned version of your github repository.
+
+# Future Development
+# Credits
+# Acknowledgements
