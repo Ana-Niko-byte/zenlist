@@ -1,6 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Scrum
 
-# Create your views here.
-def scrum_hello(response):
-    return HttpResponse('Hello from the Scrum Home page!')
+def HelloScrum(request):
+    scrum = Scrum.objects.all()
+    context = {'hello' : scrum}
+    
+    return render(
+        request,
+    "scrum/index.html",
+    context
+    )

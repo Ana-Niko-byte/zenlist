@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from scrum.views import scrum_hello
+from scrum.views import HelloScrum
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path('', scrum_hello, name='scrum')
+    path('', HelloScrum, name='hello')
 ]
