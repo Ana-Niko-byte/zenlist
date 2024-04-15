@@ -25,3 +25,21 @@ class Scrum(models.Model):
     def __str__(self):
         return f'The title of this section is {self.title}'
     
+class Feature(models.Model):
+    """
+    Represents a Feature element model with Cloudinary fields for easy retrieval and document management.
+
+    Attributes: 
+    title = A reference to the feature title.
+    image (CloudinaryField) = A field to store the featured image in Cloudinary. There is a default image for fallback purposes.
+    step = A reference to the feature number (max of 3).
+    content = A reference to the main feature content.
+    """
+    title = models.CharField(max_length=200, unique=True)
+    image = CloudinaryField('image', default='default_feature')
+    # ensuring there is a maximum number of 3 steps, with each feature having a unique value.
+    step = models.PositiveIntegerField(unique=True, validators = [MaxValueValidator(3)])
+    content = models.TextField()
+
+    def __str__(self):
+        return f'Feature title: {self.title}'
