@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+/* Colours */
+body{
+    background-color: #fff5f5;
+}
+
+.navbar-nav li a:hover{
+    color:rgb(255, 119, 0);
+}
+
+.socials a{
+    color: rgb(27, 27, 27);
+}
+
+/* Annotations & Makeshift Symbols */
+/* Used instead of .nav-item-line::after content due to height control. */
+.line{
+    height: 100%;
+    width: 1px;
+    background-color: rgb(22, 22, 22);
+}
+
+.active{
+    border-bottom: 1px solid rgb(27, 27, 27);
+}
+
+/* Branding */
+.navbar-brand{
+    font-size: 2rem;
+}
+
+.brand{
+    font-family: "Satisfy", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* UIUX */
+.nav-item-socials{
+    display: flex;
+    align-items: center;
+}
