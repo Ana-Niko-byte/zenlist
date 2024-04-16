@@ -5,7 +5,7 @@ body{
     background-color: #fff5f5;
 }
 
-.navbar-nav li a:hover{
+.navbar-nav li a:hover, .socials a{
     color:rgb(255, 119, 0);
 }
 
