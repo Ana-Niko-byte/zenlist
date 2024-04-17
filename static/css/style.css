@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-
 /* Colours */
 body{
     background-color: #fff5f5;
@@ -48,4 +47,10 @@ body{
 
 .scrum-content{
     font-size: 1rem;
+}
+
+.step{
+    height: 50px;
+    width:50px;
+    border-radius: 50%;
 }

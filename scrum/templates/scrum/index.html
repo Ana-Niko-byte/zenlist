@@ -3,11 +3,11 @@
 {% block content %}
 
 <!-- index.html content starts here -->
-<div class="container">
+<div class="container-fluid">
     <!-- Zenlist Jumbotron -->
     <div class="row">
         <div class="col-12">
-            <section class="callout jumbotron my-4 py-4 text-center">
+            <section class="callout jumbotron mb-4 py-5 text-center">
                 <h1 class="text-center">Zenlist :: task tracking made simpler.</h1>
                 <p class="lead">Sign up or login today to stay on top of your Routine!</p> 
                     <button class="btn btn-info btn-signUp btn-lg">Sign Up!</button>
@@ -16,12 +16,16 @@
     </div>
     <!-- /Zenlist Jumbotron -->
     <!-- Scrum Intro -->
-    <div class="container container-scrum my-4">
-        <div class="row mx-auto align-items-center">
-            <div class="col-lg-6 col-12 scrum-intro text-center">
+    <div class="container container-scrum my-5">
+        <div class="row d-flex mx-auto justify-content-center align-items-center">
+            <div class="col-lg-6 col-12 d-flex flex-column scrum-intro justify-content-center align-items-center ">
                 <h2 class="scrum-title py-4">{{ hello.title }}</h2>
-                <p class="scrum-content">{{ hello.content }}</p>
-                <a href="{{ hello.file.url }}" download="{{ hello.file.original_filename }}" class="download-scrum"><span class="download-icon"><i class="fa-solid fa-download"></i></span> Download the Scrum Manual Here!</a>
+                <p class="scrum-content">{{ hello.content | safe }}</p>
+                <a href="{{ hello.file.url }}" download="{{ hello.file.original_filename }}" class="download-scrum pt-4">
+                  <span class="download-icon px-2">
+                    <i class="fa-2x fa-solid fa-download"></i>
+                  </span> Download the Scrum Manual Here!
+                </a>
             </div>
             <div class="col-lg-6 col-12">
                 <img src="{{ hello.image.url }}" alt="scrum intro image" class="scrum-image image-fluid">
@@ -30,29 +34,51 @@
     </div>
     <!-- /Scrum Intro -->
     <!-- Features -->
-    <div class="container">
-        <!-- Almost original bootstrap code (scrollspy) -->
-        <div class="row">
-            <div class="col-4">
-              <div id="list-example" class="list-group">
-                <a class="list-group-item list-group-item-action" href="#list-item-1">Feature 1</a>
-                <a class="list-group-item list-group-item-action" href="#list-item-2">Feature 2</a>
-                <a class="list-group-item list-group-item-action" href="#list-item-3">Feature 3</a>
-              </div>
-            </div>
-            <div class="col-8">
-              <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                <h4 id="list-item-1">Item 1</h4>
-                <p>...</p>
-                <h4 id="list-item-2">Item 2</h4>
-                <p>...</p>
-                <h4 id="list-item-3">Item 3</h4>
-                <p>...</p>
-              </div>
+    <div class="container d-flex align-items-center justify-content-center feature-scroll mt-4 py-4">
+      <!-- Almost original bootstrap code (scrollspy) -->
+      <div class="d-flex justify-content-center align-items-center row row-features">
+          <div class="col-6">
+            <div id="list-groups" class="list-group d-flex">
+              <span class="list-starter d-flex justify-content-center align-items-center mx-5 my-2">
+                <img src="{{ feature.first.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300">
+                <span class="step">
+                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-1">
+                    {{ feature.first.step }}
+                  </a>
+                </span>
+              </span>
+              <span class="list-starter d-flex justify-content-center align-items-center mx-5 my-2">
+                <img src="{{ feature.2.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300">
+                <span class="step">
+                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-2">
+                    {{ feature.1.step }}
+                  </a>
+                </span>
+              </span>
+              <span class="list-starter d-flex justify-content-center align-items-center mx-5 my-2">
+                <img src="{{ feature.last.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300">
+                <span class="step">
+                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-3">
+                    {{ feature.last.step }}
+                  </a>
+                </span>
+              </span>
             </div>
           </div>
-    </div>
+          <div class="col-6">
+            <div data-bs-spy="scroll" data-bs-target="#list-group" data-bs-smooth-scroll="true" class="scrollspy-group text-center" tabindex="0">
+              <h4 id="list-item-1" class="py-4 my-5">{{ feature.first.title }}</h4>
+              <p class="list-item-paragraph">{{ feature.first.content | safe }}</p>
+              <h4 id="list-item-2" class="py-4 my-5">{{ feature.1.title }}</h4>
+              <p class="list-item-paragraph">{{ feature.2.content | safe }}</p>
+              <h4 id="list-item-3" class="py-4 my-5">{{ feature.last.title }}</h4>
+              <p class="list-item-paragraph">{{ feature.last.content | safe }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- /Features -->
+    </div>
     <!-- index.html content ends here -->
 </div>
 {% endblock %}

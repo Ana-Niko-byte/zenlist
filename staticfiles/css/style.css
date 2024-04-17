@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-
 /* Colours */
 body{
     background-color: #fff5f5;
 }
 
-.navbar-nav li a:hover, .socials a{
+.navbar-nav li a:hover, .socials a:hover, .download-scrum:hover{
     color:rgb(255, 119, 0);
 }
 
 .socials a{
     color: rgb(27, 27, 27);
+}
+
+.jumbotron{
+    background-color: rgb(255, 255, 255);
 }
 
 /* Annotations & Makeshift Symbols */
@@ -37,7 +40,17 @@ body{
 }
 
 /* UIUX */
-.nav-item-socials{
-    display: flex;
-    align-items: center;
+.download-scrum{
+    text-decoration: none;
+    color: #1b1b1b;
+}
+
+.scrum-content{
+    font-size: 1rem;
+}
+
+.step{
+    height: 50px;
+    width:50px;
+    border-radius: 50%;
 }
