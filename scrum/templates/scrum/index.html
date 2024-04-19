@@ -9,8 +9,16 @@
         <div class="col-12">
             <section class="callout jumbotron mb-4 py-5 text-center">
                 <h1 class="text-center">Zenlist :: task tracking made simpler.</h1>
-                <p class="lead">Sign up or login today to stay on top of your Routine!</p> 
-                    <button class="btn btn-info btn-signUp btn-lg">Sign Up!</button>
+                  {% if request.user.is_authenticated %}
+                    <p class="lead">Let's check your workspaces to make sure you're staying on top of your tasks!</p>
+                  {% else %}
+                    <p class="lead">Sign up or login today to stay on top of your Routine!</p>
+                    <a class="nav-link btn" href="{% url 'account_login' %}">
+                      <button class="btn btn-info btn-signUp btn-lg">
+                    Sign Up!
+                      </button>
+                    </a>
+                  {% endif %} 
             </section>
         </div>
     </div>
@@ -83,20 +91,6 @@
     <p>Reviews go here!</p>
     {% endblock review %}
     <!-- /Reviews -->
-    <!-- User Greet -->
-    {% if request.user.is_authenticated %}
-
-        <h1>Hi {{ request.user.username }}!</h1>
-
-        <a href="{% url 'account_logout' %}">Logout</a>
-
-    {% else %}
-
-        <h1>Not logged in</h1>
-
-        <a class="btn" href="{% url 'account_login' %}">Login</a>
-    {% endif %}
-    <!-- /User Greet -->
     <!-- index.html content ends here -->
 </div>
 {% endblock %}
