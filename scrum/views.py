@@ -11,6 +11,6 @@ def HelloScrum(request):
     
     return render(
         request,
-    "scrum/index.html",
-    context
+        "scrum/index.html",
+        context
     )

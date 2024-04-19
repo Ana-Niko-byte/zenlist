@@ -155,4 +155,8 @@ Cloning a repository essentially means downloading a copy of your repository tha
 
 # Future Development
 # Credits
+https://docs.djangoproject.com/en/5.0/topics/db/queries/
+
+For some help in setting up email verification on signup [https://www.codesnail.com/django-allauth-email-authentication-tutorial/]
+
 # Acknowledgements

@@ -44,12 +44,19 @@
                             </a>
                         </li>
                         <li class="nav-item-line"><div class="line"></div></li>
+                        <!-- Logging In -->
+                        {% if request.user.is_authenticated %}
                         <li class="nav-item px-1">
-                            <a class="nav-link" href="#">SignUp</a>
+                            <a class="nav-link btn" href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item px-1">
+                            <a class="nav-link btn" href="{% url 'account_signup' %}">SignUp</a>
                         </li>
                         <li class="nav-item px-1">
-                            <a class="nav-link" href="#">Login</a>
+                            <a class="nav-link btn" href="{% url 'account_login' %}">Login</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -68,9 +75,19 @@
             <ul class="nav">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Your Workspaces</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">SignUp</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Login</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Logout</a></li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item px-1">
+                    <a class="nav-link btn px-2 text-body-secondary" href="{% url 'account_logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item-line"><div class="line"></div></li>
+                <li class="nav-item px-1">
+                    <a class="nav-link btn px-2 text-body-secondary" href="{% url 'account_signup' %}">SignUp</a>
+                </li>
+                <li class="nav-item px-1">
+                    <a class="nav-link btn px-2 text-body-secondary" href="{% url 'account_login' %}">Login</a>
+                </li>
+                {% endif %}
                 <li class="nav-item nav-item-socials px-2 d-flex align-items-center justify-content-center">
                     <a href="#" class="social-icon px-1"><i class="fa-brands fa-github"></i></a>
                     <a href="#" class="social-icon px-1"><i class="fa-brands fa-linkedin"></i></a>

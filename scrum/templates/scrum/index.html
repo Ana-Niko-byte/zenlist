@@ -35,7 +35,7 @@
     <!-- /Scrum Intro -->
     <!-- Features -->
     <div class="container d-flex align-items-center justify-content-center feature-scroll mt-4 py-4">
-      <!-- Almost original bootstrap code (scrollspy) -->
+      <!-- Framework for scroll obtained from bootstrap example code (scrollspy) -->
       <div class="d-flex justify-content-center align-items-center row row-features">
           <div class="col-6">
             <div id="list-groups" class="list-group d-flex">
@@ -78,7 +78,25 @@
         </div>
       </div>
     <!-- /Features -->
-    </div>
+    <!-- Reviews -->
+    {% block review %}
+    <p>Reviews go here!</p>
+    {% endblock review %}
+    <!-- /Reviews -->
+    <!-- User Greet -->
+    {% if request.user.is_authenticated %}
+
+        <h1>Hi {{ request.user.username }}!</h1>
+
+        <a href="{% url 'account_logout' %}">Logout</a>
+
+    {% else %}
+
+        <h1>Not logged in</h1>
+
+        <a class="btn" href="{% url 'account_login' %}">Login</a>
+    {% endif %}
+    <!-- /User Greet -->
     <!-- index.html content ends here -->
 </div>
 {% endblock %}
