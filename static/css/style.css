@@ -4,7 +4,9 @@ body{
     background-color: #fff5f5;
 }
 
-.navbar-nav li a:hover, .socials a:hover, .download-scrum:hover{
+li a:hover, 
+.socials a:hover, 
+.download-scrum:hover{
     color:rgb(255, 119, 0);
 }
 
