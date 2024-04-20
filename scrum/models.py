@@ -101,7 +101,7 @@ class Review(models.Model):
     job_industry = models.TextField(choices=INDUSTRY, default='other')
     rating = models.TextField(choices=STARS, default='no rating')
     review = models.TextField()
-    reviewed_on = models.DateTimeField(auto_now=True)
+    reviewed_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.author} rated {self.rating} ({self.job_industry})'
