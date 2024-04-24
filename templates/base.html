@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body class="d-flex flex-column min-vh-100 main-bg">
     <nav class="navbar navbar-expand-sm px-2 py-3">
         <div class="container-fluid">
             <!-- Zenlist Logo and Home URL -->
@@ -30,19 +30,19 @@
                 <!-- Navbar items to toggle -->
                 <div class="collapse navbar-collapse" id="navbarItems">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item px-1">
+                        <li class="nav-item px-1 d-flex align-items-end justify-content-center">
                             <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="home-page"
                                 href="{{ home_url }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
                                 </svg>
                                 Home
                             </a>
                         </li>
                         {% if request.user.is_authenticated %}
-                        <li class="nav-item px-1">
+                        <li class="nav-item px-1 d-flex align-items-end justify-content-center">
                             <a class="nav-link" href="{{ workspace_url }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
                                     <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
                                     <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"/>
                                 </svg>
@@ -53,15 +53,33 @@
                         <li class="nav-item-line"><div class="line"></div></li>
                         <!-- Logging In -->
                         {% if request.user.is_authenticated %}
-                        <li class="nav-item px-1">
-                            <a class="nav-link btn" href="{% url 'account_logout' %}">Logout</a>
+                        <li class="nav-item px-1 d-flex align-items-end justify-content-center">
+                            <a class="nav-link btn" href="{% url 'account_logout' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                                </svg>
+                                Logout
+                            </a>
                         </li>
                         {% else %}
-                        <li class="nav-item px-1">
-                            <a class="nav-link btn" href="{% url 'account_signup' %}">SignUp</a>
+                        <li class="nav-item px-1 d-flex align-items-end justify-content-center">
+                            <a class="nav-link btn" href="{% url 'account_signup' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
+                                    <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1"/>
+                                    <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117M11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5M4 1.934V15h6V1.077z"/>
+                                </svg>
+                                SignUp
+                            </a>
                         </li>
-                        <li class="nav-item px-1">
-                            <a class="nav-link btn" href="{% url 'account_login' %}">Login</a>
+                        <li class="nav-item px-1 d-flex align-items-end justify-content-center">
+                            <a class="nav-link btn" href="{% url 'account_login' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                                </svg>
+                                Login
+                            </a>
                         </li>
                         {% endif %}
                     </ul>

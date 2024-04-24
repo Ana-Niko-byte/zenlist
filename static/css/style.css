@@ -56,3 +56,7 @@ li a:hover,
     width:50px;
     border-radius: 50%;
 }
+
+.space-container{
+    border: 1px solid red;
+}

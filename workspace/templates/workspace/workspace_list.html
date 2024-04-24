@@ -2,27 +2,36 @@
 {% load static %}
 
 {% for space in spaces %}
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ space.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ space.creator }} | {{ space.created_on }}</p>
+<div class="container space-container mt-5">
+    {% if user.is_authenticated and space.creator == user %}
+    <!-- Takes the user into the full workspace view. -->
+    <a href="{% url 'full_workspace' space.slug %}">
+        <div class="row g-0 d-flex justify-content-center align-items-center">
+            <div class="col-md-6">
+                <h3 class="post-title">{{ space.title }}</h3>
+                <p class="post-subtitle"> Updated: {{ space.updated_on }}</p>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="{% static 'images/default.jpg' %}" class="scale"
-                  alt="placeholder image">
-                {% else %}
-                <img src="{{ post.featured_image.url }}" class="scale"
-                  alt="{{ post.title }}">
-                {% endif %}
+            <div class="col-md-6 d-flex justify-content-end align-items-center">
+                <button>Delete</button>
             </div>
+        </div>
+    </a>
+    <div class="create-new">
+        <button>+</button>
+    </div>
+    {% else %}
+    <!-- Create a workspace. -->
+    <div class="row d-flex flex-column text-center py-3">
+        <div class="col">
+            <img src="../../../static/images/llamas.jpg" width='300' alt="confused llama">
+            <h3 class="pt-4">Looks like you don't have any workspaces yet!</h3>
+        </div>
+        <div class="col mt-4">
+            <button>Create your first one here</button>
         </div>
     </div>
 </div>
+{% endif %}
 {% endfor %}
 
 {% endblock %}
