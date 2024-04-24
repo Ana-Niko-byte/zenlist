@@ -17,14 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from scrum.views import HelloScrum
-from workspace.views import workspace_hello
 from django.views.generic import TemplateView
 
 urlpatterns = [
+    path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', HelloScrum, name='hello'),
-    path('workspaces/', workspace_hello, name='space'),
-    path("accounts/", include("allauth.urls")),
+    path('', include('workspace.urls'), name='space-urls'),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]

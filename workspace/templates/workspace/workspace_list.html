@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+{% load static %}
+
+{% for space in spaces %}
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <!-- Post title goes in these h1 tags -->
+                <h1 class="post-title">{{ space.title }}</h1>
+                <!-- Post author goes before the | the post's created date goes after -->
+                <p class="post-subtitle">{{ space.creator }} | {{ space.created_on }}</p>
+            </div>
+            <div class="d-none d-md-block col-md-6 masthead-image">
+                {% if "placeholder" in post.featured_image.url %}
+                <img src="{% static 'images/default.jpg' %}" class="scale"
+                  alt="placeholder image">
+                {% else %}
+                <img src="{{ post.featured_image.url }}" class="scale"
+                  alt="{{ post.title }}">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

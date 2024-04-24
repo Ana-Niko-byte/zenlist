@@ -15,6 +15,7 @@ class Workspace(models.Model):
     Returns: (str) the title of the workspace as a string. 
     """
     title = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='creator')
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
