@@ -1,9 +1,33 @@
 {% extends "base.html" %} {% block content %}
 {% load static %}
+{% load crispy_forms_tags %}
 
-<p>This is your entire visible workspace! :)</p>
 {% if user.is_authenticated %}
-    <p>You are logged in as {{user}}</p>
+    <div class="container space-container">
+        <div class="task-field">
+            <div class="col-md-4 card my-4">
+                <div class="card-body">
+                  <h4>Add a Task:</h4>
+                  <form id="taskForm" method="post"
+                    style="margin-top: 1.3em;">
+                    {{ task_form | crispy }}
+                    {% csrf_token %}
+                    <button id="submitButton" type="submit"
+                      class="btn btn-signup btn-lg">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="workspace">
+            <div class="task-field"></div>
+            <div class="task-field"></div>
+            <div class="task-field"></div>
+        </div>
+        {% for task in tasks %}
+            <h5>{{task.name}}</h5>
+        {% endfor %}
+    </div>
 {% else %}
     <p>Please log in</p>
 {% endif %}

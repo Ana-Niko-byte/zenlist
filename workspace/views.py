@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib import messages
 from .models import Workspace
+from .forms import TaskForm
 
 class WorkspaceListView(generic.ListView):
     model = Workspace
@@ -23,10 +25,33 @@ def workspace_detail(request, slug):
     """
     queryset = Workspace.objects.all()
     workspace = get_object_or_404(queryset, slug=slug)
+    tasks = workspace.workspace_tasks.all()
+    to_do_task_count = workspace.workspace_tasks.filter(status='TO-DO').count()
+    progress_task_count = workspace.workspace_tasks.filter(status='IN-PROGRESS').count()
+    done_task_count = workspace.workspace_tasks.filter(status='DONE').count()
+
+    # if request.method == "POST":
+    #     task_form = TaskForm(data=request.POST)
+    #     if task_form.is_valid():
+    #         task = task_form.save(commit=False)
+    #         task.creator = request.user
+    #         task.workspace = workspace
+    #         task.save()
+    #         messages.add_message(
+    #     request, messages.SUCCESS,
+    #     'Task has been saved and should now be visible in your workspace!'
+    # )
+    task_form = TaskForm()
+
     return render(
         request,
         "workspace/workspace_detail.html",
         {
-            'workspace': workspace
+            'workspace': workspace,
+            'tasks': tasks,
+            'task_form': task_form,
+            'to_do_task_count': to_do_task_count,
+            'progress_task_count': progress_task_count,
+            'done_task_count': done_task_count
         },
     )

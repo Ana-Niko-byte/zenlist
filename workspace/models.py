@@ -61,7 +61,7 @@ class Task(models.Model):
     name = models.CharField(max_length=50)
     notes = models.TextField(blank=True, default='')
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='task_creator')
-    workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE, related_name='workspace_task')
+    workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE, related_name='workspace_tasks')
     status = models.CharField(choices=STATUSES, null=False, default='MINOR')
     priority = models.CharField(choices=PRIORITIES, default='TO-DO')
     due_date = models.DateField(default=datetime.date.today)

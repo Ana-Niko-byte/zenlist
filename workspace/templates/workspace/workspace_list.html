@@ -2,9 +2,9 @@
 {% load static %}
 
 {% if user.is_authenticated %}
-    <div class="container space-container mt-5">
     {% if user_workspaces %}
     {% for space in spaces %}
+    <div class="container space-container mt-5">
         <!-- Takes the user into the full workspace view. -->
         <a href="{% url 'full_workspace' space.slug %}">
             <div class="row g-0 d-flex justify-content-center align-items-center">
@@ -20,6 +20,7 @@
         <div class="create-new">
             <button>+</button>
         </div>
+    </div>
     {% endfor %}
     {% else %}
     <!-- Create a workspace. -->
@@ -55,7 +56,6 @@
         </div>
     </div>
     <!-- /Zenlist Jumbotron -->
-    </div>
 {% endif %}
 
 {% endblock %}
