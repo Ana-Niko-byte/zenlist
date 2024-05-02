@@ -2,5 +2,9 @@
 {% load static %}
 
 <p>This is your entire visible workspace! :)</p>
-
+{% if user.is_authenticated %}
+    <p>You are logged in as {{user}}</p>
+{% else %}
+    <p>Please log in</p>
+{% endif %}
 {% endblock %}

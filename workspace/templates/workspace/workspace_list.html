@@ -1,24 +1,26 @@
 {% extends "base.html" %} {% block content %}
 {% load static %}
 
-{% for space in spaces %}
-<div class="container space-container mt-5">
-    {% if user.is_authenticated and space.creator == user %}
-    <!-- Takes the user into the full workspace view. -->
-    <a href="{% url 'full_workspace' space.slug %}">
-        <div class="row g-0 d-flex justify-content-center align-items-center">
-            <div class="col-md-6">
-                <h3 class="post-title">{{ space.title }}</h3>
-                <p class="post-subtitle"> Updated: {{ space.updated_on }}</p>
+{% if user.is_authenticated %}
+    <div class="container space-container mt-5">
+    {% if user_workspaces %}
+    {% for space in spaces %}
+        <!-- Takes the user into the full workspace view. -->
+        <a href="{% url 'full_workspace' space.slug %}">
+            <div class="row g-0 d-flex justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <h3 class="post-title">{{ space.title }}</h3>
+                    <p class="post-subtitle"> Updated: {{ space.updated_on }}</p>
+                </div>
+                <div class="col-md-6 d-flex justify-content-end align-items-center">
+                    <button>Delete</button>
+                </div>
             </div>
-            <div class="col-md-6 d-flex justify-content-end align-items-center">
-                <button>Delete</button>
-            </div>
+        </a>
+        <div class="create-new">
+            <button>+</button>
         </div>
-    </a>
-    <div class="create-new">
-        <button>+</button>
-    </div>
+    {% endfor %}
     {% else %}
     <!-- Create a workspace. -->
     <div class="row d-flex flex-column text-center py-3">
@@ -30,8 +32,30 @@
             <button>Create your first one here</button>
         </div>
     </div>
-</div>
+    <!-- /Create a Workspace -->
+    {% endif %}
+{% else %}
+    <!-- If user is not logged in -->
+    <!-- Zenlist Jumbotron -->
+    <div class="row">
+        <div class="col-12">
+            <section class="callout jumbotron mb-4 py-5 text-center">
+                <h1 class="text-center">Zenlist :: task tracking made simpler.</h1>
+                    {% if request.user.is_authenticated %}
+                    <p class="lead">Let's check your workspaces to make sure you're staying on top of your tasks!</p>
+                    {% else %}
+                    <p class="lead">Sign up or login today to stay on top of your Routine!</p>
+                    <a class="nav-link btn" href="{% url 'account_login' %}">
+                        <button class="btn btn-info btn-signUp btn-lg">
+                    Sign Up!
+                        </button>
+                    </a>
+                    {% endif %} 
+            </section>
+        </div>
+    </div>
+    <!-- /Zenlist Jumbotron -->
+    </div>
 {% endif %}
-{% endfor %}
 
 {% endblock %}

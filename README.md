@@ -155,8 +155,10 @@ Cloning a repository essentially means downloading a copy of your repository tha
 
 # Future Development
 # Credits
-https://docs.djangoproject.com/en/5.0/topics/db/queries/
+For help with Django [queries](https://docs.djangoproject.com/en/5.0/topics/db/queries/).
 
-For some help in setting up email verification on signup [https://www.codesnail.com/django-allauth-email-authentication-tutorial/]
+For some help in setting up [email verification](https://www.codesnail.com/django-allauth-email-authentication-tutorial/) on signup.
+
+For help understanding Django [get_queryset() and get_context_data()](https://stackoverflow.com/questions/36950416/when-to-use-get-get-queryset-get-context-data-in-django) for conditionally rendering workspaces.
 
 # Acknowledgements
