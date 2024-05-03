@@ -57,6 +57,6 @@ li a:hover,
     border-radius: 50%;
 }
 
-.space-container{
-    border: 1px solid red;
+.task-field{
+    border: 1px solid lightblue;
 }

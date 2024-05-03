@@ -3,31 +3,121 @@
 {% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
-    <div class="container space-container">
-        <div class="task-field">
-            <div class="col-md-4 card my-4">
-                <div class="card-body">
-                  <h4>Add a Task:</h4>
-                  <form id="taskForm" method="post"
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body mx-2 my-2">
+                    <h4>Add a Task:</h4>
+                    <form id="taskForm" method="post"
                     style="margin-top: 1.3em;">
                     {{ task_form | crispy }}
                     {% csrf_token %}
                     <button id="submitButton" type="submit"
-                      class="btn btn-signup btn-lg">Submit</button>
-                  </form>
+                        class="btn btn-signup btn-lg">Submit</button>
+                    </form>
                 </div>
-              </div>
             </div>
         </div>
-        <div class="workspace">
-            <div class="task-field"></div>
-            <div class="task-field"></div>
-            <div class="task-field"></div>
+        <div class="col-8">
+            <div class="card">
+                <div class="card-body d-flex container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                            <h3>To Do</h3>
+                            <p>Total tasks : {{to_do_task_count}}</p>
+                            <div class="accordion accordion-flush" id="accordionExample">
+                                <div class="accordion-item">
+                                    {% for task in to_do %}
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h5>{{task.name}}</h5>
+                                        <div class="priority-span">
+                                            <!-- double check if this actually works later -->
+                                            {% if task.updated %}
+                                            <span height=30 width=30 style="background-color: green;"></span>
+                                            {% endif %}
+                                        </div>
+                                    </button>
+                                  </h2>
+                                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>Due by : {{task.due_date}}</p>
+                                        <p>Priority : {{task.priority}}</p>
+                                        <p>Notes: {{task.notes | safe}}</p>
+                                    </div>
+                                  </div>
+                                  {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col-4">
+                            <h3>In Progress</h3>
+                            <p>Total tasks : {{progress_task_count}}</p>
+                            <div class="task-field">
+                                <div class="accordion accordion-flush" id="accordionExample">
+                                    <div class="accordion-item">
+                                        {% for task in in_progress %}
+                                      <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                            <h5>{{task.name}}</h5>
+                                            <div class="priority-span">
+                                                <!-- double check if this actually works later -->
+                                                {% if task.updated %}
+                                                <span height=30 width=30 style="background-color: green;"></span>
+                                                {% endif %}
+                                            </div>
+                                        </button>
+                                      </h2>
+                                      <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Due by : {{task.due_date}}</p>
+                                            <p>Priority : {{task.priority}}</p>
+                                            <p>Notes: {{task.notes | safe}}</p>
+                                        </div>
+                                      </div>
+                                      {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col-4">
+                            <h3>Completed</h3>
+                            <p>Total tasks : {{done_task_count}}</p>
+                            <div class="task-field">
+                                <div class="accordion accordion-flush" id="accordionExample">
+                                    <div class="accordion-item">
+                                        {% for task in completed %}
+                                      <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                            <h5>{{task.name}}</h5>
+                                            <div class="priority-span">
+                                                <!-- double check if this actually works later -->
+                                                {% if task.updated %}
+                                                <span height=30 width=30 style="background-color: green;"></span>
+                                                {% endif %}
+                                            </div>
+                                        </button>
+                                      </h2>
+                                      <div id="collapseThree" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Due by : {{task.due_date}}</p>
+                                            <p>Priority : {{task.priority}}</p>
+                                            <p>Notes: {{task.notes | safe}}</p>
+                                        </div>
+                                      </div>
+                                      {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        {% for task in tasks %}
-            <h5>{{task.name}}</h5>
-        {% endfor %}
-    </div>
+      </div>
+</div>
 {% else %}
     <p>Please log in</p>
 {% endif %}

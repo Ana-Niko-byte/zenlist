@@ -26,9 +26,12 @@ def workspace_detail(request, slug):
     queryset = Workspace.objects.all()
     workspace = get_object_or_404(queryset, slug=slug)
     tasks = workspace.workspace_tasks.all()
-    to_do_task_count = workspace.workspace_tasks.filter(status='TO-DO').count()
-    progress_task_count = workspace.workspace_tasks.filter(status='IN-PROGRESS').count()
-    done_task_count = workspace.workspace_tasks.filter(status='DONE').count()
+    to_do_tasks = workspace.workspace_tasks.filter(status='TO-DO')
+    progress_tasks = workspace.workspace_tasks.filter(status='IN-PROGRESS')
+    done_tasks = workspace.workspace_tasks.filter(status='DONE')
+    to_do_task_count = to_do_tasks.count()
+    progress_task_count = progress_tasks.count()
+    done_task_count = done_tasks.count()
 
     # if request.method == "POST":
     #     task_form = TaskForm(data=request.POST)
@@ -50,6 +53,9 @@ def workspace_detail(request, slug):
             'workspace': workspace,
             'tasks': tasks,
             'task_form': task_form,
+            'to_do': to_do_tasks,
+            'in_progress': progress_tasks,
+            'completed': done_tasks,
             'to_do_task_count': to_do_task_count,
             'progress_task_count': progress_task_count,
             'done_task_count': done_task_count
