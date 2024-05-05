@@ -161,4 +161,6 @@ For some help in setting up [email verification](https://www.codesnail.com/djang
 
 For help understanding Django [get_queryset() and get_context_data()](https://stackoverflow.com/questions/36950416/when-to-use-get-get-queryset-get-context-data-in-django) for conditionally rendering workspaces.
 
+For help understanding how to create a [slug from a title](https://stackoverflow.com/questions/72944678/django-how-to-create-slugs-in-django)
+
 # Acknowledgements

@@ -1,10 +1,59 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
 from django.views import generic
 from django.utils.text import slugify
 from django.contrib import messages
 from .models import Workspace
 from .forms import WorkspaceForm, TaskForm
+
+def workspace_detail(request, slug):
+    """
+    Display an individual instance of a workspace with tasks.
+    """
+    # retrieves the relevant workspace.
+    workspace = get_object_or_404(Workspace, slug=slug)
+    # retrieves all tasks associated with this workspace.
+    all_tasks = workspace.workspace_tasks.all()
+    all_task_count = all_tasks.count()
+
+    todo = workspace.workspace_tasks.filter(status='TO-DO')
+    progress = workspace.workspace_tasks.filter(status='IN-PROGRESS')
+    completed = workspace.workspace_tasks.filter(status='DONE')
+
+    todo_count = todo.count()
+    progress_count = progress.count()
+    completed_count = completed.count()
+
+    if request.method == "POST":
+            task_form = TaskForm(data=request.POST)
+            if task_form.is_valid():
+                task = task_form.save(commit=False)
+                task.creator = request.user
+                task.workspace = workspace
+                task.save()
+                messages.add_message(
+                request, messages.SUCCESS,
+                'Task created successfully!'
+                )
+            # implement error handling here later.
+    task_form = TaskForm()
+
+    return render(
+        request,
+        "workspace/workspace_detail.html",
+            {
+            'workspace': workspace,
+            'all_tasks': all_tasks,
+            'total_count': all_task_count,
+            'todo_tasks': todo,
+            'progress_tasks': progress,
+            'completed_tasks': completed,
+            'todo_count': todo_count,
+            'progress_count': progress_count,
+            'completed_count': completed_count,
+            'task_form': task_form,
+        },
+    )
+
 
 class WorkspaceListView(generic.ListView):
     model = Workspace
@@ -37,35 +86,3 @@ class WorkspaceListView(generic.ListView):
                 return redirect('spaces')
             # implement error handling here later.
         workspace_form = WorkspaceForm()
-    
-
-def workspace_detail(request, slug):
-    """
-    Display an individual instance of a workspace with tasks.
-    """
-    queryset = Workspace.objects.all()
-    workspace = get_object_or_404(queryset, slug=slug)
-    tasks = workspace.workspace_tasks.all()
-    to_do_tasks = workspace.workspace_tasks.filter(status='TO-DO')
-    progress_tasks = workspace.workspace_tasks.filter(status='IN-PROGRESS')
-    done_tasks = workspace.workspace_tasks.filter(status='DONE')
-    to_do_task_count = to_do_tasks.count()
-    progress_task_count = progress_tasks.count()
-    done_task_count = done_tasks.count()
-    task_form = TaskForm()
-
-    return render(
-        request,
-        "workspace/workspace_detail.html",
-        {
-            'workspace': workspace,
-            'tasks': tasks,
-            'task_form': task_form,
-            'to_do': to_do_tasks,
-            'in_progress': progress_tasks,
-            'completed': done_tasks,
-            'to_do_task_count': to_do_task_count,
-            'progress_task_count': progress_task_count,
-            'done_task_count': done_task_count
-        },
-    )
