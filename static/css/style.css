@@ -18,6 +18,14 @@ li a:hover,
     background-color: rgb(255, 255, 255);
 }
 
+.direct-link{
+    transition: all 0.2s ease;
+}
+
+.direct-link:hover{
+    transform: scale(1.02);
+}
+
 /* Annotations & Makeshift Symbols */
 /* Used instead of .nav-item-line::after content due to height control. */
 .line{
@@ -41,6 +49,18 @@ li a:hover,
     font-style: normal;
 }
 
+.authentication-button{
+    width: 150px;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+.authentication-button:hover{
+    transform: scale(1.05);
+}
+
 /* UIUX */
 .download-scrum{
     text-decoration: none;
@@ -55,4 +75,13 @@ li a:hover,
     height: 50px;
     width:50px;
     border-radius: 50%;
+}
+
+a{
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+a:hover{
+    transform: scale(1.04);
 }

@@ -163,4 +163,6 @@ For help understanding Django [get_queryset() and get_context_data()](https://st
 
 For help understanding how to create a [slug from a title](https://stackoverflow.com/questions/72944678/django-how-to-create-slugs-in-django)
 
+Changing [all-auth styling for emails](https://www.reddit.com/r/django/comments/t5o51d/customising_the_djangoallauth_verification_email/)
+
 # Acknowledgements

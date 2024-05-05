@@ -1,25 +1,22 @@
-{% extends "account/base.html" %}
-
+{% extends "../base.html" %}
 {% load i18n %}
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock head_title %}
 
 {% block content %}
-<div class="container">
-  <div class="row d-flex justify-content-center align-items-center">
+<div class="container text-center">
+  <div class="row d-flex justify-content-center align-items-center pt-5">
     <div class="col-md-6">
-      <h1>{% trans "Sign Out" %}</h1>
+      <h1 class="mb-3">{% trans "Sign Out" %}</h1>
       <p>{% trans 'Are you sure you want to sign out of Zenlist?' %}</p>
     </div>
-    <div class="col-md-6">
-      <form method="post" action="{% url 'account_logout' %}">
-        {% csrf_token %}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-        {% endif %}
-        <button type="submit">{% trans 'Sign Out' %}</button>
-      </form>
-    </div>
+    <form method="post" action="{% url 'account_logout' %}">
+      {% csrf_token %}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+      {% endif %}
+      <button class="primaryAction my-5 authentication-button" type="submit" data-toggle="tooltip" data-placement="bottom" title="Promise you'll come back? 🥺">{% trans 'Sign Out' %}</button>
+    </form>
   </div>
 </div>
 {% endblock content %}
