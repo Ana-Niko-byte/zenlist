@@ -32,28 +32,8 @@
                                 <h3>To Do</h3>
                                 <p>Total tasks : {{todo_count}}</p>
                                 {% for task in todo_tasks %}
-                                <div class="accordion accordion-flush" id="accordionExample">
-                                    <div class="accordion-item">
-                                      <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            <h5>{{task.name}}</h5>
-                                            <div class="priority-span">
-                                                <!-- double check if this actually works later -->
-                                                {% if task.updated %}
-                                                <span height=30 width=30 style="background-color: green;"></span>
-                                                {% endif %}
-                                            </div>
-                                        </button>
-                                      </h2>
-                                      <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>Due by : {{task.due_date}}</p>
-                                            <p>Priority : {{task.priority}}</p>
-                                            <p>Notes: {{task.notes | safe}}</p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
+                                {% include 'workspace/_task_detail.html' with task=task id='collapseOne' %}
+                                <p>tasks go here</p>
                                 {% endfor %}
                             </div> 
                             <!-- /To Do Tasks -->
@@ -64,25 +44,8 @@
                                 <div class="accordion accordion-flush" id="accordionExample">
                                     <div class="accordion-item">
                                         {% for task in progress_tasks %}
-                                      <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                            <h5>{{task.name}}</h5>
-                                            <div class="priority-span">
-                                                <!-- double check if this actually works later -->
-                                                {% if task.updated %}
-                                                <span height=30 width=30 style="background-color: green;"></span>
-                                                {% endif %}
-                                            </div>
-                                        </button>
-                                      </h2>
-                                      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>Due by : {{task.due_date}}</p>
-                                            <p>Priority : {{task.priority}}</p>
-                                            <p>Notes: {{task.notes | safe}}</p>
-                                        </div>
-                                      </div>
-                                      {% endfor %}
+                                        {% include 'workspace/_task_detail.html' with task=task id='collapseTwo' %}
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
@@ -94,25 +57,8 @@
                                 <div class="accordion accordion-flush" id="accordionExample">
                                     <div class="accordion-item">
                                         {% for task in completed_tasks %}
-                                      <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                            <h5>{{task.name}}</h5>
-                                            <div class="priority-span">
-                                                <!-- double check if this actually works later -->
-                                                {% if task.updated %}
-                                                <span height=30 width=30 style="background-color: green;"></span>
-                                                {% endif %}
-                                            </div>
-                                        </button>
-                                      </h2>
-                                      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>Due by : {{task.due_date}}</p>
-                                            <p>Priority : {{task.priority}}</p>
-                                            <p>Notes: {{task.notes | safe}}</p>
-                                        </div>
-                                      </div>
-                                      {% endfor %}
+                                        {% include 'workspace/_task_detail.html' with task=task id='collapseThree' %}
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>

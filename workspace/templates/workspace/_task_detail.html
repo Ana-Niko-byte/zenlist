@@ -1,0 +1,23 @@
+{% load static %}
+<div class="accordion accordion-flush" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{id}}" aria-expanded="true" aria-controls="{{id}}">
+            <h5>{{task.name}}</h5>
+            <div class="priority-span">
+                <!-- double check if this actually works later -->
+                {% if task.updated %}
+                <span height=30 width=30 style="background-color: green;"></span>
+                {% endif %}
+            </div>
+        </button>
+      </h2>
+      <div id="{{id}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <p>Due by : {{task.due_date}}</p>
+            <p>Priority : {{task.priority}}</p>
+            <p>Notes: {{task.notes | safe}}</p>
+        </div>
+      </div>
+    </div>
+</div>
