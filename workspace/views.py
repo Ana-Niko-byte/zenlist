@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.views import generic
+from django.utils.text import slugify
 from django.contrib import messages
 from .models import Workspace
-from .forms import TaskForm
+from .forms import WorkspaceForm, TaskForm
 
 class WorkspaceListView(generic.ListView):
     model = Workspace
@@ -17,7 +19,25 @@ class WorkspaceListView(generic.ListView):
         # For this code source, please see README.
         data = super().get_context_data(**kwargs)
         data['user_workspaces'] = Workspace.objects.filter(creator=self.request.user)
+        data['workspace_form'] = WorkspaceForm()
         return data
+    
+    def post(self, request):
+        if request.method == "POST":
+            workspace_form = WorkspaceForm(data=request.POST)
+            if workspace_form.is_valid():
+                workspace = workspace_form.save(commit=False)
+                workspace.creator = request.user
+                workspace.slug = slugify(workspace.title)
+                workspace.save()
+                messages.add_message(
+                request, messages.SUCCESS,
+                'Workspace created successfully!'
+                )
+                return redirect('spaces')
+            # implement error handling here later.
+        workspace_form = WorkspaceForm()
+    
 
 def workspace_detail(request, slug):
     """
@@ -32,18 +52,6 @@ def workspace_detail(request, slug):
     to_do_task_count = to_do_tasks.count()
     progress_task_count = progress_tasks.count()
     done_task_count = done_tasks.count()
-
-    # if request.method == "POST":
-    #     task_form = TaskForm(data=request.POST)
-    #     if task_form.is_valid():
-    #         task = task_form.save(commit=False)
-    #         task.creator = request.user
-    #         task.workspace = workspace
-    #         task.save()
-    #         messages.add_message(
-    #     request, messages.SUCCESS,
-    #     'Task has been saved and should now be visible in your workspace!'
-    # )
     task_form = TaskForm()
 
     return render(

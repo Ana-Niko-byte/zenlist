@@ -1,5 +1,13 @@
 from django import forms
-from .models import Task
+from .models import Workspace, Task
+
+class WorkspaceForm(forms.ModelForm):
+    """
+    A form for handling Workspace creation for registered users.
+    """
+    class Meta:
+        model = Workspace
+        fields = ('title',)
 
 class TaskForm(forms.ModelForm):
     """
