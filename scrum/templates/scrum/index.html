@@ -88,7 +88,34 @@
     <!-- /Features -->
     <!-- Reviews -->
     {% block review %}
-    <p>Reviews go here!</p>
+    <div class="container my-5">
+      <div class="row d-flex justify-content-center">
+        {% for review in four_star %}
+        <div class="col-6">
+          <div class="row d-flex">
+            <div class="author-summary d-flex">
+              <div class="col-6 d-flex justify-content-end align-items-center px-3">
+                {% if "default_profile_image" in review.profile_image.url %}
+                <img class="card-img-top profile-image" src="{% static 'images/default_profile_image.jpg' %}" alt="placeholder image" style="border-radius: 50%;">
+                {% else %}
+                <img class="card-img-top profile-image" src=" {{ review.profile_image.url }}" alt="profile image" style="border-radius: 50%;">
+                {% endif %}
+              </div>
+              <div class="col-6">
+                <p>{{review.rating}}</p>
+                <h4>{{review.author}}</h4>
+                <p>Works in: {{review.job_industry}}</p>
+                <p>reviewed on <span>{{review.reviewed_on}}</span></p>
+                <div class="main-review-content d-flex align-items-start">
+                  <p>{{review.review | safe}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
     {% endblock review %}
     <!-- /Reviews -->
     <!-- index.html content ends here -->
