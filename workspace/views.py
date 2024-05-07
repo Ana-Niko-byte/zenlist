@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.utils.text import slugify
 from django.contrib import messages
+from django.db.models import Count
 from .models import Workspace
 from .forms import WorkspaceForm, TaskForm
 
@@ -60,15 +61,22 @@ class WorkspaceListView(generic.ListView):
     template_name = 'workspace/workspace_list.html'
     context_object_name = 'spaces'
 
+    # analytic_list = zip(context_object_name, ws_tasks)
+
     def get_queryset(self):
         user_workspaces = Workspace.objects.filter(creator=self.request.user)
         return user_workspaces
     
     def get_context_data(self, **kwargs):
-        # For this code source, please see README.
+        # For this code source, see README.
         data = super().get_context_data(**kwargs)
         data['user_workspaces'] = Workspace.objects.filter(creator=self.request.user)
         data['workspace_form'] = WorkspaceForm()
+
+        # For information on annotate(), see README.
+        ws_tasks = self.get_queryset().annotate(ws_task_count=Count('workspace_tasks'))
+        data['ws_tasks'] = ws_tasks
+
         return data
     
     def post(self, request):

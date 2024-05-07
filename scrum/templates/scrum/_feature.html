@@ -1,0 +1,39 @@
+<span class="list-starter d-flex justify-content-center align-items-center mx-5 my-2">
+    <img src="{{ feature.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300">
+    <span class="step">
+      <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#{{id}}">
+        {{ feature.step }}
+      </a>
+    </span>
+</span>
+
+<h4 id="{{id}}" class="py-4 my-5">{{ feature.title }}</h4>
+<p class="list-item-paragraph">{{ feature.content | safe }}</p>
+
+
+<div class="container d-flex align-items-center justify-content-center feature-scroll mt-4 py-4">
+    <!-- Framework for scroll obtained from bootstrap example code (scrollspy) -->
+    <div class="d-flex justify-content-center align-items-center row row-features">
+        <div class="col-6">
+          <div id="list-groups" class="list-group d-flex">
+            <!-- {% for feature in features %} -->
+            {% for list_id, feature in combined_lists %}
+            <span class="list-starter d-flex justify-content-center align-items-center mx-5 my-2">
+              <img src="{{ feature.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300">
+              <span class="step">
+                <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#{{list_id}}">
+                  {{ feature.step }}
+                </a>
+              </span>
+            </span>
+            <div data-bs-spy="scroll" data-bs-target="#list-group" data-bs-smooth-scroll="true" class="scrollspy-group text-center" tabindex="0">
+              <h4 id="{{list_id}}" class="py-4 my-5">{{ feature.title }}</h4>
+              <p class="list-item-paragraph">{{ feature.content | safe }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}

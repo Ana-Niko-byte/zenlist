@@ -3,84 +3,77 @@
 {% block content %}
 
 <!-- index.html content starts here -->
-<div class="container-fluid">
+<div class="container-fluid main-page-container">
     <!-- Zenlist Jumbotron -->
-    <div class="row">
-        <div class="col-12">
-            <section class="callout jumbotron mb-4 py-5 text-center">
-                <h1 class="text-center">Zenlist :: task tracking made simpler.</h1>
-                  {% if request.user.is_authenticated %}
-                    <p class="lead">Let's check your workspaces to make sure you're staying on top of your tasks!</p>
-                  {% else %}
-                    <p class="lead">Sign up or login today to stay on top of your Routine!</p>
-                    <a class="nav-link btn" href="{% url 'account_login' %}">
-                      <button class="btn btn-info btn-signUp btn-lg">
-                    Sign Up!
-                      </button>
-                    </a>
-                  {% endif %} 
-            </section>
-        </div>
-    </div>
+    {% include 'scrum/_jumbo.html' %}
     <!-- /Zenlist Jumbotron -->
     <!-- Scrum Intro -->
-    <div class="container container-scrum my-5">
+    <div class="container container-scrum my-5" style="border: 1px solid yellow;">
         <div class="row d-flex mx-auto justify-content-center align-items-center">
             <div class="col-lg-6 col-12 d-flex flex-column scrum-intro justify-content-center align-items-center ">
-                <h2 class="scrum-title py-4">{{ hello.title }}</h2>
+                <h5>Getting you started</h5>
+                <h2 class="scrum-title pb-4">{{ hello.title }}</h2>
                 <p class="scrum-content">{{ hello.content | safe }}</p>
-                <a href="{{ hello.file.url }}" download="{{ hello.file.original_filename }}" class="download-scrum pt-4">
+                <a href="../static/images/2020-Scrum-Guide-US.pdf" download target="_blank" class="download-scrum pt-4">
                   <span class="download-icon px-2">
                     <i class="fa-2x fa-solid fa-download"></i>
                   </span> Download the Scrum Manual Here!
                 </a>
             </div>
-            <div class="col-lg-6 col-12">
-                <img src="{{ hello.image.url }}" alt="scrum intro image" class="scrum-image image-fluid">
+            <div class="col-lg-6">
+                <img src="{{ hello.image.url }}" alt="scrum intro image" class="scrum-image image-fluid" max-width:100% height:auto>
             </div>
         </div>
     </div>
     <!-- /Scrum Intro -->
     <!-- Features -->
-    <div class="container d-flex align-items-center justify-content-center feature-scroll mt-4 py-4">
+    <div class="container" style="border: 1px solid orange;">
       <!-- Framework for scroll obtained from bootstrap example code (scrollspy) -->
-      <div class="d-flex justify-content-center align-items-center row row-features">
-          <div class="col-6">
-            <div id="list-groups" class="list-group d-flex">
+      <div class="row row-features my-5">
+          <div class="col">
+            <div id="list-groups" class="list-group d-flex justify-content-start align-items-start">
+              <!-- Scrum Feature 1 -->
               <span class="list-starter d-flex justify-content-center align-items-center mx-5 my-2">
-                <img src="{{ feature.first.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300">
+                <img src="{{ features.first.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300" style="border: 1px solid green;">
                 <span class="step">
-                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-1">
-                    {{ feature.first.step }}
+                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-1" style="border: 1px solid purple">
+                    {{ features.first.step }}
                   </a>
                 </span>
+                <div data-bs-spy="scroll" data-bs-target="#list-group" data-bs-smooth-scroll="true" class="scrollspy-group text-center" style="border: 1px solid green;" tabindex="0">
+                <h3 id="list-item-1" class="mb-4" style="border: 1px solid red;">{{ features.first.title }}</h3>
+                <p class="list-item-paragraph">{{ features.first.content | safe }}</p>
+                </div>
               </span>
+              <!-- /Scrum Feature 1 -->
+              <!-- Scrum Feature 2 -->
               <span class="list-starter d-flex justify-content-center align-items-center mx-5 my-2">
-                <img src="{{ feature.2.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300">
+                <img src="{{ features.1.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300" style="border: 1px solid green;">
                 <span class="step">
-                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-2">
-                    {{ feature.1.step }}
+                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-2" style="border: 1px solid purple">
+                    {{ features.1.step }}
                   </a>
                 </span>
+                <div data-bs-spy="scroll" data-bs-target="#list-group" data-bs-smooth-scroll="true" class="scrollspy-group text-center" style="border: 1px solid green;" tabindex="0">
+                <h3 id="list-item-2" class="mb-4" style="border: 1px solid red;">{{ features.1.title }}</h3>
+                <p class="list-item-paragraph">{{ features.2.content | safe }}</p>
+                </div>
               </span>
+              <!-- /Scrum Feature 2 -->
+              <!-- Scrum Feature 3 -->
               <span class="list-starter d-flex justify-content-center align-items-center mx-5 my-2">
-                <img src="{{ feature.last.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300">
+                <img src="{{ features.last.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300" style="border: 1px solid green;">
                 <span class="step">
-                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-3">
-                    {{ feature.last.step }}
+                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-3" style="border: 1px solid purple">
+                    {{ features.last.step }}
                   </a>
                 </span>
+                <div data-bs-spy="scroll" data-bs-target="#list-group" data-bs-smooth-scroll="true" class="scrollspy-group text-center" style="border: 1px solid green;" tabindex="0">
+                <h3 id="list-item-3" class="mb-4" style="border: 1px solid red;">{{ features.last.title }}</h3>
+                <p class="list-item-paragraph">{{ features.last.content | safe }}</p>
+                </div>
               </span>
-            </div>
-          </div>
-          <div class="col-6">
-            <div data-bs-spy="scroll" data-bs-target="#list-group" data-bs-smooth-scroll="true" class="scrollspy-group text-center" tabindex="0">
-              <h4 id="list-item-1" class="py-4 my-5">{{ feature.first.title }}</h4>
-              <p class="list-item-paragraph">{{ feature.first.content | safe }}</p>
-              <h4 id="list-item-2" class="py-4 my-5">{{ feature.1.title }}</h4>
-              <p class="list-item-paragraph">{{ feature.2.content | safe }}</p>
-              <h4 id="list-item-3" class="py-4 my-5">{{ feature.last.title }}</h4>
-              <p class="list-item-paragraph">{{ feature.last.content | safe }}</p>
+              <!-- /Scrum Feature 3 -->
             </div>
           </div>
         </div>

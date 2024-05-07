@@ -4,29 +4,53 @@
 
 {% if user.is_authenticated %}
     {% if user_workspaces %}
-    {% for space in spaces %}
-    <div class="container space-container mt-5">
-        <!-- Takes the user into the full workspace view. -->
-        <a href="{% url 'full_workspace' space.slug %}">
-            <div class="row g-0 d-flex justify-content-center align-items-center">
-                <div class="col-md-6">
-                    <h3 class="post-title">{{ space.title }}</h3>
-                    <p class="post-subtitle"> Updated: {{ space.updated_on }}</p>
+    <!-- A list of registered user workspaces. -->
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <!-- Workspace form. -->
+                <div class="workspace-form">
+                    <div class="card">
+                        <div class="card-body mx-2 my-2">
+                            <h4>Add a Workspace:</h4>
+                            <form id="workspaceForm" method="post">
+                            {{ workspace_form | crispy }}
+                            {% csrf_token %}
+                            <button id="submitButton" type="submit"
+                                class="btn btn-signup btn-lg primaryAction authentication-button" style="background-color: darkslateblue;">Submit</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 d-flex justify-content-end align-items-center">
-                    <button>Delete</button>
+                {% include 'workspace/_task_analytics.html' %}
+                <!-- /Workspace form. -->
+            </div>
+            <div class="col-8">
+                {% for space in spaces %}
+                <!-- Takes the user into the full workspace view. -->
+                <a href="{% url 'full_workspace' space.slug %}">
+                    <div class="row g-0 d-flex justify-content-center align-items-center px-3 mb-5">
+                        <div class="col-md-6">
+                            <h3 class="post-title">{{ space.title }}</h3>
+                            <p class="post-subtitle"> Updated: {{ space.updated_on }}</p>
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-end align-items-center">
+                            <button>Delete</button>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+                <div class="container my-3">
+                    <div class="create-new">
+                        <button>Create New</button>
+                    </div>
                 </div>
             </div>
-        </a>
-    </div>
-    {% endfor %}
-    <div class="container my-3">
-        <div class="create-new">
-            <button>Create New</button>
         </div>
     </div>
+    <!-- A list of registered user workspaces. -->
     {% else %}
-    <!-- Create a workspace. -->
+    <!-- Create a workspace directly. -->
     <div class="row d-flex flex-column text-center py-3">
         <div class="col">
             <img src="../../../static/images/llamas.jpg" width='300' alt="confused llama">
@@ -36,23 +60,8 @@
             <button>Create your first one here!</button>
         </div>
     </div>
-    <!-- /Create a Workspace -->
+    <!-- /Create a Workspace directly. -->
     {% endif %}
-    <div class="row">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body mx-2 my-2">
-                    <h4>Add a Workspace:</h4>
-                    <form id="workspaceForm" method="post">
-                    {{ workspace_form | crispy }}
-                    {% csrf_token %}
-                    <button id="submitButton" type="submit"
-                        class="btn btn-signup btn-lg">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 {% else %}
     <!-- If user is not logged in -->
     <!-- Zenlist Jumbotron -->

@@ -1,0 +1,11 @@
+{% load static %}
+<div class="workspace-analytics">
+    <div class="card">
+        <div class="card-body">
+            {% for analytic in ws_tasks %}
+            <p>Workspace: {{analytic.title}}</p>
+            <p>Total tasks : {{analytic.ws_task_count}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>

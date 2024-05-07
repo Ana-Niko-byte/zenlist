@@ -165,4 +165,7 @@ For help understanding how to create a [slug from a title](https://stackoverflow
 
 Changing [all-auth styling for emails](https://www.reddit.com/r/django/comments/t5o51d/customising_the_djangoallauth_verification_email/)
 
+For removing the background from image: [remove bg](https://www.remove.bg/upload)
+
+
 # Acknowledgements

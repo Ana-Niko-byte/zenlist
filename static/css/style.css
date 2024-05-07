@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 /* Colours */
-body{
-    background-color: #fff5f5;
-}
+/* body{
+    background-image: url("../images/image.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+} */
 
 li a:hover, 
 .socials a:hover, 
@@ -12,10 +14,6 @@ li a:hover,
 
 .socials a{
     color: rgb(27, 27, 27);
-}
-
-.jumbotron{
-    background-color: rgb(255, 255, 255);
 }
 
 .direct-link{
@@ -62,6 +60,12 @@ li a:hover,
 }
 
 /* UIUX */
+
+/* .jumbo-heading{
+    padding-top: 190px;
+    padding-bottom: 10px;
+} */
+
 .download-scrum{
     text-decoration: none;
     color: #1b1b1b;

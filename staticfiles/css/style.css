@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 /* Colours */
 body{
-    background-color: #fff5f5;
+    background-image: url("../images/image.png");
+    background-repeat: no-repeat;
+    background-color: #ccc;
 }
 
 li a:hover, 
@@ -84,4 +86,9 @@ a{
 
 a:hover{
     transform: scale(1.04);
+}
+
+.profile-image{
+    width: 100px;
+    height: 100px;
 }
