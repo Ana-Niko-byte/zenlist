@@ -1,9 +1,9 @@
 {% load static %}
 <div class="accordion accordion-flush" id="accordionExample">
-    <div class="accordion-item">
+    <div class="accordion-item" task_id="task{{task.id}}">
       <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{id}}" aria-expanded="true" aria-controls="{{id}}">
-            <h5>{{task.name}}</h5>
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{task.status}}{{id}}" aria-expanded="true" aria-controls="{{task.status}}{{id}}">
+            <h5 class="content{{task.id}}" id="name{{task.id}}">{{task.name}}</h5>
             <div class="priority-span">
                 <!-- double check if this actually works later -->
                 {% if task.updated %}
@@ -12,14 +12,17 @@
             </div>
         </button>
       </h2>
-      <div id="{{id}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-            <p>Due by : {{task.due_date}}</p>
-            <p>Status : {{task.status}}</p>
-            <p>Priority : {{task.priority}}</p>
+      <div id="{{task.status}}{{id}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body" id="body{{task.id}}">
+            <p id="due-by{{task.id}}">Due by : {{task.due_date}}</p>
+            <p id="status{{task.id}}">Status : {{task.status}}</p>
+            <p id="priority{{task.id}}">Priority : {{task.priority}}</p>
             {% if task.notes %}
-            <p>Notes: {{task.notes | safe}}</p>
+            <p id="notes{{task.id}}">Notes: {{task.notes | safe}}</p>
             {% endif %}
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-edit btn-primary" task_id="{{task.id}}" data-bs-toggle="modal" data-bs-target="#exampleModal{{task.id}}">Edit Task</button>
+            {% include 'workspace/_modal.html' %}
         </div>
       </div>
     </div>
