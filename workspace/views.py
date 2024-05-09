@@ -20,10 +20,6 @@ def workspace_detail(request, slug):
     progress = workspace.workspace_tasks.filter(status='IN-PROGRESS')
     completed = workspace.workspace_tasks.filter(status='DONE')
 
-    todo_count = todo.count()
-    progress_count = progress.count()
-    completed_count = completed.count()
-
     if request.method == "POST":
             task_form = TaskForm(data=request.POST)
             if task_form.is_valid():
@@ -36,6 +32,9 @@ def workspace_detail(request, slug):
                 'Task created successfully!'
                 )
             # implement error handling here later.
+    todo_count = todo.count()
+    progress_count = progress.count()
+    completed_count = completed.count()
     task_form = TaskForm()
 
     return render(
@@ -76,9 +75,7 @@ class WorkspaceListView(generic.ListView):
         # For information on annotate(), see README.
         ws_tasks = self.get_queryset().annotate(ws_task_count=Count('workspace_tasks'))
         data['ws_tasks'] = ws_tasks
-
         return data
-    
     def post(self, request):
         if request.method == "POST":
             workspace_form = WorkspaceForm(data=request.POST)

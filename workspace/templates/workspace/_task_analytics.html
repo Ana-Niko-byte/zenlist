@@ -2,9 +2,14 @@
 <div class="workspace-analytics">
     <div class="card">
         <div class="card-body">
+            <h5>Your Workspace Analytics</h5>
             {% for analytic in ws_tasks %}
-            <p>Workspace: {{analytic.title}}</p>
-            <p>Total tasks : {{analytic.ws_task_count}}</p>
+            <div class="workspace-details">
+                <div class="analytic-intro d-flex justify-content-between">
+                    <h6>{{analytic.title}}</h6>
+                    <p><em>Total tasks : {{analytic.ws_task_count}}</em></p>
+                </div>
+            </div>
             {% endfor %}
         </div>
     </div>
