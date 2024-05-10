@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 /* Colours */
-/* body{
+.jumbotron{
     background-image: url("../images/image.png");
     background-size: contain;
-    background-repeat: no-repeat;
-} */
+    /* background-repeat: no-repeat; */
+    background-position: center;
+}
 
 li a:hover, 
 .socials a:hover, 
@@ -24,16 +25,21 @@ li a:hover,
     transform: scale(1.02);
 }
 
+.nav-item:hover{
+    color: rgb(71, 71, 108);
+}
+
+.active{
+    background-color: rgb(152, 207, 255);
+    border-radius: 5px;
+}
+
 /* Annotations & Makeshift Symbols */
 /* Used instead of .nav-item-line::after content due to height control. */
 .line{
     height: 100%;
     width: 1px;
     background-color: rgb(22, 22, 22);
-}
-
-.active{
-    border-bottom: 1px solid rgb(27, 27, 27);
 }
 
 /* Branding */
@@ -66,7 +72,7 @@ li a:hover,
     padding-bottom: 10px;
 } */
 
-.download-scrum{
+.visit-scrum{
     text-decoration: none;
     color: #1b1b1b;
 }
@@ -91,6 +97,33 @@ a:hover{
 }
 
 .profile-image{
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.reviewed-time{
+    font-size: 0.8rem;
+}
+
+.zenlist-review{
+    background-color: rgba(181, 210, 238, 0.2);
+    border-radius: 10px;
+}
+
+.star-rating{
+    font-size: 2rem;
+}
+
+@media all and (max-width: 1200px){
+    .zenlist-review{
+        /* check later if needed */
+        width: 500px;
+    }
+}
+
+@media all and (max-width: 990px){
+    #container-scrum-row{
+        flex-direction: column-reverse;
+    }
 }

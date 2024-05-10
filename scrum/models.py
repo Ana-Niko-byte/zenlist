@@ -55,8 +55,6 @@ class Scrum(models.Model):
     image = CloudinaryField('image', default='default_image')
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
-    # models.FileField() was considered but Cloudinary was chosen for uniform asset management.
-    file = CloudinaryField('document', default='scrum_manual', resource_type = 'auto', help_text='Upload your Scrum manual here!')
 
     def __str__(self):
         return f'The title of this section is {self.title}'

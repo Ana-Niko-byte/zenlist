@@ -3,20 +3,26 @@ from .models import Scrum, Feature, Review
 
 def HelloScrum(request):
     scrum = Scrum.objects.all().first()
+    # Queryset was being returned from 3 to 1.
     features = Feature.objects.all()
     all_reviews = Review.objects.all()
     five_stars = Review.objects.filter(rating='★★★★★')
     four_stars = Review.objects.filter(rating='★★★★☆')
 
-    def combined_ids(self):
-        list1 = ['list-item-1', 'list-item-2', 'list-item-3']
-        list2 = self.features
-        combined_lists = zip(list1, list2)
-        return {'combined_lists': combined_lists}
+    # Queryset was being returned from 3 to 1.   
+    def reversed_features(features):
+        reversed_features = []
+        for feature in features:
+            reversed_features.append(feature)
+        reversed_features.reverse()
+        return reversed_features
+
+    reversed_features = reversed_features(features)
 
     context = {
         'hello' : scrum,
         'features' : features,
+        'reversed_features' : reversed_features,
         'all_reviews': all_reviews,
         'five_star': five_stars,
         'four_star': four_stars,

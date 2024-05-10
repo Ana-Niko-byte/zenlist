@@ -1,6 +1,7 @@
 {% load static %}
-<div class="container">
-  <div class="row" style="border: 1px solid purple;">
+
+<div class="container-fluid jumbotron-full">
+  <div class="row">
     <div class="col-12">
         <section class="callout jumbotron mb-4 py-5 text-center">
             <h1 class="jumbo-heading text-center">Your Day. Your Way.</h1>
@@ -8,6 +9,7 @@
             <em>Trusted by businesses. Loved by users.</em>
               {% if request.user.is_authenticated %}
                 <p class="lead" style="padding-top: 30px;">Let's check your workspaces to make sure you're staying on top of your tasks!</p>
+                <a href="{{ workspace_url }}" class="direct-link"><button class="btn btn-info btn-lg">My Workspaces</button></a>
               {% else %}
                 <p class="lead mt-5">Sign up/login today to stay on top of your day!</p>
                 <a class="nav-link btn mb-3" href="{% url 'account_signup' %}">

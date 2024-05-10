@@ -7,110 +7,50 @@
     <!-- Zenlist Jumbotron -->
     {% include 'scrum/_jumbo.html' %}
     <!-- /Zenlist Jumbotron -->
+    {% include 'scrum/_reviews.html' %}
     <!-- Scrum Intro -->
-    <div class="container container-scrum my-5" style="border: 1px solid yellow;">
-        <div class="row d-flex mx-auto justify-content-center align-items-center">
-            <div class="col-lg-6 col-12 d-flex flex-column scrum-intro justify-content-center align-items-center ">
-                <h5>Getting you started</h5>
-                <h2 class="scrum-title pb-4">{{ hello.title }}</h2>
-                <p class="scrum-content">{{ hello.content | safe }}</p>
-                <a href="../static/images/2020-Scrum-Guide-US.pdf" download target="_blank" class="download-scrum pt-4">
-                  <span class="download-icon px-2">
-                    <i class="fa-2x fa-solid fa-download"></i>
-                  </span> Download the Scrum Manual Here!
-                </a>
-            </div>
-            <div class="col-lg-6">
-                <img src="{{ hello.image.url }}" alt="scrum intro image" class="scrum-image image-fluid" max-width:100% height:auto>
-            </div>
+
+    <div class="container my-5 container-scrum">
+      <div class="row d-flex justify-content-center align-items-center" id="scrum-container-row">
+        <div class="col-sm-12 col-lg-6 text-center d-flex flex-column align-items-center justify-content-center scrum-intro">
+          <h2 class="pb-4 scrum-title">{{ hello.title }}</h2>
+          <!-- !!! Fix responsiveness of paragraph !!! -->
+          <p class="scrum-content">{{ hello.content | safe }}</p>
+          <a href="https://scrumguides.org/index.html" target="_blank" rel="noopener noreferrer" 
+          class="pt-4 d-flex flex-row justify-content-center align-items-center visit-scrum direct-link" 
+          aria-label="scrum.org site link">
+            <i class="fa-solid fa-arrow-up-right-from-square px-3"></i>
+            <h5>Visit Scrum.Org here!</h5>
+          </a>
         </div>
+        <div class="col-sm-12 col-lg-6 mb-5 d-flex align-items-center justify-content-center">
+            <img src="{{ hello.image.url }}" alt="scrum intro image" class="img-fluid">
+        </div>
+      </div>
     </div>
     <!-- /Scrum Intro -->
+
     <!-- Features -->
-    <div class="container" style="border: 1px solid orange;">
+    <div class="container">
       <!-- Framework for scroll obtained from bootstrap example code (scrollspy) -->
-      <div class="row row-features my-5">
-          <div class="col">
-            <div id="list-groups" class="list-group d-flex justify-content-start align-items-start">
-              <!-- Scrum Feature 1 -->
-              <span class="list-starter d-flex justify-content-center align-items-center mx-5 my-2">
-                <img src="{{ features.first.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300" style="border: 1px solid green;">
-                <span class="step">
-                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-1" style="border: 1px solid purple">
-                    {{ features.first.step }}
-                  </a>
-                </span>
-                <div data-bs-spy="scroll" data-bs-target="#list-group" data-bs-smooth-scroll="true" class="scrollspy-group text-center" style="border: 1px solid green;" tabindex="0">
-                <h3 id="list-item-1" class="mb-4" style="border: 1px solid red;">{{ features.first.title }}</h3>
-                <p class="list-item-paragraph">{{ features.first.content | safe }}</p>
-                </div>
-              </span>
-              <!-- /Scrum Feature 1 -->
-              <!-- Scrum Feature 2 -->
-              <span class="list-starter d-flex justify-content-center align-items-center mx-5 my-2">
-                <img src="{{ features.1.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300" style="border: 1px solid green;">
-                <span class="step">
-                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-2" style="border: 1px solid purple">
-                    {{ features.1.step }}
-                  </a>
-                </span>
-                <div data-bs-spy="scroll" data-bs-target="#list-group" data-bs-smooth-scroll="true" class="scrollspy-group text-center" style="border: 1px solid green;" tabindex="0">
-                <h3 id="list-item-2" class="mb-4" style="border: 1px solid red;">{{ features.1.title }}</h3>
-                <p class="list-item-paragraph">{{ features.2.content | safe }}</p>
-                </div>
-              </span>
-              <!-- /Scrum Feature 2 -->
-              <!-- Scrum Feature 3 -->
-              <span class="list-starter d-flex justify-content-center align-items-center mx-5 my-2">
-                <img src="{{ features.last.image.url }}" alt="feature image" class="image-fluid mx-5" width="300" height="300" style="border: 1px solid green;">
-                <span class="step">
-                  <a class="d-flex align-items-center justify-content-center list-group-item list-group-item-action step" href="#list-item-3" style="border: 1px solid purple">
-                    {{ features.last.step }}
-                  </a>
-                </span>
-                <div data-bs-spy="scroll" data-bs-target="#list-group" data-bs-smooth-scroll="true" class="scrollspy-group text-center" style="border: 1px solid green;" tabindex="0">
-                <h3 id="list-item-3" class="mb-4" style="border: 1px solid red;">{{ features.last.title }}</h3>
-                <p class="list-item-paragraph">{{ features.last.content | safe }}</p>
-                </div>
-              </span>
-              <!-- /Scrum Feature 3 -->
-            </div>
+      <div class="row row-features my-5 d-flex align-items-center">
+        <div class="col-sm-12 col-md-6 col-lg-6 text-center">
+          <!-- Change to Dynamic altering as user scolls -->
+          <img src="{{ features.first.image.url }}" class="img-fluid feature-image" alt="feature image" width="300" height="300">
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="list-route-line"></div>
+          <div id="list-groups" class="list-group">
+            <!-- Scrum Features -->
+            {% for feature in reversed_features %}
+              {% include 'scrum/_feature.html' with feature_id=feature.id %}
+            {% endfor %}
+            <!-- /Scrum Features -->
           </div>
         </div>
-      </div>
-    <!-- /Features -->
-    <!-- Reviews -->
-    {% block review %}
-    <div class="container my-5">
-      <div class="row d-flex justify-content-center">
-        {% for review in four_star %}
-        <div class="col-6">
-          <div class="row d-flex">
-            <div class="author-summary d-flex">
-              <div class="col-6 d-flex justify-content-end align-items-center px-3">
-                {% if "default_profile_image" in review.profile_image.url %}
-                <img class="card-img-top profile-image" src="{% static 'images/default_profile_image.jpg' %}" alt="placeholder image" style="border-radius: 50%;">
-                {% else %}
-                <img class="card-img-top profile-image" src=" {{ review.profile_image.url }}" alt="profile image" style="border-radius: 50%;">
-                {% endif %}
-              </div>
-              <div class="col-6">
-                <p>{{review.rating}}</p>
-                <h4>{{review.author}}</h4>
-                <p>Works in: {{review.job_industry}}</p>
-                <p>reviewed on <span>{{review.reviewed_on}}</span></p>
-                <div class="main-review-content d-flex align-items-start">
-                  <p>{{review.review | safe}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
       </div>
     </div>
-    {% endblock review %}
-    <!-- /Reviews -->
+    <!-- /Features -->
     <!-- index.html content ends here -->
 </div>
 {% endblock %}
