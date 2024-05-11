@@ -2,13 +2,23 @@
 <div class="workspace-analytics">
     <div class="card">
         <div class="card-body">
-            <h5>Your Workspace Analytics</h5>
+            <div class="analytic-intro d-flex flex-row align-items-center">
+                <h3 class="mb-4">Your spaces <i class="fa-solid fa-rocket mx-1 fa-xs"></i></h3>
+            </div>
             {% for analytic in ws_tasks %}
             <div class="workspace-details">
-                <div class="analytic-intro d-flex justify-content-between">
+                <div class="analytic-body d-flex flex-column">
                     <h6>{{analytic.title}}</h6>
-                    <p><em>Total tasks : {{analytic.ws_task_count}}</em></p>
+                    <em class="mb-4">Total tasks : {{analytic.ws_task_count}}</em>
                 </div>
+            </div>
+            {% endfor %}
+            <h3 class="my-4">Due Today! <i class="fa-solid fa-fire"></i></h3>
+            {% for analytic in ws_tasks %}
+            <div class="due-today d-flex flex-column">
+                <!-- Change to those due today! -->
+                <h6>{{analytic.title}}</h6>
+                <em class="mb-4">Task Name : {{analytic.ws_task_count}}</em>
             </div>
             {% endfor %}
         </div>

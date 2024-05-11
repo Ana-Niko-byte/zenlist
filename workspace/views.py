@@ -90,24 +90,3 @@ class WorkspaceListView(generic.ListView):
                 return redirect('spaces')
             # implement error handling here later.
         workspace_form = WorkspaceForm()
-
-
-# set up code for task editing form.
-
-# def edit_task(request, slug, task_id):
-#     """
-#     A view for editing task information.
-#     """
-#     if request.method == "POST":
-#         queryset = Workspace.objects.all()
-#         current_workspace = get_object_or_404(queryset, slug=slug)
-#         task = get_object_or_404(Task, pk=task_id)
-#         # check if this is why information gets displayed in the form for editing.
-#         task_form = TaskForm(data=request.POST, instance=task)
-
-#         if task_form.is_valid() and task.creator == request.user:
-#             task = task_form.save(commit=False)
-#             task.workspace = current_workspace
-#             task.save()
-            
-#     return HttpResponseRedirect(reverse('workspace_datail', args=[slug]))

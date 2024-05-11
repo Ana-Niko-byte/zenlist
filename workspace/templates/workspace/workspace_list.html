@@ -1,88 +1,44 @@
 {% extends "base.html" %} {% block content %}
 {% load static %}
-{% load crispy_forms_tags %}
 
-{% if user.is_authenticated %}
-    {% if user_workspaces %}
-    <!-- A list of registered user workspaces. -->
-    <div class="container">
-        <div class="row">
-            <div class="col-4">
-                <!-- Workspace form. -->
-                <div class="workspace-form">
-                    <div class="card">
-                        <div class="card-body mx-2 my-2">
-                            <h4>Add a Workspace:</h4>
-                            <form id="workspaceForm" method="post">
-                            {{ workspace_form | crispy }}
-                            {% csrf_token %}
-                            <button id="submitButton" type="submit"
-                                class="btn btn-signup btn-lg primaryAction authentication-button" style="background-color: darkslateblue;">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                {% include 'workspace/_task_analytics.html' %}
-                <!-- /Workspace form. -->
-            </div>
-            <div class="col-8">
-                {% for space in spaces %}
-                <!-- Takes the user into the full workspace view. -->
-                <a href="{% url 'full_workspace' space.slug %}">
-                    <div class="row g-0 d-flex justify-content-center align-items-center px-3 mb-5">
-                        <div class="col-md-6">
-                            <h3 class="post-title">{{ space.title }}</h3>
-                            <p class="post-subtitle"> Updated: {{ space.updated_on }}</p>
-                        </div>
-                        <div class="col-md-6 d-flex justify-content-end align-items-center">
-                            <button>Delete</button>
-                        </div>
-                    </div>
+{% if user_workspaces %}
+<div class="container">
+    <div class="row d-flex align-items-start justify-content-center">
+        <!-- Workspace form. -->
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            {% include 'workspace/_task_analytics.html' %}
+        </div>
+        <!-- /Workspace form. -->
+        <!-- A list of registered user workspaces. -->
+        <div class="col-sm-12 col-md-6 col-lg-8">
+            {% for space in spaces %}
+            <!-- Takes the user into the full workspace view. -->
+            <div class="workspace-container d-flex align-items-center mb-4 p-3 direct-link" style="background-color: rgb(241, 241, 241); border-radius: 10px;">
+                <a href="{% url 'full_workspace' space.slug %}" class="col-sm-12 col-md-6 col-lg-10">
+                    <h3 class="post-title">{{ space.title }}</h3>
+                    <p class="post-subtitle"> last modified: {{ space.updated_on }}</p>
                 </a>
-                {% endfor %}
-                <div class="container my-3">
-                    <div class="create-new">
-                        <button>Create New</button>
-                    </div>
-                </div>
+                <!-- Delete workspace button -->
+                <button class="btn btn-delete col-sm-12 col-md-6 col-lg-2 py-2 px-5 d-flex justify-content-center"  style="background-color: white;" workspace_id="{{ workspace.id }}">Delete</button>
+                <!-- Delete workspace button -->
             </div>
+            {% endfor %}
+            {% include 'workspace/_ws_modal.html' %}
         </div>
     </div>
-    <!-- A list of registered user workspaces. -->
-    {% else %}
-    <!-- Create a workspace directly. -->
-    <div class="row d-flex flex-column text-center py-3">
-        <div class="col">
-            <img src="../../../static/images/llamas.jpg" width='300' alt="confused llama">
-            <h3 class="pt-4">Duuuuuuuuude ... no workspaces?</h3>
-        </div>
-        <div class="col mt-4">
-            <button>Create your first one here!</button>
-        </div>
-    </div>
-    <!-- /Create a Workspace directly. -->
-    {% endif %}
+</div>
+<!-- A list of registered user workspaces. -->
 {% else %}
-    <!-- If user is not logged in -->
-    <!-- Zenlist Jumbotron -->
-    <div class="row">
-        <div class="col-12">
-            <section class="callout jumbotron mb-4 py-5 text-center">
-                <h1 class="text-center">Zenlist :: task tracking made simpler.</h1>
-                    {% if request.user.is_authenticated %}
-                    <p class="lead">Let's check your workspaces to make sure you're staying on top of your tasks!</p>
-                    {% else %}
-                    <p class="lead">Sign up or login today to stay on top of your Routine!</p>
-                    <a class="nav-link btn" href="{% url 'account_login' %}">
-                        <button class="btn btn-info btn-signUp btn-lg">
-                    Sign Up!
-                        </button>
-                    </a>
-                    {% endif %} 
-            </section>
-        </div>
+<!-- Create a workspace directly. -->
+<div class="row d-flex flex-column text-center py-3">
+    <div class="col">
+        <img src="../../../static/images/llamas.jpg" width='300' alt="confused llama">
+        <h3 class="pt-4">Duuuuuuuuude ... no workspaces?</h3>
     </div>
-    <!-- /Zenlist Jumbotron -->
+    <div class="col mt-4">
+        <button>Create your first one here!</button>
+    </div>
+</div>
+<!-- /Create a Workspace directly. -->
 {% endif %}
-
 {% endblock %}
