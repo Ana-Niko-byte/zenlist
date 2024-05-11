@@ -109,6 +109,12 @@ a:hover{
     font-size: 2rem;
 }
 
+
+.active-breadcrumb{
+    text-decoration: underline;
+}
+
+
 @media all and (max-width: 1200px){
     .zenlist-review{
         /* check later if needed */

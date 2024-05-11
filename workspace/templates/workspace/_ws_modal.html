@@ -8,24 +8,24 @@
 <!-- Modal -->
 <div class="modal fade" id="addWorkspace" tabindex="-1" role="dialog" aria-labelledby="addWorkspaceTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="addWorkspaceLongTitle">Add a Workspace</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div class="workspace-form">
-                <form id="workspaceForm" method="post">
-                {{ workspace_form | crispy }}
-                {% csrf_token %}
-                </form>
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="addWorkspaceLongTitle">Add a Workspace</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="workspace-form">
+                    <form id="workspaceForm" method="post">
+                    {{ workspace_form | crispy }}
+                    {% csrf_token %}
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nevermind!</button>
+                        <button type="submit" id="submitButton" class="btn btn-primary">Save Workspace</button>
+                    </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nevermind!</button>
-        <button type="submit" id="submitButton" class="btn btn-primary">Save Workspace</button>
-        </div>
-    </div>
     </div>
 </div>
 <!-- Modal -->

@@ -167,5 +167,6 @@ Changing [all-auth styling for emails](https://www.reddit.com/r/django/comments/
 
 For removing the background from image: [remove bg](https://www.remove.bg/upload)
 
+This awesome GeeksforGeeks page for helping to understand [CBV DeleteView](https://www.geeksforgeeks.org/deleteview-class-based-views-django/)
 
 # Acknowledgements

@@ -34,6 +34,11 @@ li a:hover,
     border-radius: 5px;
 }
 
+.active-breadcrumb{
+    text-decoration: underline;
+    color: red;
+}
+
 /* Annotations & Makeshift Symbols */
 /* Used instead of .nav-item-line::after content due to height control. */
 .line{
@@ -66,12 +71,6 @@ li a:hover,
 }
 
 /* UIUX */
-
-/* .jumbo-heading{
-    padding-top: 190px;
-    padding-bottom: 10px;
-} */
-
 .visit-scrum{
     text-decoration: none;
     color: #1b1b1b;

@@ -3,6 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
+{% include 'workspace/ws_detail_breadcrumb.html' %}
 <div class="container-fluid">
     <div class="row">
         <!-- Form to create new tasks -->

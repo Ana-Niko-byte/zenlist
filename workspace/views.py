@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
+from django.views.generic.edit import DeleteView
 from django.utils.text import slugify
+from django.urls import reverse_lazy
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+# from django.http import HttpResponseRedirect
 from django.db.models import Count
-from .models import Workspace, Task
+from .models import Workspace
 from .forms import WorkspaceForm, TaskForm
 
 def workspace_detail(request, slug):
@@ -40,7 +42,7 @@ def workspace_detail(request, slug):
 
     return render(
         request,
-        "workspace/workspace_detail.html",
+        "workspace/ws_detail.html",
             {
             'workspace': workspace,
             'all_tasks': all_tasks,
@@ -58,7 +60,7 @@ def workspace_detail(request, slug):
 
 class WorkspaceListView(generic.ListView):
     model = Workspace
-    template_name = 'workspace/workspace_list.html'
+    template_name = 'workspace/ws_list.html'
     context_object_name = 'spaces'
 
     def get_queryset(self):
@@ -75,6 +77,7 @@ class WorkspaceListView(generic.ListView):
         ws_tasks = self.get_queryset().annotate(ws_task_count=Count('workspace_tasks'))
         data['ws_tasks'] = ws_tasks
         return data
+    
     def post(self, request):
         if request.method == "POST":
             workspace_form = WorkspaceForm(data=request.POST)
@@ -90,3 +93,8 @@ class WorkspaceListView(generic.ListView):
                 return redirect('spaces')
             # implement error handling here later.
         workspace_form = WorkspaceForm()
+
+class WorkspaceDeleteView(DeleteView):
+    model = Workspace
+    template_name = 'workspace/ws_confirm_delete.html'
+    success_url = '/'
