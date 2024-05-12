@@ -9,7 +9,7 @@
       <h4>First things first!</h4>
       <h1 class="mb-5">{% trans "Let's Get You Logged In" %}</h1>
       <p>{% blocktrans %}If you don't have an account with Zenlist yet, please
-        <a href="{{ signup_url }}" class="direct-link">Sign Up</a>.{% endblocktrans %}</p>
+        <a href="{{ signup_url }}" class="direct-link">sign up</a>.{% endblocktrans %}</p>
       <div class="mt-3">
         <form method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}

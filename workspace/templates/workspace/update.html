@@ -1,0 +1,11 @@
+{% load crispy_forms_tags %}
+<form method="post" action="{% url 'task_edit' task_for_update.id %}">
+    {% csrf_token %}
+    {{ edit_task_form|crispy }}
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+</form>
+
+<!-- !!! Change to Modal later !!! -->

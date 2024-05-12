@@ -1,29 +1,30 @@
 {% load static %}
-<div class="accordion accordion-flush" id="accordionExample">
+<!-- !!! Fix accordion expansion - think maybe a wrong div or id. !!! -->
+<div class="accordion accordion-flush" id="taskAccordion">
     <div class="accordion-item" task_id="task{{task.id}}">
       <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{task.status}}{{id}}" aria-expanded="true" aria-controls="{{task.status}}{{id}}">
-            <h5 class="content{{task.id}}" id="name{{task.id}}">{{task.name}}</h5>
-            <div class="priority-span">
-                <!-- double check if this actually works later -->
-                {% if task.updated %}
-                <span height=30 width=30 style="background-color: green;"></span>
-                {% endif %}
-            </div>
+            <h5 class="content" id="name{{task.id}}">{{task.name}}</h5>
         </button>
       </h2>
-      <div id="{{task.status}}{{id}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <!-- Accordion Body. -->
+      <div id="{{task.status}}{{id}}" class="accordion-collapse collapse" data-bs-parent="#taskAccordion">
         <div class="accordion-body" id="body{{task.id}}">
             <p id="due-by{{task.id}}">Due by : {{task.due_date}}</p>
-            <p id="status{{task.id}}">Status : {{task.status}}</p>
+            <p id="status{{task.id}}">Status : {{task.status | safe}}</p>
             <p id="priority{{task.id}}">Priority : {{task.priority}}</p>
             {% if task.notes %}
             <p id="notes{{task.id}}">Notes: {{task.notes | safe}}</p>
             {% endif %}
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-edit btn-primary" task_id="{{task.id}}" data-bs-toggle="modal" data-bs-target="#exampleModal{{task.id}}">Edit Task</button>
+            <!-- Not a form therefore does not need a form element. -->
+            <a href="{% url 'task_edit' task.id %}">click me</a>
+            <button type="button" class="btn btn-edit btn-primary" data-task-id="{{task.id}}" id="taskEditSubmit" data-bs-toggle="modal" data-bs-target="#editModal{{task.id}}">Edit Task</button>
+            <button type="submit" class="btn btn-delete">Delete</button>
+            <!-- /Button trigger modal -->
             {% include 'workspace/_modal.html' %}
         </div>
       </div>
+      <!-- /Accordion Body. -->
     </div>
 </div>

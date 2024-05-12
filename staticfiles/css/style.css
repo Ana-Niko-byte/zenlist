@@ -34,11 +34,6 @@ li a:hover,
     border-radius: 5px;
 }
 
-.active-breadcrumb{
-    text-decoration: underline;
-    color: red;
-}
-
 /* Annotations & Makeshift Symbols */
 /* Used instead of .nav-item-line::after content due to height control. */
 .line{
@@ -113,6 +108,12 @@ a:hover{
 .star-rating{
     font-size: 2rem;
 }
+
+
+.active-breadcrumb{
+    text-decoration: underline;
+}
+
 
 @media all and (max-width: 1200px){
     .zenlist-review{

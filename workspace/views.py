@@ -4,9 +4,10 @@ from django.views.generic.edit import DeleteView
 from django.utils.text import slugify
 from django.urls import reverse_lazy
 from django.contrib import messages
-# from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django.db.models import Count
-from .models import Workspace
+from .models import Workspace, Task
 from .forms import WorkspaceForm, TaskForm
 
 def workspace_detail(request, slug):
@@ -19,9 +20,9 @@ def workspace_detail(request, slug):
     all_tasks = workspace.workspace_tasks.all()
     all_task_count = all_tasks.count()
 
-    todo = workspace.workspace_tasks.filter(status='TO-DO')
-    progress = workspace.workspace_tasks.filter(status='IN-PROGRESS')
-    completed = workspace.workspace_tasks.filter(status='DONE')
+    todo = workspace.workspace_tasks.filter(status='To Do')
+    progress = workspace.workspace_tasks.filter(status='In Progress')
+    completed = workspace.workspace_tasks.filter(status='Completed')
 
     if request.method == "POST":
             task_form = TaskForm(data=request.POST)
@@ -59,6 +60,9 @@ def workspace_detail(request, slug):
 
 
 class WorkspaceListView(generic.ListView):
+    """
+    Display all user workspaces as a list. Queryset is filtered by creator.
+    """
     model = Workspace
     template_name = 'workspace/ws_list.html'
     context_object_name = 'spaces'
@@ -79,6 +83,9 @@ class WorkspaceListView(generic.ListView):
         return data
     
     def post(self, request):
+        """
+        Handles the creation of a workspace via the provided form.
+        """
         if request.method == "POST":
             workspace_form = WorkspaceForm(data=request.POST)
             if workspace_form.is_valid():
@@ -95,6 +102,32 @@ class WorkspaceListView(generic.ListView):
         workspace_form = WorkspaceForm()
 
 class WorkspaceDeleteView(DeleteView):
+    """
+    Deletes a workspace. 
+    """
     model = Workspace
+    # !!! Check routing for this template as it does not seem to appear. !!!
     template_name = 'workspace/ws_confirm_delete.html'
-    success_url = '/'
+    success_url = 'spaces'
+
+@login_required
+def update_ws_task(request, id):
+    """
+    A view for updating the contents of an existing task. 
+    This will be changed to a pop up modal to avoid the need for additional routing.
+    """
+    task_for_update = get_object_or_404(Task, id=id)
+
+    if request.method == 'POST':
+        edit_task_form = TaskForm(data=request.POST, instance=task_for_update)
+        if edit_task_form.is_valid():
+            edit_task_form.save()
+            return redirect('full_workspace', slug=task_for_update.workspace.slug)
+    else:
+        edit_task_form = TaskForm(instance=task_for_update)
+
+    context = {
+        'task_for_update': task_for_update,
+        'edit_task_form': edit_task_form,
+    }
+    return render(request, 'workspace/update.html', context)

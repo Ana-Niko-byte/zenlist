@@ -3,16 +3,16 @@ from django.contrib.auth.models import User
 import datetime
 
 STATUSES = (
-    ('TO-DO', 'To Do'),
-    ('IN-PROGRESS', 'In Progress'),
-    ('DONE', 'Completed'),
+    ('To Do', 'To Do'),
+    ('In Progress', 'In Progress'),
+    ('Completed', 'Completed'),
 )
 
 PRIORITIES = (
-    ('CRITICAL', 'Critical'),
-    ('MAJOR', 'Major'),
-    ('MINOR', 'Minor'),
-    ('NICE-TO-HAVE', 'Nice to have!'),
+    ('Critical', 'Critical'),
+    ('Major', 'Major'),
+    ('Minor', 'Minor'),
+    ('Nice to have!', 'Nice to have!'),
 )
 
 class Workspace(models.Model):
