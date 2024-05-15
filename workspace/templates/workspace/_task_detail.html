@@ -22,15 +22,37 @@
                 Edit Task
               </button>
             </a>
-            <a href="{% url 'task_delete' task.id %}">
-              <button type="submit" class="btn btn-delete">
-                Delete
-              </button>
-            </a>
+            <button type="submit" data-task-id={{task.id}} class="btn btn-delete">
+              Delete
+            </button>
             <!-- /Button trigger modal -->
             <!-- include 'workspace/_modal.html' -->
+            <!-- Delete confirmation modal -->
         </div>
       </div>
       <!-- /Accordion Body. -->
+      <div class="modal fade" id="deleteModal" tabindex="-1"
+      aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"
+              id="deleteModalLabel">Delete Task?</h5>
+            <button type="button" class="btn-close"
+              data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete your task?
+            This action cannot be undone.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+              data-bs-dismiss="modal">Close</button>
+            <a id="deleteConfirm" href="{% url 'task_delete' task.workspace.slug task.id %}" class="btn
+              btn-danger">Delete</a>
+          </div>
+        </div>
+      </div>
+      </div>
   </div>
 </div>

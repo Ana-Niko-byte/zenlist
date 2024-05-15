@@ -7,6 +7,11 @@ const taskStatusField = document.getElementById("id_status");
 const taskPriorityField = document.getElementById("id_priority");
 const taskNotesField = document.getElementById("id_notes");
 
+// Delete Functionality
+const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+const deleteButtons = document.getElementsByClassName("btn-delete");
+const deleteConfirm = document.getElementById("deleteConfirm");
+
 /**
  * Iterates through all edit buttons and appends a 'click' event listener.
  * targetId : retrieves the id of the task that has been clicked on.
@@ -32,12 +37,24 @@ for (let button of edits){
         taskStatusField.value = targetStatus.innerHTML;
         taskDueDateField.value = targetDueDate.innerHTML;
         taskForm.setAttribute("action", `edit_task/${targetId}`);
-
-        // document.getElementById(`modal${targetId}`).value = taskStatusField;
     });
 }
 
-// Assuming each edit button has a data attribute like data-task-id="123"
-
-// let commentId = e.target.getAttribute("comment_id");
-//     deleteConfirm.href = `delete_comment/${commentId}`;
+// Delete Functionality
+/**
+* Initializes deletion functionality for the provided delete buttons.
+* 
+* For each button in the `deleteButtons` collection:
+* - Retrieves the associated comment's ID upon click.
+* - Updates the `deleteConfirm` link's href to point to the 
+* deletion endpoint for the specific comment.
+* - Displays a confirmation modal (`deleteModal`) to prompt 
+* the user for confirmation before deletion.
+*/
+for (let button of deleteButtons) {
+    button.addEventListener("click", (e) => {
+      let taskId = e.target.getAttribute("data-task-id");
+      deleteConfirm.href = `delete-task/${taskId}`;
+      deleteModal.show();
+    });
+  }
