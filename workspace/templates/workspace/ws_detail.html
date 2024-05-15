@@ -28,12 +28,11 @@
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
-                            <!-- To Do Tasks -->
                             <div class="col-4">
                                 <h3>To Do</h3>
                                 <p>Total tasks : {{todo_count}}</p>
                                 {% for task in todo_tasks %}
-                                {% include 'workspace/_task_detail.html' with task=task id='collapseOne' %}
+                                {% include 'workspace/_task_detail.html' with task=task id='todo{{forloop.counter}}' %}
                                 {% endfor %}
                             </div> 
                             <!-- /To Do Tasks -->
@@ -41,26 +40,18 @@
                             <div class="col-4">
                                 <h3>In Progress</h3>
                                 <p>Total tasks : {{progress_count}}</p>
-                                <div class="accordion accordion-flush" id="accordionExample">
-                                    <div class="accordion-item">
-                                        {% for task in progress_tasks %}
-                                        {% include 'workspace/_task_detail.html' with task=task id='collapseTwo' %}
-                                        {% endfor %}
-                                    </div>
-                                </div>
+                                {% for task in progress_tasks %}
+                                {% include 'workspace/_task_detail.html' with task=task id='progress{{forloop.counter}}' %}
+                                {% endfor %}
                             </div>
                             <!-- /In Progress Tasks -->
                             <!-- Done Tasks -->
                             <div class="col-4">
                                 <h3>Completed</h3>
                                 <p>Total tasks : {{completed_count}}</p>
-                                <div class="accordion accordion-flush" id="accordionExample">
-                                    <div class="accordion-item">
-                                        {% for task in completed_tasks %}
-                                        {% include 'workspace/_task_detail.html' with task=task id='collapseThree' %}
-                                        {% endfor %}
-                                    </div>
-                                </div>
+                                {% for task in completed_tasks %}
+                                {% include 'workspace/_task_detail.html' with task=task id='complete{{forloop.counter}}' %}
+                                {% endfor %}
                             </div>
                             <!-- /Done Tasks -->
                         </div>

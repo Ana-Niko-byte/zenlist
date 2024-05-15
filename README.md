@@ -1,17 +1,21 @@
 ## Note: This application and its README is Work-In-Progress.
 
 # Zenlist
-The application is available for viewing [here]().
+The application is available for viewing [here](https://zenlist-b604919b54d1.herokuapp.com/).
 
 ## A Little Bit About Zenlist
-Zenlist is designed to provide a manageable and customisable way of organising and managing day-to-day tasks, based on a user's environmenta needs. Complete with organise-by-category functionality, time-tracking, alerts, and filters, zenlist is the all inclusive go-to for anyone who wishes to improve their time-management skills. 
+Zenlist is designed to provide an easy and quick way of organising and managing day-to-day tasks in different environments. Complete with organise-by-environment functionality, time-tracking, and alerts for upcoming tasks, zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay up to date on their day. 
 
 # Business/Social Goals
-- Allow for organisation/categorisation of assets with a clear filtering system to make the platform easily accessible and understandable.
+- Allow for organisation/categorisation of assets in a clear system (user-created environments) to make the platform easily accessible and understandable.
 
 - Design the platform to be accessible for all ages (or at minimum for those over 12 years of age).
 
-- Set up email alerts for tasks approaching due date. 
+- Set up a visual alert for tasks approaching due date. 
+
+- Set up email alerts for personalised experiences and functional reminders. 
+
+- Set up an email alert for registration.
 
 - As a certified Scrum Master II, spread knowledge of the scrum framework and explain how this framework benefits workplaces and personal time-management. Add links to relevant medias and opensource documents. 
 
@@ -20,20 +24,56 @@ Zenlist is designed to provide a manageable and customisable way of organising a
 
 - Design a simple and easy navigation system (primary navigation and breadcrumbs so the user knows where they are at all times and can back track when needed).
 
-- Set up Email alerts for personalised experiences and functional reminders. 
+- Set up email alerts for personalised experiences and functional reminders. 
 
 - Establish a colour scheme and font family that ties the theme of _zen_ together to create a cohesive and comprehensive branding with accents in both where needed.
 
 - Keep the application visually minimalistic with white spacing and simple accents to maintain the _zen_ theme and branding. 
 
 # Wireframes
+![zenlist wireframe](static/images/zenlist-wireframe.png)
 # Structure 
+All pages contain the same navigation and footer sections.
 The structure of _Zenlist_ is as follows: 
-### Home Page
-### Sign in/Sign Up
-### Agile Features
-### Logout
+### Scrum Home Page
+This is the main home page of the project. Though it does not have a conventional 'Home' page, its root page is the starting point of Zenlist, deep diving into scrum methodology and providing potential users with information on the app (reviews, features, and a contact option for more information).
 
+- Jumbotron
+    - If not signed in, the jumbotron displays a signup button and a different summary heading.
+    - If signed in, the jumbotron displays a button to access the user's workspaces and an encouraging title.
+- Reviews
+    - These reviews are filtered by stars (at the moment 4 stars, but this query will be modified to look for 4+ stars), and displayed in a row to the potential users. These reviews can only be made by a logged in user, and do not require approval from any administrators, as they are filtered. Consideration is being given towards having a button to show all reviews. 
+- Features
+    - Feature 1
+    - Feature 2
+    - Feature 3
+### Your Workspaces
+This is a list of workspaces belonging to the user. This page also contains some basic analytics (quantity of tasks/workspace), and a visual indication of what tasks are approaching their due dates. 
+
+- Workspace List 
+    - Delete Workspace Button
+- Workspace Analytics
+    - Total Tasks
+    - To Do Task Quantity
+    - In Progress Task Quantity
+    - Completed Task Quantity
+- Due Today Alerts
+    - Visual Display in left-side panel.
+    - Email alerts.
+- Add New Workspace Button
+    - Modal with title field input.
+    - Messages to tell user the workspace was successfully created.
+### Sign in/Sign Up
+This is only displayed when the user is not signed in. 
+- A page where the user may signup/signin, using allauth Django.
+- An email confirmation for users who have just signed up.
+- Visual indication that the user is signed in (jumbotron).
+### Logout
+This is only displayed when the user is signed in. 
+- A page where the user may logout, using allauth Django.
+- Visual indication that the user has signed out (jumbotron).
+
+---
 # Scope of Application
 The application is scope is currently to the following: 
 
