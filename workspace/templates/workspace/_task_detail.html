@@ -22,7 +22,11 @@
                 Edit Task
               </button>
             </a>
-            <button type="submit" class="btn btn-delete">Delete</button>
+            <a href="{% url 'task_delete' task.id %}">
+              <button type="submit" class="btn btn-delete">
+                Delete
+              </button>
+            </a>
             <!-- /Button trigger modal -->
             <!-- include 'workspace/_modal.html' -->
         </div>

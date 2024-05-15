@@ -14,7 +14,7 @@
             {% for space in spaces %}
             <!-- Takes the user into the full workspace view. -->
             <div class="workspace-container d-flex align-items-center mb-4 p-3 direct-link" style="background-color: rgb(241, 241, 241); border-radius: 10px;">
-                <a href="{% url 'full_workspace' space.slug %}" class="col-sm-12 col-md-6 col-lg-10">
+                <a href="{% url 'full_workspace' space.slug %}" class="col-sm-12 col-md-6 col-lg-10 direct-link">
                     <h3 class="post-title">{{ space.title }}</h3>
                     <p class="post-subtitle"> last modified: {{ space.updated_on }}</p>
                 </a>

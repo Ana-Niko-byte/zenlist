@@ -5,9 +5,9 @@
 {% if user.is_authenticated %}
 {% include 'workspace/ws_detail_breadcrumb.html' %}
 <div class="container-fluid">
-    <div class="row">
+    <div class="row d-flex" id="taskRowContainer">
         <!-- Form to create new tasks -->
-        <div class="col-4">
+        <div class="col-lg-3 col-md-12">
             <div class="card">
                 <div class="card-body mx-2 my-2">
                     <h4>Add a Task:</h4>
@@ -23,12 +23,12 @@
         </div>
         <!-- /Form to create new tasks -->
         <!-- Existing tasks -->
-        <div class="col-8">
+        <div class="col-lg-9 col-md-12">
             <div class="card">
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
                                 <h3>To Do</h3>
                                 <p>Total tasks : {{todo_count}}</p>
                                 {% for task in todo_tasks %}
@@ -37,7 +37,7 @@
                             </div> 
                             <!-- /To Do Tasks -->
                             <!-- In Progress Tasks -->
-                            <div class="col-4">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
                                 <h3>In Progress</h3>
                                 <p>Total tasks : {{progress_count}}</p>
                                 {% for task in progress_tasks %}
@@ -46,7 +46,7 @@
                             </div>
                             <!-- /In Progress Tasks -->
                             <!-- Done Tasks -->
-                            <div class="col-4">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
                                 <h3>Completed</h3>
                                 <p>Total tasks : {{completed_count}}</p>
                                 {% for task in completed_tasks %}

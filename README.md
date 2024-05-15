@@ -209,4 +209,5 @@ For removing the background from image: [remove bg](https://www.remove.bg/upload
 
 This awesome GeeksforGeeks page for helping to understand [CBV DeleteView](https://www.geeksforgeeks.org/deleteview-class-based-views-django/)
 
+For help understanding how to generate unique ids for the accordion elements using Django's [forloop.counter](https://stackoverflow.com/questions/1107737/numeric-for-loop-in-django-templates) in Stack Overflow and [Dev](https://dev.to/swesadiqul/activate-the-first-bootstrap-collapse-in-django-for-dynamic-data-3b22).
 # Acknowledgements

@@ -17,6 +17,7 @@ const taskNotesField = document.getElementById("id_notes");
 for (let button of edits){
     button.addEventListener('click', (e) => {
         let targetId = e.target.getAttribute("task_id");
+
         let targetName = document.getElementById(`name${targetId}`);
         let targetDueDate = document.getElementById(`due-date${targetId}`);
         let targetStatus = document.getElementById(`status${targetId}`);
@@ -25,13 +26,18 @@ for (let button of edits){
         
         // entire form element content
         // let taskContent = document.getElementById('body' + targetId).innerHTML;
-        taskNameField.value = targetName;
-        taskNotesField.value = targetNotes;
-        taskPriorityField.value = targetPriority;
-        taskStatusField.value = targetStatus;
-        taskDueDateField.value = targetDueDate;
+        taskNameField.value = targetName.innerHTML;
+        taskNotesField.value = targetNotes.innerHTML;
+        taskPriorityField.value = targetPriority.innerHTML;
+        taskStatusField.value = targetStatus.innerHTML;
+        taskDueDateField.value = targetDueDate.innerHTML;
         taskForm.setAttribute("action", `edit_task/${targetId}`);
 
-        document.getElementById(`modal${targetId}`).innerHTML = targetStatus;
+        // document.getElementById(`modal${targetId}`).value = taskStatusField;
     });
 }
+
+// Assuming each edit button has a data attribute like data-task-id="123"
+
+// let commentId = e.target.getAttribute("comment_id");
+//     deleteConfirm.href = `delete_comment/${commentId}`;

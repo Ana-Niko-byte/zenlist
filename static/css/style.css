@@ -126,4 +126,8 @@ a:hover{
     #container-scrum-row{
         flex-direction: column-reverse;
     }
+
+    #taskRowContainer{
+        flex-direction: column-reverse;
+    }
 }

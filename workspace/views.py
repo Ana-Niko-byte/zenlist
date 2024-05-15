@@ -1,9 +1,11 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
 from django.views.generic.edit import DeleteView
+from django.http import HttpResponseRedirect
 from django.utils.text import slugify
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+
 from django.db.models import Count
 from .models import Workspace, Task
 from .forms import WorkspaceForm, TaskForm
@@ -129,3 +131,28 @@ def update_ws_task(request, id):
         'edit_task_form': edit_task_form,
     }
     return render(request, 'workspace/update.html', context)
+
+def delete_ws_task(request, id):
+    """
+    A modal to delete a task.
+    """
+    task_for_deletion = get_object_or_404(Task, id=id)
+    if task_for_deletion.creator == request.user:
+        task_for_deletion.delete()
+        return redirect ('full_workspace', slug=task_for_deletion.workspace.slug)
+
+# def comment_delete(request, slug, comment_id):
+#     """
+#     view to delete comment
+#     """
+#     queryset = Post.objects.filter(status=1)
+#     post = get_object_or_404(queryset, slug=slug)
+#     comment = get_object_or_404(Comment, pk=comment_id)
+
+#     if comment.author == request.user:
+#         comment.delete()
+#         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+#     else:
+#         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
+#     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
