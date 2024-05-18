@@ -29,6 +29,14 @@ li a:hover,
     color: rgb(71, 71, 108);
 }
 
+.btn-delete{
+    background-color: white;
+}
+
+.btn-delete:hover{
+    background-color: rgb(236, 236, 236);
+}
+
 .active{
     background-color: rgb(152, 207, 255);
     border-radius: 5px;

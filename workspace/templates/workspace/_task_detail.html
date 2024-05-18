@@ -1,4 +1,6 @@
 {% load static %}
+{% load crispy_forms_tags %}
+
 <div class="accordion accordion-flush" id="taskDetailAccordion-{{task.id}}">
   <div class="accordion-item">
     <h2 class="accordion-header">
@@ -15,44 +17,70 @@
             {% if task.notes %}
             <p>Notes: {{task.notes | safe}}</p>
             {% endif %}
-            <!-- Button trigger modal -->
-            <!-- Not a form therefore does not need a form element. -->
-            <a href="{% url 'task_edit' task.id %}">
-              <button type="button" class="btn btn-edit btn-primary" data-task-id="{{task.id}}" id="taskEditSubmit" data-bs-toggle="modal" data-bs-target="#editModal{{task.id}}">
-                Edit Task
-              </button>
-            </a>
-            <button type="submit" data-task-id={{task.id}} class="btn btn-delete">
-              Delete
-            </button>
-            <!-- /Button trigger modal -->
-            <!-- include 'workspace/_modal.html' -->
-            <!-- Delete confirmation modal -->
+            <!-- Modal trigger buttons -->
+            <button type="button" data-task-id="{{task.id}}" 
+            data-edit-name="{{task.name}}" 
+            data-edit-notes="{{task.notes}}" 
+            data-edit-due-date="{{task.due_date}}"
+            data-edit-status="{{task.status}}"
+            data-edit-priority="{{task.priority}}" class="btn btn-edit">Edit Task</button>
+
+            <button type="button" data-task-id="{{task.id}}" class="btn btn-delete">Delete</button>
+            <!-- /Modal trigger buttons -->
         </div>
       </div>
       <!-- /Accordion Body. -->
-      <div class="modal fade" id="deleteModal" tabindex="-1"
-      aria-labelledby="deleteModalLabel" aria-hidden="true">
+
+      <!-- Edit Modal -->
+      <div class="modal fade" id="editModal" tabindex="-1"
+      aria-labelledby="editModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title"
-              id="deleteModalLabel">Delete Task?</h5>
+              id="editModalLabel">Editing '{{task.name}}'</h5>
             <button type="button" class="btn-close"
               data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            Are you sure you want to delete your task?
-            This action cannot be undone.
+            {% csrf_token %}
+            {{ task_form | crispy}}
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary"
               data-bs-dismiss="modal">Close</button>
-            <a id="deleteConfirm" href="{% url 'task_delete' task.workspace.slug task.id %}" class="btn
+            <a id="editConfirm" href="{% url 'task_edit' task.workspace.slug task.id %}" class="btn
               btn-danger">Delete</a>
           </div>
         </div>
       </div>
+    </div>
+      <!-- /Edit Modal -->
+
+      <!-- Delete Confirmation Modal -->
+      <div class="modal fade" id="deleteModal" tabindex="-1"
+        aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"
+                id="deleteModalLabel">Delete Task?</h5>
+              <button type="button" class="btn-close"
+                data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <em>Are you sure you want to delete your task?</em>
+              <p>You won't be able to recover it once it's deleted.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal">Close</button>
+              <a id="deleteConfirm" href="{% url 'task_delete' task.workspace.slug task.id %}" class="btn
+                btn-danger">Delete</a>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- /Delete Confirmation Modal -->
   </div>
 </div>

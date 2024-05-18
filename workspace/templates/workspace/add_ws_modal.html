@@ -9,18 +9,22 @@
 <div class="modal fade" id="addWorkspace" tabindex="-1" role="dialog" aria-labelledby="addWorkspaceTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="addWorkspaceLongTitle">Add a Workspace</h5>
+            <div class="modal-header d-flex align-items-start justify-content-center">
+            <h4 class="modal-title my-2" id="addWorkspaceLongTitle">Add a Workspace</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body my-2">
                 <div class="workspace-form">
                     <form id="workspaceForm" method="post">
-                    {{ workspace_form | crispy }}
                     {% csrf_token %}
+                    <div class="row mx-1 mb-3">
+                        <div class="col-md-8">
+                            {{ workspace_form | crispy }}
+                        </div>
+                    </div>
                     <div class="modal-footer d-flex justify-content-between">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nevermind!</button>
-                        <button type="submit" id="submitButton" class="btn btn-primary">Save Workspace</button>
+                        <button type="button" class="btn btn-secondary btn-danger" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" id="submitButton" class="btn btn-primary btn-warning">Save Workspace</button>
                     </div>
                     </form>
                 </div>

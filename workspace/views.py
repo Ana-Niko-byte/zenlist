@@ -10,6 +10,8 @@ from django.db.models import Count
 from .models import Workspace, Task
 from .forms import WorkspaceForm, TaskForm
 
+
+@login_required
 def workspace_detail(request, slug):
     """
     Display an individual instance of a workspace with tasks.
@@ -82,6 +84,7 @@ class WorkspaceListView(generic.ListView):
         data['ws_tasks'] = ws_tasks
         return data
     
+
     def post(self, request):
         """
         Handles the creation of a workspace via the provided form.
@@ -101,23 +104,26 @@ class WorkspaceListView(generic.ListView):
             # implement error handling here later.
         workspace_form = WorkspaceForm()
 
-class WorkspaceDeleteView(DeleteView):
-    """
-    Deletes a workspace. 
-    """
-    model = Workspace
-    # !!! Check routing for this template as it does not seem to appear. !!!
-    template_name = 'workspace/ws_confirm_delete.html'
-    success_url = 'spaces'
 
 @login_required
-def update_ws_task(request, id):
+def delete_ws(request, id):
+    """
+    FBV for deleting a workspace based on id retrieval. 
+    """
+    workspace = get_object_or_404(Workspace, id=id)
+    if workspace.creator == request.user:
+        workspace.delete()
+        return HttpResponseRedirect(reverse('spaces'))
+
+
+@login_required
+def update_ws_task(request, slug, id):
     """
     A view for updating the contents of an existing task. 
     This will be changed to a pop up modal to avoid the need for additional routing.
     """
     task_for_update = get_object_or_404(Task, id=id)
-
+    workspace = get_object_or_404(Workspace, slug=slug)
     if request.method == 'POST':
         edit_task_form = TaskForm(data=request.POST, instance=task_for_update)
         if edit_task_form.is_valid():
@@ -125,13 +131,10 @@ def update_ws_task(request, id):
             return redirect('full_workspace', slug=task_for_update.workspace.slug)
     else:
         edit_task_form = TaskForm(instance=task_for_update)
+    return HttpResponseRedirect(reverse('full_workspace', args=[slug]))
 
-    context = {
-        'task_for_update': task_for_update,
-        'edit_task_form': edit_task_form,
-    }
-    return render(request, 'workspace/update.html', context)
 
+@login_required
 def delete_ws_task(request, slug, id):
     """
     A modal to delete a task.
