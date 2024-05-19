@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
-from django.views.generic.edit import DeleteView
 from django.http import HttpResponseRedirect
 from django.utils.text import slugify
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+import datetime
 
 from django.db.models import Count
 from .models import Workspace, Task
@@ -67,7 +68,6 @@ class WorkspaceListView(generic.ListView):
     """
     model = Workspace
     template_name = 'workspace/ws_list.html'
-    context_object_name = 'spaces'
 
     def get_queryset(self):
         user_workspaces = Workspace.objects.filter(creator=self.request.user)
@@ -81,7 +81,13 @@ class WorkspaceListView(generic.ListView):
 
         # For information on annotate(), see README.
         ws_tasks = self.get_queryset().annotate(ws_task_count=Count('workspace_tasks'))
-        data['ws_tasks'] = ws_tasks
+        data['ws_tasks'] = ws_tasks.order_by('-created_on')
+
+        # Tasks that are due today
+        # filter=Q because of complex querying
+        due_tasks = self.get_queryset().annotate(
+             due_count=Count('workspace_tasks', filter=Q(workspace_tasks__due_date=datetime.date.today())))
+        data['due_tasks'] = due_tasks.order_by('-created_on')
         return data
     
 

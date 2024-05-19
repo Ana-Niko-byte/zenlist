@@ -1,32 +1,32 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-<div class="accordion accordion-flush" id="taskDetailAccordion-{{task.id}}">
+<div class="accordion accordion-flush" id="taskDetailAccordion-{{task.id}}" style="border-bottom: 1px dashed darkgrey;">
   <div class="accordion-item">
     <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-{{task.id}}" aria-expanded="true" aria-controls="panelsStayOpen-{{task.id}}">
-            <h5 class="content">{{task.name}}</h5>
+          <h5 class="content">{{task.name}}</h5>
         </button>
       </h2>
       <!-- Accordion Body. -->
       <div id="panelsStayOpen-{{task.id}}" class="accordion-collapse collapse">
         <div class="accordion-body">
-            <p>Due by : {{task.due_date}}</p>
-            <p>Status : {{task.status | safe}}</p>
-            <p>Priority : {{task.priority}}</p>
-            {% if task.notes %}
-            <p>Notes: {{task.notes | safe}}</p>
-            {% endif %}
-            <!-- Modal trigger buttons -->
-            <button type="button" data-task-id="{{task.id}}" 
-            data-edit-name="{{task.name}}" 
-            data-edit-notes="{{task.notes}}" 
-            data-edit-due-date="{{task.due_date}}"
-            data-edit-status="{{task.status}}"
-            data-edit-priority="{{task.priority}}" class="btn btn-edit">Edit Task</button>
+          <p>Due by : {{task.due_date}}</p>
+          <p>Status : {{task.status | safe}}</p>
+          <p>Priority : {{task.priority}}</p>
+          {% if task.notes %}
+          <p>Notes: {{task.notes | safe}}</p>
+          {% endif %}
+          <!-- Modal trigger buttons -->
+          <button type="button" data-task-id="{{task.id}}" 
+          data-edit-name="{{task.name}}" 
+          data-edit-notes="{{task.notes}}" 
+          data-edit-due-date="{{task.due_date}}"
+          data-edit-status="{{task.status}}"
+          data-edit-priority="{{task.priority}}" class="btn btn-edit">Edit Task   <i class="fa-solid fa-pen-to-square"></i></button>
 
-            <button type="button" data-task-id="{{task.id}}" class="btn btn-delete">Delete</button>
-            <!-- /Modal trigger buttons -->
+          <button type="button" data-task-id="{{task.id}}" class="btn btn-delete">Delete   <i class="fa-solid fa-trash"></i></button>
+          <!-- /Modal trigger buttons -->
         </div>
       </div>
       <!-- /Accordion Body. -->
@@ -43,8 +43,9 @@
               data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form id="taskFormModal" method="post">
             {% csrf_token %}
-            {{ task_form | crispy}}
+            {{ task_form | crispy }}
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary"

@@ -24,15 +24,15 @@ for (let button of deletes) {
 
 // Edit Functionality
 const edits = document.getElementsByClassName("btn-edit");
-// const taskForm = document.getElementById("taskFormModal");
+const taskForm = document.getElementById("taskFormModal");
 const editModal = new bootstrap.Modal(document.getElementById("editModal"));
 const editConfirm = document.getElementById("editConfirm");
 
-// const taskNameField = document.getElementById("id_name");
-// const taskDueDateField = document.getElementById("id_due_date");
-// const taskStatusField = document.getElementById("id_status");
-// const taskPriorityField = document.getElementById("id_priority");
-// const taskNotesField = document.getElementById("id_notes");
+const taskNameField = document.getElementById("id_name");
+const taskDueDateField = document.getElementById("id_due_date");
+const taskStatusField = document.getElementById("id_status");
+const taskPriorityField = document.getElementById("id_priority");
+const taskNotesField = document.getElementById("id_notes");
 
 /**
  * Iterates through all edit buttons and appends a 'click' event listener.
@@ -43,30 +43,21 @@ const editConfirm = document.getElementById("editConfirm");
  */
 for (let button of edits){
   button.addEventListener('click', (e) => {
-//     let editId = e.target.getAttribute("data-task-id");
-//     let targetName = e.target.getAttribute("data-edit-name");
-//     let targetDueDate = e.target.getAttribute("data-edit-due-date");
-//     let targetStatus = e.target.getAttribute("data-edit-status");
-//     let targetPriority = e.target.getAttribute("data-edit-priority");
-//     let targetNotes = e.target.getAttribute("data-edit-notes");
+    let editId = e.target.getAttribute("data-task-id");
+    let targetName = e.target.getAttribute("data-edit-name");
+    let targetDueDate = e.target.getAttribute("data-edit-due-date");
+    let targetStatus = e.target.getAttribute("data-edit-status");
+    let targetPriority = e.target.getAttribute("data-edit-priority");
+    let targetNotes = e.target.getAttribute("data-edit-notes");
 
-//     taskForm.setAttribute("action", `update-task/${editId}`);
-
-//     editConfirm.href = `update-task/${editId}`;
+    // taskForm.setAttribute("action", `update-task/${editId}`);
+    editConfirm.href = `update-task/${editId}`;
     
-//     taskNameField.value = targetName;
-//     taskNotesField.value = targetNotes;
-//     taskPriorityField.value = targetPriority;
-//     taskStatusField.value = targetStatus;
-//     taskDueDateField.value = targetDueDate;
-    // entire form element content
-    // let taskContent = document.getElementById('body' + targetId).innerHTML;
-    // taskNameField.value = targetName.innerHTML;
-    // taskNotesField.value = targetNotes.innerHTML;
-    // taskPriorityField.value = targetPriority.innerHTML;
-    // taskStatusField.value = targetStatus.innerHTML;
-    // taskDueDateField.value = targetDueDate.innerHTML;
-
+    taskNameField.value = targetName;
+    taskNotesField.value = targetNotes;
+    taskPriorityField.value = targetPriority;
+    taskStatusField.value = targetStatus;
+    taskDueDateField.value = targetDueDate;
     editModal.show()
   });
 }

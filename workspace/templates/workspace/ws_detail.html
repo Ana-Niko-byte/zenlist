@@ -13,8 +13,8 @@
                     <h4>Add a Task:</h4>
                     <form id="taskForm" method="post"
                     style="margin-top: 1.3em;">
-                    {{ task_form | crispy }}
                     {% csrf_token %}
+                    {{ task_form | crispy }}
                     <button id="submitButton" type="submit"
                         class="btn btn-signup btn-lg">Submit</button>
                     </form>
@@ -24,40 +24,42 @@
         <!-- /Form to create new tasks -->
         <!-- Existing tasks -->
         <div class="col-lg-9 col-md-12">
-            <div class="card">
-                <div class="card-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <h3>To Do</h3>
-                                <p>Total tasks : {{todo_count}}</p>
-                                {% for task in todo_tasks %}
-                                {% include 'workspace/_task_detail.html' with task=task id='todo{{forloop.counter}}' %}
-                                {% endfor %}
+                            <div class="col-lg-4 col-md-4 col-sm-12 p-1">
+                                <div class="col-12 task-box p-2">
+                                    <h3>To Do</h3>
+                                    <p>Total tasks : {{todo_count}}</p>
+                                    {% for task in todo_tasks %}
+                                    {% include 'workspace/_task_detail.html' with task=task id='todo{{forloop.counter}}' %}
+                                    {% endfor %}
+                                </div>
                             </div> 
                             <!-- /To Do Tasks -->
                             <!-- In Progress Tasks -->
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <h3>In Progress</h3>
-                                <p>Total tasks : {{progress_count}}</p>
-                                {% for task in progress_tasks %}
-                                {% include 'workspace/_task_detail.html' with task=task id='progress{{forloop.counter}}' %}
-                                {% endfor %}
+                            <div class="col-lg-4 col-md-4 col-sm-12 p-1">
+                                <div class="col-12 task-box p-2">
+                                    <h3>In Progress</h3>
+                                    <p>Total tasks : {{progress_count}}</p>
+                                    {% for task in progress_tasks %}
+                                    {% include 'workspace/_task_detail.html' with task=task id='progress{{forloop.counter}}' %}
+                                    {% endfor %}
+                                </div>
                             </div>
                             <!-- /In Progress Tasks -->
                             <!-- Done Tasks -->
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <h3>Completed</h3>
-                                <p>Total tasks : {{completed_count}}</p>
-                                {% for task in completed_tasks %}
-                                {% include 'workspace/_task_detail.html' with task=task id='complete{{forloop.counter}}' %}
-                                {% endfor %}
+                            <div class="col-lg-4 col-md-4 col-sm-12 p-1">
+                                <div class="col-12 task-box p-2">
+                                    <h3>Completed</h3>
+                                    <p>Total tasks : {{completed_count}}</p>
+                                    {% for task in completed_tasks %}
+                                    {% include 'workspace/_task_detail.html' with task=task id='complete{{forloop.counter}}' %}
+                                    {% endfor %}
+                                </div>
                             </div>
                             <!-- /Done Tasks -->
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
         <!-- /Existing tasks -->
     </div>

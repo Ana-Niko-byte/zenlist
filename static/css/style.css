@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 /* Colours */
 .jumbotron{
-    background-image: url("../images/image.png");
-    background-size: contain;
-    /* background-repeat: no-repeat; */
-    background-position: center;
+    background-image: url("../images/balance.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    min-height: 500px;
 }
 
 li a:hover, 
@@ -30,7 +32,9 @@ li a:hover,
 }
 
 .btn-delete{
-    background-color: white;
+    background-color: #ffffff;
+    padding: 10px 35px;
+    font-weight: 500;
 }
 
 .btn-delete:hover{
@@ -42,6 +46,14 @@ li a:hover,
     border-radius: 5px;
 }
 
+.white-text{
+    color: rgb(246, 246, 246);
+}
+
+.post-subtitle{
+    font-size: 10px;
+}
+
 /* Annotations & Makeshift Symbols */
 /* Used instead of .nav-item-line::after content due to height control. */
 .line{
@@ -51,14 +63,14 @@ li a:hover,
 }
 
 /* Branding */
-.navbar-brand{
-    font-size: 2rem;
-}
-
-.brand{
-    font-family: "Satisfy", cursive;
+body{
+    font-family: "Source Code Pro", monospace;
     font-weight: 400;
     font-style: normal;
+}
+
+.navbar-brand{
+    font-size: 2rem;
 }
 
 .authentication-button{
@@ -71,6 +83,19 @@ li a:hover,
 
 .authentication-button:hover{
     transform: scale(1.05);
+}
+
+.workspace-container{
+    border-bottom: 1px dashed darkgrey;
+    transition: all 0.2s ease;
+}
+
+.workspace-container:hover{
+    transform: scaleX(1.02);
+}
+
+.workspace-container a{
+    text-decoration: none;
 }
 
 /* UIUX */
@@ -89,12 +114,12 @@ li a:hover,
     border-radius: 50%;
 }
 
-a{
+.nav-link{
     transition: all 0.2s ease;
     text-decoration: none;
 }
 
-a:hover{
+.nav-link:hover{
     transform: scale(1.04);
 }
 
@@ -108,20 +133,61 @@ a:hover{
     font-size: 0.8rem;
 }
 
-.zenlist-review{
-    background-color: rgba(181, 210, 238, 0.2);
-    border-radius: 10px;
+.author-bio{
+    font-size: 0.9rem;
+}
+
+.author-industry{
+font-size: 0.6rem;
 }
 
 .star-rating{
     font-size: 2rem;
 }
 
+.breaker{
+    background-image: url("../images/office-chairs.jpg");
+    background-position: bottom;
+    background-repeat: none;
+    background-size: cover;
+    min-height: 350px;
+}
 
 .active-breadcrumb{
     text-decoration: underline;
 }
 
+.task-box{
+    min-height: 200px;
+}
+
+.analytics-card{
+    min-height: 500px;
+}
+
+.workspace-link{
+    color: #1b1b1b;
+    transition: all 0.4s ease;
+}
+
+.workspace-link:hover{
+    color: rgb(94, 0, 166);
+}
+
+.breadcrumb-link-nav{
+    text-decoration: none;
+    color:#1b1b1b;
+    transition: all 1s ease;
+}
+
+.breadcrumb-link-nav:hover{
+    color: purple;
+}
+
+.middle-line{
+    border-right: 1px dashed darkgrey;
+    min-height: 500px;
+}
 
 @media all and (max-width: 1200px){
     .zenlist-review{

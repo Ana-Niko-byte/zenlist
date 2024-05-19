@@ -1,34 +1,30 @@
 {% load static %}
 <!-- Reviews -->
 <div class="container">
-    <h2 class="text-center mt-2 mb-5">But Don't Just Take Our Word for it!</h2>
+    <h2 class="text-center mt-2 mb-5 brand"><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>   what our users say about us...</h2>
     <div class="row d-flex justify-content-around">
     {% for review in four_star %}
-
-    <div class="col-lg-3 col-md-6 col-sm-12 zenlist-review">
+    <div class="col-lg-3 col-md-6 col-sm-12 zenlist-review" style="border-top: 1px solid darkgrey;">
         <div class="author-summary p-3">
-
           <div class="author-review mb-3">
             <p class="star-rating">{{review.rating}}</p>
-            <i class="fa-solid fa-quote-left"></i>
             <div class="main-review-content d-flex align-items-start">
               <p>{{review.review | safe}}</p>
             </div>
-            <i class="fa-solid fa-quote-right"></i>
           </div>
 
-          <div class="author d-flex flex-column align-items-start justify-content-start">
-            <div class="author-profile d-flex align-items-start justify-content-start">
-                {% if "default_profile_image" in review.profile_image.url %}
-                <img class="card-img-top mx-3 profile-image" src="{% static 'images/default_profile_image.jpg' %}" alt="author profile image">
-                {% else %}
-                <img class="card-img-top mx-3 profile-image" src=" {{ review.profile_image.url }}" alt="author profile image">
-                {% endif %}
-                <div class="author-personal">
-                    <h5>{{review.author}}</h5>
-                    <p>Works in: {{review.job_industry}}</p>
-                    <!-- <span class="reviewed-time" style="color: lightslategray">reviewed <em>{{review.reviewed_on}}</em></span> -->
-                </div>
+          <div class="author d-flex align-items-start justify-content-end" styl="border: 1px solid blue;">
+            <div class="author-profile d-flex align-items-center justify-content-center">
+              {% if "default_profile_image" in review.profile_image.url %}
+              <img class="card-img-top mx-3 profile-image" src="{% static 'images/default_profile_image.jpg' %}" alt="author profile image">
+              {% else %}
+              <img class="card-img-top mx-3 profile-image" src=" {{ review.profile_image.url }}" alt="author profile image">
+              {% endif %}
+              <div class="author-personal">
+                  <h5 class="author-bio">{{review.author}}</h5>
+                  <p class="author-industry">industry: {{review.job_industry}}</p>
+                  <!-- <span class="reviewed-time" style="color: lightslategray">reviewed <em>{{review.reviewed_on}}</em></span> -->
+              </div>
             </div>
           </div>
 

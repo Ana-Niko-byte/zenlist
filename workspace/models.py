@@ -30,8 +30,8 @@ class Workspace(models.Model):
     title = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='creator')
-    created_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
+    created_on = models.DateField(auto_now_add=True)
+    updated_on = models.DateField(auto_now=True)
 
     class Meta:
         ordering=["-created_on"]
@@ -65,8 +65,8 @@ class Task(models.Model):
     priority = models.CharField(choices=PRIORITIES, null=False, default='MINOR')
     status = models.CharField(choices=STATUSES, default='TO-DO')
     due_date = models.DateField(default=datetime.date.today)
-    date_created = models.DateTimeField(default=datetime.datetime.now)
-    last_modified = models.DateTimeField(auto_now=True)
+    date_created = models.DateField(default=datetime.datetime.now)
+    last_modified = models.DateField(auto_now=True)
     updated = models.BooleanField(default=False)
 
     class Meta:

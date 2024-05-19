@@ -17,8 +17,8 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100 main-bg">
-    <nav class="navbar navbar-expand-sm px-2 py-3 mb-3">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-sm px-2 py-3">
+        <div class="container-fluid"  style="border-bottom: 1px solid darkgrey">
             <!-- Zenlist Logo and Home URL -->
             <a class="navbar-brand" href="{{ home_url }}"><span class="brand ps-3">Zenlist</span></a>
             <!-- Navbar item toggler -->
@@ -31,14 +31,14 @@
                 <div class="collapse navbar-collapse" id="navbarItems">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item px-1 d-flex align-items-end justify-content-center">
-                            <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="home-page"
+                            <a class="nav-link {% if request.path == home_url %}active{% endif %} brand" aria-current="home-page"
                                 href="{{ home_url }}">
                                 <i class="fa-solid fa-house mx-1"></i>Home
                             </a>
                         </li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item px-1 d-flex align-items-end justify-content-center">
-                            <a class="nav-link {% if request.path == workspace_url %}active{% endif %}" 
+                            <a class="nav-link {% if request.path == workspace_url %}active{% endif %} brand" 
                                 href="{{ workspace_url }}">
                                 <i class="fa-solid fa-rocket mx-1"></i>Your Workspaces
                             </a>
@@ -48,20 +48,20 @@
                         <!-- Logging In -->
                         {% if request.user.is_authenticated %}
                         <li class="nav-item px-1 d-flex align-items-end justify-content-center">
-                            <a class="nav-link btn {% if request.path == logout_url %}active{% endif %}" 
+                            <a class="nav-link btn {% if request.path == logout_url %}active{% endif %} brand" 
                                 href="{% url 'account_logout' %}">
                                 <i class="fa-solid fa-right-from-bracket mx-1"></i>Logout
                             </a>
                         </li>
                         {% else %}
                         <li class="nav-item px-1 d-flex align-items-end justify-content-center">
-                            <a class="nav-link btn {% if request.path == signup_url %}active{% endif %}" 
+                            <a class="nav-link btn {% if request.path == signup_url %}active{% endif %} brand" 
                                 href="{% url 'account_signup' %}">
                                 <i class="fa-solid fa-user-plus mx-1"></i>SignUp
                             </a>
                         </li>
                         <li class="nav-item px-1 d-flex align-items-end justify-content-center">
-                            <a class="nav-link btn {% if request.path == login_url %}active{% endif %}" 
+                            <a class="nav-link btn {% if request.path == login_url %}active{% endif %} brand" 
                                 href="{% url 'account_login' %}">
                                 <i class="fa-solid fa-right-to-bracket mx-1"></i>
                                 Login
@@ -107,7 +107,6 @@
                         <a class="nav-link btn px-2 text-body-secondary" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                 {% else %}
-                    <li class="nav-item-line"><div class="line"></div></li>
                     <li class="nav-item px-1">
                         <a class="nav-link btn px-2 text-body-secondary" href="{% url 'account_signup' %}">SignUp</a>
                     </li>
@@ -122,7 +121,7 @@
                 </li>
             </ul>
         </div>
-        <p class="text-center text-body-secondary">&copy; 2024 <span class="brand">Zenlist</span></p>
+        <p class="text-center text-body-secondary">&copy; 2024 Zenlist</span></p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/0bef6532fc.js" crossorigin="anonymous"></script>

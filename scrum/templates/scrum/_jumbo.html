@@ -1,22 +1,26 @@
 {% load static %}
-
-<div class="container-fluid jumbotron-full">
+<p class="brand mb-4 px-3"><i class="fa-solid fa-trophy"></i>   Ireland's No.1 Task Tracking Software.</p>
+<div class="container-fluid jumbotron-full mb-5">
   <div class="row">
     <div class="col-12">
-        <section class="callout jumbotron mb-4 py-5 text-center">
-            <h1 class="jumbo-heading text-center">Your Day. Your Way.</h1>
-            <h4 class="text-center">Welcome to Ireland's No.1 Task Tracking software.</h4>
+        <section class="callout jumbotron mb-4 py-5 d-flex flex-column justify-content-between">
+          <div class="main-jumbo mx-5 brand white-text">
+            <h1 class="jumbo-heading">Your Day. Your Way.</h1>
+            <h4>Welcome to Ireland's No.1 Task Tracking software.</h4>
             <em>Trusted by businesses. Loved by users.</em>
-              {% if request.user.is_authenticated %}
-                <p class="lead" style="padding-top: 30px;">Let's check your workspaces to make sure you're staying on top of your tasks!</p>
-                <a href="{{ workspace_url }}" class="direct-link"><button class="btn btn-info btn-lg">My Workspaces</button></a>
-              {% else %}
-                <p class="lead mt-5">Sign up/login today to stay on top of your day!</p>
-                <a class="nav-link btn mb-3" href="{% url 'account_signup' %}">
-                  <button class="btn btn-info btn-signUp btn-lg">Sign Up!</button>
-                </a>
-                <span>P.S. It's free. ;)</span>
-              {% endif %} 
+          </div>
+          <div class="message-jumbo mx-5 brand white-text">
+            {% if request.user.is_authenticated %}
+            <p class="lead">Check your spaces to make sure you're staying on top of your tasks!</p>
+            <a href="{{ workspace_url }}" class="direct-link"><button class="btn btn-warning btn-lg">My Workspaces   <i class="fa-solid fa-door-open"></i></button></a>
+            {% else %}
+            <p class="lead mt-5">Sign up/login today to stay on top of your day!</p>
+            <a class="nav-link btn mb-3" href="{% url 'account_signup' %}">
+              <button class="btn btn-info btn-signUp btn-lg">Sign Up!</button>
+            </a>
+            <span>P.S. It's free. ;)</span>
+          {% endif %} 
+          </div>
         </section>
     </div>
 </div>

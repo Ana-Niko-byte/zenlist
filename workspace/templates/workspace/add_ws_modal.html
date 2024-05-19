@@ -1,35 +1,37 @@
 {% load crispy_forms_tags %}
-<!-- Button trigger modal -->
-<button id="workspaceModal" type="button" class="btn btn-lg btn-warning" data-bs-toggle="modal" data-bs-target="#addWorkspace">
-    Add Workspace
-</button>
-<!-- /Button trigger modal -->
+<div class="container d-flex justify-content-end mx-0">
+    <!-- Button trigger modal -->
+    <button id="workspaceModal" type="button" class="btn btn-lg btn-warning" data-bs-toggle="modal" data-bs-target="#addWorkspace">
+        Add Workspace   <i class="fa-solid fa-plus"></i>
+    </button>
+    <!-- /Button trigger modal -->
 
-<!-- Modal -->
-<div class="modal fade" id="addWorkspace" tabindex="-1" role="dialog" aria-labelledby="addWorkspaceTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header d-flex align-items-start justify-content-center">
-            <h4 class="modal-title my-2" id="addWorkspaceLongTitle">Add a Workspace</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body my-2">
-                <div class="workspace-form">
-                    <form id="workspaceForm" method="post">
-                    {% csrf_token %}
-                    <div class="row mx-1 mb-3">
-                        <div class="col-md-8">
-                            {{ workspace_form | crispy }}
+    <!-- Modal -->
+    <div class="modal fade" id="addWorkspace" tabindex="-1" role="dialog" aria-labelledby="addWorkspaceTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-start justify-content-center">
+                <h4 class="modal-title my-2" id="addWorkspaceLongTitle">Add a Workspace</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body my-2">
+                    <div class="workspace-form">
+                        <form id="workspaceForm" method="post">
+                        {% csrf_token %}
+                        <div class="row mx-1 mb-3">
+                            <div class="col-md-8">
+                                {{ workspace_form | crispy }}
+                            </div>
                         </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary btn-danger" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" id="submitButton" class="btn btn-primary btn-warning">Save Workspace</button>
+                        </div>
+                        </form>
                     </div>
-                    <div class="modal-footer d-flex justify-content-between">
-                        <button type="button" class="btn btn-secondary btn-danger" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" id="submitButton" class="btn btn-primary btn-warning">Save Workspace</button>
-                    </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Modal -->
 </div>
-<!-- Modal -->

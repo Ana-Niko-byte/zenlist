@@ -2,62 +2,66 @@
 {% load static %}
 
 {% if user_workspaces %}
-<div class="container">
-    <div class="row d-flex align-items-start justify-content-center">
-        <!-- Workspace form. -->
-        <div class="col-sm-12 col-md-6 col-lg-4">
-            {% include 'workspace/_task_analytics.html' %}
+<div class="container mt-5">
+  <div class="row d-flex align-items-start justify-content-between">
+      <div class="col-sm-12 col-md-4 col-lg-4">
+        {% include 'workspace/_task_analytics.html' %}
+      </div>
+      <div class="spacer col-sm-12 col-md-2 col-lg-1 d-flex justify-content-center">
+        <div class="middle-line"></div>
+      </div>
+      <!-- A list of registered user workspaces. -->
+      <div class="col-sm-12 col-md-6 col-lg-7">
+        <div class="analytic-intro d-flex flex-row align-items-center">
+          <h2 class="mb-4"><i class="fa-solid fa-user-astronaut fa-sm mx-3"></i>Your spaces</h2>
+          <br>
         </div>
-        <!-- /Workspace form. -->
-        <!-- A list of registered user workspaces. -->
-        <div class="col-sm-12 col-md-6 col-lg-8">
-
-            {% for space in spaces %}
-            <!-- Takes the user into the full workspace view. -->
-            <div class="workspace-container d-flex align-items-center mb-4 p-3 direct-link" style="background-color: rgb(241, 241, 241); border-radius: 10px;">
-                <a href="{% url 'full_workspace' space.slug %}" class="col-sm-12 col-md-6 col-lg-10 direct-link">
-                    <h3 class="post-title">{{ space.title }}</h3>
-                    <p class="post-subtitle"> last modified: {{ space.updated_on }}</p>
-                </a>
-
-                <!-- Delete workspace button -->
-                <button type="button" data-workspace-id={{space.id}} class="btn btn-delete">
-                  Delete
-                </button>
-                <!-- /Delete workspace button -->
-            </div>
-            <!-- Code Institute Bootstrap Delete Modal -->
-            <div class="modal fade" id="deleteWorkspaceModal" tabindex="-1"
-            aria-labelledby="deleteModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title"
-                    id="deleteWorkspaceModalLabel">Delete Workspace</h5>
-                  <button type="button" class="btn-close"
-                    data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <em>Are you sure you want to delete your workspace?</em>
-                  <p>You won't be able to recover it once it's deleted.</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary"
-                    data-bs-dismiss="modal">
-                    Close
-                  </button>
-                  <a id="deleteWorkspaceConfirm" href="{% url 'delete_workspace' space.id %}" class="btn
-                  btn-danger">Delete '{{space.title}}'</a>
-                </div>
-              </div>
-            </div>
-            </div>
-            <!-- /Code Institute Bootstrap Delete Modal -->
-            {% endfor %}
-
-            {% include 'workspace/add_ws_modal.html' %}
+        {% for space in ws_tasks %}
+        <!-- Takes the user into the full workspace view. -->
+        <div class="workspace-container d-flex align-items-end justify-content-center mb-4 px-3 py-2">
+            <a href="{% url 'full_workspace' space.slug %}" class="col-sm-12 col-md-6 col-lg-10 workspace-link">
+              <h4 class="post-title">{{ space.title }}</h4>
+              <p>Total tasks: {{space.ws_task_count}}</p>
+              <!-- !!! Does not update !!! -->
+              <em class="post-subtitle"> last modified: {{ space.updated_on }}</em>
+            </a>
+            <!-- Delete workspace button -->
+            <button type="button" data-workspace-id={{space.id}} class="btn btn-delete d-flex flex-row align-items-center justify-content-center">
+            <i class="fa-solid fa-trash px-2"></i>   Delete
+            </button>
+            <!-- /Delete workspace button -->
         </div>
-    </div>
+        <!-- Code Institute Bootstrap Delete Modal -->
+        <div class="modal fade" id="deleteWorkspaceModal" tabindex="-1"
+        aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"
+                id="deleteWorkspaceModalLabel">Delete Workspace</h5>
+              <button type="button" class="btn-close"
+                data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <em>Are you sure you want to delete your workspace?</em>
+              <p>You won't be able to recover it once it's deleted.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal">
+                Close
+              </button>
+              <a id="deleteWorkspaceConfirm" href="{% url 'delete_workspace' space.id %}" class="btn
+              btn-danger">Delete '{{space.title}}'</a>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- /Code Institute Bootstrap Delete Modal -->
+        {% endfor %}
+        {% include 'workspace/add_ws_modal.html' %}
+      </div>
+  </div>
 </div>
 <!-- /A list of registered user workspaces. -->
 
