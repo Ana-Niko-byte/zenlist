@@ -9,6 +9,9 @@ class WorkspaceForm(forms.ModelForm):
         model = Workspace
         fields = ('title',)
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class TaskForm(forms.ModelForm):
     """
     A form for handling Task additions to a workspace.
@@ -16,3 +19,5 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ('name', 'notes', 'status', 'priority', 'due_date',)
+        # See README for widget code.
+        widgets = {'due_date': DateInput()}

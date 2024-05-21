@@ -93,8 +93,8 @@ class Review(models.Model):
     """
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviewer")
     profile_image = CloudinaryField('image', default='default_profile_image')
-    job_industry = models.TextField(choices=INDUSTRY, default='other')
-    rating = models.TextField(choices=STARS, default='no rating')
+    job_industry = models.CharField(choices=INDUSTRY, default='other')
+    rating = models.CharField(choices=STARS, default='no rating', max_length=5)
     review = models.TextField()
     reviewed_on = models.DateTimeField(auto_now_add=True)
 

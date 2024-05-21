@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
 from django.http import HttpResponseRedirect
 from django.utils.text import slugify
+# For Timezone Support
+from django.utils import timezone
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -86,7 +88,7 @@ class WorkspaceListView(generic.ListView):
         # Tasks that are due today
         # filter=Q because of complex querying
         due_tasks = self.get_queryset().annotate(
-             due_count=Count('workspace_tasks', filter=Q(workspace_tasks__due_date=datetime.date.today())))
+             due_count=Count('workspace_tasks', filter=Q(workspace_tasks__due_date=timezone.now().date())))
         data['due_tasks'] = due_tasks.order_by('-created_on')
         return data
     

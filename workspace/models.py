@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-import datetime
+from django.utils import timezone
 
 STATUSES = (
     ('To Do', 'To Do'),
@@ -62,10 +62,10 @@ class Task(models.Model):
     notes = models.TextField(blank=True, default='')
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='task_creator')
     workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE, related_name='workspace_tasks')
-    priority = models.CharField(choices=PRIORITIES, null=False, default='MINOR')
-    status = models.CharField(choices=STATUSES, default='TO-DO')
-    due_date = models.DateField(default=datetime.date.today)
-    date_created = models.DateField(default=datetime.datetime.now)
+    priority = models.CharField(choices=PRIORITIES, max_length=15, default='Minor')
+    status = models.CharField(choices=STATUSES, max_length=15, default='To Do')
+    due_date = models.DateField(default=timezone.now)
+    date_created = models.DateField(auto_now_add=True)
     last_modified = models.DateField(auto_now=True)
     updated = models.BooleanField(default=False)
 
