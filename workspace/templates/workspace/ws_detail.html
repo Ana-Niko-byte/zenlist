@@ -10,13 +10,12 @@
         <div class="col-lg-3 col-md-12">
             <div class="card">
                 <div class="card-body mx-2 my-2">
-                    <h4>Add a Task:</h4>
-                    <form id="taskForm" method="post"
-                    style="margin-top: 1.3em;">
+                    <h4><i class="fa-solid fa-plus"></i>   Add Task</h4>
+                    <form id="taskForm" method="post" action="">
                     {% csrf_token %}
                     {{ task_form | crispy }}
                     <button id="submitButton" type="submit"
-                        class="btn btn-signup btn-lg">Submit</button>
+                        class="btn btn-lg btn-warning">Submit   <i class="fa-solid fa-arrow-right"></i></button>
                     </form>
                 </div>
             </div>
@@ -27,7 +26,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12 p-1">
-                                <div class="col-12 task-box p-2">
+                                <div class="col-12 task-box p-4">
                                     <h3>To Do</h3>
                                     <p>Total tasks : {{todo_count}}</p>
                                     {% for task in todo_tasks %}
@@ -38,7 +37,7 @@
                             <!-- /To Do Tasks -->
                             <!-- In Progress Tasks -->
                             <div class="col-lg-4 col-md-4 col-sm-12 p-1">
-                                <div class="col-12 task-box p-2">
+                                <div class="col-12 task-box p-4">
                                     <h3>In Progress</h3>
                                     <p>Total tasks : {{progress_count}}</p>
                                     {% for task in progress_tasks %}
@@ -49,7 +48,7 @@
                             <!-- /In Progress Tasks -->
                             <!-- Done Tasks -->
                             <div class="col-lg-4 col-md-4 col-sm-12 p-1">
-                                <div class="col-12 task-box p-2">
+                                <div class="col-12 task-box p-4">
                                     <h3>Completed</h3>
                                     <p>Total tasks : {{completed_count}}</p>
                                     {% for task in completed_tasks %}
@@ -64,8 +63,6 @@
         <!-- /Existing tasks -->
     </div>
 </div>
-
-
 
 {% else %}
     <p>Please<a class="nav-link btn px-2 text-body-secondary" href="{% url 'account_signup' %}">SignUp</a>to view your workspaces!</p>

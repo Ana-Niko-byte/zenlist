@@ -3,6 +3,7 @@
 /* Colours */
 .jumbotron{
     background-image: url("../images/balance.jpg");
+    background-color: #1b1b1b;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -33,7 +34,6 @@ li a:hover,
 
 .btn-delete{
     background-color: #ffffff;
-    padding: 10px 35px;
     font-weight: 500;
 }
 
@@ -184,11 +184,66 @@ font-size: 0.6rem;
     color: purple;
 }
 
-.middle-line{
-    border-right: 1px dashed darkgrey;
-    min-height: 500px;
+.bb-grey{
+    border-bottom: 1px dashed darkgrey;
 }
 
+.critical{
+    background-color: red;
+}
+
+.major{
+    background-color: orange;
+}
+
+.minor{
+    background-color: rgb(255, 200, 0);
+}
+
+.nice{
+    background-color: green;
+}
+
+.priority-indicator{
+    width:15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Bootstrap Overrides */
+.accordion-button:not(.collapsed){
+    background-color: #ffffff;
+    box-shadow: none;
+}
+
+.accordion-button:focus{
+    box-shadow: none;
+}
+
+.nav-link-items{
+    width: 100%;
+}
+
+a .social-icon{
+    color:rgb(27, 27, 27);
+}
+
+.task-box{
+    background-color: rgb(241, 241, 241);
+    min-height: 250px;
+    border-radius: 10px;
+}
+
+.task-notes{
+    font-size: 14px;
+}
+
+.red-font{
+    color: rgb(173, 0, 0);
+}
+
+/* Media Queries */
 @media all and (max-width: 1200px){
     .zenlist-review{
         /* check later if needed */
@@ -203,5 +258,17 @@ font-size: 0.6rem;
 
     #taskRowContainer{
         flex-direction: column-reverse;
+    }
+}
+
+@media all and (max-width: 760px){
+    .nav-item{
+        justify-items: start;
+        border-top: 1px solid lightgrey;
+        padding: 10px 0;
+    }
+
+    .navbar{
+        padding: 0 20px;
     }
 }

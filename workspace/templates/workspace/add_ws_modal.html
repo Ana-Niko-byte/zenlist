@@ -1,5 +1,5 @@
 {% load crispy_forms_tags %}
-<div class="container d-flex justify-content-end mx-0">
+<div class="container d-flex justify-content-end">
     <!-- Button trigger modal -->
     <button id="workspaceModal" type="button" class="btn btn-lg btn-warning" data-bs-toggle="modal" data-bs-target="#addWorkspace">
         Add Workspace   <i class="fa-solid fa-plus"></i>
@@ -11,23 +11,19 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header d-flex align-items-start justify-content-center">
-                <h4 class="modal-title my-2" id="addWorkspaceLongTitle">Add a Workspace</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h4 class="modal-title my-2" id="addWorkspaceLongTitle">💫 Add a Workspace 💫</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body my-2">
+                <div class="modal-body text-center my-2">
                     <div class="workspace-form">
-                        <form id="workspaceForm" method="post">
+                        <form id="workspaceForm" class="mb-4" method="post">
                         {% csrf_token %}
-                        <div class="row mx-1 mb-3">
-                            <div class="col-md-8">
-                                {{ workspace_form | crispy }}
-                            </div>
-                        </div>
-                        <div class="modal-footer d-flex justify-content-between">
-                            <button type="button" class="btn btn-secondary btn-danger" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" id="submitButton" class="btn btn-primary btn-warning">Save Workspace</button>
-                        </div>
+                        {{ workspace_form | crispy }}
                         </form>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary btn-danger" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i>  Cancel</button>
+                            <button type="submit" id="submitButton" class="btn btn-primary btn-warning"><i class="fa-regular fa-circle-check"></i>  Save Workspace</button>
+                        </div>
                     </div>
                 </div>
             </div>

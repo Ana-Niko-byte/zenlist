@@ -1,0 +1,25 @@
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1"
+aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title"
+        id="deleteModalLabel">Delete '{{task.name}}'?</h5>
+      <button type="button" class="btn-close"
+        data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <p class="red-font mb-3">Are you sure you want to delete this task?</p>
+      <p>You won't be able to recover it once it's deleted.</p>
+    </div>
+    <div class="modal-footer d-flex justify-content-between">
+      <button type="button" class="btn btn-secondary"
+        data-bs-dismiss="modal">Cancel   <i class="fa-solid fa-xmark"></i></button>
+      <a id="deleteConfirm" href="{% url 'task_delete' task.workspace.slug task.id %}" class="btn
+        btn-danger">Delete Task   <i class="fa-solid fa-trash"></i></a>
+    </div>
+  </div>
+</div>
+</div>
+<!-- /Delete Confirmation Modal -->

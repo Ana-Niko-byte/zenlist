@@ -24,40 +24,48 @@ for (let button of deletes) {
 
 // Edit Functionality
 const edits = document.getElementsByClassName("btn-edit");
-const taskForm = document.getElementById("taskFormModal");
-const editModal = new bootstrap.Modal(document.getElementById("editModal"));
-const editConfirm = document.getElementById("editConfirm");
 
 const taskNameField = document.getElementById("id_name");
-const taskDueDateField = document.getElementById("id_due_date");
+const taskNotesField = document.getElementById("id_notes");
 const taskStatusField = document.getElementById("id_status");
 const taskPriorityField = document.getElementById("id_priority");
-const taskNotesField = document.getElementById("id_notes");
+const taskDateField = document.getElementById("id_due_date");
+
+const form = document.getElementById("taskForm");
+const submit = document.getElementById("submitButton");
 
 /**
  * Iterates through all edit buttons and appends a 'click' event listener.
- * targetId : retrieves the id of the task that has been clicked on.
- * taskContent : retrieves the innerHTML of the task. 
+ * taskId : retrieves the id of the task that has been clicked.
+ * task- : retrieves the value of the 'data--' attributes attached to the edit button.
  * 
- * At the moment, the innerHTML gets put into the modal body and cannot be edited directly.
+ * Formats the date value returned from attribute: data-edit-date to the ISO recognised format in HTML YYYY-mm-dd.
+ * Assigns retrieved attributes to the values of the relevant form fields.
+ * 
+ * Changes the innerHTML of the Submit button to reflect the change in form action. 
+ * Dynamically sets the form's action to the URL section defined in URLs.py.
  */
-for (let button of edits){
-  button.addEventListener('click', (e) => {
-    let editId = e.target.getAttribute("data-task-id");
-    let targetName = e.target.getAttribute("data-edit-name");
-    let targetDueDate = e.target.getAttribute("data-edit-due-date");
-    let targetStatus = e.target.getAttribute("data-edit-status");
-    let targetPriority = e.target.getAttribute("data-edit-priority");
-    let targetNotes = e.target.getAttribute("data-edit-notes");
+for (let editButton of edits){
+  editButton.addEventListener("click", (e) => {
+    // Retrieve taskId for updating
+    let taskId = e.target.getAttribute("task_id");
 
-    // taskForm.setAttribute("action", `update-task/${editId}`);
-    editConfirm.href = `update-task/${editId}`;
-    
-    taskNameField.value = targetName;
-    taskNotesField.value = targetNotes;
-    taskPriorityField.value = targetPriority;
-    taskStatusField.value = targetStatus;
-    taskDueDateField.value = targetDueDate;
-    editModal.show()
+    let taskName = e.target.getAttribute("data-edit-name");
+    let taskNotes = e.target.getAttribute("data-edit-notes");
+    let taskPriority = e.target.getAttribute("data-edit-priority");
+    let taskStatus = e.target.getAttribute("data-edit-status");
+    let taskDate = e.target.getAttribute("data-edit-date");
+
+    let date = new Date(taskDate);
+    let actualDate = date.toISOString().split('T')[0]
+
+    taskNameField.value = taskName;
+    taskNotesField.value = taskNotes;
+    taskStatusField.value = taskStatus;
+    taskPriorityField.value = taskPriority;
+    taskDateField.value = actualDate;
+
+    submit.innerText = "Update My Task";
+    form.setAttribute("action", `update-task/${taskId}`);
   });
 }

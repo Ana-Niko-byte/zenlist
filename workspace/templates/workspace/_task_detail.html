@@ -1,87 +1,44 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-<div class="accordion accordion-flush" id="taskDetailAccordion-{{task.id}}" style="border-bottom: 1px dashed darkgrey;">
+<div class="accordion accordion-flush bb-grey" id="taskDetailAccordion-{{task.id}}">
   <div class="accordion-item">
     <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-{{task.id}}" aria-expanded="true" aria-controls="panelsStayOpen-{{task.id}}">
-          <h5 class="content">{{task.name}}</h5>
-        </button>
-      </h2>
-      <!-- Accordion Body. -->
-      <div id="panelsStayOpen-{{task.id}}" class="accordion-collapse collapse">
-        <div class="accordion-body">
-          <p>Due by : {{task.due_date}}</p>
-          <p>Status : {{task.status | safe}}</p>
-          <p>Priority : {{task.priority}}</p>
-          {% if task.notes %}
-          <p>Notes: {{task.notes | safe}}</p>
-          {% endif %}
-          <!-- Modal trigger buttons -->
-          <button type="button" data-task-id="{{task.id}}" 
-          data-edit-name="{{task.name}}" 
-          data-edit-notes="{{task.notes}}" 
-          data-edit-due-date="{{task.due_date}}"
-          data-edit-status="{{task.status}}"
-          data-edit-priority="{{task.priority}}" class="btn btn-edit">Edit Task   <i class="fa-solid fa-pen-to-square"></i></button>
-
-          <button type="button" data-task-id="{{task.id}}" class="btn btn-delete">Delete   <i class="fa-solid fa-trash"></i></button>
-          <!-- /Modal trigger buttons -->
-        </div>
-      </div>
-      <!-- /Accordion Body. -->
-
-      <!-- Edit Modal -->
-      <div class="modal fade" id="editModal" tabindex="-1"
-      aria-labelledby="editModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title"
-              id="editModalLabel">Editing '{{task.name}}'</h5>
-            <button type="button" class="btn-close"
-              data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="taskFormModal" method="post">
-            {% csrf_token %}
-            {{ task_form | crispy }}
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary"
-              data-bs-dismiss="modal">Close</button>
-            <a id="editConfirm" href="{% url 'task_edit' task.workspace.slug task.id %}" class="btn
-              btn-danger">Delete</a>
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-{{task.id}}" aria-expanded="true" aria-controls="panelsStayOpen-{{task.id}}">
+        <h6 class="content d-flex align-items-center justify-content-center">
+          <div class="priority-indicator {% if task.priority == 'Critical' %}critical {% elif task.priority == 'Minor' %}minor{% elif task.priority == 'Major' %}major{% elif task.priority == 'Nice to have!' %}nice{% endif %}"></div>
+          {{task.name}}
+        </h6>
+      </button>
+    </h2>
+    <!-- Accordion Body. -->
+    <div id="panelsStayOpen-{{task.id}}" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        <p>Due by : {{task.due_date}}</p>
+        <!-- <p>Priority : {{task.priority}}</p> -->
+        {% if task.notes %}
+        <p class="task-notes">Notes: {{task.notes | safe}}</p>
+        {% endif %}
+        <!-- Modal trigger buttons -->
+        <div class="container button-container mt-4">
+          <div class="row d-flex flex-column align-items-center justify-content-center">
+            <button type="submit" class="btn btn-warning btn-edit col-12" task_id="{{task.id}}"
+            data-edit-name="{{task.name}}"
+            data-edit-notes="{{task.notes}}"
+            data-edit-status="{{task.status}}"
+            data-edit-priority="{{task.priority}}"
+            data-edit-date="{{task.due_date}}">Edit Task   <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button type="button" data-task-id="{{task.id}}" class="btn btn-info btn-delete col-12">Delete   <i class="fa-solid fa-trash"></i></button>
           </div>
         </div>
+        <!-- /Modal trigger buttons -->
       </div>
     </div>
-      <!-- /Edit Modal -->
+    <!-- /Accordion Body. -->
 
       <!-- Delete Confirmation Modal -->
-      <div class="modal fade" id="deleteModal" tabindex="-1"
-        aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title"
-                id="deleteModalLabel">Delete Task?</h5>
-              <button type="button" class="btn-close"
-                data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <em>Are you sure you want to delete your task?</em>
-              <p>You won't be able to recover it once it's deleted.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary"
-                data-bs-dismiss="modal">Close</button>
-              <a id="deleteConfirm" href="{% url 'task_delete' task.workspace.slug task.id %}" class="btn
-                btn-danger">Delete</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      {% include 'workspace/_delete_task_modal.html' with task=task %}
       <!-- /Delete Confirmation Modal -->
   </div>
 </div>

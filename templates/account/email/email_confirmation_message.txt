@@ -4,4 +4,5 @@
 
 {% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
 Click on the button below to verify your email!
+
 {% endblocktrans %}{% endautoescape %}{% endblock content %}

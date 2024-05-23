@@ -14,9 +14,6 @@ from pathlib import Path
 import os
 import sys
 import dj_database_url
-import logging
-
-logging.basicConfig(level=logging.DEBUG)
 
 if os.path.isfile('env.py'):
     import env

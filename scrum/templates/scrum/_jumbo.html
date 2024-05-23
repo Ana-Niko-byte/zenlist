@@ -1,5 +1,4 @@
 {% load static %}
-<p class="brand mb-4 px-3"><i class="fa-solid fa-trophy"></i>   Ireland's No.1 Task Tracking Software.</p>
 <div class="container-fluid jumbotron-full mb-5">
   <div class="row">
     <div class="col-12">
@@ -15,8 +14,8 @@
             <a href="{{ workspace_url }}" class="direct-link"><button class="btn btn-warning btn-lg">My Workspaces   <i class="fa-solid fa-door-open"></i></button></a>
             {% else %}
             <p class="lead mt-5">Sign up/login today to stay on top of your day!</p>
-            <a class="nav-link btn mb-3" href="{% url 'account_signup' %}">
-              <button class="btn btn-info btn-signUp btn-lg">Sign Up!</button>
+            <a class="nav-link btn mb-3 d-flex justify-content-start" href="{% url 'account_signup' %}">
+              <button class="btn btn-info btn-signUp btn-lg"><i class="fa-solid fa-user-plus mx-1"></i>   Sign Up!</button>
             </a>
             <span>P.S. It's free. ;)</span>
           {% endif %} 
