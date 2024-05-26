@@ -15,10 +15,10 @@
       {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
       {% endif %}
-      <a href="{{ home_url }}">
-        <button class="my-5 mx-2 authentication-button" type="button">Cancel</button>
+      <a href="{{ home_url }}" class="direct-link">
+        <button class="btn btn-warning authentication-button my-5 mx-2" type="button">Cancel</button>
       </a>
-      <button class="primaryAction my-5 mx-2 authentication-button" type="submit" 
+      <button class="btn btn-warning authentication-button my-5 mx-2" type="submit" 
       data-toggle="tooltip" data-placement="bottom" title="Promise you'll come back? 🥺">
       {% trans 'Sign Out' %}
       </button>

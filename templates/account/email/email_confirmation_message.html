@@ -13,8 +13,8 @@
     <p>{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
     Click on the button below to verify your email!
     {% endblocktrans %}</p>
-    <p>
-        <a href="{{ activate_url }}" class="btn btn-warning my-3 p-2">Verify Email</a>
-    </p>
+    <a href="{{ activate_url }}" class="btn btn-warning my-3 p-2">
+        <button>Verify Email</button>
+    </a>
 </body>
 </html>

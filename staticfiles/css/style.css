@@ -34,7 +34,6 @@ li a:hover,
 
 .btn-delete{
     background-color: #ffffff;
-    padding: 10px 35px;
     font-weight: 500;
 }
 
@@ -242,6 +241,21 @@ a .social-icon{
 
 .red-font{
     color: rgb(173, 0, 0);
+}
+
+.already-account{
+    font-size: 1rem;
+}
+
+#signup_form ul{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: start;
+}
+
+#signup_form ul li{
+    font-size: 0.7rem;
+    color: rgb(177, 177, 177);
 }
 
 /* Media Queries */

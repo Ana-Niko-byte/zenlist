@@ -9,6 +9,10 @@ class WorkspaceForm(forms.ModelForm):
     class Meta:
         model = Workspace
         fields = ('title',)
+        labels = {
+            'title' : 'Workspace Title: '
+        }
+    
 
 
 class DateInput(forms.DateInput):

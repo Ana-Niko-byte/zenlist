@@ -1,5 +1,6 @@
 {% load static %}
 {% url 'hello' as home_url %}
+{% url 'contact' as contact_url %}
 {% url 'spaces' as workspace_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
@@ -34,6 +35,12 @@
                         <a class="nav-link {% if request.path == home_url %}active{% endif %} brand" aria-current="home-page"
                             href="{{ home_url }}">
                             <i class="fa-solid fa-house mx-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link {% if request.path == contact_url %}active{% endif %} brand" aria-current="home-page"
+                            href="{{ contact_url }}">
+                            <i class="fa-solid fa-fingerprint mx-1"></i>Contact
                         </a>
                     </li>
                     {% if request.user.is_authenticated %}
@@ -101,6 +108,7 @@
         <div class="navbar-nav container-fluid container-top justify-content-center align-items-center border-bottom p-3">
             <ul class="nav">
                 <li class="nav-item"><a href="{{ home_url }}" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="{{ contact_url }}" class="nav-link px-2 text-body-secondary">Contact</a></li>
                 <li class="nav-item"><a href="{{ workspace_url }}" class="nav-link px-2 text-body-secondary">Your Workspaces</a></li>
                 {% if request.user.is_authenticated %}
                     <li class="nav-item px-1">

@@ -4,7 +4,7 @@
 The application is available for viewing [here](https://zenlist-b604919b54d1.herokuapp.com/).
 
 ## A Little Bit About Zenlist
-Zenlist is designed to provide an easy and quick way of organising and managing day-to-day tasks in different environments. Complete with organise-by-environment functionality, time-tracking, and alerts for upcoming tasks, zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay up to date on their day. 
+Zenlist is a task-tracking Django application, designed to provide users an easy and quick way of organising and managing day-to-day tasks for different environments. With filtering by space, by priority, by due date, and email alerts, zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay on top of their day.
 
 # Business/Social Goals
 - Allow for organisation/categorisation of assets in a clear system (user-created environments) to make the platform easily accessible and understandable.
@@ -13,15 +13,16 @@ Zenlist is designed to provide an easy and quick way of organising and managing 
 
 - Set up a visual alert for tasks approaching due date. 
 
-- Set up email alerts for personalised experiences and functional reminders. 
+- Set up email reminders for tasks approaching due date for a catered experience.
 
-- Set up an email alert for registration.
+- Set up an email alert for registration and account authentication.
 
-- As a certified Scrum Master II, spread knowledge of the scrum framework and explain how this framework benefits workplaces and personal time-management. Add links to relevant medias and opensource documents. 
+- Spread knowledge of the Scrum framework and explain how this framework benefits workplaces and personal time-management. Add links to relevant medias and opensource documents. 
 
 # UX Goals
 - Create a simple and intuitive UI for young and first time users to foster a sense of comfort and reassurance. 
 
+w4
 - Design a simple and easy navigation system (primary navigation and breadcrumbs so the user knows where they are at all times and can back track when needed).
 
 - Set up email alerts for personalised experiences and functional reminders. 

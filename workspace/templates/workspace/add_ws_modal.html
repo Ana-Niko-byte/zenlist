@@ -19,11 +19,11 @@
                         <form id="workspaceForm" class="mb-4" method="post">
                         {% csrf_token %}
                         {{ workspace_form | crispy }}
-                        </form>
                         <div class="modal-footer d-flex justify-content-between">
                             <button type="button" class="btn btn-secondary btn-danger" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i>  Cancel</button>
                             <button type="submit" id="submitButton" class="btn btn-primary btn-warning"><i class="fa-regular fa-circle-check"></i>  Save Workspace</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

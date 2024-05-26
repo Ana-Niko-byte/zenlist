@@ -10,6 +10,7 @@
           </div>
           <div class="message-jumbo mx-5 brand white-text">
             {% if request.user.is_authenticated %}
+            <p class="lead">Hey, {{user}}!</p>
             <p class="lead">Check your spaces to make sure you're staying on top of your tasks!</p>
             <a href="{{ workspace_url }}" class="direct-link"><button class="btn btn-warning btn-lg">My Workspaces   <i class="fa-solid fa-door-open"></i></button></a>
             {% else %}
