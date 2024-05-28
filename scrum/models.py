@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.validators import MaxValueValidator
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
@@ -60,30 +59,6 @@ class Scrum(models.Model):
         return f'The title of this section is {self.title}'
 
 
-class Feature(models.Model):
-    """
-    Represents a Feature model with Cloudinary fields for document management.
-
-    Attributes:
-    title = A reference to the feature title.
-    image (CloudinaryField) = A field to store a featured image in Cloudinary.
-    There is a default image for fallback purposes.
-    step = A reference to the feature number (max of 3).
-    content = A reference to the main feature content.
-    """
-    title = models.CharField(max_length=200, unique=True)
-    image = CloudinaryField('image', default='default_feature')
-    # Maximum number of 3 steps, with each feature having a unique value.
-    step = models.PositiveIntegerField(
-        unique=True,
-        validators=[MaxValueValidator(3)]
-    )
-    content = models.TextField()
-
-    def __str__(self):
-        return f'Feature title: {self.title}'
-
-
 class Review(models.Model):
     """
     Represents a Review model with Cloudinary fields for document management
@@ -103,7 +78,6 @@ class Review(models.Model):
         on_delete=models.CASCADE,
         related_name="reviewer"
     )
-    profile_image = CloudinaryField('image', default='default_profile_image')
     job_industry = models.CharField(
         choices=INDUSTRY,
         default='other'
@@ -115,6 +89,7 @@ class Review(models.Model):
     )
     review = models.TextField()
     reviewed_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.author} rated {self.rating} ({self.job_industry})'

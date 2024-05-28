@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container d-flex flex-column mt-5">
+    <h2 class="text-center mb-5">Zenlist Reviews</h2>
+    <div class="row d-flex justify-content-center">
+        {% for review in reviews %}
+        <div class="col-md-6 col-sm-12 zenlist-review mb-3 mx-2 px-4 py-2 bb-grey">
+            <div class="author-review mb-3">
+                <p class="star-rating">{{review.rating}}</p>
+                <div class="author-profile d-flex mb-3">
+                    <img class="card-img-top mx-2 profile-image" src="{% static 'images/default_profile_image.jpg' %}" alt="author profile image">
+                    <div class="author-personal">
+                        <h5 class="author-bio">{{review.author}} wrote:</h5>
+                        <p class="author-industry">industry: {{review.job_industry}}</p>
+                    </div>
+                </div>
+                <div class="main-review-content d-flex align-items-start justify-content-center">
+                    <p>{{review.review | safe}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="user_reviews d-flex flex-column align-items-center justify-content-center">
+        <h4 class="my-4 pt-4">Your Reviews</h4>
+        {% for review in user_reviews %}
+        <div class="col-md-6 col-sm-12 
+        {% if review.author == request.user and not review.approved %}faded 
+        {% endif %}zenlist-review mb-3 mx-2 px-4 py-2 bb-grey">
+            <div class="author-review mb-3">
+                <p class="star-rating">{{review.rating}}</p>
+                <div class="author-profile d-flex mb-3">
+                    <img class="card-img-top mx-2 profile-image" src="{% static 'images/default_profile_image.jpg' %}" alt="author profile image">
+                    <div class="author-personal">
+                        <h5 class="author-bio">{{review.author}} wrote:</h5>
+                        <p class="author-industry">industry: {{review.job_industry}}</p>
+                    </div>
+                </div>
+                <div class="main-review-content d-flex align-items-start justify-content-center">
+                    <p>{{review.review | safe}}</p>
+                </div>
+            </div>
+            <p>Your comment is awaiting approval!</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

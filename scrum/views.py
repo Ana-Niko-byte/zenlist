@@ -1,36 +1,46 @@
 from django.shortcuts import render, redirect
-from .models import Scrum, Feature, Review
-from .forms import ContactForm
+from .models import Scrum, Review
+from .forms import ContactForm, ReviewForm
 from django.contrib import messages
 
 from django.conf import settings
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import EmailMessage
 
 def HelloScrum(request):
     scrum = Scrum.objects.all().first()
-    # Queryset was being returned from 3 to 1.
-    features = Feature.objects.all()
     all_reviews = Review.objects.all()
     five_stars = Review.objects.filter(rating='★★★★★')
     four_stars = Review.objects.filter(rating='★★★★☆')
-
-    # Queryset was being returned from 3 to 1.   
-    def reversed_features(features):
-        reversed_features = []
-        for feature in features:
-            reversed_features.append(feature)
-        reversed_features.reverse()
-        return reversed_features
-
-    reversed_features = reversed_features(features)
+    if request.method == 'POST':
+        reviewForm = ReviewForm(data=request.POST)
+        if reviewForm.is_valid:
+            review = reviewForm.save(commit=False)
+            review.author = request.user
+            review.approved = False
+            reviewForm.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                '''Thanks for your review! Our administrators will 
+                review your submission within 2 business days.'''
+            )
+            return redirect('hello')
+        else:
+            messages.add_message(
+            request, messages.SUCCESS,
+            '''There was an issue while trying to submit your review. 
+            Please try again in a few mins. 
+            If the issue persists, please contact us using our dedicated 
+            contact page.'''
+        )
+    else:
+        reviewForm = ReviewForm()
 
     context = {
         'hello' : scrum,
-        'features' : features,
-        'reversed_features' : reversed_features,
         'all_reviews': all_reviews,
         'five_star': five_stars,
         'four_star': four_stars,
+        'reviewForm': reviewForm,
         }
     
     return render(
@@ -73,5 +83,29 @@ def Contact_Me(request):
     return render(
         request, 
         "scrum/contact.html",
+        context
+    )
+
+def Zenlist_Reviews(request):
+    all_reviews = Review.objects.all()
+    five_star = Review.objects.filter(rating='★★★★★')
+    four_star = Review.objects.filter(rating='★★★★☆')
+    three_star = Review.objects.filter(rating='★★★☆☆')
+    two_star = Review.objects.filter(rating='★★☆☆☆')
+    one_star = Review.objects.filter(rating='★☆☆☆☆')
+    user_reviews = Review.objects.filter(author=request.user)
+
+    context = {
+        'reviews': all_reviews,
+        'one_star': one_star,
+        'two_star': two_star,
+        'three_star': three_star,
+        'four_star': four_star,
+        'five_star': five_star,
+        'user_reviews': user_reviews,
+    }
+    return render(
+        request,
+        "scrum/reviews.html",
         context
     )

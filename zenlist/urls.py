@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from scrum.views import HelloScrum, Contact_Me
+from scrum.views import HelloScrum, Contact_Me, Zenlist_Reviews
 from django.views.generic import TemplateView
 
 urlpatterns = [
@@ -25,6 +25,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('', HelloScrum, name='hello'),
     path('contact/', Contact_Me, name='contact'),
+    path('reviews/', Zenlist_Reviews, name='reviews'),
     path('workspaces/', include('workspace.urls'), name='space-urls'),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]

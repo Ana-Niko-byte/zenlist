@@ -96,7 +96,8 @@ class WorkspaceListView(generic.ListView):
                  filter=Q(
                      workspace_tasks__due_date=timezone.now().date()
                     )
-                ))
+                ))     
+           
         data['due_tasks'] = due_tasks.order_by('-created_on')
         return data
 

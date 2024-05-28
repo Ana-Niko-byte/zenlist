@@ -195,6 +195,8 @@ Cloning a repository essentially means downloading a copy of your repository tha
 6. Press Enter - you now have a cloned version of your github repository.
 
 # Future Development
+Email Notifications for approaching tasks. This was going to be implemented with Celery, Redis, and django-celery-beat, but the emails weren't sending for some reason. 
+
 # Credits
 For help with Django [queries](https://docs.djangoproject.com/en/5.0/topics/db/queries/).
 
