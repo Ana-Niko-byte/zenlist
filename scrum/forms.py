@@ -5,9 +5,25 @@ class ContactForm(forms.Form):
     """
     A form for all users to contact the site owner with a message.
     """
-    name = forms.CharField(label='Your Name', widget=forms.TextInput(attrs={'placeholder': 'John Smith'}))
-    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'john.smith@example.com'}))
-    message = forms.CharField(max_length=200, widget=forms.Textarea(attrs={'placeholder': 'I love Zenlist...'}))
+    # Adding placeholders: 
+    # https://stackoverflow.com/questions/4101258/how-do-i-add-a-placeholder-on-a-charfield-in-django
+    name = forms.CharField(
+        label='Your Name', 
+        widget=forms.TextInput(
+            attrs={'placeholder': 'John Smith'}
+        )
+    )
+    email = forms.EmailField(
+        widget=forms.TextInput(
+            attrs={'placeholder': 'john.smith@example.com'}
+        )
+    )
+    message = forms.CharField(
+        max_length=200, 
+        widget=forms.Textarea(
+            attrs={'placeholder': 'I love Zenlist...'}
+        )
+    )
 
 class ReviewForm(forms.ModelForm):
     class Meta:

@@ -1,72 +1,78 @@
 {% extends "base.html" %} {% block content %}
 {% load static %}
 
-{% if user_workspaces %}
-<div class="container mt-5">
-  <div class="row d-flex align-items-start justify-content-between">
+{% if user.is_authenticated %}
+  {% if user_workspaces %}
+  <div class="container mt-5">
+    <div class="row d-flex align-items-start justify-content-between">
 
-      <!-- Analytics -->
-      <div class="col-sm-12 col-lg-4 mb-5">
-        {% include 'workspace/_task_analytics.html' %}
-      </div>
-      <!-- /Analytics -->
-
-      <!-- A list of registered user workspaces. -->
-      <div class="col-sm-12 col-lg-8">
-        <div class="analytic-intro d-flex flex-row align-items-center bb-grey mb-3">
-          <h2><strong><i class="fa-solid fa-user-astronaut fa-sm mx-3"></i>Your Spaces</strong></h2>
+        <!-- Analytics -->
+        <div class="col-sm-12 col-lg-4 mb-5">
+          {% include 'workspace/_task_analytics.html' %}
         </div>
-        {% for space in ws_tasks %}
-        <div class="container workspace-container mb-5">
-          <div class="row d-flex align-items-end justify-content-between">
+        <!-- /Analytics -->
 
-            <!-- /Link to full workspace -->
-            <a href="{% url 'full_workspace' space.slug %}" class="workspace-link col-sm-12 col-md-6 py-3">
-              <h4 class="post-title">{{ space.title }}</h4>
-              <p>Total tasks: {{space.ws_task_count}}</p>
-              <!-- !!! Does not update !!! -->
-              <em class="post-subtitle"><i class="fa-regular fa-calendar"></i>   last modified: {{ space.updated_on }}</em>
-            </a>
-            <!-- /Link to full workspace -->
-
-            <!-- Delete Workspace Button -->
-            <div class="button-container col-sm-12 col-md-6 d-flex align-items-center justify-content-end">
-              <button type="button" data-workspace-id={{space.id}} class="btn btn-delete">
-                Delete<i class="fa-solid fa-trash px-2"></i>
-                </button>
-            </div>
-            <!-- /Delete Workspace Button -->
-
+        <!-- A list of registered user workspaces. -->
+        <div class="col-sm-12 col-lg-8">
+          <div class="analytic-intro d-flex flex-row align-items-center bb-grey mb-3">
+            <h2><strong><i class="fa-solid fa-user-astronaut fa-sm mx-3"></i>Your Spaces</strong></h2>
           </div>
+          {% for space in ws_tasks %}
+          <div class="container workspace-container mb-5">
+            <div class="row d-flex align-items-end justify-content-between">
+
+              <!-- /Link to full workspace -->
+              <a href="{% url 'full_workspace' space.slug %}" class="workspace-link col-sm-12 col-md-6 py-3">
+                <h4 class="post-title">{{ space.title }}</h4>
+                <p>Total tasks: {{space.ws_task_count}}</p>
+                <!-- !!! Does not update !!! -->
+                <em class="post-subtitle"><i class="fa-regular fa-calendar"></i>   last modified: {{ space.updated_on }}</em>
+              </a>
+              <!-- /Link to full workspace -->
+
+              <!-- Delete Workspace Button -->
+              <div class="button-container col-sm-12 col-md-6 d-flex align-items-center justify-content-end">
+                <button type="button" data-workspace-id={{space.id}} class="btn btn-delete">
+                  Delete<i class="fa-solid fa-trash px-2"></i>
+                  </button>
+              </div>
+              <!-- /Delete Workspace Button -->
+
+            </div>
+          </div>
+          <!-- /A list of registered user workspaces. -->
+
+          <!-- Delete Workspace Modal -->
+          {% include 'workspace/delete_ws_modal.html' with space=space %}
+          <!-- /Delete Workspace Modal -->
+
+          {% endfor %}
+          <!-- Add Workspace Modal -->
+          {% include 'workspace/add_ws_modal.html' %}
+          <!-- /Add Workspace Modal -->
         </div>
-        <!-- /A list of registered user workspaces. -->
+    </div>
+  </div>
 
-        <!-- Delete Workspace Modal -->
-        {% include 'workspace/delete_ws_modal.html' with space=space %}
-        <!-- /Delete Workspace Modal -->
-
-        {% endfor %}
+  {% else %}
+  <!-- If user has no workspaces, displays Add Workspace button -->
+  <div class="row d-flex flex-column py-5">
+      <div class="col-12 text-center">
+          <img src="../../../static/images/llamas.jpg" width='300' alt="confused llama">
+          <h3 class="pt-4">Duuuuuuuuude ... no workspaces?</h3>
+      </div>
+      <div class="col-12 mt-4 d-flex align-items-center justify-content-center">
         <!-- Add Workspace Modal -->
         {% include 'workspace/add_ws_modal.html' %}
         <!-- /Add Workspace Modal -->
       </div>
   </div>
-</div>
-
+  <!-- /If user has no workspaces, displays Add Workspace button -->
+  {% endif %}
 {% else %}
-<!-- If user has no workspaces, displays Add Workspace button -->
-<div class="row d-flex flex-column py-5">
-    <div class="col-12 text-center">
-        <img src="../../../static/images/llamas.jpg" width='300' alt="confused llama">
-        <h3 class="pt-4">Duuuuuuuuude ... no workspaces?</h3>
-    </div>
-    <div class="col-12 mt-4 d-flex align-items-center justify-content-center">
-      <!-- Add Workspace Modal -->
-      {% include 'workspace/add_ws_modal.html' %}
-      <!-- /Add Workspace Modal -->
-    </div>
-</div>
-<!-- /If user has no workspaces, displays Add Workspace button -->
+  <!-- If user isn't authenticated and attempts to access the 
+    workspaces tab via URL input, redirects to signup page. -->
+  {% include 'workspace/signup.html' %}
 {% endif %}
 {% endblock %}
 

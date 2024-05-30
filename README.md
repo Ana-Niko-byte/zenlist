@@ -4,7 +4,7 @@
 The application is available for viewing [here](https://zenlist-b604919b54d1.herokuapp.com/).
 
 ## A Little Bit About Zenlist
-Zenlist is a task-tracking Django application, designed to provide users an easy and quick way of organising and managing day-to-day tasks for different environments. With filtering by space, by priority, by due date, and email alerts, zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay on top of their day.
+Zenlist is a task-tracking Django application, designed to provide users an easy and quick way of organising and managing day-to-day tasks for different environments. With custom filtering systems and an intuitive interface, zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay on top of their day.
 
 # Business/Social Goals
 - Allow for organisation/categorisation of assets in a clear system (user-created environments) to make the platform easily accessible and understandable.
@@ -13,8 +13,6 @@ Zenlist is a task-tracking Django application, designed to provide users an easy
 
 - Set up a visual alert for tasks approaching due date. 
 
-- Set up email reminders for tasks approaching due date for a catered experience.
-
 - Set up an email alert for registration and account authentication.
 
 - Spread knowledge of the Scrum framework and explain how this framework benefits workplaces and personal time-management. Add links to relevant medias and opensource documents. 
@@ -22,10 +20,7 @@ Zenlist is a task-tracking Django application, designed to provide users an easy
 # UX Goals
 - Create a simple and intuitive UI for young and first time users to foster a sense of comfort and reassurance. 
 
-w4
 - Design a simple and easy navigation system (primary navigation and breadcrumbs so the user knows where they are at all times and can back track when needed).
-
-- Set up email alerts for personalised experiences and functional reminders. 
 
 - Establish a colour scheme and font family that ties the theme of _zen_ together to create a cohesive and comprehensive branding with accents in both where needed.
 
@@ -37,74 +32,89 @@ w4
 All pages contain the same navigation and footer sections.
 The structure of _Zenlist_ is as follows: 
 ### Scrum Home Page
-This is the main home page of the project. Though it does not have a conventional 'Home' page, its root page is the starting point of Zenlist, deep diving into scrum methodology and providing potential users with information on the app (reviews, features, and a contact option for more information).
+This is the main home page of the project. Though it does not have a conventional 'Home' page, its root page is the starting point of Zenlist, deep diving into scrum methodology and providing potential users with information on the app (attention-grabbing header, reviews, an introduction to the scrum methodology for time-management).
 
-- Jumbotron
-    - If not signed in, the jumbotron displays a signup button and a different summary heading.
+- #### Jumbotron
+    - If not signed in, the jumbotron displays a signup button and an advertising heading.
+
     - If signed in, the jumbotron displays a button to access the user's workspaces and an encouraging title.
-- Reviews
-    - These reviews are filtered by stars (at the moment 4 stars, but this query will be modified to look for 4+ stars), and displayed in a row to the potential users. These reviews can only be made by a logged in user, and do not require approval from any administrators, as they are filtered. Consideration is being given towards having a button to show all reviews. 
-- Features
-    - Feature 1
-    - Feature 2
-    - Feature 3
-### Your Workspaces
-This is a list of workspaces belonging to the user. This page also contains some basic analytics (quantity of tasks/workspace), and a visual indication of what tasks are approaching their due dates. 
+- #### Reviews
+    - These reviews are filtered by stars and displayed in a row to site visitors. 
 
-- Workspace List 
+    The app can only be reviewed by logged in users, and all reviews require approval from an administrator prior to being displayed on the home page. Additionally, the user is presented with a button to read all reviews for the application, which redirects to a standalone page. This page is not presented in the navigation bar, but users can return to a page of their choosing by selecting existing links in the navigation bar. 
+- #### Scrum Paragraph
+    - A concise paragraph explaining the scrum methodology and its benefits in every day use. This paragraph serves as an introduction to the framework for anyone not already familiar with it and contains a helpful link to the official Scrum.org website, where users may download the free Scrum Guide 2020 (the latest revision). 
+
+- #### Review Form
+    - If users are logged in, they are presented a form to leave an application review. 
+
+    - If users are logged out, they are presented a button and a prompt to log in to leave a review.
+
+### Contact 
+This is a contact page for users to send queries to the Zenlist team (connected to my email: ananikolayenia@gmail.com).
+
+### Your Workspaces
+Note: This page is only visible in the navigation bar to logged in users. 
+This is a list of workspaces belonging to the user. This page also contains a 'due today' column with lists of tasks that are due in each workspace. If there are no due tasks, a congratulatory message is displayed to the user. 
+
+- #### Workspace List 
+    - Workspace Name
+
+    - Total number of tasks in workspace.
+
     - Delete Workspace Button
-- Workspace Analytics
-    - Total Tasks
-    - To Do Task Quantity
-    - In Progress Task Quantity
-    - Completed Task Quantity
-- Due Today Alerts
-    - Visual Display in left-side panel.
-    - Email alerts.
-- Add New Workspace Button
+- #### Due Today List
+    - Number of tasks in each space due on a particular day.
+
+- #### Add Workspace Button
     - Modal with title field input.
+
     - Messages to tell user the workspace was successfully created.
+
 ### Sign in/Sign Up
 This is only displayed when the user is not signed in. 
 - A page where the user may signup/signin, using allauth Django.
-- An email confirmation for users who have just signed up.
-- Visual indication that the user is signed in (jumbotron).
+
+- An email authentication prompt for users who have just signed up.
+
+- Visual indication that the user is signed in (jumbotron + '_Your Workspaces_- tab in navigation bar).
+
 ### Logout
 This is only displayed when the user is signed in. 
 - A page where the user may logout, using allauth Django.
-- Visual indication that the user has signed out (jumbotron).
+
+- Visual indication that the user has signed out (jumbotron + no '_Your Workspaces_' tab in navigation bar).
 
 ---
 # Scope of Application
 The application is scope is currently to the following: 
 
 ### User Interaction
-Once registered and logged in, the user can access their zenlists in the _Your Workspaces_ tab. All tasks (due, in progress and completed) are visible within their relevant zenlists. The user can add another task into the _to do_ section by clicking the '+' sign. Here they give a title, assign a category, a due date, a priority, and a brief description to the task they wish to add. Once finished and logged to the _to do_ body, the user may:
-- view (through the 'click' event).
-- edit the task (change anything except the task name).
-- move the task to a different list.
-- delete the task as needed. 
+Once registered and logged in, the user can access their zenlists in the _Your Workspaces_ tab. All tasks (due, in progress and completed) are visible within their relevant zenlists. The user can add another task to the list via the form on the left-hand side. Here they give a title, assign a category, a due date, a priority, and a brief description to the task they wish to add. Once finished and logged, the user may:
+- Open the task accordion item (through the 'click' event) to view the task details (due-date, priority (colourful dot), and any associated notes).
+
+- Edit the task (using the form on the left-hand side of the page).
+
+- Change the task's status, in which case the user receives a confirmation message following a successful update, and visual confirmation of the task under the relevant status list.
+
+- Delete the task. 
 
 ### Categorisation
-When creating a zenlist, the user is presented with a selection of _categories_ for their environment - this helps keep work tasks separate from home chores, from study-related tasks, separate from hobbies.
+The purpose of zenlist is to allow users to categorise their day into environments. Each environment, i.e., home-chores, study-related tasks, etc., separate from each other. Each of these spaces presents any tasks due on a particular day on the home page of the '_Your Workspaces_' tab, on the left hand side of the page.
 
 ### Filtering
 To enable users to comfortably control their tasks, a filtering system was adopted to allow for quick access to all relevant data. The tasks can be filtered by the following: 
-- _by category_
 - _by priority_
 - _by due date_
     - _by approaching_
     - _by way-off_
     - _by late tasks_
 
-### Email Reminders
-As a task is approaching its due date, an email reminder is sent to the user's registered address (the one used to sign up to _zenlist_).
-
 ### Scrum & Agile Knowledge Sharing
 
 # Aesthetics
 # Strategy
-This application aims at optimising task and time management leveraging the benefits of an accessible and intuative UI, timely reminders connected to registered email addresses, a customisable categorisation and filtering system, and the ability to manage assets with ease. 
+This application aims at optimising task and time management by leveraging the benefits of an intuative and minimalist UI, visual reminders of approaching task due dates, and an easy and accessible filtering system.
 
 The application is designed as a mobile-first app, with an easy to use UI with hints where necessary. 
 
@@ -115,31 +125,34 @@ The application is designed as a mobile-first app, with an easy to use UI with h
 - Anybody who wishes to improve their time-management skills. 
 
 # Key Information Deliverables
-- Categorisation of assets.
-- Time-tracking capabilities with email alerts for approaching tasks.
-- Filtering system (by category, priority, due date).
-- Ability to add/view/edit/move/delete assets. 
+- Categorisation of tasks by environment.
+- Time-tracking capabilities with visual reminders for approaching tasks.
+- Filtering system (by space, by priority, by due date).
+- Ability to add/view/edit/delete assets. 
 
 # Features
+
+
 # Technologies
-1. HTML5 - Used for structuring and content.
+1. HTML5/ Django Templates - Used for structuring and content.
 2. CSS3 - Used for adding styles to the content for legibility and aesthetic appeal.
-3. Vanilla Javascript - To add the interactivity, validation and page display toggling for the application to work.
-4. FontAwesome - used for icons.
-5. Firefox Developer Tools - used for debugging the website during production.
-6. Lighthouse - An extension I used for testing the performance, accessibility, best practices and SEO of my site (result shown under debugging below).
-7. GitHub - For code storage,version control and deployment.
-8. Git - For commiting through terminal and pushing to Github for storage.
-9. VSC - The IDE I developed the project in.
-10. Balsamiq - For a clear understanding of the structure I wanted my application to follow. The project has since deviated slightly from the design for improved user experience.
-11. Color Contrast Accessibility Validator - check legibility of my text on different backgrounds for better accessibility.
-12. W3C Markup Validation Service - to validate my HTML for potential errors.
-13. W3C CSS Validation Service - to validate my CSS code for potential errors.
-14. JSHint - for checking and validating my JS code. 
-15. Freeformatter CSS Beautify - to ensure I formatted my CSS correctly.
-16. Beautifier.io - to beautify my JS. 
-16. AmIResponsive - to create the responsive image.
-17. Looka.com - for logo ideas (Ai tool). -->
+3. Vanilla Javascript - For adding basic interactivity and dynamically setting URLs.
+4. FontAwesome/Boostrap icons - used for icons.
+5. Emojipedia - used for emojis.
+6. Firefox Developer Tools - used for debugging the website during production.
+7. Lighthouse - An extension I used for testing the performance, accessibility, best practices and SEO of my site (result shown under debugging below).
+8. GitHub - For code storage,version control and deployment.
+9. Git - For commiting through terminal and pushing to Github for storage.
+10. VSC - The IDE I developed the project in.
+11. Balsamiq - For a clear understanding of the structure I wanted my application to follow. The project has since deviated slightly from the design for improved user experience.
+12. Color Contrast Accessibility Validator - check legibility of my text on different backgrounds for better accessibility.
+13. W3C Markup Validation Service - to validate my HTML for potential errors.
+14. W3C CSS Validation Service - to validate my CSS code for potential errors.
+15. JSHint - for checking and validating my JS code. 
+16. Pep8 - for Python code validation and best practices formatting.
+17. Freeformatter CSS Beautify - to ensure I formatted my CSS correctly.
+18. Beautifier.io - to beautify my JS. 
+19. AmIResponsive - to create the responsive image.
 
 # Testing & Debugging
 | Feature | Expected Outcome | Testing Procedure | Result | Remark |
@@ -160,39 +173,17 @@ The application is designed as a mobile-first app, with an easy to use UI with h
 ### Debugging
 # Accessibility & Performance
 ### Lighthouse
+
 ### Colour Accessibility Validator 
+
 ### HTML Validation
+
 ### CSS Validation
+
 ### JSHint Validation
+
 # Deployment
-The application is deployed on Gitpages through github, and is available for viewing in the link at the top of this README.md document. To deploy a github repository, follow the following steps: 
-
-1. Login to your github account
-2. Click on your repository section under your profile icon, and select the repository you want to deploy.
-3. Once you are in your repository, click ' Settings' in the top bar. 
-4. Select 'Pages' from the menu on the left. 
-5. Ensure the 'Source' section is set to 'Deploy from a branch'.
-6. Ensure you deploy from the main branch in your root directory. The screen should look something like this: 
-<!-- ![github pages](docs/images/github-one.png) -->
-7. The site you want to deploy is given a URL, available above the source section, as in the image above. It might take a while for this link to become visible and active. 
-
-### Forking a Github Repository
-If you want to make changes to your repository (or part of it) without affecting it, you can 'fork' it (make a copy of it). This ensures the original repository remains unchanged. To fork a github repository, follow the following steps: 
-
-1. Click into the github repository you want to fork. 
-2. Click 'Fork' in the top right hand side of the top bar, and this should take you to a page titled 'Create a new fork'
-3. You can now work in this copy of your repository without it affecting the original. 
-
-### Cloning a Github Repository
-Cloning a repository essentially means downloading a copy of your repository that can be worked on locally. This method allows for version control and back up of code. To clone a github repository, follow the following steps: 
-
-1. Click into the github repository you want to clone. 
-2. Press the 'Code' button. This should open a section similar to the one below. 
-<!-- ![Clone Code Button Dropdown](docs/images/github-two.png) -->
-3. Copy the link in this dropdown
-4. Open a terminal within your VSC (or whatever IDE you choose to use). 
-5. In the terminal type 'git clone' and paste the URL. 
-6. Press Enter - you now have a cloned version of your github repository.
+The application is deployed on Heroku through github, and is available for viewing in the link at the top of this README.md document. To deploy a Heroku project, follow the following steps: 
 
 # Future Development
 Email Notifications for approaching tasks. This was going to be implemented with Celery, Redis, and django-celery-beat, but the emails weren't sending for some reason. 
@@ -217,4 +208,5 @@ For help understanding how to generate unique ids for the accordion elements usi
 For [date picker](https://mrasimzahid.medium.com/how-to-implement-django-datepicker-calender-in-forms-date-field-9e23479b5db)
 
 [Date.toISOString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) for date input in HTML. 
+
 # Acknowledgements

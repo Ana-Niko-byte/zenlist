@@ -11,17 +11,25 @@
           <div class="message-jumbo mx-5 brand white-text">
             {% if request.user.is_authenticated %}
             <p class="lead">Hey, {{user}}!</p>
-            <p class="lead">Check your spaces to make sure you're staying on top of your tasks!</p>
-            <a href="{{ workspace_url }}" class="direct-link"><button class="btn btn-warning btn-lg">My Workspaces   <i class="fa-solid fa-door-open"></i></button></a>
+            <p class="lead">
+              Check your spaces to make sure you're staying on top of your tasks!
+            </p>
+            <a href="{{ workspace_url }}" class="direct-link">
+              <button class="btn btn-warning btn-lg">
+                My Workspaces<i class="fa-solid fa-door-open ms-3"></i>
+              </button>
+            </a>
             {% else %}
             <p class="lead mt-5">Sign up/login today to stay on top of your day!</p>
             <a class="nav-link btn mb-3 d-flex justify-content-start" href="{% url 'account_signup' %}">
-              <button class="btn btn-info btn-signUp btn-lg"><i class="fa-solid fa-user-plus mx-1"></i>   Sign Up!</button>
+              <button class="btn btn-info btn-signUp btn-lg">
+                <i class="fa-solid fa-user-plus mx-1 me-3"></i>Sign Up!
+              </button>
             </a>
             <span>P.S. It's free. ;)</span>
           {% endif %} 
           </div>
         </section>
     </div>
-</div>
+  </div>
 </div>

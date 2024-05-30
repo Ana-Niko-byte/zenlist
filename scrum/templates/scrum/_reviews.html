@@ -1,7 +1,10 @@
 {% load static %}
 <!-- Reviews -->
 <div class="container">
-    <h2 class="text-center mt-2 pb-5 brand bb-grey"><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>   what our users say about us...</h2>
+    <h2 class="text-center mt-2 pb-5 brand bb-grey">
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-regular fa-star me-3"></i>What Our Users Say About Us...
+    </h2>
     <div class="row d-flex justify-content-around">
     {% for review in four_star %}
     {% if review.approved %}
@@ -15,7 +18,9 @@
 
       <div class="author d-flex align-items-start justify-content-end">
         <div class="author-profile d-flex align-items-center justify-content-center">
-          <img class="card-img-top mx-3 profile-image" src="{% static 'images/default_profile_image.jpg' %}" alt="author profile image">
+          <img class="card-img-top mx-3 profile-image" 
+          src="{% static 'images/default_profile_image.jpg' %}" 
+          alt="default profile icon image">
           <div class="author-personal">
               <h5 class="author-bio">{{review.author}}</h5>
               <p class="author-industry">industry: {{review.job_industry}}</p>
@@ -23,7 +28,10 @@
         </div>
         <!-- !!! This needs some adjusting !!! -->
         {% if review.author == user %}
-        <p class="{% if review.author == request.user and not review.approved %}faded {% else %}d-none {% endif %}">Your comment is awaiting approval!</p>
+        <p class="{% if review.author == request.user and not review.approved %}faded 
+        {% else %}d-none {% endif %}">
+          Your comment is awaiting approval!
+        </p>
         {% endif %}
       </div>
     </div>

@@ -4,21 +4,21 @@ const deletes = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
 /**
-* Initializes deletion functionality for the provided delete buttons.
-* 
-* For each button in the `deletes` array:
-* - Onclick, retrieves the associated task's ID.
-* - Updates the `deleteConfirm` link's href to point to the 
-* deletion endpoint for the specific comment.
-* - Displays a confirmation modal (`deleteModal`) to prompt 
-* the user for confirmation before deletion.
-*/
+ * Initializes deletion functionality for the provided delete buttons.
+ * 
+ * For each button in the `deletes` array:
+ * - Onclick, retrieves the associated task's ID.
+ * - Updates the `deleteConfirm` link's href to point to the 
+ * deletion endpoint for the specific comment.
+ * - Displays a confirmation modal (`deleteModal`) to prompt 
+ * the user for confirmation before deletion.
+ */
 for (let button of deletes) {
-  button.addEventListener("click", (e) => {
-    let taskId = e.target.getAttribute("data-task-id");
-    deleteConfirm.href = `delete-task/${taskId}`;
-    deleteModal.show();
-  });
+    button.addEventListener("click", (e) => {
+        let taskId = e.target.getAttribute("data-task-id");
+        deleteConfirm.href = `delete-task/${taskId}`;
+        deleteModal.show();
+    });
 }
 
 
@@ -45,27 +45,27 @@ const submit = document.getElementById("submitButton");
  * Changes the innerHTML of the Submit button to reflect the change in form action. 
  * Dynamically sets the form's action to the URL section defined in URLs.py.
  */
-for (let editButton of edits){
-  editButton.addEventListener("click", (e) => {
-    // Retrieve taskId for updating
-    let taskId = e.target.getAttribute("task_id");
+for (let editButton of edits) {
+    editButton.addEventListener("click", (e) => {
+        // Retrieve taskId for updating
+        let taskId = e.target.getAttribute("task_id");
 
-    let taskName = e.target.getAttribute("data-edit-name");
-    let taskNotes = e.target.getAttribute("data-edit-notes");
-    let taskPriority = e.target.getAttribute("data-edit-priority");
-    let taskStatus = e.target.getAttribute("data-edit-status");
-    let taskDate = e.target.getAttribute("data-edit-date");
+        let taskName = e.target.getAttribute("data-edit-name");
+        let taskNotes = e.target.getAttribute("data-edit-notes");
+        let taskPriority = e.target.getAttribute("data-edit-priority");
+        let taskStatus = e.target.getAttribute("data-edit-status");
+        let taskDate = e.target.getAttribute("data-edit-date");
 
-    let date = new Date(taskDate);
-    let actualDate = date.toISOString().split('T')[0]
+        let date = new Date(taskDate);
+        let actualDate = date.toISOString().split('T')[0];
 
-    taskNameField.value = taskName;
-    taskNotesField.value = taskNotes;
-    taskStatusField.value = taskStatus;
-    taskPriorityField.value = taskPriority;
-    taskDateField.value = actualDate;
+        taskNameField.value = taskName;
+        taskNotesField.value = taskNotes;
+        taskStatusField.value = taskStatus;
+        taskPriorityField.value = taskPriority;
+        taskDateField.value = actualDate;
 
-    submit.innerText = "Update My Task";
-    form.setAttribute("action", `update-task/${taskId}`);
-  });
+        submit.innerText = "Update My Task";
+        form.setAttribute("action", `update-task/${taskId}`);
+    });
 }

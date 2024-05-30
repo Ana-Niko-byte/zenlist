@@ -10,7 +10,11 @@
     <!-- Reviews -->
     {% include 'scrum/_reviews.html' %}
     <div class="button-container d-flex justify-content-center align-items-center mb-5">
-      <a href="{{reviews_url}}"><button class="btn btn-warning px-4 py-2">Read all Reviews   <i class="fa-solid fa-arrow-right"></i></button></a>
+      <a href="{{reviews_url}}">
+        <button class="btn btn-warning px-4 py-2 me-3">Read all Reviews
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </a>
     </div>
     <!-- /Reviews -->
     <!-- Scrum Intro -->
@@ -18,11 +22,14 @@
       <div class="container-fluid jumbotron-full">
         <div class="row d-flex flex-column align-items-center justify-content-center">
           <div class="col-12 mt-5">
-            <h2 class="text-center brand white-text"><i class="fa-solid fa-bullseye"></i>   {{ hello.title }}</h2>
+            <h2 class="text-center brand white-text">
+              <i class="fa-solid fa-bullseye me-3"></i>{{ hello.title }}
+            </h2>
           </div>
           <div class="white-overlay col-md-8 col-sm-10 position-relative mb-5">
             <div class="paragraph scrum-content text-center p-3">
-              <p id="hello-content">{{ hello.content | safe }}</p>
+              <!-- No p tags because this gets rendered as a paragraph element already -->
+              {{ hello.content | safe }}
             </div>
             <a href="https://scrumguides.org/index.html" target="_blank" rel="noopener noreferrer" 
             class="d-flex flex-row justify-content-center align-items-center visit-scrum direct-link" 
@@ -34,15 +41,13 @@
         </div>
       </div>
     </div>
-
-      <!-- Reviews Form -->
-      {% if user.is_authenticated %}
-      <div class="container my-5">
-        {% include 'scrum/_review_form.html' with reviewForm=reviewForm %}
-      </div>
-      {% endif %}
-      <!-- /Reviews Form -->
     <!-- /Scrum Intro -->
+
+    <!-- Reviews Form -->
+    <div class="container my-5">
+      {% include 'scrum/_review_form.html' with reviewForm=reviewForm %}
+    </div>
+    <!-- /Reviews Form -->
     <!-- index.html content ends here -->
 </div>
 {% endblock %}
