@@ -80,7 +80,8 @@ class Review(models.Model):
     )
     job_industry = models.CharField(
         choices=INDUSTRY,
-        default='other'
+        default='other',
+        max_length=22
     )
     rating = models.CharField(
         choices=STARS,
