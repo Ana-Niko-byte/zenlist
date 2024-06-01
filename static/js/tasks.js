@@ -57,7 +57,7 @@ for (let editButton of edits) {
         let taskDate = e.target.getAttribute("data-edit-date");
 
         let date = new Date(taskDate);
-        let actualDate = date.toISOString().split('T')[0];
+        let actualDate = date.toISOString().split("T")[0];
 
         taskNameField.value = taskName;
         taskNotesField.value = taskNotes;

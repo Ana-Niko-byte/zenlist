@@ -29,7 +29,9 @@
             data-edit-priority="{{task.priority}}"
             data-edit-date="{{task.due_date}}">Edit Task   <i class="fa-solid fa-pen-to-square"></i>
             </button>
-            <button type="button" data-task-id="{{task.id}}" class="btn btn-info btn-delete col-12">Delete   <i class="fa-solid fa-trash"></i></button>
+            <button type="button" data-task-id="{{task.id}}" class="btn btn-danger btn-delete col-12">
+              Delete<i class="fa-solid fa-trash ms-3"></i>
+            </button>
           </div>
         </div>
         <!-- /Modal trigger buttons -->
@@ -37,8 +39,8 @@
     </div>
     <!-- /Accordion Body. -->
 
-      <!-- Delete Confirmation Modal -->
-      {% include 'workspace/_delete_task_modal.html' with task=task %}
-      <!-- /Delete Confirmation Modal -->
+    <!-- Delete Confirmation Modal -->
+    {% include 'workspace/_delete_task_modal.html' with task=task %}
+    <!-- /Delete Confirmation Modal -->
   </div>
 </div>

@@ -33,12 +33,7 @@ li a:hover,
 }
 
 .btn-delete {
-  background-color: #ffffff;
   font-weight: 500;
-}
-
-.btn-delete:hover {
-  background-color: rgb(236, 236, 236);
 }
 
 .active {

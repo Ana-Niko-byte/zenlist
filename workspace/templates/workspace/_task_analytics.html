@@ -1,8 +1,7 @@
 {% load static %}
 <div class="workspace-analytics">
-    <div class="analytic-intro d-flex flex-row align-items-center brand mb-4 bb-grey">
-        <h2><strong>⌛ Due Today </strong></h2>
-        <br>
+    <div class="analytic-intro text-center brand mb-4 bb-grey">
+        <h2>⌛ Due Today</h2>
     </div>
     {% for analytic in due_tasks %}
     {% if analytic.due_count > 0 %}
@@ -10,10 +9,12 @@
         <em><strong>{{analytic.due_count}} task(s) due </strong>in '{{analytic.title}}'</em>
     </div>
     {% else %}
-    <em>You have no tasks approaching their due dates</em>
-    <div class="hooray text-center mt-5">
-        <h3>Hooray!</h3>
-        <p>You're on top of your day! ✨</p>
+    <div class="alternative text-center">
+        <em>No tasks due today.</em>
+        <div class="hooray mt-5">
+            <h3>Hooray!</h3>
+            <p>You're on top of your day! ✨</p>
+        </div>
     </div>
     {% endif %}
     {% endfor %}

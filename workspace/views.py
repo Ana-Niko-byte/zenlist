@@ -111,6 +111,7 @@ class WorkspaceListView(generic.ListView):
                 workspace = workspace_form.save(commit=False)
                 workspace.creator = request.user
                 workspace.slug = slugify(workspace.title)
+                workspace.updated_on = timezone.now().date()
                 workspace.save()
                 messages.add_message(
                     request, messages.SUCCESS,
@@ -145,6 +146,9 @@ def update_ws_task(request, slug, task_id):
         if form.is_valid():
             task = form.save(commit=False)
             task.workspace = workspace
+            # To save the date of a task modification as a workspace change.
+            workspace.updated_on = timezone.now().date()
+            workspace.save()
             task.save()
             messages.add_message(
                 request, messages.SUCCESS,

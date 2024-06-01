@@ -37,7 +37,7 @@ class Workspace(models.Model):
         related_name='creator'
     )
     created_on = models.DateField(auto_now_add=True)
-    updated_on = models.DateField(auto_now=True)
+    updated_on = models.DateField(null=True)
 
     class Meta:
         ordering = ["-created_on"]

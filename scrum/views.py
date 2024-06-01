@@ -88,6 +88,7 @@ def Contact_Me(request):
 
 def Zenlist_Reviews(request):
     all_reviews = Review.objects.all()
+    best_reviews = Review.objects.filter(rating__icontains='★★★')
     five_star = Review.objects.filter(rating='★★★★★')
     four_star = Review.objects.filter(rating='★★★★☆')
     three_star = Review.objects.filter(rating='★★★☆☆')
@@ -103,6 +104,7 @@ def Zenlist_Reviews(request):
         'four_star': four_star,
         'five_star': five_star,
         'user_reviews': user_reviews,
+        'best_reviews': best_reviews,
     }
     return render(
         request,

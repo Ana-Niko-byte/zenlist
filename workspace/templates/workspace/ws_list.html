@@ -7,15 +7,17 @@
     <div class="row d-flex align-items-start justify-content-between">
 
         <!-- Analytics -->
-        <div class="col-sm-12 col-lg-4 mb-5">
-          {% include 'workspace/_task_analytics.html' %}
+        <div class="col-sm-12 col-lg-3 p-3 mb-5 card">
+          <div class="card-body">
+            {% include 'workspace/_task_analytics.html' %}
+          </div>
         </div>
         <!-- /Analytics -->
 
         <!-- A list of registered user workspaces. -->
         <div class="col-sm-12 col-lg-8">
           <div class="analytic-intro d-flex flex-row align-items-center bb-grey mb-3">
-            <h2><strong><i class="fa-solid fa-user-astronaut fa-sm mx-3"></i>Your Spaces</strong></h2>
+            <h2><i class="fa-solid fa-user-astronaut fa-sm mx-3"></i>Your Spaces</h2>
           </div>
           {% for space in ws_tasks %}
           <div class="container workspace-container mb-5">
@@ -26,7 +28,7 @@
                 <h4 class="post-title">{{ space.title }}</h4>
                 <p>Total tasks: {{space.ws_task_count}}</p>
                 <!-- !!! Does not update !!! -->
-                <em class="post-subtitle"><i class="fa-regular fa-calendar"></i>   last modified: {{ space.updated_on }}</em>
+                <em class="post-subtitle"><i class="fa-regular fa-calendar me-3"></i>last modified: {{ space.updated_on }}</em>
               </a>
               <!-- /Link to full workspace -->
 
