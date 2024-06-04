@@ -44,7 +44,6 @@ class TestContactForm(TestCase):
     test_form_is_valid():
     This test verifies that a correctly filled out contact form is
     successfully submitted.
-    (add django success message testing to this.)
     '''
 
     def test_name_required(self):
