@@ -96,7 +96,31 @@ def Zenlist_Reviews(request):
     one_star = Review.objects.filter(rating='★☆☆☆☆')
     user_reviews = Review.objects.filter(author=request.user)
 
-    context = {
+    if request.method == 'POST':
+        reviewForm = ReviewForm(data=request.POST)
+        if reviewForm.is_valid:
+            review = reviewForm.save(commit=False)
+            review.author = request.user
+            review.approved = False
+            reviewForm.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                '''Thanks for your review! Our administrators will 
+                review your submission within 2 business days.'''
+            )
+            return redirect('hello')
+        else:
+            messages.add_message(
+            request, messages.SUCCESS,
+            '''There was an issue while trying to submit your review. 
+            Please try again in a few mins. 
+            If the issue persists, please contact us using our dedicated 
+            contact page.'''
+        )
+    else:
+        reviewForm = ReviewForm()
+
+        context = {
         'reviews': all_reviews,
         'one_star': one_star,
         'two_star': two_star,
@@ -105,7 +129,9 @@ def Zenlist_Reviews(request):
         'five_star': five_star,
         'user_reviews': user_reviews,
         'best_reviews': best_reviews,
+        'reviewForm': reviewForm,
     }
+
     return render(
         request,
         "scrum/reviews.html",

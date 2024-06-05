@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+{% if reviews %}
 <div class="container d-flex flex-column mt-3">
     <div class="heading-container d-flex align-items-start justify-content-between mb-4" style=" width: 100%;">
         <h1 class="text-center">Zenlist Reviews</h1>
@@ -60,6 +61,16 @@
         {% endfor %}
     </div>
 </div>
+
+{% else %}
+<div class="container">
+    <div class="row d-flex flex-column justify-content-around align-items-center text-center my-3">
+        <h1 class="mb-2">😯</h1>
+        <p>Looks like our reviews page is being updated!<br />Please take a minute and leave a review :)</p>
+    </div>
+    {% include 'scrum/_review_form.html' with reviewForm=reviewForm %}
+</div>
+{% endif %}
 {% endblock %}
 
 {% block extras %}
