@@ -1,6 +1,4 @@
 from django.test import TestCase, Client
-from django.urls import reverse
-from django.conf import settings
 from .forms import *
 from django.contrib.auth.models import User
 
