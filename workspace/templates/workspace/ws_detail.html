@@ -3,7 +3,9 @@
 {% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
+<!-- Breadcrumb -->
 {% include 'workspace/ws_detail_breadcrumb.html' %}
+<!-- /Breadcrumb -->
 <div class="container-fluid">
     <div class="row d-flex" id="taskRowContainer">
         <!-- Form to create new tasks -->
@@ -27,7 +29,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-12 p-1">
-                                <div class="col-12 task-box p-4">
+                                <div class="col-12 task-box text-white p-4">
                                     <h3>To Do</h3>
                                     <p>Total tasks : {{todo_count}}</p>
                                     {% for task in todo_tasks %}
@@ -38,7 +40,7 @@
                             <!-- /To Do Tasks -->
                             <!-- In Progress Tasks -->
                             <div class="col-lg-4 col-md-4 col-sm-12 p-1">
-                                <div class="col-12 task-box p-4">
+                                <div class="col-12 task-box text-white p-4">
                                     <h3>In Progress</h3>
                                     <p>Total tasks : {{progress_count}}</p>
                                     {% for task in progress_tasks %}
@@ -49,7 +51,7 @@
                             <!-- /In Progress Tasks -->
                             <!-- Done Tasks -->
                             <div class="col-lg-4 col-md-4 col-sm-12 p-1">
-                                <div class="col-12 task-box p-4">
+                                <div class="col-12 task-box text-white p-4">
                                     <h3>Completed</h3>
                                     <p>Total tasks : {{completed_count}}</p>
                                     {% for task in completed_tasks %}

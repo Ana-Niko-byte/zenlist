@@ -1,8 +1,9 @@
+{% load static %}
 <div class="container-fluid mx-2 mb-5">
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item breadcrumb-link-nav"><a href="{{ home_url }}">Home</a></li>
-            <li class="breadcrumb-item breadcrumb-link-nav"><a href="{{ workspace_url }}">{{workspace.title}}</a></li>
+        <ol class="breadcrumb d-flex align-items-center justify-content-start">
+            <li class="breadcrumb-item breadcrumb-link-nav"><a href="{{ home_url }}">Home</a></li><i class="fa-solid fa-hand-point-right mx-3"></i>
+            <li class="breadcrumb-item breadcrumb-link-nav"><a href="{{ workspace_url }}">{{workspace.title}}</a></li><i class="fa-solid fa-hand-point-right mx-3"></i>
             <li class="breadcrumb-item active-breadcrumb" aria-current="current page">Your tasks</li>
         </ol>
     </nav>

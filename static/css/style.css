@@ -37,7 +37,7 @@ li a:hover,
 }
 
 .active {
-  background-color: rgb(152, 207, 255);
+  background-color: rgb(130, 164, 179);
   border-radius: 5px;
 }
 
@@ -99,8 +99,13 @@ body {
   color: #1b1b1b;
 }
 
+.full-width{
+  min-width: 100%;
+}
+
 .scrum-content {
   font-size: 1rem;
+  line-height: 23px;
 }
 
 .nav-link {
@@ -143,12 +148,21 @@ body {
   min-height: 350px;
 }
 
+.scrum-framework-container{
+  background-color: rgba(12, 21, 26, 0.8);
+}
+
+.breadcrumb-item a{
+  color: rgb(130, 164, 179);
+  text-decoration: none;
+}
+
 .active-breadcrumb {
   text-decoration: underline;
 }
 
 .task-box {
-  min-height: 200px;
+  min-height: 100px;
 }
 
 .analytics-card {
@@ -220,7 +234,7 @@ a .social-icon {
 }
 
 .task-box {
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(68, 99, 120);
   min-height: 250px;
   border-radius: 10px;
 }
@@ -252,15 +266,21 @@ a .social-icon {
   color: lightgray;
 }
 
-.white-overlay {
-  top: 50px;
-  outline: 5px solid white;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
 #hello-content {
   font-family: "Source Code Pro", monospace;
+}
+
+.form-select:focus, 
+.form-control:focus{
+  border: 2px solid rgb(68, 99, 120);
+  box-shadow: none;
+}
+
+.due-task-container{
+  background-color: rgb(74, 84, 91); 
+  border-top-right-radius: 20px; 
+  border-bottom-right-radius: 20px;
+  min-height: 500px;
 }
 
 /* Media Queries */

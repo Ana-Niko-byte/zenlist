@@ -19,23 +19,24 @@
     <!-- /Reviews -->
     <!-- Scrum Intro -->
     <div class="breaker">
-      <div class="container-fluid jumbotron-full">
+      <div class="container-fluid scrum-framework-container">
         <div class="row d-flex flex-column align-items-center justify-content-center">
           <div class="col-12 mt-5">
             <h2 class="text-center brand white-text">
               <i class="fa-solid fa-bullseye me-3"></i>{{ hello.title }}
             </h2>
           </div>
-          <div class="white-overlay col-md-8 col-sm-10 position-relative mb-5">
-            <div class="paragraph scrum-content text-center p-3">
+          <div class="col-md-8 col-sm-10 position-relative mb-5">
+            <div class="paragraph scrum-content text-center white-text p-3 bb-grey">
               <!-- No p tags because this gets rendered as a paragraph element already -->
               {{ hello.content | safe }}
             </div>
             <a href="https://scrumguides.org/index.html" target="_blank" rel="noopener noreferrer" 
-            class="d-flex flex-row justify-content-center align-items-center visit-scrum direct-link" 
-            aria-label="scrum.org site link">
-              <i class="fa-solid fa-arrow-up-right-from-square fa-lg px-3 pb-2"></i>
-              <h5 class="bb-grey">Visit Scrum.Org here!</h5>
+            class="visit-scrum direct-link" aria-label="scrum.org site link">
+              <h5 class="text-white pt-4 text-center">
+                <i class="fa-solid fa-arrow-up-right-from-square fa-xs me-1 pb-2"></i>
+                Visit Scrum.Org here!
+              </h5>
             </a>
           </div>
         </div>

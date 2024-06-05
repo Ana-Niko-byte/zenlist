@@ -1,299 +1,314 @@
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 /* Colours */
-.jumbotron{
-    background-image: url("../images/balance.jpg");
-    background-color: #1b1b1b;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    min-height: 500px;
+.jumbotron {
+  background-image: url("../images/balance.jpg");
+  background-color: #1b1b1b;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  min-height: 500px;
 }
 
-li a:hover, 
-.socials a:hover, 
-.download-scrum:hover{
-    color:rgb(255, 119, 0);
+li a:hover,
+.socials a:hover,
+.download-scrum:hover {
+  color: rgb(255, 119, 0);
 }
 
-.socials a{
-    color: rgb(27, 27, 27);
+.socials a {
+  color: rgb(27, 27, 27);
 }
 
-.direct-link{
-    transition: all 0.2s ease;
+.direct-link {
+  transition: all 0.2s ease;
 }
 
-.direct-link:hover{
-    transform: scale(1.02);
+.direct-link:hover {
+  transform: scale(1.02);
 }
 
-.nav-item:hover{
-    color: rgb(71, 71, 108);
+.nav-item:hover {
+  color: rgb(71, 71, 108);
 }
 
-.btn-delete{
-    background-color: #ffffff;
-    font-weight: 500;
+.btn-delete {
+  font-weight: 500;
 }
 
-.btn-delete:hover{
-    background-color: rgb(236, 236, 236);
+.active {
+  background-color: rgb(130, 164, 179);
+  border-radius: 5px;
 }
 
-.active{
-    background-color: rgb(152, 207, 255);
-    border-radius: 5px;
+.white-text {
+  color: rgb(246, 246, 246);
 }
 
-.white-text{
-    color: rgb(246, 246, 246);
-}
-
-.post-subtitle{
-    font-size: 10px;
+.post-subtitle {
+  font-size: 10px;
 }
 
 /* Annotations & Makeshift Symbols */
 /* Used instead of .nav-item-line::after content due to height control. */
-.line{
-    height: 100%;
-    width: 1px;
-    background-color: rgb(22, 22, 22);
+.line {
+  height: 100%;
+  width: 1px;
+  background-color: rgb(22, 22, 22);
 }
 
 /* Branding */
-body{
-    font-family: "Source Code Pro", monospace;
-    font-weight: 400;
-    font-style: normal;
+body {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.navbar-brand{
-    font-size: 2rem;
+.navbar-brand {
+  font-size: 2rem;
 }
 
-.authentication-button{
-    width: 150px;
-    padding: 10px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    transition: all 0.2s ease;
+.authentication-button {
+  width: 150px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: all 0.2s ease;
 }
 
-.authentication-button:hover{
-    transform: scale(1.05);
+.authentication-button:hover {
+  transform: scale(1.05);
 }
 
-.workspace-container{
-    border-bottom: 1px dashed darkgrey;
-    transition: all 0.2s ease;
+.workspace-container {
+  border-bottom: 1px dashed darkgrey;
+  transition: all 0.2s ease;
 }
 
-.workspace-container:hover{
-    transform: scaleX(1.02);
+.workspace-container:hover {
+  transform: scaleX(1.02);
 }
 
-.workspace-container a{
-    text-decoration: none;
+.workspace-container a {
+  text-decoration: none;
 }
 
 /* UIUX */
-.visit-scrum{
-    text-decoration: none;
-    color: #1b1b1b;
+.visit-scrum {
+  text-decoration: none;
+  color: #1b1b1b;
 }
 
-.scrum-content{
-    font-size: 1rem;
+.full-width{
+  min-width: 100%;
 }
 
-.nav-link{
-    transition: all 0.2s ease;
-    text-decoration: none;
+.scrum-content {
+  font-size: 1rem;
+  line-height: 23px;
 }
 
-.nav-link:hover{
-    transform: scale(1.04);
+.nav-link {
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
-.profile-image{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.nav-link:hover {
+  transform: scale(1.04);
 }
 
-.reviewed-time{
-    font-size: 0.8rem;
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
-.author-bio{
-    font-size: 0.9rem;
+.reviewed-time {
+  font-size: 0.8rem;
 }
 
-.author-industry{
-font-size: 0.6rem;
+.author-bio {
+  font-size: 0.9rem;
 }
 
-.star-rating{
-    font-size: 2rem;
+.author-industry {
+  font-size: 0.6rem;
 }
 
-.breaker{
-    background-image: url("../images/office-chairs.jpg");
-    background-position: bottom;
-    background-repeat: none;
-    background-size: cover;
-    min-height: 350px;
+.star-rating {
+  font-size: 2rem;
 }
 
-.active-breadcrumb{
-    text-decoration: underline;
+.breaker {
+  background-image: url("../images/office-chairs.jpg");
+  background-color: #1b1b1b;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 350px;
 }
 
-.task-box{
-    min-height: 200px;
+.scrum-framework-container{
+  background-color: rgba(12, 21, 26, 0.8);
 }
 
-.analytics-card{
-    min-height: 500px;
+.breadcrumb-item a{
+  color: rgb(130, 164, 179);
+  text-decoration: none;
 }
 
-.workspace-link{
-    color: #1b1b1b;
-    transition: all 0.4s ease;
+.active-breadcrumb {
+  text-decoration: underline;
 }
 
-.workspace-link:hover{
-    color: rgb(94, 0, 166);
+.task-box {
+  min-height: 100px;
 }
 
-.breadcrumb-link-nav{
-    text-decoration: none;
-    color:#1b1b1b;
-    transition: all 1s ease;
+.analytics-card {
+  min-height: 500px;
 }
 
-.breadcrumb-link-nav:hover{
-    color: purple;
+.workspace-link {
+  color: #1b1b1b;
+  transition: all 0.4s ease;
 }
 
-.bb-grey{
-    border-bottom: 1px dashed darkgrey;
+.workspace-link:hover {
+  color: rgb(94, 0, 166);
 }
 
-.critical{
-    background-color: red;
+.breadcrumb-link-nav {
+  text-decoration: none;
+  color: #1b1b1b;
+  transition: all 1s ease;
 }
 
-.major{
-    background-color: orange;
+.breadcrumb-link-nav:hover {
+  color: purple;
 }
 
-.minor{
-    background-color: rgb(255, 200, 0);
+.bb-grey {
+  border-bottom: 1px dashed darkgrey;
 }
 
-.nice{
-    background-color: green;
+.critical {
+  background-color: red;
 }
 
-.priority-indicator{
-    width:15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-right: 10px;
+.major {
+  background-color: orange;
+}
+
+.minor {
+  background-color: rgb(255, 200, 0);
+}
+
+.nice {
+  background-color: green;
+}
+
+.priority-indicator {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 /* Bootstrap Overrides */
-.accordion-button:not(.collapsed){
-    background-color: #ffffff;
-    box-shadow: none;
+.accordion-button:not(.collapsed) {
+  background-color: #ffffff;
+  box-shadow: none;
 }
 
-.accordion-button:focus{
-    box-shadow: none;
+.accordion-button:focus {
+  box-shadow: none;
 }
 
-.nav-link-items{
-    width: 100%;
+.nav-link-items {
+  width: 100%;
 }
 
-a .social-icon{
-    color:rgb(27, 27, 27);
+a .social-icon {
+  color: rgb(27, 27, 27);
 }
 
-.task-box{
-    background-color: rgb(241, 241, 241);
-    min-height: 250px;
-    border-radius: 10px;
+.task-box {
+  background-color: rgb(68, 99, 120);
+  min-height: 250px;
+  border-radius: 10px;
 }
 
-.task-notes{
-    font-size: 14px;
+.task-notes {
+  font-size: 14px;
 }
 
-.red-font{
-    color: rgb(173, 0, 0);
+.red-font {
+  color: rgb(173, 0, 0);
 }
 
-.already-account{
-    font-size: 1rem;
+.already-account {
+  font-size: 1rem;
 }
 
-#signup_form ul{
-    display: flex;
-    flex-flow: column wrap;
-    align-items: start;
+#signup_form ul {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: start;
 }
 
-#signup_form ul li{
-    font-size: 0.7rem;
-    color: rgb(177, 177, 177);
+#signup_form ul li {
+  font-size: 0.7rem;
+  color: rgb(177, 177, 177);
 }
 
-
-.faded{
-    color: lightgray;
+.faded {
+  color: lightgray;
 }
 
-.white-overlay{
-    top: 50px;
-    outline: 5px solid white;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
+#hello-content {
+  font-family: "Source Code Pro", monospace;
 }
 
-#hello-content{
-    font-family: "Source Code Pro", monospace;
+.form-select:focus, 
+.form-control:focus{
+  border: 2px solid rgb(68, 99, 120);
+  box-shadow: none;
+}
+
+.due-task-container{
+  background-color: rgb(74, 84, 91); 
+  border-top-right-radius: 20px; 
+  border-bottom-right-radius: 20px;
+  min-height: 500px;
 }
 
 /* Media Queries */
-@media all and (max-width: 1200px){
-    .zenlist-review{
-        /* check later if needed */
-        width: 500px;
-    }
+@media all and (max-width: 1200px) {
+  .zenlist-review {
+    /* check later if needed */
+    width: 500px;
+  }
 }
 
-@media all and (max-width: 990px){
-    #container-scrum-row{
-        flex-direction: column-reverse;
-    }
+@media all and (max-width: 990px) {
+  #container-scrum-row {
+    flex-direction: column-reverse;
+  }
 
-    #taskRowContainer{
-        flex-direction: column-reverse;
-    }
+  #taskRowContainer {
+    flex-direction: column-reverse;
+  }
 }
 
-@media all and (max-width: 760px){
-    .nav-item{
-        justify-items: start;
-        border-top: 1px solid lightgrey;
-        padding: 10px 0;
-    }
+@media all and (max-width: 760px) {
+  .nav-item {
+    justify-items: start;
+    border-top: 1px solid lightgrey;
+    padding: 10px 0;
+  }
 
-    .navbar{
-        padding: 0 20px;
-    }
+  .navbar {
+    padding: 0 20px;
+  }
 }

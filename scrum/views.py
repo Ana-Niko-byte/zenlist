@@ -1,10 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.http import HttpResponseRedirect
 from .models import Scrum, Review
 from .forms import ContactForm, ReviewForm
 from django.contrib import messages
 
 from django.conf import settings
 from django.core.mail import EmailMessage
+
+from django.contrib.auth.decorators import login_required
 
 def HelloScrum(request):
     scrum = Scrum.objects.all().first()
@@ -94,7 +97,7 @@ def Zenlist_Reviews(request):
     three_star = Review.objects.filter(rating='★★★☆☆')
     two_star = Review.objects.filter(rating='★★☆☆☆')
     one_star = Review.objects.filter(rating='★☆☆☆☆')
-    user_reviews = Review.objects.filter(author=request.user)
+    user_reviews = Review.objects.filter(author=request.user, approved=False)
 
     if request.method == 'POST':
         reviewForm = ReviewForm(data=request.POST)
@@ -137,3 +140,13 @@ def Zenlist_Reviews(request):
         "scrum/reviews.html",
         context
     )
+
+@login_required
+def delete_review(request, id):
+    """
+    FBV for deleting a review based on id retrieval.
+    """
+    review = get_object_or_404(Review, id=id)
+    if review.author == request.user:
+        review.delete()
+        return HttpResponseRedirect(reverse('reviews'))

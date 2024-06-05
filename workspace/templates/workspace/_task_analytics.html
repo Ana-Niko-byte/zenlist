@@ -1,15 +1,19 @@
 {% load static %}
 <div class="workspace-analytics">
-    <div class="analytic-intro text-center brand mb-4 bb-grey">
-        <h2>⌛ Due Today</h2>
+    <div class="analytic-intro brand mb-4 pt-2">
+        <h2><i class="fa-solid fa-hourglass-half fa-xs ms-2 me-3"></i>Due Today</h2>
     </div>
     {% for analytic in due_tasks %}
     {% if analytic.due_count > 0 %}
     <div class="due-today d-flex flex-column justify-content-center my-4 p-2">
-        <em><strong>{{analytic.due_count}} task(s) due </strong>in '{{analytic.title}}'</em>
+        <em>
+            <i class="fa-regular fa-circle-dot me-2"></i>
+            <strong>{{analytic.due_count}} task(s) due</strong>
+            in '{{analytic.title}}'
+        </em>
     </div>
     {% else %}
-    <div class="alternative text-center">
+    <div class="alternative ps-2  d-flex flex-column justify-content-end" style="min-height: 350px;">
         <em>No tasks due today.</em>
         <div class="hooray mt-5">
             <h3>Hooray!</h3>

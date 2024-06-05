@@ -91,12 +91,13 @@ class WorkspaceListView(generic.ListView):
         # Tasks that are due today
         # filter=Q because of complex querying
         due_tasks = self.get_queryset().annotate(
-             due_count=Count(
-                 'workspace_tasks',
-                 filter=Q(
-                     workspace_tasks__due_date=timezone.now().date()
-                    )
-                ))     
+            due_count=Count(
+                'workspace_tasks',
+                filter=Q(
+                    workspace_tasks__due_date=timezone.now().date()
+                )
+            )
+        )
            
         data['due_tasks'] = due_tasks.order_by('-created_on')
         return data
