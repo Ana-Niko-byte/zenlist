@@ -1,6 +1,7 @@
 from django.test import TestCase, Client
 from .models import *
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 
 class TestWorkspaceModel(TestCase):
@@ -48,9 +49,11 @@ class TestWorkspaceModel(TestCase):
             password='test-password'
         )
 
+        title='Test Workspace'
         self.workspace = Workspace(
             id=4,
-            title='Test Workspace',
+            title=title,
+            slug=slugify(title),
             creator=self.user
         )
 
@@ -75,6 +78,7 @@ class TestWorkspaceModel(TestCase):
         '''
         self.assertEqual(self.workspace.id, 4)
         self.assertEqual(self.workspace.title, 'Test Workspace')
+        self.assertEqual(self.workspace.slug, 'test-workspace')
         self.assertEqual(self.workspace.creator.username, 'ananiko')
 
     def test_task_model_creation(self):
