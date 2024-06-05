@@ -4,7 +4,7 @@ from .models import *
 
 class TestScrumModel(TestCase):
     '''
-    A class to test the Scrum Model.
+    A class to test all models associated with the Scrum app.
 
     Methods:
     def setUp():
@@ -31,6 +31,7 @@ class TestScrumModel(TestCase):
         '''
         self.client = Client()
         self.user = User.objects.create_user(
+            id=3,
             username='ananiko',
             password='test-password'
         )
@@ -62,13 +63,11 @@ class TestScrumModel(TestCase):
 
     def test_review_model_creation(self):
         '''
-        Asserts whether the review id is 4, as per model setup.
-        Asserts whether the review author is the logged in user,
-        as per model setup.
-        Asserts whether the review job_industry is 'Finance', as per model
-        setup.
-        Asserts whether the review rating is '★★★★☆', as per model setup.
-        Asserts whether the 'review' field is 'Testing the review Model.',
+        Asserts the review id is 4, as per model setup.
+        Asserts the review author is the logged in user, as per model setup.
+        Asserts the review job_industry is 'Finance', as per model setup.
+        Asserts the review rating is '★★★★☆', as per model setup.
+        Asserts the 'review' field is 'Testing the review Model.',
         as per model setup.
         '''
         self.assertEqual(self.review.id, 4)
@@ -80,7 +79,7 @@ class TestScrumModel(TestCase):
     def test_user_deletion_cascade(self):
         '''
         Deletes the current user.
-        Asserts if that user's reviews are also deleted.
+        Asserts user's reviews are also deleted.
         '''
         self.user.delete()
         self.assertEqual(len(Review.objects.all()), 0)
