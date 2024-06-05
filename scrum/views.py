@@ -97,7 +97,7 @@ def Zenlist_Reviews(request):
     three_star = Review.objects.filter(rating='★★★☆☆')
     two_star = Review.objects.filter(rating='★★☆☆☆')
     one_star = Review.objects.filter(rating='★☆☆☆☆')
-    user_reviews = Review.objects.filter(author=request.user, approved=False)
+    user_reviews = Review.objects.filter(author=request.user.id, approved=False)
 
     if request.method == 'POST':
         reviewForm = ReviewForm(data=request.POST)
