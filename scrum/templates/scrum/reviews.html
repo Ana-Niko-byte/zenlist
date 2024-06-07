@@ -22,7 +22,7 @@
         {% for review in reviews %}
         {% if review.approved %}
         <div class="card col-md-4 col-sm-12 mb-3 mx-2" style="background-color: rgb(232, 236, 242); outline: none; border: none;">
-            <div class="card-body zenlist-review" data-reviewed-on="{{review.reviewed_on}}" data-highestRate="{{review.rating}}" data-review-id="{{review.id}}">
+            <div class="card-body zenlist-review" data-reviewedOn="{{review.reviewed_on}}" data-highestRate="{{review.rating}}" data-review-id="{{review.id}}">
                 <div class="author-review mb-3 text-center">
 
                     <h2 class="star-rating">{{review.rating}}</h2>

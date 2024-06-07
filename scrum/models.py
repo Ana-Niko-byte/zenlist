@@ -89,7 +89,7 @@ class Review(models.Model):
         max_length=5
     )
     review = models.TextField()
-    reviewed_on = models.DateTimeField(auto_now_add=True)
+    reviewed_on = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
     def __str__(self):
