@@ -284,13 +284,6 @@ a .social-icon {
 }
 
 /* Media Queries */
-@media all and (max-width: 1200px) {
-  .zenlist-review {
-    /* check later if needed */
-    width: 500px;
-  }
-}
-
 @media all and (max-width: 990px) {
   #container-scrum-row {
     flex-direction: column-reverse;

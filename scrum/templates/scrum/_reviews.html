@@ -27,13 +27,6 @@
               <p class="author-industry">industry: {{review.job_industry}}</p>
           </div>
         </div>
-        <!-- !!! This needs some adjusting !!! -->
-        {% if review.author == user %}
-        <p class="{% if review.author == request.user and not review.approved %}faded 
-        {% else %}d-none {% endif %}">
-          Your comment is awaiting approval!
-        </p>
-        {% endif %}
       </div>
     </div>
     {% endif %}
