@@ -1,3 +1,6 @@
+// Imports from common.js
+import { resetValues, TaskSort } from "./common.js";
+
 // Delete Functionality
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deletes = document.getElementsByClassName("btn-delete");
@@ -68,3 +71,8 @@ for (let editButton of edits) {
         form.setAttribute("action", `update-task/${taskId}`);
     });
 }
+
+// Sorting Functionality Common.js
+TaskSort("task1-filter", "accordion-ToDo", "tasks-todo");
+TaskSort("task2-filter", "accordion-InProgress", "tasks-inprogress");
+TaskSort("task3-filter", "accordion-Completed", "tasks-completed");

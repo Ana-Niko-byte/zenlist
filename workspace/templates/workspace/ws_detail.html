@@ -36,7 +36,9 @@
                                     </div>
                                     {% include 'workspace/_select_field.html' with uniqueIdValue=1 %}
                                     {% for task in todo_tasks %}
-                                    {% include 'workspace/_task_detail.html' with task=task id='todo{{forloop.counter}}' %}
+                                    <div id="tasks-todo">
+                                        {% include 'workspace/_task_detail.html' with task=task id='todo{{forloop.counter}}' jsIdentifier='ToDo' %}
+                                    </div>
                                     {% endfor %}
                                 </div>
                             </div> 
@@ -50,7 +52,9 @@
                                     </div>
                                     {% include 'workspace/_select_field.html' with uniqueIdValue=2 %}
                                     {% for task in progress_tasks %}
-                                    {% include 'workspace/_task_detail.html' with task=task id='progress{{forloop.counter}}' %}
+                                    <div id="tasks-inprogress">
+                                        {% include 'workspace/_task_detail.html' with task=task id='progress{{forloop.counter}}' jsIdentifier='InProgress' %}
+                                    </div>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -64,7 +68,9 @@
                                     </div>
                                     {% include 'workspace/_select_field.html' with uniqueIdValue=3 %}
                                     {% for task in completed_tasks %}
-                                    {% include 'workspace/_task_detail.html' with task=task id='complete{{forloop.counter}}' %}
+                                    <div id="tasks-completed">
+                                        {% include 'workspace/_task_detail.html' with task=task id='complete{{forloop.counter}}' jsIdentifier='Completed' %}
+                                    </div>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -82,5 +88,5 @@
 {% endblock %}
 
 {% block extras %}
-<script src="{% static 'js/tasks.js' %}" type="application/javascript"></script>
+<script src="{% static 'js/tasks.js' %}" type="module"></script>
 {% endblock %}

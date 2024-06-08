@@ -1,5 +1,8 @@
-// Sorting Functionality 
+// Imports from common.js
+import { resetValues, returnRecent, amendFormat } from "./common.js";
 
+
+// Sorting Functionality 
 function determineRatingLength(retrievedArray){
     /**
      * Iterates over retrieved array to determine the length of the rating dataset attribute 'highestRate'.
@@ -16,58 +19,40 @@ function determineRatingLength(retrievedArray){
     };
 }
 
-function amendReviewedFormat(retrievedArray){
-    /**
-     * Iterates over each item in the array and retrieves the dataset reviewedOn value
-     * representing the date on which the review was made.
-     * 
-     *Arguments:
-     * retrievedArray : array, array for formatting reviewedOn dataset value.
-     * 
-     * Method:
-     * Retrieves reviewedOn dataset value.
-     * Converts to a new Date object.
-     * Retrieves day, month, year of new Date object.
-     * Formats with zeroes to match date format from getCurrentDateFormat();
-     * Resets value of reviewedOn dataset to formatted date.
-     * 
-     */
-    for (const item of retrievedArray){
-        // reviewedOn current value format: "June 5, 2024"
-        let reviewedDate = item.getAttribute("data-reviewedOn");
+// amendFormat(reviewItemsArray, "data-reviewedOn", reviewedOn);
+// function amendReviewedFormat(retrievedArray){
+//     /**
+//      * Iterates over each item in the array and retrieves the dataset reviewedOn value
+//      * representing the date on which the review was made.
+//      * 
+//      *Arguments:
+//      * retrievedArray : array, array for formatting reviewedOn dataset value.
+//      * 
+//      * Method:
+//      * Retrieves reviewedOn dataset value.
+//      * Converts to a new Date object.
+//      * Retrieves day, month, year of new Date object.
+//      * Formats with zeroes to match date format from getCurrentDateFormat();
+//      * Resets value of reviewedOn dataset to formatted date.
+//      * 
+//      */
+//     for (const item of retrievedArray){
+//         // reviewedOn current value format: "June 5, 2024"
+//         let reviewedDate = item.getAttribute("data-reviewedOn");
 
-        const formattedDate = new Date(reviewedDate);
-        const day = formattedDate.getDate();
-        const month = formattedDate.getMonth() +1;
-        const year = formattedDate.getFullYear();
+//         const formattedDate = new Date(reviewedDate);
+//         const day = formattedDate.getDate();
+//         const month = formattedDate.getMonth() +1;
+//         const year = formattedDate.getFullYear();
 
-        // To comply with date format from getCurrentDateFormat();
-        const zeroedM = month < 10 ? "0" + month : month;
-        const zeroedD = day < 10 ? "0" + day : day;
+//         const zeroedM = month < 10 ? "0" + month : month;
+//         const zeroedD = day < 10 ? "0" + day : day;
 
-        item.dataset.reviewedOn = `${year}-${zeroedM}-${zeroedD}`;
-    }
-};
+//         item.dataset.reviewedOn = `${year}-${zeroedM}-${zeroedD}`;
+//     }
+// };
 
-function resetValues(retrievedArray){
-    /**
-     * This function is used to re-append sorted array items to the review-box.
-     * 
-     * Arguments:
-     * retrievedArray : array, the array to be iterated over.
-     * 
-     * Method:
-     * Retrieves the review-box by Id.
-     * Empties the review-box.
-     * Iterates through the array and appends each item to the review-box.
-     */
-    document.getElementById("review-box").innerHTML = '';
-    for (const item of retrievedArray){
-        document.getElementById("review-box").append(item);
-    };
-};
-
-const selectField = document.getElementById("review-filter").addEventListener("change", function(){
+document.getElementById("review-filter").addEventListener("change", function(){
     /**
      * On change event, sorts values based on selection.
      * 
@@ -103,7 +88,7 @@ const selectField = document.getElementById("review-filter").addEventListener("c
             return reviewLengthB - reviewLengthA;
         });
         // Clear existing order + set to sorted array.
-        resetValues(newArray);
+        resetValues(newArray, "review-box");
 
     } else if (selectedOption === 'by lowest'){
         const newArray = [...reviewItemsArray].sort(function(a,b) {
@@ -112,17 +97,19 @@ const selectField = document.getElementById("review-filter").addEventListener("c
 
             return reviewLengthA - reviewLengthB;
         });
-        resetValues(newArray);
+        resetValues(newArray, "review-box");
 
     } else if (selectedOption === 'by recent'){
-        amendReviewedFormat(reviewItemsArray);
+        // amendReviewedFormat(reviewItemsArray);
+        // returnRecent(reviewItemsArray, "reviewedOn", "review-box", "data-reviewedOn");
+        amendFormat(reviewItemsArray, "data-reviewedOn");
         const newArray = [...reviewItemsArray].sort(function(a, b) {
             const dateA = a.dataset.reviewedOn;
             const dateB = b.dataset.reviewedOn;
             // As format is Str 'YYYY-MM-DD'
             return dateB.localeCompare(dateA);
         });
-        resetValues(newArray);
+        resetValues(newArray, "review-box");
     };
 });
 
