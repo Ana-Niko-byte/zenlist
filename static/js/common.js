@@ -60,7 +60,7 @@ export function returnRecent(arrayToDuplicate, datasetValue, taskBoxId, amendDat
         const dateA = a.dataset[datasetValue];
         const dateB = b.dataset[datasetValue];
 
-        return dateB.localeCompare(dateA);
+        return dateA.localeCompare(dateB);
     });
     resetValues(newArray, taskBoxId);
 }
