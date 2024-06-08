@@ -139,6 +139,10 @@ body {
   font-size: 2rem;
 }
 
+.task-filter-select{
+  font-size: 13px;
+}
+
 .breaker {
   background-image: url("../images/office-chairs.jpg");
   background-color: #1b1b1b;
@@ -284,6 +288,12 @@ a .social-icon {
 }
 
 /* Media Queries */
+@media all and (max-width: 450px){
+  .heading-container{
+    flex-direction: column;
+    margin: 0 0;
+  }
+}
 @media all and (max-width: 990px) {
   #container-scrum-row {
     flex-direction: column-reverse;
