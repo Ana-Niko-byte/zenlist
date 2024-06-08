@@ -16,15 +16,7 @@ function determineRatingLength(retrievedArray){
     };
 }
 
-function getCurrentDateFormat(){
-    /**
-     * Returns today's date in YYYY-MM-DD format.
-     */
-    // Awesome code: https://www.freecodecamp.org/news/javascript-get-current-date-todays-date-in-js/
-    return new Date().toJSON().slice(0,10);
-};
-
-function getReviewedOnFormat(retrievedArray){
+function amendReviewedFormat(retrievedArray){
     /**
      * Iterates over each item in the array and retrieves the dataset reviewedOn value
      * representing the date on which the review was made.
@@ -79,11 +71,20 @@ const selectField = document.getElementById("review-filter").addEventListener("c
     /**
      * On change event, sorts values based on selection.
      * 
+     * Method:
      * Retrieves the selection value.
      * Retrieves the array of items to be sorted by class value 'zenlist-reviews'.
+     * Based on a conditional check of selection value, sorts the retrieved array.
      * 
+     * Functions:
+     * determineRatingLength(arr : array);
      * Change value of dataset highestRate from symbols to integer value indicating quantity of filled stars.
      * 
+     * resetValues(arr : array);
+     * Empties the review box container and reappends sorted values.
+     * 
+     * amendReviewedFormat(arr : array);
+     * Changes the human readable format of the review.reviewed_on date to ISO 'YYYY-MM-DD'
      */
     let selectedOption = this.value;
     let reviewItemsArray = Array.from(document.getElementsByClassName("zenlist-review"));
@@ -102,11 +103,6 @@ const selectField = document.getElementById("review-filter").addEventListener("c
         });
         // Clear existing order + set to sorted array.
         resetValues(reviewItemsArray);
-        // for comparison
-        // for (const item of reviewItemsArray){
-        //     let reviewId = item.getAttribute("data-review-id");
-        //     console.log(reviewId)
-        // };
 
     } else if (selectedOption === 'by lowest'){
         reviewItemsArray.sort(function(a,b) {
@@ -116,27 +112,16 @@ const selectField = document.getElementById("review-filter").addEventListener("c
             return reviewLengthA - reviewLengthB;
         });
         resetValues(reviewItemsArray);
-        // for comparison
-        // for (const item of reviewItemsArray){
-        //     let reviewId = item.getAttribute("data-review-id");
-        //     console.log(reviewId)
-        // };
 
     } else if (selectedOption === 'by recent'){
-
-        reviewItemsArray.sort(function(currentDate,reviewedDate){
-            let currentDate = getCurrentDateFormat();
-            let reviewedDate = getReviewedOnFormat(reviewItemsArray);
-
-            return reviewedDate - currentDate;
+        amendReviewedFormat(reviewItemsArray);
+        reviewItemsArray.sort(function(a, b) {
+            const dateA = a.dataset.reviewedOn;
+            const dateB = b.dataset.reviewedOn;
+            // As format is Str 'YYYY-MM-DD'
+            return dateB.localeCompare(dateA);
         });
-        // !!! sort weird style formatting - likely from appending wrong html element?
         resetValues(reviewItemsArray);
-        // !!! As reviews were all added today, check this functionality with a new review tomorrow. !!!
-        // for (const item of reviewItemsArray){
-        //     let reviewId = item.getAttribute("data-review-id");
-        //     console.log(reviewId)
-        // };
     };
 });
 
