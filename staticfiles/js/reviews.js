@@ -94,7 +94,8 @@ const selectField = document.getElementById("review-filter").addEventListener("c
 
     // Filtering
     if (selectedOption === 'by best'){
-        reviewItemsArray.sort(function(a,b) {
+        // Shallow copy to avoid changing original array.
+        const newArray = [...reviewItemsArray].sort(function(a,b) {
             // Parsing as dataset highestRate is set to String.
             let reviewLengthA = parseInt(a.dataset.highestRate);
             let reviewLengthB = parseInt(b.dataset.highestRate);
@@ -102,26 +103,26 @@ const selectField = document.getElementById("review-filter").addEventListener("c
             return reviewLengthB - reviewLengthA;
         });
         // Clear existing order + set to sorted array.
-        resetValues(reviewItemsArray);
+        resetValues(newArray);
 
     } else if (selectedOption === 'by lowest'){
-        reviewItemsArray.sort(function(a,b) {
+        const newArray = [...reviewItemsArray].sort(function(a,b) {
             let reviewLengthA = parseInt(a.dataset.highestRate);
             let reviewLengthB = parseInt(b.dataset.highestRate);
 
             return reviewLengthA - reviewLengthB;
         });
-        resetValues(reviewItemsArray);
+        resetValues(newArray);
 
     } else if (selectedOption === 'by recent'){
         amendReviewedFormat(reviewItemsArray);
-        reviewItemsArray.sort(function(a, b) {
+        const newArray = [...reviewItemsArray].sort(function(a, b) {
             const dateA = a.dataset.reviewedOn;
             const dateB = b.dataset.reviewedOn;
             // As format is Str 'YYYY-MM-DD'
             return dateB.localeCompare(dateA);
         });
-        resetValues(reviewItemsArray);
+        resetValues(newArray);
     };
 });
 
