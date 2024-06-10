@@ -7,7 +7,7 @@
     <div class="row d-flex align-items-start justify-content-between">
 
         <!-- Analytics -->
-        <div class="col-sm-12 col-lg-4 p-3 white-text due-task-container">
+        <div class="col-sm-12 col-lg-4 p-3 white-text due-task-container" id="due-task-container">
           {% include 'workspace/_task_analytics.html' %}
         </div>
         <!-- /Analytics -->
@@ -31,10 +31,10 @@
               <!-- /Link to full workspace -->
 
               <!-- Delete Workspace Button -->
-              <div class="button-container col-sm-12 col-md-6 d-flex align-items-center justify-content-end">
-                <button type="button" data-workspace-id="{{space.id}}" data-workspace-title="{{space.title}}" class="btn btn-delete">
+              <div class="button-container button-container-workspace col-sm-12 col-md-6 mb-3">
+                <button type="button" data-workspace-id="{{space.id}}" data-workspace-title="{{space.title}}" class="btn btn-delete btn-danger">
                   Delete<i class="fa-solid fa-trash px-2"></i>
-                  </button>
+                </button>
               </div>
               <!-- /Delete Workspace Button -->
 
@@ -47,6 +47,7 @@
           <!-- /Delete Workspace Modal -->
 
           {% endfor %}
+
           <!-- Add Workspace Modal -->
           {% include 'workspace/add_ws_modal.html' %}
           <!-- /Add Workspace Modal -->

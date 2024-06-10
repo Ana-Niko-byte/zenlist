@@ -287,20 +287,15 @@ a .social-icon {
   min-height: 500px;
 }
 
+#workspace-analytics{
+  height: 450px;
+}
+
 /* Media Queries */
 @media all and (max-width: 450px){
   .heading-container{
     flex-direction: column;
     margin: 0 0;
-  }
-}
-@media all and (max-width: 990px) {
-  #container-scrum-row {
-    flex-direction: column-reverse;
-  }
-
-  #taskRowContainer {
-    flex-direction: column-reverse;
   }
 }
 
@@ -309,9 +304,50 @@ a .social-icon {
     justify-items: start;
     border-top: 1px solid lightgrey;
     padding: 10px 0;
+    width: 100%;
+    text-align: left;
   }
 
   .navbar {
     padding: 0 20px;
+  }
+
+  .container-ws-modal{
+    justify-content: center;
+  }
+}
+
+@media all and (max-width: 990px) {
+  #container-scrum-row {
+    flex-direction: column-reverse;
+  }
+
+  #taskRowContainer {
+    flex-direction: column-reverse;
+  }
+
+  .analytic-intro{
+    display: none;
+  }
+
+  #due-task-container {
+    min-height: 170px;
+    margin: 30px 0;
+    border-radius: 0;
+    text-align: center;
+  }
+}
+
+@media all and (min-width: 760px) {
+  #navbarItems{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .button-container-workspace{
+    display: flex;
+    align-items: start;
+    justify-content: end;
   }
 }

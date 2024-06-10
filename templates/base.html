@@ -26,14 +26,13 @@
             <!-- Zenlist Logo and Home URL -->
             <a class="navbar-brand" href="{{ home_url }}"><span class="brand ps-2"><i class="fa-solid fa-list-check me-4"></i>Zenlist</span></a>
             <!-- Navbar item toggler -->
-            <!-- <div class="navbar-container"> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems"
                 aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation items">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Navbar items to toggle -->
-            <div class="collapse navbar-collapse nav-link-items text-end d-flex align-items-center justify-content-end" id="navbarItems">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse nav-link-items text-end" id="navbarItems">
+                <ul class="navbar-nav d-flex align-items-end">
                     <li class="nav-item px-1">
                         <a class="nav-link {% if request.path == home_url %}active{% endif %} brand" aria-current="page"
                             href="{{ home_url }}">
@@ -79,7 +78,6 @@
                     {% endif %}
                 </ul>
             </div>
-            <!-- </div> -->
         </div>
     </nav>
     <p class="brand mb-4 px-4"><i class="fa-solid fa-trophy"></i>   Ireland's No.1 Task Tracking Software.</p>
@@ -108,24 +106,24 @@
 
     <!-- Footer -->
     <footer class="mt-auto py-3 mt-4">
-        <div class="navbar-nav container-fluid container-top justify-content-center align-items-center border-bottom p-3">
-            <ul class="nav">
-                <li class="nav-item"><a href="{{ home_url }}" class="nav-link px-2 text-body-secondary">Home</a></li>
-                <li class="nav-item"><a href="{{ contact_url }}" class="nav-link px-2 text-body-secondary">Contact</a></li>
-                <li class="nav-item"><a href="{{ workspace_url }}" class="nav-link px-2 text-body-secondary">Your Workspaces</a></li>
+        <div class="container-fluid container-top justify-content-center align-items-center border-bottom p-3">
+            <ul class="nav footer-nav d-flex flex-row align-items-center justify-content-center">
+                <li class="nav-footer-item"><a href="{{ home_url }}" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-footer-item"><a href="{{ contact_url }}" class="nav-link px-2 text-body-secondary">Contact</a></li>
+                <li class="nav-footer-item"><a href="{{ workspace_url }}" class="nav-link px-2 text-body-secondary">Your Workspaces</a></li>
                 {% if request.user.is_authenticated %}
-                    <li class="nav-item px-1">
-                        <a class="nav-link btn px-2 text-body-secondary" href="{% url 'account_logout' %}">Logout</a>
+                    <li class="nav-footer-item px-1">
+                        <a href="{% url 'account_logout' %}" class="nav-link btn px-2 text-body-secondary">Logout</a>
                     </li>
                 {% else %}
-                    <li class="nav-item px-1">
-                        <a class="nav-link btn px-2 text-body-secondary" href="{% url 'account_signup' %}">SignUp</a>
+                    <li class="nav-footer-item px-1">
+                        <a href="{% url 'account_signup' %}" class="nav-link btn px-2 text-body-secondary">SignUp</a>
                     </li>
-                    <li class="nav-item px-1">
-                        <a class="nav-link btn px-2 text-body-secondary" href="{% url 'account_login' %}">Sign In</a>
+                    <li class="nav-footer-item px-1">
+                        <a href="{% url 'account_login' %}" class="nav-link btn px-2 text-body-secondary">Sign In</a>
                     </li>
                 {% endif %}
-                <li class="nav-item nav-item-socials px-2 d-flex align-items-center justify-content-center">
+                <li class="nav-footer-item nav-item-socials px-2 d-flex align-items-center justify-content-center">
                     <a href="https://github.com/Ana-Niko-byte" class="social-icon px-2 direct-link" aria-label="Visit our Github"><i class="fa-brands fa-lg fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/ana-nikolayenia-k/" class="social-icon px-2 direct-link" aria-label="Visit our Linkedin"><i class="fa-brands fa-lg fa-linkedin"></i></a>
                     <a href="https://www.instagram.com/ana_nikolayenia/" class="social-icon px-2 direct-link" aria-label="Visit our Instagram"><i class="fa-brands fa-lg fa-instagram"></i></a>

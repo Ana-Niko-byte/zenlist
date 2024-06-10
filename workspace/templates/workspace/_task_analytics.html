@@ -1,25 +1,26 @@
-{% load static %}
-<div class="workspace-analytics">
+<div class="workspace-analytics d-flex flex-column justify-content-between" id="workspace-analytics">
     <div class="analytic-intro brand mb-4 pt-2">
         <h2><i class="fa-solid fa-hourglass-half fa-xs ms-2 me-3"></i>Due Today</h2>
     </div>
-    {% if analytic.due_count > 0 %}
-    {% for analytic in due_tasks %}
-    <div class="due-today d-flex flex-column justify-content-center my-4 p-2">
-        <em>
-            <i class="fa-regular fa-circle-dot me-2"></i>
-            <strong>{{analytic.due_count}} task(s) due</strong>
-            in '{{analytic.title}}'
-        </em>
-    </div>
-    {% endfor %}
-    {% else %}
-    <div class="alternative ps-2  d-flex flex-column justify-content-end" style="min-height: 350px;">
-        <em>No tasks due today.</em>
-        <div class="hooray mt-5">
-            <h3>Hooray!</h3>
-            <p>You're on top of your day! ✨</p>
+    <div class="alternative-container">
+        {% if analytic.due_count > 0 %}
+        {% for analytic in due_tasks %}
+        <div class="due-today d-flex flex-column justify-content-center my-4 p-2">
+            <em>
+                <i class="fa-regular fa-circle-dot me-2"></i>
+                <strong>{{analytic.due_count}} task(s) due</strong>
+                in '{{analytic.title}}'
+            </em>
         </div>
+        {% endfor %}
+        {% else %}
+        <div class="alternative ps-2 d-flex flex-column justify-content-end">
+            <em>No tasks due today.</em>
+            <div class="hooray mt-5">
+                <h3>Hooray!</h3>
+                <p>You're on top of your day! ✨</p>
+            </div>
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
 </div>

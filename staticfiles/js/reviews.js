@@ -1,6 +1,5 @@
 // Imports from common.js
-import { resetValues, returnRecent, amendFormat } from "./common.js";
-
+import { resetValues, returnRecent } from "./common.js";
 
 // Sorting Functionality 
 function determineRatingLength(retrievedArray){
@@ -18,39 +17,6 @@ function determineRatingLength(retrievedArray){
         item.dataset.highestRate = reviewLength;
     };
 }
-
-// amendFormat(reviewItemsArray, "data-reviewedOn", reviewedOn);
-// function amendReviewedFormat(retrievedArray){
-//     /**
-//      * Iterates over each item in the array and retrieves the dataset reviewedOn value
-//      * representing the date on which the review was made.
-//      * 
-//      *Arguments:
-//      * retrievedArray : array, array for formatting reviewedOn dataset value.
-//      * 
-//      * Method:
-//      * Retrieves reviewedOn dataset value.
-//      * Converts to a new Date object.
-//      * Retrieves day, month, year of new Date object.
-//      * Formats with zeroes to match date format from getCurrentDateFormat();
-//      * Resets value of reviewedOn dataset to formatted date.
-//      * 
-//      */
-//     for (const item of retrievedArray){
-//         // reviewedOn current value format: "June 5, 2024"
-//         let reviewedDate = item.getAttribute("data-reviewedOn");
-
-//         const formattedDate = new Date(reviewedDate);
-//         const day = formattedDate.getDate();
-//         const month = formattedDate.getMonth() +1;
-//         const year = formattedDate.getFullYear();
-
-//         const zeroedM = month < 10 ? "0" + month : month;
-//         const zeroedD = day < 10 ? "0" + day : day;
-
-//         item.dataset.reviewedOn = `${year}-${zeroedM}-${zeroedD}`;
-//     }
-// };
 
 document.getElementById("review-filter").addEventListener("change", function(){
     /**
@@ -100,16 +66,8 @@ document.getElementById("review-filter").addEventListener("change", function(){
         resetValues(newArray, "review-box");
 
     } else if (selectedOption === 'by recent'){
-        // amendReviewedFormat(reviewItemsArray);
-        // returnRecent(reviewItemsArray, "reviewedOn", "review-box", "data-reviewedOn");
-        amendFormat(reviewItemsArray, "data-reviewedOn");
-        const newArray = [...reviewItemsArray].sort(function(a, b) {
-            const dateA = a.dataset.reviewedOn;
-            const dateB = b.dataset.reviewedOn;
-            // As format is Str 'YYYY-MM-DD'
-            return dateB.localeCompare(dateA);
-        });
-        resetValues(newArray, "review-box");
+        // If something breaks tomorrow morning - it is because of the 5th parameter.
+        returnRecent(reviewItemsArray, "reviewedOn", "review-box", "data-reviewedOn", "reviewedOn");
     };
 });
 
