@@ -65,8 +65,7 @@ class TestWorkspaceModel(TestCase):
             workspace=self.workspace,
             priority='Minor',
             status='To Do',
-            due_date='2024-07-21',
-            updated=False
+            due_date='2024-07-21'
         )
 
     def test_workspace_model_creation(self):
@@ -103,7 +102,6 @@ class TestWorkspaceModel(TestCase):
         self.assertEqual(self.task.priority, 'Minor')
         self.assertEqual(self.task.status, 'To Do')
         self.assertEqual(self.task.due_date, '2024-07-21')
-        self.assertEqual(self.task.updated, False)
 
     def test_workspace_delete_when_user_delete(self):
         '''

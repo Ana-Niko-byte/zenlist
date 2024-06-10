@@ -22,7 +22,8 @@ class ContactForm(forms.Form):
         max_length=200, 
         widget=forms.Textarea(
             attrs={'placeholder': 'I love Zenlist...'}
-        )
+        ),
+        label= 'Message (max 200 characters)'
     )
 
 class ReviewForm(forms.ModelForm):
@@ -32,5 +33,5 @@ class ReviewForm(forms.ModelForm):
         labels = {
             'job_industry' : 'Your Industry',
             'rating' : 'How did we do?',
-            'review' : 'Share Your Thoughts'
+            'review' : 'Share Your Thoughts (max 120 characters)'
         }
