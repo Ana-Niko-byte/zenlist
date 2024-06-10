@@ -7,8 +7,7 @@
 {% block content %}
 <div class="container text-center">
   <div class="row d-flex justify-content-center align-items-center">
-    <h5 class="mt-2">Hey there!</h5>
-    <h1 class="mb-2">{% trans "Sign Up" %}</h1>
+    <span class="h1 mb-2">{% trans "Sign Up" %}</span><br />
       <p class="already-account">{% blocktrans %}Already have an account? Please <a href="{{ login_url }}" class="direct-link">sign in</a>.{% endblocktrans %}</p>
       <form class="signup col-4 mt-4" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}

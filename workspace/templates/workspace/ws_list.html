@@ -23,7 +23,7 @@
 
               <!-- /Link to full workspace -->
               <a href="{% url 'full_workspace' space.slug %}" class="workspace-link col-sm-12 col-md-6 py-3">
-                <h4 class="post-title">{{ space.title }}</h4>
+                <p class="post-title h4">{{ space.title }}</p>
                 <p>Total tasks: {{space.ws_task_count}}</p>
                 <!-- !!! Does not update !!! -->
                 <em class="post-subtitle"><i class="fa-regular fa-calendar me-3"></i>last modified: {{ space.updated_on }}</em>

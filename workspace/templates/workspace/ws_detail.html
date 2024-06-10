@@ -12,7 +12,7 @@
         <div class="col-lg-3 col-md-12">
             <div class="card" id="taskCard">
                 <div class="card-body mx-2 my-2">
-                    <h4><i class="fa-solid fa-plus"></i>   Add Task</h4>
+                    <h3 class="h4"><i class="fa-solid fa-plus"></i>   Add Task</h3>
                     <form id="taskForm" method="post" action="">
                     {% csrf_token %}
                     {{ task_form | crispy }}

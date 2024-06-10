@@ -5,10 +5,10 @@ data-taskPriority="{{task.priority}}" data-taskDueDate="{{task.due_date}}">
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-{{task.id}}" aria-expanded="true" aria-controls="panelsStayOpen-{{task.id}}">
-        <h6 class="content d-flex align-items-center justify-content-center">
+        <p class="h6 content d-flex align-items-center justify-content-center">
           <div class="priority-indicator {% if task.priority == 'Critical' %}critical {% elif task.priority == 'Minor' %}minor{% elif task.priority == 'Major' %}major{% elif task.priority == 'Nice to have!' %}nice{% endif %}"></div>
           {{task.name}}
-        </h6>
+        </p>
       </button>
     </h2>
     <!-- Accordion Body. -->
