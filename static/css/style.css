@@ -103,6 +103,11 @@ body {
   min-width: 100%;
 }
 
+.zenlist-review{
+  background-color: rgb(244, 244, 244); 
+  border-radius: 15px;
+}
+
 .scrum-content {
   font-size: 1rem;
   line-height: 23px;
@@ -314,6 +319,11 @@ a .social-icon {
 
   .footer-nav{
     display: flex;
+  }
+
+  .main-page-container, 
+  .jumbotron-full{
+    margin: 0;
   }
 }
 

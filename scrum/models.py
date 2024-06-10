@@ -51,8 +51,6 @@ class Scrum(models.Model):
     content = A reference to the main content.
     """
     title = models.CharField(max_length=200)
-    # Remove Image Field
-    image = CloudinaryField('image', default='default_image')
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
 
@@ -89,7 +87,7 @@ class Review(models.Model):
         default='no rating',
         max_length=5
     )
-    review = models.TextField()
+    review = models.TextField(max_length=120)
     reviewed_on = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
