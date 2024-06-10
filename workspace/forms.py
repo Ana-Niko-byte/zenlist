@@ -29,7 +29,7 @@ class TaskForm(forms.ModelForm):
         # See README for widget code.
         widgets = {
             'due_date': DateInput(attrs={'type':'date'})
-            },
+            }
 
     def __init__(self, *args, **kwargs):
         super(TaskForm, self).__init__(*args, **kwargs)

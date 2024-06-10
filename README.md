@@ -220,16 +220,16 @@ All testing and debugging procedures in this section have been conducted manuall
 | Due Today Column | Displays workspace names with tasks due today? Congratulatory message if no due tasks? | Visual check for today's tasks + if no tasks due today, check for message and add a task due today. | Displays as intended. | <img src="static/images/thumbs-up.jpg"> |
 | Workspaces List | Displays list of user workspaces? If no spaces, displays llamas with button to add a workspace? | Visual check + delete existing workspaces + add workspace on llama page | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
 | Add Workspace Button | Displays modal with form? Adds workspace to list? Success Message? | Add workspace + check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
-| Delete Workspace Button |  |  |  | <img src="static/images/thumbs-up.jpg"> |
+| Delete Workspace Button | Displays confirmation modal? Displays correct workspace name? Deleted workspace from list and database? | Delete a workspace + visual check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
 
 
 ## Inside Workspace
 | Feature | Expected Outcome | Testing Procedure | Result | Remark |
 |---|---|---|---|---|
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
+| Task Form | Task Form displays? Add Task Successfully? | Add Task Manually | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
+| Status Columns | Display task counts? Display all tasks? Task accordions work as intended? | Visual check + click on tasks | Behave as intended. | <img src="static/images/thumbs-up.jpg"> |
+| Edit Task | Edit button displayed in accordion? On click, displays all task information correctly in form? After submitting, updates task in status column? | Manual test | Behaves as expected except that the date gets added back to the form a day later than the due date | <img src="static/images/image.png"> |
+| Delete Task | Confirmation modal pops up? After confirmation, deleted task? On cancel, returns to full workspace detail view? | Manual check +  visual check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
 
 
 ## Logout
