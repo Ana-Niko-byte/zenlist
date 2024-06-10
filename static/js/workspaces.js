@@ -16,6 +16,7 @@ const deleteConfirm = document.getElementById("deleteWorkspaceConfirm");
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
         let workspaceId = e.target.getAttribute("data-workspace-id");
+        document.getElementById("ws-title").innerHTML = `'${e.target.getAttribute("data-workspace-title")}'`;
         deleteConfirm.href = `delete/${workspaceId}`;
         deleteWorkspaceModal.show();
     });

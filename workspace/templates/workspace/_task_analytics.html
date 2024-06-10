@@ -3,8 +3,8 @@
     <div class="analytic-intro brand mb-4 pt-2">
         <h2><i class="fa-solid fa-hourglass-half fa-xs ms-2 me-3"></i>Due Today</h2>
     </div>
-    {% for analytic in due_tasks %}
     {% if analytic.due_count > 0 %}
+    {% for analytic in due_tasks %}
     <div class="due-today d-flex flex-column justify-content-center my-4 p-2">
         <em>
             <i class="fa-regular fa-circle-dot me-2"></i>
@@ -12,6 +12,7 @@
             in '{{analytic.title}}'
         </em>
     </div>
+    {% endfor %}
     {% else %}
     <div class="alternative ps-2  d-flex flex-column justify-content-end" style="min-height: 350px;">
         <em>No tasks due today.</em>
@@ -21,5 +22,4 @@
         </div>
     </div>
     {% endif %}
-    {% endfor %}
 </div>

@@ -10,7 +10,7 @@ aria-labelledby="deleteModalLabel" aria-hidden="true">
         data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-      <em>Are you sure you want to delete your workspace?</em>
+      <p class="red-font mb-3">Are you sure you want to delete your workspace?</p>
       <p>You won't be able to recover it once it's deleted.</p>
     </div>
     <div class="modal-footer">
@@ -19,7 +19,7 @@ aria-labelledby="deleteModalLabel" aria-hidden="true">
         Close
       </button>
       <a id="deleteWorkspaceConfirm" href="{% url 'delete_workspace' space.id %}" class="btn
-      btn-danger">Delete '{{space.title}}'</a>
+      btn-danger">Delete <span id="ws-title"></span></a>
     </div>
   </div>
 </div>

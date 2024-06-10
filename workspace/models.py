@@ -91,6 +91,7 @@ class Task(models.Model):
     due_date = models.DateField(default=timezone.now)
     date_created = models.DateField(auto_now_add=True)
     last_modified = models.DateField(auto_now=True)
+    # remove updated
     updated = models.BooleanField(default=False)
 
     class Meta:

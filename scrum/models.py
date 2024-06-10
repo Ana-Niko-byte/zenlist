@@ -51,6 +51,7 @@ class Scrum(models.Model):
     content = A reference to the main content.
     """
     title = models.CharField(max_length=200)
+    # Remove Image Field
     image = CloudinaryField('image', default='default_image')
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()

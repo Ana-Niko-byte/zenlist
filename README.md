@@ -4,10 +4,10 @@
 The application is available for viewing [here](https://zenlist-b604919b54d1.herokuapp.com/).
 
 ## A Little Bit About Zenlist
-Zenlist is a task-tracking Django application, designed to provide users an easy and quick way of organising and managing day-to-day tasks for different environments. With custom filtering systems and an intuitive interface, zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay on top of their day.
+Zenlist is a task-tracking Django application, designed to provide users an easy and quick way of organising and managing day-to-day tasks for different environments. With accessible sorting systems and an intuitive interface, Zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay on top of their day.
 
 # Business/Social Goals
-- Allow for organisation/categorisation of assets in a clear system (user-created environments) to make the platform easily accessible and understandable.
+- Allow for organisation/categorisation of assets in a clear system (user-created environments with sorting functionality) to make the platform easily accessible and understandable.
 
 - Design the platform to be accessible for all ages (or at minimum for those over 12 years of age).
 
@@ -27,12 +27,16 @@ Zenlist is a task-tracking Django application, designed to provide users an easy
 - Keep the application visually minimalistic with white spacing and simple accents to maintain the _zen_ theme and branding. 
 
 # Wireframes
-![zenlist wireframe](static/images/zenlist-wireframe.png)
+![Zenlist wireframe](static/images/zenlist-wireframe.png)
 # Structure 
+## Models
+Below is a simple ERD for Zenlist's models.
+![Entity Relationship Diagram for Zenlist](static/images/erd.jpg)
+
+## Views & Templates
 All pages contain the same navigation and footer sections.
-The structure of _Zenlist_ is as follows: 
 ### Scrum Home Page
-This is the main home page of the project. Though it does not have a conventional 'Home' page, its root page is the starting point of Zenlist, deep diving into scrum methodology and providing potential users with information on the app (attention-grabbing header, reviews, an introduction to the scrum methodology for time-management).
+This is the main home page of the project. Though it does not have a conventional 'Home' page, its root page is the starting point of Zenlist, deep diving into scrum methodology and providing potential users with information on the app (attention-grabbing header, reviews, an introduction to the scrum methodology for time-management, and the option for users to leave a review if they are logged in). 
 
 - #### Jumbotron
     - If not signed in, the jumbotron displays a signup button and an advertising heading.
@@ -41,7 +45,10 @@ This is the main home page of the project. Though it does not have a conventiona
 - #### Reviews
     - These reviews are filtered by stars and displayed in a row to site visitors. 
 
-    The app can only be reviewed by logged in users, and all reviews require approval from an administrator prior to being displayed on the home page. Additionally, the user is presented with a button to read all reviews for the application, which redirects to a standalone page. This page is not presented in the navigation bar, but users can return to a page of their choosing by selecting existing links in the navigation bar. 
+    The app can only be reviewed by logged in users, and all reviews require approval from an administrator prior to being displayed on the home/reviews page. Additionally, the user is presented with a button to read all reviews for the application, which redirects to a standalone page. This page is not presented in the navigation bar, but users can return to a page of their choosing by selecting existing links in the navigation bar. 
+
+    The standalone page incorporates common sorting functionality for all reviews (by best, by lowest, by recent), so users have fast access to the exact reviews they are looking for, as well as the ability to view any of their own reviews pending administrator approval. 
+
 - #### Scrum Paragraph
     - A concise paragraph explaining the scrum methodology and its benefits in every day use. This paragraph serves as an introduction to the framework for anyone not already familiar with it and contains a helpful link to the official Scrum.org website, where users may download the free Scrum Guide 2020 (the latest revision). 
 
@@ -63,6 +70,12 @@ This is a list of workspaces belonging to the user. This page also contains a 'd
     - Total number of tasks in workspace.
 
     - Delete Workspace Button
+
+    - On click, takes the user into a detailed view of their workspace, where they have access to a task form (for adding new tasks), and an overview of all tasks in their status columns - '_To Do_', '_In Progress_', '_Completed_'. Additionally, upon clicking on one of these tasks, the task's notes and due date become visible, along with buttons for editing (the task appears in the form) and deleting the task. A circle beside the name of the task indicates its priority, as follows: 
+        - red circle - '_Critical_' 
+        - orange circle - '_Major_' 
+        - yellow circle - '_Minor_' 
+        - green circle - '_Nice to have!_' 
 - #### Due Today List
     - Number of tasks in each space due on a particular day.
 
@@ -87,10 +100,10 @@ This is only displayed when the user is signed in.
 
 ---
 # Scope of Application
-The application is scope is currently to the following: 
+The application encompasses the following scope: 
 
 ### User Interaction
-Once registered and logged in, the user can access their zenlists in the _Your Workspaces_ tab. All tasks (due, in progress and completed) are visible within their relevant zenlists. The user can add another task to the list via the form on the left-hand side. Here they give a title, assign a category, a due date, a priority, and a brief description to the task they wish to add. Once finished and logged, the user may:
+Once registered and logged in, the user can access their Zenlist environments in the _Your Workspaces_ tab. All tasks ('_To Do_', '_In Progress_', '_Completed_') are visible within their Zenlists. After selecting a workspace, the user can add another task to the list via the form on the left-hand side. Here they give a title, assign a category, a due date, a priority, and a brief description to the task they wish to add. Once the task is submitted, the user may:
 - Open the task accordion item (through the 'click' event) to view the task details (due-date, priority (colourful dot), and any associated notes).
 
 - Edit the task (using the form on the left-hand side of the page).
@@ -99,22 +112,24 @@ Once registered and logged in, the user can access their zenlists in the _Your W
 
 - Delete the task. 
 
+- Sort the '_To Do_', '_In Progress_', '_Completed_' columns either by priority (from '_Critical_' at the top to '_Nice to have!_'), or by due date (tasks due at a later date are at the bottom of the list).
+
 ### Categorisation
-The purpose of zenlist is to allow users to categorise their day into environments. Each environment, i.e., home-chores, study-related tasks, etc., separate from each other. Each of these spaces presents any tasks due on a particular day on the home page of the '_Your Workspaces_' tab, on the left hand side of the page.
+The purpose of Zenlist is to allow users to categorise their day into environments. Each Zenlist environment, i.e., home-chores, study-related tasks, etc., keeps associated tasks separate from each other. Each of these spaces presents any tasks due on a particular day under the 'Due Today' column on the '_Your Workspaces_' tab.
 
 ### Filtering
 To enable users to comfortably control their tasks, a filtering system was adopted to allow for quick access to all relevant data. The tasks can be filtered by the following: 
 - _by priority_
 - _by due date_
-    - _by approaching_
-    - _by way-off_
-    - _by late tasks_
 
 ### Scrum & Agile Knowledge Sharing
+To help users better understand the Zenlist framework, the home page of the application has been adapted as a Scrum Introduction page, with a basic overview over the practical uses and applications of scrum to a team and personal context. Furthermore, a link has been provided to the official [Scrum.org](https://scrumguides.org/index.html) website, where interested users may download the official scrum manual 2020 (latest version), free of charge.
 
 # Aesthetics
+
+
 # Strategy
-This application aims at optimising task and time management by leveraging the benefits of an intuative and minimalist UI, visual reminders of approaching task due dates, and an easy and accessible filtering system.
+This application aims at optimising task and time management by leveraging the benefits of an intuative and minimalist UI, visual reminders of approaching task due dates, and sorting systems for efficiency.
 
 The application is designed as a mobile-first app, with an easy to use UI with hints where necessary. 
 
@@ -127,7 +142,7 @@ The application is designed as a mobile-first app, with an easy to use UI with h
 # Key Information Deliverables
 - Categorisation of tasks by environment.
 - Time-tracking capabilities with visual reminders for approaching tasks.
-- Filtering system (by space, by priority, by due date).
+- Sorting system (by space, by priority, by due date) for tasks, and by best, by lowest, by recent for reviews.
 - Ability to add/view/edit/delete assets. 
 
 # Features
@@ -155,20 +170,76 @@ The application is designed as a mobile-first app, with an easy to use UI with h
 19. AmIResponsive - to create the responsive image.
 
 # Testing & Debugging
+All testing and debugging procedures in this section have been conducted manually. For automated testing, please see all files '_test*.py_'.
+
+## Home/Scrum Page
 | Feature | Expected Outcome | Testing Procedure | Result | Remark |
 |---|---|---|---|---|
-||||| <img src="docs/images/thumbs-up.jpg"> |
-||||| <img src="docs/images/thumbs-up.jpg"> |
-||||| <img src="docs/images/thumbs-up.jpg"> |
-||||| <img src="docs/images/thumbs-up.jpg"> |
-||||| <img src="docs/images/thumbs-up.jpg"> |
-||||| <img src="docs/images/thumbs-up.jpg"> |
-||||| <img src="docs/images/thumbs-up.jpg"> |
-||||| <img src="docs/images/thumbs-up.jpg"> |
-||||| <img src="docs/images/thumbs-up.jpg"> |
-||||| <img src="docs/images/thumbs-up.jpg"> |
-||||| <img src="docs/images/thumbs-up.jpg"> |
-||||| <img src="docs/images/thumbs-up.jpg"> |
+| Jumbotron display | If user is not logged in, the banner should display a signup button and signup motivation, else a hello, {user} and a workspaces button | Signout + visual check, signin + visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Reviews | Only displays approved 5 star reviews | Add new 5 star review, do not approve - check it does not display. Approve review, check it displays. | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Scrum Section | Image + Text Display as per styling | Visual Check + Lighthouse Image Paint test | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Review Form | If user is not logged in, do not display review form but display button to sign in, else display review form | Signout + visual check, signin + visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+
+## Reviews Page
+| Feature | Expected Outcome | Testing Procedure | Result | Remark |
+|---|---|---|---|---|
+| Read all Reviews Button | Displays? Takes to correct page? | Visual check + click | Behaves as intended | <img src="static/images/thumbs-up.jpg"> |
+| Reviews | Do all reviews display? | Visual check + database check | All display as intended | <img src="static/images/thumbs-up.jpg"> |
+| Sorting | Do reviews sort as intended based on selection? | Manual test + check datasets in Chrome Developer Tools | Behaves as intended | <img src="static/images/thumbs-up.jpg"> |
+| User Reviews | If user is logged in and has pending reviews, do they display in grey? | Sign in, manually add review through form on home page + check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
+| Delete User Reviews | If user is logged in and has pending reviews, can they delete them? Confirmation modal pops up? | Delete a single user review from the reviews page | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
+
+
+## Contact Page
+| Feature | Expected Outcome | Testing Procedure | Result | Remark |
+|---|---|---|---|---|
+| Form Display | Form displays? | Visual check, both signed in and signed out | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Field Validation | Empty/wrong format fields == invalid form? | Leave fields empty one by one, enter invalid email format + submit each time, finally input correct formats + submit | Submits when fields are valid only. | <img src="static/images/thumbs-up.jpg"> |
+| Send to Email | Does the user's message get sent to ananikolayenia@gmail.com? Is the user email in the reply to field in the mail? | Test message + check in email. | Functions as expected, reply gets sent to user email. | <img src="static/images/thumbs-up.jpg"> |
+
+## SignUp
+| Feature | Expected Outcome | Testing Procedure | Result | Remark |
+|---|---|---|---|---|
+| Nav Display | Link displays only to signed out users? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Form Display | Form displays? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Field Validation | Empty/wrong format fields == invalid form? | Leave fields empty one by one, enter invalid email format + submit each time, finally input correct formats + submit | Submits when fields are valid only. | <img src="static/images/thumbs-up.jpg"> |
+| Email Confirmation | Receive Email Confirmation? Button to Accept? | Check Email | Received. | <img src="static/images/thumbs-up.jpg"> |
+| Redirect to SignIn | After accepting, redirects to signin page? | Click + Visual check | Behaves as expected. | <img src="static/images/thumbs-up.jpg"> |
+
+## SignIn
+| Feature | Expected Outcome | Testing Procedure | Result | Remark |
+|---|---|---|---|---|
+| Nav Display | Link displays only to signed out users? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Form Display | Form displays? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Field Validation | Empty/wrong format fields == invalid form? | Leave fields empty one by one, enter invalid email format + submit each time, finally input correct formats + submit | Submits when fields are valid only. | <img src="static/images/thumbs-up.jpg"> |
+| Success Message on Login | Displays Success Message? Jumbo Wording Change? | Signin + Visual Check | Wording changes and success message displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+
+## Your Workspaces
+| Feature | Expected Outcome | Testing Procedure | Result | Remark |
+|---|---|---|---|---|
+| Due Today Column | Displays workspace names with tasks due today? Congratulatory message if no due tasks? | Visual check for today's tasks + if no tasks due today, check for message and add a task due today. | Displays as intended. | <img src="static/images/thumbs-up.jpg"> |
+| Workspaces List | Displays list of user workspaces? If no spaces, displays llamas with button to add a workspace? | Visual check + delete existing workspaces + add workspace on llama page | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
+| Add Workspace Button | Displays modal with form? Adds workspace to list? Success Message? | Add workspace + check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
+| Delete Workspace Button |  |  |  | <img src="static/images/thumbs-up.jpg"> |
+
+
+## Inside Workspace
+| Feature | Expected Outcome | Testing Procedure | Result | Remark |
+|---|---|---|---|---|
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+
+
+## Logout
+| Feature | Expected Outcome | Testing Procedure | Result | Remark |
+|---|---|---|---|---|
+| Nav Display | Link displays only to signed in users? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Button Display | Buttons display? | Visual check | Display as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Cancel Button | Returns to Home page and leaves user signed in? | Click 'cancel' + check if user still has access to workspaces + correct navigation links | Functions as intended. | <img src="static/images/thumbs-up.jpg"> |
+| SignOut Button | Sigs User out returns to Home page? Changes Banner Wording? | Click 'SignOut' + check navigation link display, banner, and success message | Functions as intended. | <img src="static/images/thumbs-up.jpg"> |
+
 ### Issues
 ### Debugging
 # Accessibility & Performance
