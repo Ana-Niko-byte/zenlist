@@ -71,11 +71,11 @@ li a:hover,
 }
 
 .workspace-link:hover {
-  color: rgb(94, 0, 166);
+  color: rgb(255, 146, 0);
 }
 
 .breadcrumb-link-nav:hover {
-  color: purple;
+  color: rgb(255, 146, 0);
 }
 
 .critical {
@@ -94,7 +94,8 @@ li a:hover,
   background-color: rgb(68, 197, 203);
 }
 
-.fa-brands{
+.fa-brands, 
+.task-select{
   color: rgb(29, 29, 29);
 }
 

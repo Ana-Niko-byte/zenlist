@@ -1,27 +1,32 @@
 {% extends "../base.html" %}
 {% load static %}
 {% load i18n %}
+{% load crispy_forms_tags %}
+
 {% block head_title %}{% trans "Sign In" %}{% endblock head_title %}
 
 {% block content %}
 <div class="container text-center">
-  <div class="row d-flex justify-content-center align-items-center">
-      <h1 class="mb-3">{% trans "Sign in" %}</h1>
-      <p>{% blocktrans %}If you don't have an account with Zenlist yet, please
-        <a href="{{ signup_url }}" class="direct-link">sign up</a>.{% endblocktrans %}</p>
-      <div class="mt-3">
-        <form method="POST" action="{% url 'account_login' %}">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <div class="d-flex flex-column align-items-center">
-            <a class="button secondaryAction direct-link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-            {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
-            <button class="primaryAction my-5 authentication-button"type="submit">{% trans "Sign In" %}</button>
-          </div>
-        </form>
-      </div>
+  <div class="row d-flex justify-content-center">
+    <h1>{% trans "Sign in" %}</h1>
+    <p>{% blocktrans %}If you don't have an account with Zenlist yet, please
+      <a href="{{ signup_url }}" class="direct-link">sign up</a>.{% endblocktrans %}
+    </p>
+    <div class="col-lg-6 col-sm-12 mt-5">
+      <form method="POST" action="{% url 'account_login' %}" class="text-start">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <div class="d-flex flex-column align-items-center">
+          <a class="button secondaryAction direct-link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <button class="btn btn-lg btn-warning authentication-button mt-3"type="submit">
+            <i class="fa-solid fa-right-to-bracket me-3"></i>{% trans "Sign In" %}
+          </button>
+        </div>
+      </form>
+    </div>
     {% endblock content %}
   </div>
 </div>
