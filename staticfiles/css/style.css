@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
 /* General */
 .jumbotron {
   background-image: url("../images/balance.jpg");
-  background-color: #1b1b1b;
+  background-color: rgb(29, 29, 29);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -23,7 +24,7 @@
 
 .breaker {
   background-image: url("../images/office-chairs.jpg");
-  background-color: #1b1b1b;
+  background-color: rgb(29, 29, 29);
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -34,11 +35,7 @@
 li a:hover,
 .socials a:hover,
 .download-scrum:hover {
-  color: rgb(255, 119, 0);
-}
-
-.socials a {
-  color: rgb(27, 27, 27);
+  color: rgb(255, 146, 0);
 }
 
 .nav-item:hover {
@@ -56,7 +53,7 @@ li a:hover,
 
 .visit-scrum {
   text-decoration: none;
-  color: #1b1b1b;
+  color: rgb(29, 29, 29);
 }
 
 .scrum-framework-container{
@@ -69,7 +66,7 @@ li a:hover,
 }
 
 .workspace-link {
-  color: #1b1b1b;
+  color: rgb(29, 29, 29);
   transition: all 0.4s ease;
 }
 
@@ -82,19 +79,27 @@ li a:hover,
 }
 
 .critical {
-  background-color: rgb(170, 0, 51);
+  background-color: rgb(245, 61, 82);
 }
 
 .major {
-  background-color: rgb(245, 115, 53);
+  background-color: rgb(255, 146, 0);
 }
 
 .minor {
-  background-color: rgb(255, 218, 0);
+  background-color: rgb(252, 227, 21);
 }
 
 .nice {
-  background-color: rgb(112, 130, 56);
+  background-color: rgb(68, 197, 203);
+}
+
+.fa-brands{
+  color: rgb(29, 29, 29);
+}
+
+.red-font {
+  color: rgb(173, 0, 0);
 }
 
 /* Annotations & Makeshift Symbols */
@@ -102,7 +107,7 @@ li a:hover,
 .line {
   height: 100%;
   width: 1px;
-  background-color: rgb(22, 22, 22);
+  background-color: rgb(29, 29, 29)
 }
 
 .direct-link {
@@ -159,9 +164,21 @@ body {
   text-decoration: underline;
 }
 
+.fa-brands:hover{
+  transform: scale(1.02);
+  transform-origin: center center;
+}
+
+.priority-indicator {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
 /* Button Styling */
 .authentication-button {
-  width: 150px;
+  min-width: 150px;
   padding: 10px;
   border: 1px solid transparent;
   border-radius: 5px;
@@ -170,6 +187,7 @@ body {
 
 .authentication-button:hover {
   transform: scale(1.05);
+  transform-origin: center center;
 }
 
 /* UIUX */
@@ -191,15 +209,8 @@ body {
 
 .breadcrumb-link-nav {
   text-decoration: none;
-  color: #1b1b1b;
+  color: rgb(29, 29, 29);
   transition: all 1s ease;
-}
-
-.priority-indicator {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  margin-right: 10px;
 }
 
 /* Bootstrap Overrides */
@@ -216,26 +227,10 @@ body {
   width: 100%;
 }
 
-a .social-icon {
-  color: rgb(27, 27, 27);
-}
-
 .task-box {
   background-color: rgb(68, 99, 120);
   min-height: 250px;
   border-radius: 10px;
-}
-
-.task-notes {
-  font-size: 14px;
-}
-
-.red-font {
-  color: rgb(173, 0, 0);
-}
-
-.already-account {
-  font-size: 1rem;
 }
 
 #signup_form ul {

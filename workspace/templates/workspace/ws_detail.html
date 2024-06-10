@@ -12,12 +12,12 @@
         <div class="col-lg-3 col-md-12">
             <div class="card" id="taskCard">
                 <div class="card-body mx-2 my-2">
-                    <h3 class="h4"><i class="fa-solid fa-plus"></i>   Add Task</h3>
+                    <h3 class="h4"><i class="fa-solid fa-plus ms-3"></i>Add Task</h3>
                     <form id="taskForm" method="post" action="">
                     {% csrf_token %}
                     {{ task_form | crispy }}
                     <button id="submitButton" type="submit"
-                        class="btn btn-lg btn-warning">Submit   <i class="fa-solid fa-arrow-right"></i>
+                        class="btn btn-lg btn-warning authentication-button">Submit<i class="fa-solid fa-arrow-right ms-3"></i>
                     </button>
                     </form>
                 </div>

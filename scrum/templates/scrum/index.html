@@ -10,10 +10,8 @@
     <!-- Reviews -->
     {% include 'scrum/_reviews.html' %}
     <div class="button-container d-flex justify-content-center align-items-center mb-5">
-      <a href="{{reviews_url}}">
-        <button class="btn btn-warning btn-lg px-4 py-3 me-3 mt-3">Read all Reviews
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
+      <a href="{{reviews_url}}" class="btn btn-warning btn-lg authentication-button mt-3">
+        Read all Reviews<i class="fa-solid fa-arrow-right ms-3"></i>
       </a>
     </div>
     <!-- /Reviews -->
@@ -27,7 +25,7 @@
             </h2>
           </div>
           <div class="col-md-8 col-sm-10 position-relative mb-5">
-            <div class="paragraph text-center white-text p-3 h4 bb-grey">
+            <div class="paragraph h6 text-center white-text p-3 bb-grey">
               <!-- No p tags because this gets rendered as a paragraph element already -->
               {{ hello.content | safe }}
             </div>
