@@ -67,7 +67,7 @@ class Task(models.Model):
     Returns: (str) the title of the task as a string.
     """
     name = models.CharField(max_length=50)
-    notes = models.TextField(blank=True, default='')
+    notes = models.TextField(blank=True, default='', max_length=100)
     creator = models.ForeignKey(
         User,
         on_delete=models.CASCADE,

@@ -36,20 +36,20 @@
                     <li class="nav-item px-1">
                         <a class="nav-link {% if request.path == home_url %}active{% endif %} brand" aria-current="page"
                             href="{{ home_url }}">
-                            <i class="fa-solid fa-house mx-1"></i>Home
+                            <i class="fa-solid fa-house me-2"></i>Home
                         </a>
                     </li>
                     <li class="nav-item px-1">
                         <a class="nav-link {% if request.path == contact_url %}active{% endif %} brand" aria-current="page"
                             href="{{ contact_url }}">
-                            <i class="fa-solid fa-fingerprint mx-1"></i>Contact
+                            <i class="fa-solid fa-paper-plane me-2"></i>Contact
                         </a>
                     </li>
                     {% if request.user.is_authenticated %}
                     <li class="nav-item px-1">
                         <a class="nav-link {% if request.path == workspace_url %}active{% endif %} brand" aria-current="page"
                             href="{{ workspace_url }}">
-                            <i class="fa-solid fa-rocket mx-1"></i>Your Workspaces
+                            <i class="fa-solid fa-rocket me-2"></i>Your Workspaces
                         </a>
                     </li>
                     {% endif %}
@@ -59,20 +59,20 @@
                     <li class="nav-item px-1">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %} brand" aria-current="page"
                             href="{% url 'account_logout' %}">
-                            <i class="fa-solid fa-right-from-bracket mx-1"></i>Logout
+                            <i class="fa-solid fa-right-from-bracket me-2"></i>Logout
                         </a>
                     </li>
                     {% else %}
                     <li class="nav-item px-1">
                         <a class="nav-link {% if request.path == signup_url %}active{% endif %} brand" aria-current="page"
                             href="{% url 'account_signup' %}">
-                            <i class="fa-solid fa-user-plus mx-1"></i>SignUp
+                            <i class="fa-solid fa-user-plus me-2"></i>SignUp
                         </a>
                     </li>
                     <li class="nav-item px-1">
                         <a class="nav-link {% if request.path == login_url %}active{% endif %} brand" aria-current="page"
                             href="{% url 'account_login' %}">
-                            <i class="fa-solid fa-right-to-bracket mx-1"></i>Sign In
+                            <i class="fa-solid fa-right-to-bracket me-2"></i>Sign In
                         </a>
                     </li>
                     {% endif %}

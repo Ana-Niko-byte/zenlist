@@ -296,6 +296,22 @@ a .social-icon {
   height: 450px;
 }
 
+.contact-text{
+  font-size: 0.9rem;
+}
+
+/* Form Field Sizes */
+#id_message{
+  height: 120px;
+}
+
+#id_notes{
+  height: 80px;
+}
+
+
+/* Form Field Sizes */
+
 /* Media Queries */
 @media all and (max-width: 450px){
   .heading-container{
