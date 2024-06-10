@@ -3,12 +3,12 @@
   <div class="row">
     <div class="col-12 mx-0">
         <section class="callout jumbotron mb-4 py-5 d-flex flex-column justify-content-between">
-          <div class="main-jumbo mx-5 brand white-text">
+          <div class="main-jumbo mx-5 white-text">
             <h1 class="jumbo-heading">Your Day. Your Way.</h1>
             <p class="h4">Welcome to Ireland's No.1 Task Tracking software.</p>
             <em>Trusted by businesses. Loved by users.</em>
           </div>
-          <div class="message-jumbo mx-5 brand white-text">
+          <div class="message-jumbo mx-5 white-text">
             {% if request.user.is_authenticated %}
             <p class="lead">Hey, {{user}}!</p>
             <p class="lead">

@@ -1,7 +1,7 @@
 {% load static %}
 <!-- Reviews -->
 <div class="container">
-    <h2 class="text-center mt-2 pb-5 brand bb-grey">
+    <h2 class="text-center mt-2 pb-5 bb-grey">
       <i class="fa-solid fa-star"></i>
       <i class="fa-regular fa-star me-3"></i>What Our Users Say About Us...
     </h2>
@@ -15,11 +15,11 @@
           <img class="card-img-top me-3 my-2 profile-image" 
           src="{% static 'images/default_profile_image.jpg' %}" 
           alt="default profile icon image">
-          <p class="star-rating">{{review.rating}}</p>
+          <p class="h1">{{review.rating}}</p>
         </div>
         <div class="author-personal">
-          <p class="author-bio my-2 h5">{{review.author}}</p>
-          <p class="author-industry">industry: {{review.job_industry}}</p>
+          <p class="my-2 h5">{{review.author}}</p>
+          <p class="h6">industry: {{review.job_industry}}</p>
         </div>
         <p>{{review.review | safe}}</p>
       </div>

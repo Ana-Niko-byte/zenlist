@@ -52,6 +52,7 @@ for (let editButton of edits) {
         // Retrieve taskId for updating
         let taskId = e.target.getAttribute("task_id");
 
+        // Retrieve Task information + assign each to the relevant task form field.
         let taskName = e.target.getAttribute("data-edit-name");
         let taskNotes = e.target.getAttribute("data-edit-notes");
         let taskPriority = e.target.getAttribute("data-edit-priority");
@@ -66,6 +67,9 @@ for (let editButton of edits) {
         taskStatusField.value = taskStatus;
         taskPriorityField.value = taskPriority;
         taskDateField.value = actualDate;
+
+        // Visual indication of where to edit the task.
+        document.getElementById("taskCard").style.backgroundColor = '#FFC107';
 
         submit.innerText = "Update My Task";
         form.setAttribute("action", `update-task/${taskId}`);

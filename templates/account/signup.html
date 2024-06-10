@@ -8,7 +8,7 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center">
     <h1 class=" text-center">{% trans "Sign Up" %}</h1>
-      <p class="already-account text-center">{% blocktrans %}Already have an account? Please <a href="{{ login_url }}" class="direct-link">sign in</a>.{% endblocktrans %}</p>
+      <p class="text-center h4">{% blocktrans %}Already have an account? Please <a href="{{ login_url }}" class="direct-link">sign in</a>.{% endblocktrans %}</p>
       <form class="signup col-4 mt-2" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         <!-- changed from .as_p -->

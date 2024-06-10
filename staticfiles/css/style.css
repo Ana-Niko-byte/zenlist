@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-/* Colours */
+/* General */
 .jumbotron {
   background-image: url("../images/balance.jpg");
   background-color: #1b1b1b;
@@ -10,6 +10,27 @@
   min-height: 500px;
 }
 
+.post-subtitle {
+  /* last modified date for workspace */
+  font-size: 10px;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.breaker {
+  background-image: url("../images/office-chairs.jpg");
+  background-color: #1b1b1b;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 350px;
+}
+
+/* Colours */
 li a:hover,
 .socials a:hover,
 .download-scrum:hover {
@@ -20,20 +41,8 @@ li a:hover,
   color: rgb(27, 27, 27);
 }
 
-.direct-link {
-  transition: all 0.2s ease;
-}
-
-.direct-link:hover {
-  transform: scale(1.02);
-}
-
 .nav-item:hover {
   color: rgb(71, 71, 108);
-}
-
-.btn-delete {
-  font-weight: 500;
 }
 
 .active {
@@ -45,8 +54,47 @@ li a:hover,
   color: rgb(246, 246, 246);
 }
 
-.post-subtitle {
-  font-size: 10px;
+.visit-scrum {
+  text-decoration: none;
+  color: #1b1b1b;
+}
+
+.scrum-framework-container{
+  background-color: rgba(12, 21, 26, 0.8);
+}
+
+.breadcrumb-item a{
+  color: rgb(130, 164, 179);
+  text-decoration: none;
+}
+
+.workspace-link {
+  color: #1b1b1b;
+  transition: all 0.4s ease;
+}
+
+.workspace-link:hover {
+  color: rgb(94, 0, 166);
+}
+
+.breadcrumb-link-nav:hover {
+  color: purple;
+}
+
+.critical {
+  background-color: rgb(170, 0, 51);
+}
+
+.major {
+  background-color: rgb(245, 115, 53);
+}
+
+.minor {
+  background-color: rgb(255, 218, 0);
+}
+
+.nice {
+  background-color: rgb(112, 130, 56);
 }
 
 /* Annotations & Makeshift Symbols */
@@ -55,6 +103,32 @@ li a:hover,
   height: 100%;
   width: 1px;
   background-color: rgb(22, 22, 22);
+}
+
+.direct-link {
+  transition: all 0.2s ease;
+}
+
+.direct-link:hover {
+  transform: scale(1.02);
+  transform-origin: center center;
+}
+
+.workspace-container:hover {
+  transform: scaleX(1.02);
+}
+
+.workspace-container {
+  transition: all 0.2s ease;
+}
+
+.nav-link {
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  transform: scale(1.04);
 }
 
 /* Branding */
@@ -68,6 +142,24 @@ body {
   font-size: 2rem;
 }
 
+.bb-grey {
+  border-bottom: 1px dashed darkgrey;
+}
+
+.full-width{
+  min-width: 100%;
+}
+
+.zenlist-review{
+  background-color: rgb(244, 244, 244); 
+  border-radius: 15px;
+}
+
+.active-breadcrumb {
+  text-decoration: underline;
+}
+
+/* Button Styling */
 .authentication-button {
   width: 150px;
   padding: 10px;
@@ -80,89 +172,13 @@ body {
   transform: scale(1.05);
 }
 
-.workspace-container {
-  border-bottom: 1px dashed darkgrey;
-  transition: all 0.2s ease;
-}
-
-.workspace-container:hover {
-  transform: scaleX(1.02);
-}
-
+/* UIUX */
 .workspace-container a {
   text-decoration: none;
 }
 
-/* UIUX */
-.visit-scrum {
-  text-decoration: none;
-  color: #1b1b1b;
-}
-
-.full-width{
-  min-width: 100%;
-}
-
 .scrum-content {
-  font-size: 1rem;
   line-height: 23px;
-}
-
-.nav-link {
-  transition: all 0.2s ease;
-  text-decoration: none;
-}
-
-.nav-link:hover {
-  transform: scale(1.04);
-}
-
-.profile-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.reviewed-time {
-  font-size: 0.8rem;
-}
-
-.author-bio {
-  font-size: 0.9rem;
-}
-
-.author-industry {
-  font-size: 0.6rem;
-}
-
-.star-rating {
-  font-size: 2rem;
-}
-
-.task-filter-select{
-  font-size: 13px;
-}
-
-.breaker {
-  background-image: url("../images/office-chairs.jpg");
-  background-color: #1b1b1b;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 350px;
-}
-
-.scrum-framework-container{
-  background-color: rgba(12, 21, 26, 0.8);
-}
-
-.breadcrumb-item a{
-  color: rgb(130, 164, 179);
-  text-decoration: none;
-}
-
-.active-breadcrumb {
-  text-decoration: underline;
 }
 
 .task-box {
@@ -173,43 +189,10 @@ body {
   min-height: 500px;
 }
 
-.workspace-link {
-  color: #1b1b1b;
-  transition: all 0.4s ease;
-}
-
-.workspace-link:hover {
-  color: rgb(94, 0, 166);
-}
-
 .breadcrumb-link-nav {
   text-decoration: none;
   color: #1b1b1b;
   transition: all 1s ease;
-}
-
-.breadcrumb-link-nav:hover {
-  color: purple;
-}
-
-.bb-grey {
-  border-bottom: 1px dashed darkgrey;
-}
-
-.critical {
-  background-color: red;
-}
-
-.major {
-  background-color: orange;
-}
-
-.minor {
-  background-color: rgb(255, 200, 0);
-}
-
-.nice {
-  background-color: green;
 }
 
 .priority-indicator {
@@ -291,6 +274,19 @@ a .social-icon {
   height: 450px;
 }
 
+/* Form Field Sizes */
+#id_message{
+  height: 120px;
+}
+
+#id_notes{
+  height: 80px;
+}
+
+.contact-text{
+  font-size: 0.9rem;
+}
+
 /* Media Queries */
 @media all and (max-width: 450px){
   .heading-container{
@@ -312,8 +308,13 @@ a .social-icon {
     padding: 0 20px;
   }
 
-  .container-ws-modal{
-    justify-content: center;
+  .footer-nav{
+    display: flex;
+  }
+
+  .main-page-container, 
+  .jumbotron-full{
+    margin: 0;
   }
 }
 
@@ -326,6 +327,10 @@ a .social-icon {
     flex-direction: column-reverse;
   }
 
+  #workspace-analytics{
+    height: 100px;
+  }
+  
   .analytic-intro{
     display: none;
   }
