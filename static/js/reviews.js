@@ -15,7 +15,7 @@ function determineRatingLength(retrievedArray){
         let reviewLength = item.getAttribute("data-highestRate").split('☆').join('').length;
         // Sets the value of dataset highestRate to the reviewLength.
         item.dataset.highestRate = reviewLength;
-    };
+    }
 }
 
 document.getElementById("review-filter").addEventListener("change", function(){
@@ -68,7 +68,7 @@ document.getElementById("review-filter").addEventListener("change", function(){
     } else if (selectedOption === 'by recent'){
         // If something breaks tomorrow morning - it is because of the 5th parameter.
         returnRecent(reviewItemsArray, "reviewedOn", "review-box", "data-reviewedOn", "reviewedOn");
-    };
+    }
 });
 
 

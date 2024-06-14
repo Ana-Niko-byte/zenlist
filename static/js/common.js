@@ -13,8 +13,8 @@ export function resetValues(retrievedArray, containerId){
     document.getElementById(containerId).innerHTML = '';
     for (const item of retrievedArray){
         document.getElementById(containerId).append(item);
-    };
-};
+    }
+}
 
 export function amendFormat(retrievedArray, dataAttribute, dataValue){
     /**
@@ -45,8 +45,8 @@ export function amendFormat(retrievedArray, dataAttribute, dataValue){
         const zeroedD = day < 10 ? "0" + day : day;
 
         item.dataset[dataValue] = `${year}-${zeroedM}-${zeroedD}`;
-    };
-};
+    }
+}
 
 // If something breaks tomorrow morning - it is because of the 5th parameter. - value: taskDueDate.
 export function returnRecent(arrayToDuplicate, datasetValue, taskBoxId, amendDataValue, dataValue){
@@ -86,7 +86,7 @@ export function TaskSort(mainSelect, accordionIdentifier, taskBoxId){
                 } else {
                     item.dataset.taskPriority = 3;
                 }
-            };
+            }
 
             priorityArray.sort(function(a,b) {
                 const priorityA = a.dataset.taskPriority;
@@ -100,4 +100,4 @@ export function TaskSort(mainSelect, accordionIdentifier, taskBoxId){
             returnRecent(taskArray, 'taskDueDate', taskBoxId, "data-taskDueDate", 'taskDueDate');
         }
     });
-};
+}

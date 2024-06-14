@@ -27,14 +27,14 @@
 
                     <h2 class="star-rating">{{review.rating}}</h2>
                     <div class="author-profile d-flex mb-3 d-flex flex-column align-items-center">
-                        <img class="card-img-top profile-image m-3" src="{% static 'images/default_profile_image.jpg' %}" alt="author profile image">
+                        <img class="card-img-top profile-image m-3" src="{% static 'images/default_profile_image.jpg' %}" alt="author profile picture">
                         <div class="author-personal">
                             <h5 class="author-bio">{{review.author}} wrote:</h5>
                             <p class="author-industry">industry: {{review.job_industry}}</p>
                         </div>
                     </div>
                     <div class="main-review-content d-flex align-items-start justify-content-center">
-                        <p>{{review.review | safe}}</p>
+                        <div>{{review.review | safe}}</div>
                     </div>
 
                 </div>
@@ -56,14 +56,14 @@
                     <div class="author-review mb-3 text-center">
                         <h2 class="star-rating">{{review.rating}}</h2>
                         <div class="author-profile d-flex mb-3 d-flex flex-column align-items-center">
-                            <img class="card-img-top profile-image m-3" src="{% static 'images/default_profile_image.jpg' %}" alt="author profile image">
+                            <img class="card-img-top profile-image m-3" src="{% static 'images/default_profile_image.jpg' %}" alt="author profile picture">
                             <div class="author-personal">
                                 <h5 class="author-bio">{{review.author}} wrote:</h5>
                                 <p class="author-industry">industry: {{review.job_industry}}</p>
                             </div>
                         </div>
                         <div class="main-review-content d-flex align-items-start justify-content-center">
-                            <p>{{review.review | safe}}</p>
+                            <div>{{review.review | safe}}</div>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
 <div class="container">
     <div class="row d-flex flex-column justify-content-around align-items-center text-center my-3">
         <h1 class="mb-2">😯</h1>
-        <p>Looks like our reviews page is being updated!<br />Please take a minute and leave a review :)</p>
+        <p>Looks like our reviews page is being updated!<br>Please take a minute and leave a review :)</p>
     </div>
     {% include 'scrum/_review_form.html' with reviewForm=reviewForm %}
 </div>

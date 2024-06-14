@@ -1,5 +1,5 @@
 // Imports from common.js
-import { resetValues, TaskSort } from "./common.js";
+import { TaskSort } from "./common.js";
 
 // Delete Functionality
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));

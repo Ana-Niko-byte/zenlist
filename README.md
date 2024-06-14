@@ -260,9 +260,29 @@ Upon running the application through the [W3C CSS Validation Service](https://ji
 ![CSS Validation Results](static/images/css-validation.png)
 
 ### JSHint Validation
+Each of the application's JS files were run through the [JSHint](https://jshint.com/) separately, to ensure the code was up to standard and functioned as expected. 
+
+Below, in the same order as in static/js/..., are the results of the validation. 
+
+common.js - 
+![common.js validation results](static/images/common-js.png)
+
+reviews.js -
+![reviews.js validation results](static/images/reviews-js.png)
+
+#### Warning Explanation: 
+This error is directed at the bootstrap modal being initiated within the button listener. Explanation...
+
+tasks.js - 
+![tasks.js validation results](static/images/tasks-js.png)
+
+workspaces.js -
+![workspaces.js validation results](static/images/ws-js.png)
 
 # Deployment
 The application is deployed on Heroku through github, and is available for viewing in the link at the top of this README.md document. To deploy a Heroku project, follow the following steps: 
+
+Finish steps!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 # Future Development
 Email Notifications for approaching tasks. This was going to be implemented with Celery, Redis, and django-celery-beat, but the emails weren't sending for some reason. 
