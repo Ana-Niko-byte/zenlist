@@ -11,8 +11,9 @@
 <body>
     <p>{% user_display user as user_display %}</p>
     <p>{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
-    Click on the button below to verify your email!
-    {% endblocktrans %}</p>
+        Hey there! Please verify your email by clicking the button below :)
+    {% endblocktrans %}
+    </p>
     <a href="{{ activate_url }}" class="btn btn-warning my-3 p-2">
         <button>Verify Email</button>
     </a>

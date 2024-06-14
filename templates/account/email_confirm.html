@@ -9,20 +9,20 @@
 {% block content %}
 <div class="container">
     <div class="row text-center d-flex justify-content-center">
-        <h1>{% trans "Confirm Email Address" %}</h1>
+        <h1 class="h1 my-5">{% trans "Confirm Email Address" %}</h1>
         {% if confirmation %}
             {% user_display confirmation.email_address.user as user_display %}
             {% if can_confirm %}
-
+                <h2 class="h3">Hey there, {{ user_display }}!</h2>
                 <p>
                     {% blocktrans with confirmation.email_address.email as email %}
-                    Hey there, {{ user_display }}! Please confirm that this is your email address: 
+                    Please confirm that this is your email address: 
                     <a href="mailto:{{ email }}">{{ email }}</a>
                     {% endblocktrans %}
                 </p>
                 <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
                 {% csrf_token %}
-                    <button type="submit" class="btn btn-lg btn-warning authentication-button">
+                    <button type="submit" class="mt-5 btn btn-lg btn-warning authentication-button">
                         {% trans 'Yep, that\'s me!' %}
                     </button>
                 </form>
