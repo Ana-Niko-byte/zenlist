@@ -521,13 +521,13 @@ Reviews -
 Sign Up - 
 ![Clean SignUp HTML Validation Results](static/images/signup-html-validation.png)
 Sign In -
-![Clean SignIn HTML Validation Results]()
+![Clean SignIn HTML Validation Results](static/images/signin-html-validation.png)
 Sign Out - 
 ![Clean SignOut HTML Validation Results](static/images/logout-html-validation.png)
 Your Workspaces - 
 ![Clean Workspaces HTML Validation Results](static/images/workspaces-html-validation.png)
 Inside a Workspace - 
-![Clean Workspaces Detail HTML Validation Results]()
+![Clean Workspaces Detail HTML Validation Results](static/images/workspace-detail-html-validation.png)
 
 ### CSS Validation
 Upon running the application through the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) via the URL input, the service highlighted no errors, as shown below. 
