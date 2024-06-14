@@ -248,8 +248,16 @@ All testing and debugging procedures in this section have been conducted manuall
 ### Colour Accessibility Validator 
 
 ### HTML Validation
+Upon running the application through the [W3C Markup Validation Service](https://validator.w3.org/) via the URL input, the service highlighted two errors, as shown below. 
+
+![HTML Validation Results](static/images/html-validation-errors.png)
+
+Note: The second error shown above resulted from Summernote's rendering of the Scrum Content text. This was rectified by changing my own HTML <p> element to a <div>, so that the paragraph would be rendered inside the div and not crop up as an error.
 
 ### CSS Validation
+Upon running the application through the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) via the URL input, the service highlighted no errors, as shown below. 
+
+![CSS Validation Results](static/images/css-validation.png)
 
 ### JSHint Validation
 
