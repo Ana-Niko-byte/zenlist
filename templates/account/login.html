@@ -19,14 +19,14 @@
         <div class="d-flex flex-column align-items-center">
           <a class="button secondaryAction direct-link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
           {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
           {% endif %}
-          <button class="btn btn-lg btn-warning authentication-button mt-3"type="submit">
+          <button class="btn btn-lg btn-warning authentication-button mt-3" type="submit">
             <i class="fa-solid fa-right-to-bracket me-3"></i>{% trans "Sign In" %}
           </button>
         </div>
       </form>
     </div>
-    {% endblock content %}
   </div>
 </div>
+{% endblock content %}
