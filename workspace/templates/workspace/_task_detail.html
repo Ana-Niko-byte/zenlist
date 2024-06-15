@@ -2,11 +2,18 @@
 
 <div class="accordion accordion-{{jsIdentifier}} accordion-flush bb-grey" id="taskDetailAccordion-{{task.id}}"
 data-taskPriority="{{task.priority}}" data-taskDueDate="{{task.due_date}}">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-{{task.id}}" aria-expanded="true" aria-controls="panelsStayOpen-{{task.id}}">
-        <p class="h6 content d-flex align-items-center justify-content-center">
-          <div class="priority-indicator {% if task.priority == 'Critical' %}critical {% elif task.priority == 'Minor' %}minor{% elif task.priority == 'Major' %}major{% elif task.priority == 'Nice to have!' %}nice{% endif %}"></div>
+  <div class="accordion-item p-0 m-0">
+    <h2 class="accordion-header p-0 m-0">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#panelsStayOpen-{{task.id}}" aria-expanded="true" 
+      aria-controls="panelsStayOpen-{{task.id}}">
+        <p class="h6 content">
+          <div class="priority-indicator 
+          {% if task.priority == 'Critical' %}critical 
+          {% elif task.priority == 'Minor' %}minor 
+          {% elif task.priority == 'Major' %}major 
+          {% elif task.priority == 'Nice to have!' %}nice 
+          {% endif %}"></div>
           {{task.name}}
         </p>
       </button>
@@ -15,13 +22,12 @@ data-taskPriority="{{task.priority}}" data-taskDueDate="{{task.due_date}}">
     <div id="panelsStayOpen-{{task.id}}" class="accordion-collapse collapse">
       <div class="accordion-body">
         <p>Due by : {{task.due_date}}</p>
-        <!-- <p>Priority : {{task.priority}}</p> -->
         {% if task.notes %}
-        <div class="h5">Notes: {{task.notes | safe}}</div>
+        <div class="p">Notes: {{task.notes | safe}}</div>
         {% endif %}
         <!-- Modal trigger buttons -->
-        <div class="container button-container mt-4">
-          <div class="row d-flex flex-column align-items-center justify-content-center">
+        <div class="button-container mt-4">
+          <div class="d-flex flex-column align-items-center justify-content-center">
             <button type="submit" class="btn btn-warning btn-edit col-12" task_id="{{task.id}}"
             data-edit-name="{{task.name}}"
             data-edit-notes="{{task.notes}}"
@@ -29,7 +35,9 @@ data-taskPriority="{{task.priority}}" data-taskDueDate="{{task.due_date}}">
             data-edit-priority="{{task.priority}}"
             data-edit-date="{{task.due_date}}">Edit Task   <i class="fa-solid fa-pen-to-square"></i>
             </button>
-            <button type="button" data-task-id="{{task.id}}" class="btn btn-danger btn-delete col-12">
+            <button type="button" data-task-id="{{task.id}}" 
+            data-task-name="{{task.name}}" 
+            class="btn btn-danger btn-delete col-12">
               Delete<i class="fa-solid fa-trash ms-3"></i>
             </button>
           </div>

@@ -13,7 +13,7 @@
         {% if confirmation %}
             {% user_display confirmation.email_address.user as user_display %}
             {% if can_confirm %}
-                <h2 class="h3">Hey there, {{ user_display }}!</h2>
+                <p class="mb-3">Hey there, {{ user_display }}!</p>
                 <p>
                     {% blocktrans with confirmation.email_address.email as email %}
                     Please confirm that this is your email address: 

@@ -1,5 +1,3 @@
-## Note: This application and its README is Work-In-Progress.
-
 # Zenlist
 The application is available for viewing [here](https://zenlist-b604919b54d1.herokuapp.com/).
 
@@ -205,6 +203,12 @@ To enable users to comfortably control their tasks, a filtering system was adopt
 To help users better understand the Zenlist framework, the home page of the application has been adapted as a Scrum Introduction page, with a basic overview over the practical uses and applications of scrum to a team and personal context. Furthermore, a link has been provided to the official [Scrum.org](https://scrumguides.org/index.html) website, where interested users may download the official scrum manual 2020 (latest version), free of charge.
 
 # Aesthetics
+The Zenlist theme aims to improve UIUX by leveraging a minimalist theme, with icons and accent colours where necessary. The colour scheme utilises natural dark hues of brown, grey, and blue, to give the application a strong 'grounding' theme. Accent colours persist in the bright hues of yellow and red - yellow for stand-out functionality such as editing, or button redirection, and red for deletion of elements. 
+
+Furthermore, accents are applied on tasks in the form of '_priority_' circles, giving users a visual indication of a task's priority by leveraging colours. For example, a dark red circle indicates a '_Critical_' status, while a muted blue indicates a '_Nice to have!_'. The colour scheme for this is meant to look like a sunset. 
+
+### Task Colour Scheme: 
+![task sunset colours](static/images/task-sunset.png)
 
 
 # Strategy
@@ -225,7 +229,183 @@ The application is designed as a mobile-first app, with an easy to use UI with h
 - Ability to add/view/edit/delete assets. 
 
 # Features
+### Jumbotron
+At the top of the Zenlist home page, the user is greeted with a large eye-catching jumbotron. This feature serves as a marketing element, as well as a visual indication of whether the user is logged in (although this only becomes apparent and habitual to experienced users). 
 
+Signed out user jumbotron - 
+![Jumbotron signed out](static/images/jumbo-out.png)
+
+Here, the user is presented with a button for signing in, as they will need an account with Zenlist to create and access their workspaces and tasks.
+
+Logged in user jumbotron - 
+![Jumbotron logged in](static/images/jumbo.png)
+
+Here, the user is presented with a button that redirects them to their workspaces, as well as a greeting with their user name. 
+
+### Reviews
+Reviews can be found in two places - on the main home page (where they are filtered by 5 star reviews only), as well as on a dedicated reviews page where they can be accessed through the '_Read all Reviews_' button on the home page. 
+
+Reviews on the main reviews page have additionally sorting functionality, where the user can easily and quickly access the type of reviews they are looking for. They can be sorted: 
+- by best
+- by lowest
+- by recent
+
+As well as this, if the user is logged in and has pending reviews for approval, their reviews can be seen under the _Your Reviews Awaiting Approval_ section, under the existing. If there are no pending reviews or if the user has not left any reviews, this section is hidden. Any reviews pending approval can be deleted, but once they are approved, the user must contact the admin to get them deleted. If the user wants to delete the review, a modal will pop up asking for confirmation before deleting the review.
+
+In order to leave a review, the user must be signed in. More information on this is available in the _Review Form_ and _Sign In_ sections below.
+
+Note: In the images below, all reviews are placeholders and come from the same account, therefore they will likely differ from those found in the end-product.
+
+Home page reviews - 
+![Reviews on Home Page](static/images/reviews-home.png)
+
+Reviews page reviews - 
+![Reviews on Reviews Page](static/images/reviews-reviews.png)
+
+Reviews page reviews pending approval - 
+![review pending approval](static/images/pending-approval.png)
+
+Review delete confirmation modal -
+![review delete confirmation modal](static/images/delete-review.png)
+
+### Review Form
+In order to submit a review, the user must be signed in. On the home page, the user can find a '_Share your Thoughts_' section. If the user is not logged in, a _Sign Up_ button displays with a sentence prompting the user to sign in to leave a review.
+
+![thoughts sign in](static/images/thoughts.png)
+
+If the user is signed in, the review form will display and they can submit a review for approval. After submission, they will be taken back to the top of the home page and a Django message will pop up letting them know that their review should be reviewed within the next 2 days by a Zenlist admin. If the review could not be submitted, an error message will pop up letting them know that the submission was unsuccessful. 
+
+The submitted review will be available for viewing in the main reviews page, under the _Your Reviews Awaiting Approval_ section.
+
+![review form](static/images/review-form.png)
+![review form submission message](static/images/review-submitted.png)
+
+### Scrum
+The Scrum framework is a core principle of the Zenlist application. While its functionality is limited, it embodies some of the core aspects of time-management and organisation in its zenlist structure (and is quite similar to the Jira time tracker). 
+
+The application's home page contains a paragraph with useful information on getting started with Scrum, and a link to visit the official Scrum.org website, where interested users may download the Official Scrum Guide 2020 (latest version), free of charge. 
+
+This paragraph is designed as a Django model for the purposes of facilitating reusal, and to accommodate any future expansion ideas in terms of content and formatting.
+
+Scrum paragraph -
+![scrum paragraph](static/images/scrum-paragraph.png)
+
+Scrum link to Scrum.Org - 
+![scrum.org link](static/images/scrumorg.png)
+
+### Sign In
+As the user requires an account to access most of Zenlist's features, the application includes sign in, sign up, and sign out pages. The sign in/ sign up page may ask users to confirm their email addresses through a link forwarded to the emails they registered their account with. Each of these will then redirect to the home page. 
+
+The user may find the page for signing in either at the top of the page in the navigation bar, or at the bottom in the footer. This page is only displayed if the user is not signed in.
+
+Sign In Page -
+![sign in](static/images/signin.png)
+
+### Sign Up
+As the user requires an account to access most of Zenlist's features, the application includes sign in, sign up, and sign out pages.
+
+The user may find the page for signing up either at the top of the page in the navigation bar, or at the bottom in the footer. This page is only displayed if the user is not signed in.
+
+Sign Up Page -
+![sign up](static/images/signup.png)
+
+### Sign Out
+As the user requires an account to access most of Zenlist's features, the application includes sign in, sign up, and sign out pages. 
+
+The user may find the page for signing out either at the top of the page in the navigation bar, or at the bottom in the footer. This page is only displayed if the user is signed in.
+
+Sign Out Page -
+![sign out](static/images/signout.png)
+
+After signing out, the user is redirected to the home page where they can find visual indication of them having signed out, i.e., a Django message and a change in the jumbotron button and wording.
+
+Signed Out Message -
+![signed out](static/images/signed-out.png)
+
+### Contact Option
+Zenlist contains a dedicated '_Contact_' page for users to send questions/queries to the Zenlist team. This page can be accessed either from the main navigation bar at the top of the page, or in the footer navigation at the bottom of the page.
+
+This form contains validation, and correctly-formatted messages that have been submitted will be sent to the Zenlist team via email. After submission, the user is redirected to the home page with a confirmation message letting them know that their message has been sent and should recieve a reply within 2 business days. 
+
+The message shows up on email (my personal email) as '_New Message from ***_', and has a reply_to plug to reply to the email address from which the message was sent. 
+
+Contact Page -
+![contact page](static/images/contact.png)
+
+Email Sent Confirmation Message - 
+![contact page]()
+
+Message in Email - 
+![contact page]()
+
+Reply to - 
+![contact page]()
+
+### Your Workspaces
+Once the user registers an account, they will get access to the '_Your Workspaces tab_' in the navigation bar and footer. This tab will take them to a dedicated page where they may view all of their environments (workspaces) and tasks. If there are no workspaces, the user will see a different design with a button to create their first workspace. 
+
+Additionally, this tab can be accessed from the home page jumbotron, which displays a '_My Workspaces_' button.
+
+Page with Workspaces - 
+![workspaces](static/images/workspaces.png)
+
+Here the user gets access to a list of their workspaces (links, which take them inside the workspace after the user clicks on the one they wish to visit), as well as a column with a list of tasks that are due on today's date. If no tasks are due, a congratulatory message displays.
+
+If the user chooses to delete a workspace, this will delete all of the tasks in that workspace, as well as the workspace itself from the database, and it will no longer be visible in the list. Before performing the delete, the user will get a confirmation modal asking them to confirm the deletion.
+
+Delete workspace Modal - 
+![delete workspace modal](static/images/delete-ws.png)
+
+No Workspace in list post Delete -
+![no workspace post delete](static/images/no-ws.png)
+
+If the user has no workspaces, a different page displays.
+
+Page without Workspaces - 
+![no user workspaces](static/images/empty-llamas.png)
+
+Note: The '_Add Workspace_' buttons work the same on both pages, and display a modal prompting the user to enter a title for the workspace they wish to create. This workspace gets immediately appended to the list for the user to access.
+
+Add Workspace Modal -
+![add workspace by title](static/images/boston-ws.png)
+
+### Tasks
+To access an environment's tasks, the user needs to click on one of their workspaces to be taken inside a dedicated view. This view is inaccessible from everywhere else.
+
+A breadcrumb displays under the main navigation bar, informing users of their current location, with relevant links to go back up the navigation hierarchy.
+
+![breadcrumb trail](static/images/breadcrumb.png)
+
+Tasks have several attributes, such as their name, their status, their priority, and their due date, each of which helps to either visual sort them (priority is indicated by a coloured dot beside the name of the task), or to sort by selection (by due date and by priority). 
+
+Inside Workspace: '_Boston_'
+![inside environment](static/images/inside-boston.png)
+
+Currently there are no tasks in this environment, but they can be added using the task form on the left hand side of the page. Added tasks can be sorted by due date (nearest date at the top) or by priority (most important at the top). 
+
+Adding a Task -
+![add task through form](static/images/add-task.png)
+
+Calender Widget on Task - 
+![calender widget task](static/images/task-calender.png)
+
+To access the task's information, the user needs to click on it to expand the accordion body, as shown in the image below.
+
+Task Accordion -
+![task accordion](static/images/task-accordion.png)
+
+After submitting the task, it will show up in the relevant status column. If the user wishes to edit the task, they need to expand the accordion body (by clicking on the task they want to update), and clicking the '_Edit Task_' button. This will engage the task form with that specific task's information, and allow the user to make changes to it before re-submitting the task. The form will change colour to indicate a change of functionality. 
+
+Edit a Task -
+![tasks](static/images/task-edit.png)
+
+Submit Updated Task - 
+![updated task](static/images/task-updated.png)
+
+If a user wishes to delete a task, they get the same confirmation modal pop up as in the review and workspace section, asking for confirmation prior to deleting. Once confirmed, the task deletes and redirects the user back to the open workspace.
+
+Deleting a Task - 
+![delete task confirmation modal](static/images/delete-task.png)
 
 # Technologies
 1. HTML5/ Django Templates - Used for structuring and content.
@@ -344,36 +524,24 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
     Methods: 
 
     '_test_name_required()_':
-    This test verifies that a populated contact form which is missing a
-    name input is not submitted, and that the error stems from the missing
-    name field input.
+    This test verifies that a populated contact form which is missing a name input is not submitted, and that the error stems from the missing name field input.
 
     '_test_email_required()_':
-    This test verifies that a populated contact form which is missing an
-    email input is not submitted, and that the error stems from the missing
-    email field input.
+    This test verifies that a populated contact form which is missing an email input is not submitted, and that the error stems from the missing email field input.
 
     '_test_email_correct_format()_':
-    This test verifies that a completed populated contact form is not submitted
-    unless the email adheres to the expected email format, and that the error
-    stems from the incorrectly filled email field.
+    This test verifies that a completed populated contact form is not submitted unless the email adheres to the expected email format, and that the error stems from the incorrectly filled email field.
 
     '_test_message_required()_':
-    This test verifies that a populated contact form which is missing a
-    message input is not submitted, and that the error stems from the missing
-    message field input.
+    This test verifies that a populated contact form which is missing a message input is not submitted, and that the error stems from the missing message field input.
 
     '_test_message_max_length_200_char()_':
-    This test verifies that a completed populated contact form is not submitted
-    unless the message input is less than 200 characters, and that the error
-    stems from the overfilled message field.
+    This test verifies that a completed populated contact form is not submitted unless the message input is less than 200 characters, and that the error stems from the overfilled message field.
 
-    Note: The application form on the user side does not allow the insertion
-    of more than 200 characters.
+    Note: The application form on the user side does not allow the insertion of more than 200 characters.
 
     '_test_form_is_valid()_':
-    This test verifies that a correctly filled out contact form is
-    successfully submitted.
+    This test verifies that a correctly filled out contact form is successfully submitted.
 
 - test_models.py
 
@@ -382,20 +550,16 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
     Methods: 
 
     '_def setUp()_':
-        Simulates the logging in of a user for review model assertion,
-        and creates instances for the Scrum and Review models.
+        Simulates the logging in of a user for review model assertion, and creates instances for the Scrum and Review models.
 
     '_def test_scrum_model_creation()_':
-        Runs a series of asserions for each Scrum Model field to validate
-        the expected values of the instance.
+        Runs a series of asserions for each Scrum Model field to validate the expected values of the instance.
 
     '_def test_review_model_creation()_':
-        Runs a series of assertions for each Review Model field to validate
-        the expected values of the instance.
+        Runs a series of assertions for each Review Model field to validate the expected values of the instance.
 
     '_def test_user_deletion_cascade()_':
-        Deletes the current logged in user and checks whether the
-        user's reviews were deleted as well, as per cascade.
+        Deletes the current logged in user and checks whether the user's reviews were deleted as well, as per cascade.
 
 - test_urls.py
 
@@ -404,18 +568,15 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
     Methods: 
 
     '_def test_hello_resolves()_':
-        Reverses the URL name and checks if it returns the correct
-        FBV of HelloScrum.
+        Reverses the URL name and checks if it returns the correct FBV of HelloScrum.
         Asserts HelloScrum is resolved from 'hello'.
 
     '_def test_contact_resolves()_':
-        Reverses the URL name and checks if it returns the correct
-        FBV of Contact_Me.
+        Reverses the URL name and checks if it returns the correct FBV of Contact_Me.
         Asserts Contact_Me is resolved from 'contact'.
 
     '_def test_reviews_resolves():_'
-        Reverses the URL name and checks if it returns the correct
-        FBV of Zenlist_Reviews.
+        Reverses the URL name and checks if it returns the correct FBV of Zenlist_Reviews.
         Asserts Zenlist_Reviews is resolved from 'reviews'.
 
 ---
@@ -428,13 +589,10 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
     Methods: 
 
     '_def test_title_is_required()_':
-        This test verifies that a populated workspace form which is missing a
-        title input is not submitted, and that the error stems from the missing
-        title field input.
+        This test verifies that a populated workspace form which is missing a title input is not submitted, and that the error stems from the missing title field input.
 
     '_def test_form_is_valid()_':
-        This test verifies that a correctly filled out workspace form is
-        successfully submitted.
+        This test verifies that a correctly filled out workspace form is successfully submitted.
 
 - test_models.py
 
@@ -444,27 +602,20 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
 
     '_def setUp()_':
         Simulates user log in to allow the creation for workspaces and tasks.
-        Simulates the creation of a workspace where workspace.creator field is
-        automatically assigned the current User instance.
-        Simulates the creation of a task where task.creator is automatically
-        assigned the current User instance, and task.workspace is automatically
-        assigned the current workspace.
+        Simulates the creation of a workspace where workspace.creator field is automatically assigned the current User instance.
+        Simulates the creation of a task where task.creator is automatically assigned the current User instance, and task.workspace is automatically assigned the current workspace.
 
     '_def test_workspace_model_creation()_':
-        Runs a series of asserions for each Workspace Model field to validate
-        the expected values of the instance.
+        Runs a series of asserions for each Workspace Model field to validate the expected values of the instance.
 
     '_def test_task_model_creation()_':
-        Runs a series of asserions for each Task Model field to validate
-        the expected values of the instance.
+        Runs a series of asserions for each Task Model field to validate the expected values of the instance.
 
     '_def test_workspace_delete_when_user_delete()_':
-        Deletes the user and checks whether workspaces and tasks associated
-        with the user were deleted as well, as per cascade.
+        Deletes the user and checks whether workspaces and tasks associated with the user were deleted as well, as per cascade.
 
     '_def test_task_delete_when_workspace_delete()_':
-        Deletes the current workspace and checks whether tasks associated
-        with the workspace were deleted as well, as per cascade.
+        Deletes the current workspace and checks whether tasks associated with the workspace were deleted as well, as per cascade.
 
 - test_urls.py
 
@@ -473,28 +624,23 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
     Methods:
 
     '_def test_workspace_list_resolves()_':
-        Reverses the URL name and checks if it returns the correct
-        CBV of WorkspaceListView.
+        Reverses the URL name and checks if it returns the correct CBV of WorkspaceListView.
         Asserts WorkspaceListView is resolved from 'spaces'.
 
     '_def test_workspace_detail_resolves()_':
-        Reverses the URL name with arguments [slug] and checks if it
-        returns the correct FBV of workspace_detail.
+        Reverses the URL name with arguments [slug] and checks if it returns the correct FBV of workspace_detail.
         Asserts workspace_detail is resolved from 'full_workspace'.
 
     '_def test_workspace_delete_resolves()_':
-        Reverses the URL name with arguments [int:id] and checks if it
-        returns the correct FBV of delete_ws.
+        Reverses the URL name with arguments [int:id] and checks if it returns the correct FBV of delete_ws.
         Asserts delete_ws is resolved from 'delete_workspace'.
 
     '_def test_task_edit_resolves()_':
-        Reverses the URL name with arguments [slug, int:id] and checks if it
-        returns the correct FBV of update_ws_task.
+        Reverses the URL name with arguments [slug, int:id] and checks if it returns the correct FBV of update_ws_task.
         Asserts update_ws_task is resolved from 'task_edit'.
 
     '_def test_task_delete_resolves()_':
-        Reverses the URL name with arguments [slug, int:id] and checks if it
-        returns the correct FBV of delete_ws_task.
+        Reverses the URL name with arguments [slug, int:id] and checks if it returns the correct FBV of delete_ws_task.
         Asserts delete_ws_task is resolved from 'task_delete'.
 
 # Accessibility & Performance

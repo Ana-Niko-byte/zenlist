@@ -17,6 +17,7 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 for (let button of deletes) {
     button.addEventListener("click", (e) => {
         let taskId = e.target.getAttribute("data-task-id");
+        document.getElementById("task-name").innerHTML = `'${e.target.getAttribute("data-task-name")}'`;
         deleteConfirm.href = `delete-task/${taskId}`;
         deleteModal.show();
     });

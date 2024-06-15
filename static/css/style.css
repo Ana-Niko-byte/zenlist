@@ -263,11 +263,8 @@ body {
   background-color: rgb(74, 84, 91); 
   border-top-right-radius: 20px; 
   border-bottom-right-radius: 20px;
-  min-height: 500px;
-}
-
-#workspace-analytics{
-  height: 450px;
+  height: 100%;
+  flex-grow: 1;
 }
 
 /* Form Field Sizes */

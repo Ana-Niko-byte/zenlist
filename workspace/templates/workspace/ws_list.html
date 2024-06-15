@@ -6,52 +6,52 @@
   <div class="container mx-0 mt-2 full-width">
     <div class="row d-flex align-items-start justify-content-between">
 
-        <!-- Analytics -->
-        <div class="col-sm-12 col-lg-4 p-3 white-text due-task-container" id="due-task-container">
-          {% include 'workspace/_task_analytics.html' %}
+      <!-- Analytics -->
+      <div class="d-flex col-sm-12 col-lg-4 p-3 white-text due-task-container" id="due-task-container">
+        {% include 'workspace/_task_analytics.html' %}
+      </div>
+      <!-- /Analytics -->
+
+      <!-- A list of registered user workspaces. -->
+      <div class="col-sm-12 col-lg-8 px-5">
+        <div class="analytic-intro d-flex flex-row align-items-center bb-grey mb-3">
+          <h2><i class="fa-solid fa-user-astronaut fa-sm mx-3"></i>Your Spaces</h2>
         </div>
-        <!-- /Analytics -->
+        {% for space in ws_tasks %}
+        <div class="container workspace-container mb-5">
+          <div class="row d-flex align-items-end justify-content-between">
 
-        <!-- A list of registered user workspaces. -->
-        <div class="col-sm-12 col-lg-8 px-5">
-          <div class="analytic-intro d-flex flex-row align-items-center bb-grey mb-3">
-            <h2><i class="fa-solid fa-user-astronaut fa-sm mx-3"></i>Your Spaces</h2>
-          </div>
-          {% for space in ws_tasks %}
-          <div class="container workspace-container mb-5">
-            <div class="row d-flex align-items-end justify-content-between">
+            <!-- /Link to full workspace -->
+            <a href="{% url 'full_workspace' space.slug %}" class="workspace-link col-sm-12 col-md-6 py-3">
+              <p class="post-title h4">{{ space.title }}</p>
+              <p>Total tasks: {{space.ws_task_count}}</p>
+              <!-- !!! Does not update !!! -->
+              <em class="post-subtitle"><i class="fa-regular fa-calendar me-3"></i>last modified: {{ space.updated_on }}</em>
+            </a>
+            <!-- /Link to full workspace -->
 
-              <!-- /Link to full workspace -->
-              <a href="{% url 'full_workspace' space.slug %}" class="workspace-link col-sm-12 col-md-6 py-3">
-                <p class="post-title h4">{{ space.title }}</p>
-                <p>Total tasks: {{space.ws_task_count}}</p>
-                <!-- !!! Does not update !!! -->
-                <em class="post-subtitle"><i class="fa-regular fa-calendar me-3"></i>last modified: {{ space.updated_on }}</em>
-              </a>
-              <!-- /Link to full workspace -->
-
-              <!-- Delete Workspace Button -->
-              <div class="button-container button-container-workspace col-sm-12 col-md-6 mb-3">
-                <button type="button" data-workspace-id="{{space.id}}" data-workspace-title="{{space.title}}" class="btn btn-delete btn-danger">
-                  Delete<i class="fa-solid fa-trash px-2"></i>
-                </button>
-              </div>
-              <!-- /Delete Workspace Button -->
-
+            <!-- Delete Workspace Button -->
+            <div class="button-container button-container-workspace col-sm-12 col-md-6 mb-3">
+              <button type="button" data-workspace-id="{{space.id}}" data-workspace-title="{{space.title}}" class="btn btn-delete btn-danger">
+                Delete<i class="fa-solid fa-trash px-2"></i>
+              </button>
             </div>
+            <!-- /Delete Workspace Button -->
+
           </div>
-          <!-- /A list of registered user workspaces. -->
-
-          <!-- Delete Workspace Modal -->
-          {% include 'workspace/delete_ws_modal.html' with space=space %}
-          <!-- /Delete Workspace Modal -->
-
-          {% endfor %}
-
-          <!-- Add Workspace Modal -->
-          {% include 'workspace/add_ws_modal.html' %}
-          <!-- /Add Workspace Modal -->
         </div>
+        <!-- /A list of registered user workspaces. -->
+
+        <!-- Delete Workspace Modal -->
+        {% include 'workspace/delete_ws_modal.html' with space=space %}
+        <!-- /Delete Workspace Modal -->
+
+        {% endfor %}
+
+        <!-- Add Workspace Modal -->
+        {% include 'workspace/add_ws_modal.html' %}
+        <!-- /Add Workspace Modal -->
+      </div>
     </div>
   </div>
 
@@ -62,7 +62,7 @@
           <img src="../../../static/images/llamas.jpg" width='300' alt="confused llama">
           <h3 class="pt-4">Duuuuuuuuude ... no workspaces?</h3>
       </div>
-      <div class="col-12 mt-4 d-flex align-items-center justify-content-center">
+      <div class="col-12 mt-4 text-center">
         <!-- Add Workspace Modal -->
         {% include 'workspace/add_ws_modal.html' %}
         <!-- /Add Workspace Modal -->
