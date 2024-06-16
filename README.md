@@ -1,5 +1,7 @@
-# Zenlist
+# A Bit About Zenlist
 The application is available for viewing [here](https://zenlist-b604919b54d1.herokuapp.com/).
+
+
 
 ## A Little Bit About Zenlist
 Zenlist is a task-tracking Django application, designed to provide users an easy and quick way of organising and managing day-to-day tasks for different environments. With accessible sorting systems and an intuitive interface, Zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay on top of their day.
@@ -763,10 +765,10 @@ Cloning a repository essentially means downloading a copy of your repository tha
 
 1. Click into the github repository you want to clone.
 2. Press the 'Code' button. This should open a section similar to the one below.
+3. Copy the link in this dropdown.
 
-<!-- clone github repository -->
+![github clone URL](static/images/github-clone.png)
 
-3. Copy the link in this dropdown
 4. Open a terminal within your VSC (or whatever IDE you choose to use).
 5. In the terminal type 'git clone' and paste the URL.
 6. Press Enter - you now have a cloned version of your github repository.
@@ -795,3 +797,4 @@ For [date picker](https://mrasimzahid.medium.com/how-to-implement-django-datepic
 [Reddit's philgyford](https://www.reddit.com/r/django/comments/1aqh4rw/error_with_testing_a_dynamic_url_in_django/) for URL resolve + [Medium Rafał Buczyński](https://medium.com/@buczynski.rafal/nawigacja-przez-django-testowanie-adres%C3%B3w-url-77b05cb30d87) for URL reverse and mentioning resolve.
 
 # Acknowledgements
+As always, a big thank you to my mentor, Harry Dhillon, for helping me with any issues and questions I had during the build, to student support tutors at Code Institute (especially Roman, you're awesome), and to me for not losing my marbles and having the motivation to push my learning, irrespective of the worst May I hope to have.

@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '.herokuapp.com',
     '.gitpod.io',
+    '.codeinstitute-ide.net',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
