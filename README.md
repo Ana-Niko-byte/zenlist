@@ -3,6 +3,8 @@ The application is available for viewing [here](https://zenlist-b604919b54d1.her
 
 ![Zenlist responsive image](static/images/befunky-collage.png)
 
+The application was tested on an ASUS Zenbook, iOS Apple iPhone 11 Pro, and on an Android Google Pixel 6 Pro.
+
 ## Introduction
 Zenlist is a task-tracking Django application, designed to provide users with an easy and quick way of organising and managing day-to-day tasks for different environments. With accessible sorting systems and an intuitive interface, Zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay on top of their day.
 
@@ -29,7 +31,7 @@ Zenlist is a task-tracking Django application, designed to provide users with an
 ## Wireframes
 ![Zenlist wireframe](static/images/zenlist-wireframe.png)
 
-Note: The application has deviated slightly since the wireframe was created, due to either UIUX decisions or the need for additional functionality. Most notable, is in the Scrum/Home page.
+_Note: The application has deviated slightly since the wireframe was created, due to either UIUX decisions or the need for additional functionality. Most notable, is in the Scrum/Home page._
 
 ## Strategy
 This application aims at optimising task and time management by leveraging the benefits of an intuitive and minimalist UI, visual reminders of approaching task due dates, and sorting systems for efficiency.
@@ -66,7 +68,6 @@ Here, the user is presented with a button that redirects them to their workspace
 - Reviews
 
 Reviews can be found in two places - on the main home page (where they are filtered by 5-star reviews only), as well as on a dedicated reviews page where they can be accessed through the '_Read all Reviews_' button on the home page. 
-- Reviews
 
 Reviews on the main reviews page have additional sorting functionality, where the user can easily and quickly access the type of reviews they are looking for. They can be sorted: 
  - '_by best_'
@@ -156,7 +157,7 @@ The message shows up on email (my email) as '_New Message from ***_', and has a 
 The message shows up on email (my email) as '_New Message from ***_', and has a reply_to plug to reply to the email address from which the message was sent. 
 
 Contact Page -
-![contact page](static/images/contact.png)
+![contact page](static/images/contact-message.png)
 
 Email Sent Confirmation Message - 
 ![contact page](static/images/message-confirmation.png)
@@ -756,7 +757,7 @@ As can be seen from the report, the application performs well in '_Accessibility
 
 Some aspects slowing down the application include: 
 
-- _largest Ccontentful Paint_ (The Jumbotron Image). 
+- _largest Contentful Paint_ (The Jumbotron Image). 
 
 The image, initially downloaded from [Unsplash](https://unsplash.com/photos/man-on-rope-fCzSfVIQlVY) weighing 17GB, was compressed several times using services like [TinyPNG](https://tinypng.com/), [iloveIMG](https://www.iloveimg.com/compress-image), and [Image Compressor](https://imageresizer.com/image-compressor), reaching a final weight of 710KB (99.996% compression). Any more compression after this figure interferes with the colour display on the image. While simply changing the image to one that weighs less was considered, it was decided to keep the original due to its aesthetic, and message of 'balance', which compliments the Zen theme of the application. 
 
@@ -913,4 +914,4 @@ For [date picker](https://mrasimzahid.medium.com/how-to-implement-django-datepic
 [Reddit's philgyford](https://www.reddit.com/r/django/comments/1aqh4rw/error_with_testing_a_dynamic_url_in_django/) for URL resolve + [Medium Rafał Buczyński](https://medium.com/@buczynski.rafal/nawigacja-przez-django-testowanie-adres%C3%B3w-url-77b05cb30d87) for URL reverse and mentioning resolve.
 
 # Acknowledgements
-As always, a big thank you to my mentor, Harry Dhillon, for helping me with any issues and questions I had during the build, to student support tutors at Code Institute (especially Roman, you're awesome), and to me for not losing my marbles and having the motivation to push my learning, irrespective of the worst May I hope to have.
+As always, a big thank you to my mentor, Harry Dhillon, for helping me with any issues and questions I had during the build, to student support tutors at Code Institute (especially Roman, you're awesome), and to me for not losing my marbles and having the motivation to push through last May.

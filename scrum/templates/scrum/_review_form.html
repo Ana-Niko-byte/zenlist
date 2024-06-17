@@ -11,8 +11,8 @@
         </div>
         <div class="col-md-8 col-sm-12">
             {% if not user.is_authenticated %}
-            <div class="form-footer d-flex flex-column align-items-center justify-content-center my-4">
-                <p class="h6 mb-4">You must sign in to leave a review.</p>
+            <div class="form-footer d-flex flex-column align-items-center justify-content-center mt-4">
+                <p class="h6 mb-4 text-center">You must sign in to leave a review.</p>
                 <a href="{{ login_url }}" class="btn btn-warning btn-lg authentication-button">
                     <i class="fa-solid fa-right-to-bracket me-3"></i>Sign In
                 </a>
