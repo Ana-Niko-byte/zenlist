@@ -1,4 +1,5 @@
 # A Bit About Zenlist
+# A Bit About Zenlist
 The application is available for viewing [here](https://zenlist-b604919b54d1.herokuapp.com/).
 
 ![Zenlist responsive image](static/images/befunky-collage.png)
@@ -16,18 +17,33 @@ Zenlist is a task-tracking Django application, designed to provide users with an
 - Set up an email alert for registration and account authentication.
 
 - Spread knowledge of the Scrum framework and explain how this framework benefits workplaces and personal time management. Add links to relevant media and open-source documents. 
+- Spread knowledge of the Scrum framework and explain how this framework benefits workplaces and personal time management. Add links to relevant media and open-source documents. 
 
 # UX Goals
 - Create a simple and intuitive UI for young and first-time users to foster a sense of comfort and reassurance. 
+- Create a simple and intuitive UI for young and first-time users to foster a sense of comfort and reassurance. 
 
+- Design a simple and easy navigation system (primary navigation and breadcrumbs so the user knows where they are at all times and can backtrack when needed).
 - Design a simple and easy navigation system (primary navigation and breadcrumbs so the user knows where they are at all times and can backtrack when needed).
 
 - Establish a colour scheme and font family that ties the theme of _zen_ to create cohesive and comprehensive branding with accents where needed.
+- Establish a colour scheme and font family that ties the theme of _zen_ to create cohesive and comprehensive branding with accents where needed.
 
+- Keep the application visually minimalistic with white spacing and simple accents to maintain the _zen_ theme and branding.
 - Keep the application visually minimalistic with white spacing and simple accents to maintain the _zen_ theme and branding.
 
 ## Wireframes
+## Wireframes
 ![Zenlist wireframe](static/images/zenlist-wireframe.png)
+
+Note: The application has deviated slightly since the wireframe was created, due to either UIUX decisions or the need for additional functionality. Most notable, is in the Scrum/Home page.
+
+## Strategy
+This application aims at optimising task and time management by leveraging the benefits of an intuitive and minimalist UI, visual reminders of approaching task due dates, and sorting systems for efficiency.
+
+The application is designed as a desktop-first app due to today's desktop-based work, study, and entertainment. However, consideration has been thoroughly given to the feel of the website on mobile, and responsiveness is adopted throughout the application.
+
+## Target Audience
 
 Note: The application has deviated slightly since the wireframe was created, due to either UIUX decisions or the need for additional functionality. Most notable, is in the Scrum/Home page.
 
@@ -43,10 +59,14 @@ The application is designed as a desktop-first app due to today's desktop-based 
 - Anybody who wishes to improve their time-management skills. 
 
 ## Key Information Deliverables
+## Key Information Deliverables
 - Categorisation of tasks by environment.
 - Time-tracking capabilities with visual reminders for approaching tasks.
 - Sorting system (by space, by priority, by due date) for tasks, and by best, by lowest, by recent for reviews.
 - Ability to add/view/edit/delete assets. 
+
+## Features
+- Jumbotron
 
 ## Features
 - Jumbotron
@@ -66,7 +86,14 @@ Here, the user is presented with a button that redirects them to their workspace
 - Reviews
 
 Reviews can be found in two places - on the main home page (where they are filtered by 5-star reviews only), as well as on a dedicated reviews page where they can be accessed through the '_Read all Reviews_' button on the home page. 
+- Reviews
 
+Reviews can be found in two places - on the main home page (where they are filtered by 5-star reviews only), as well as on a dedicated reviews page where they can be accessed through the '_Read all Reviews_' button on the home page. 
+
+Reviews on the main reviews page have additional sorting functionality, where the user can easily and quickly access the type of reviews they are looking for. They can be sorted: 
+ - '_by best_'
+ - '_by lowest_'
+ - '_by recent_'
 Reviews on the main reviews page have additional sorting functionality, where the user can easily and quickly access the type of reviews they are looking for. They can be sorted: 
  - '_by best_'
  - '_by lowest_'
@@ -75,7 +102,9 @@ Reviews on the main reviews page have additional sorting functionality, where th
 As well as this, if the user is logged in and has pending reviews for approval, their reviews can be seen under the _Your Reviews Awaiting Approval_ section, under the existing. If there are no pending reviews or if the user has not left any reviews, this section is hidden. Any reviews pending approval can be deleted, but once they are approved, the user must contact the admin to get them deleted. If the user wants to delete the review, a modal will pop up asking for confirmation before deleting the review.
 
 To leave a review, the user must be signed in. More information on this is available in the _Review Form_ and _Sign In_ sections below.
+To leave a review, the user must be signed in. More information on this is available in the _Review Form_ and _Sign In_ sections below.
 
+Note: In the images below, all reviews are placeholders and come from the same account, therefore they will likely differ from those found in the end product.
 Note: In the images below, all reviews are placeholders and come from the same account, therefore they will likely differ from those found in the end product.
 
 Home page reviews - 
@@ -93,11 +122,16 @@ Review delete confirmation modal -
 - Review Form
 
 To submit a review, the user must be signed in. On the home page, the user can find a '_Share your Thoughts_' section. If the user is not logged in, a _Sign Up_ button displays with a sentence prompting the user to sign in to leave a review.
+- Review Form
+
+To submit a review, the user must be signed in. On the home page, the user can find a '_Share your Thoughts_' section. If the user is not logged in, a _Sign Up_ button displays with a sentence prompting the user to sign in to leave a review.
 
 ![thoughts sign in](static/images/thoughts.png)
 
 If the user is signed in, the review form will display and they can submit a review for approval. After submission, they will be taken back to the top of the home page and a Django message will pop up letting them know that their review should be reviewed within the next 2 days by a Zenlist admin. If the review cannot be submitted, an error message will pop up letting them know that the submission was unsuccessful. 
+If the user is signed in, the review form will display and they can submit a review for approval. After submission, they will be taken back to the top of the home page and a Django message will pop up letting them know that their review should be reviewed within the next 2 days by a Zenlist admin. If the review cannot be submitted, an error message will pop up letting them know that the submission was unsuccessful. 
 
+The submitted review will be available for viewing on the main reviews page, under the _Your Reviews Awaiting Approval_ section.
 The submitted review will be available for viewing on the main reviews page, under the _Your Reviews Awaiting Approval_ section.
 
 ![review form](static/images/review-form.png)
@@ -106,9 +140,13 @@ The submitted review will be available for viewing on the main reviews page, und
 - Scrum
 
 The Scrum framework is a core principle of the Zenlist application. While its functionality is limited, it embodies some of the core aspects of time management and organisation in its zenlist structure (and is quite similar to the Jira time tracker). 
+- Scrum
+
+The Scrum framework is a core principle of the Zenlist application. While its functionality is limited, it embodies some of the core aspects of time management and organisation in its zenlist structure (and is quite similar to the Jira time tracker). 
 
 The application's home page contains a paragraph with useful information on getting started with Scrum, and a link to visit the official Scrum.org website, where interested users may download the Official Scrum Guide 2020 (latest version), free of charge. 
 
+This paragraph is designed as a Django model to facilitate reusal and to accommodate any future expansion ideas in terms of content and formatting.
 This paragraph is designed as a Django model to facilitate reusal and to accommodate any future expansion ideas in terms of content and formatting.
 
 Scrum paragraph -
@@ -151,10 +189,13 @@ Signed Out Message -
 
 - Contact Option
 
+- Contact Option
+
 Zenlist contains a dedicated '_Contact_' page for users to send questions/queries to the Zenlist team. This page can be accessed either from the main navigation bar at the top of the page, or in the footer navigation at the bottom of the page.
 
 This form contains validation, and correctly-formatted messages that have been submitted will be sent to the Zenlist team via email. After submission, the user is redirected to the home page with a confirmation message letting them know that their message has been sent and should recieve a reply within 2 business days. 
 
+The message shows up on email (my email) as '_New Message from ***_', and has a reply_to plug to reply to the email address from which the message was sent. 
 The message shows up on email (my email) as '_New Message from ***_', and has a reply_to plug to reply to the email address from which the message was sent. 
 
 Contact Page -
@@ -168,6 +209,8 @@ Message in Email -
 
 Reply to - 
 ![contact page]()
+
+- Your Workspaces
 
 - Your Workspaces
 
@@ -197,6 +240,8 @@ Note: The '_Add Workspace_' buttons work the same on both pages, and display a m
 
 Add Workspace Modal -
 ![add workspace by title](static/images/boston-ws.png)
+
+- Tasks
 
 - Tasks
 
@@ -232,6 +277,7 @@ Edit a Task -
 Submit Updated Task - 
 ![updated task](static/images/task-updated.png)
 
+If a user wishes to delete a task, they get the same confirmation modal pop up as in the review and workspace section, asking for confirmation before deleting. Once confirmed, the task deletes and redirects the user back to the open workspace.
 If a user wishes to delete a task, they get the same confirmation modal pop up as in the review and workspace section, asking for confirmation before deleting. Once confirmed, the task deletes and redirects the user back to the open workspace.
 
 Deleting a Task - 
@@ -508,9 +554,12 @@ Task Colour Scheme -
 2. CSS3 - Used for adding styles to the content for legibility and aesthetic appeal.
 3. Vanilla Javascript - For adding basic interactivity and dynamically setting URLs.
 4. FontAwesome/Bootstrap icons - used for icons.
+4. FontAwesome/Bootstrap icons - used for icons.
 5. Emojipedia - used for emojis.
 6. Firefox Developer Tools - used for debugging the website during production.
 7. Lighthouse - An extension I used for testing the performance, accessibility, best practices and SEO of my site (result shown under debugging below).
+8. GitHub - For code storage, version control and deployment.
+9. Git - For commiting through the terminal and pushing to GitHub for storage.
 8. GitHub - For code storage, version control and deployment.
 9. Git - For commiting through the terminal and pushing to GitHub for storage.
 10. VSC - The IDE I developed the project in.
@@ -525,8 +574,12 @@ Task Colour Scheme -
 19. BeFunky Collage Maker - to create the responsive image.
 
 ## Testing & Debugging
+## Testing & Debugging
 This section outlines procedures for manual testing. For automated testing, please see all files '_test*.py_'.
 
+- Manual Testing
+
+- ### Home/Scrum Page
 - Manual Testing
 
 - ### Home/Scrum Page
@@ -534,56 +587,74 @@ This section outlines procedures for manual testing. For automated testing, plea
 |---|---|---|---|---|
 | Jumbotron display | If the user is not logged in, the banner should display a signup button and signup motivation, else a hello, {user} and a workspaces button | Signout + visual check, sign-in + visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Reviews | Only displays approved 5-star reviews | Add new 5-star review, do not approve - check it does not display. Approve review, check it displays. | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Jumbotron display | If the user is not logged in, the banner should display a signup button and signup motivation, else a hello, {user} and a workspaces button | Signout + visual check, sign-in + visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Reviews | Only displays approved 5-star reviews | Add new 5-star review, do not approve - check it does not display. Approve review, check it displays. | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Scrum Section | Image + Text Display as per styling | Visual Check + Lighthouse Image Paint test | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Review Form | If the user is not logged in, do not display review form but display button to sign in, else display review form | Signout + visual check, sign-in + visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Review Form | If the user is not logged in, do not display review form but display button to sign in, else display review form | Signout + visual check, sign-in + visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 
 ---
 
 - ### Reviews Page
+- ### Reviews Page
 | Feature | Expected Outcome | Testing Procedure | Result | Remark |
 |---|---|---|---|---|
 | Read all Reviews Button | Displays? Takes to the correct page? | Visual check + click | Behaves as intended | <img src="static/images/thumbs-up.jpg"> |
+| Read all Reviews Button | Displays? Takes to the correct page? | Visual check + click | Behaves as intended | <img src="static/images/thumbs-up.jpg"> |
 | Reviews | Do all reviews display? | Visual check + database check | All display as intended | <img src="static/images/thumbs-up.jpg"> |
 | Sorting | Do reviews sort as intended based on selection? | Manual test + check datasets in Chrome Developer Tools | Behaves as intended | <img src="static/images/thumbs-up.jpg"> |
+| User Reviews | If the user is logged in and has pending reviews, do they display in grey? | Sign in, manually add review through the form on the home page + check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
+| Delete User Reviews | If the user is logged in and has pending reviews, can they delete them? Confirmation modal pops up? | Delete a single user review from the reviews page | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
 | User Reviews | If the user is logged in and has pending reviews, do they display in grey? | Sign in, manually add review through the form on the home page + check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
 | Delete User Reviews | If the user is logged in and has pending reviews, can they delete them? Confirmation modal pops up? | Delete a single user review from the reviews page | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
 
 ---
 
 - ### Contact Page
+- ### Contact Page
 | Feature | Expected Outcome | Testing Procedure | Result | Remark |
 |---|---|---|---|---|
 | Form Display | Form displays? | Visual check, both signed in and signed out | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Field Validation | Empty/wrong format fields == invalid form? | Leave fields empty one by one, enter invalid email format + submit each time, finally input correct formats + submit | Submits when fields are valid only. | <img src="static/images/thumbs-up.jpg"> |
 | Send to Email | Does the user's message get sent to ananikolayenia@gmail.com? Is the user email in the reply to field in the mail? | Test message + check email. | Functions as expected, reply gets sent to user email. | <img src="static/images/thumbs-up.jpg"> |
+| Send to Email | Does the user's message get sent to ananikolayenia@gmail.com? Is the user email in the reply to field in the mail? | Test message + check email. | Functions as expected, reply gets sent to user email. | <img src="static/images/thumbs-up.jpg"> |
 
 ---
 
 - ### SignUp
+- ### SignUp
 | Feature | Expected Outcome | Testing Procedure | Result | Remark |
 |---|---|---|---|---|
+| Nav Display | Link displays only to signed-out users? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Nav Display | Link displays only to signed-out users? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Form Display | Form displays? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Field Validation | Empty/wrong format fields == invalid form? | Leave fields empty one by one, enter invalid email format + submit each time, finally input correct formats + submit | Submits when fields are valid only. | <img src="static/images/thumbs-up.jpg"> |
 | Email Confirmation | Receive Email Confirmation? Button to Accept? | Check Email | Received. | <img src="static/images/thumbs-up.jpg"> |
 | Redirect to SignIn | After accepting, redirects to the sign-in page? | Click + Visual check | Behaves as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Redirect to SignIn | After accepting, redirects to the sign-in page? | Click + Visual check | Behaves as expected. | <img src="static/images/thumbs-up.jpg"> |
 
 ---
 
 - ### SignIn
+- ### SignIn
 | Feature | Expected Outcome | Testing Procedure | Result | Remark |
 |---|---|---|---|---|
 | Nav Display | Link displays only to signed-out users? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
+| Nav Display | Link displays only to signed-out users? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Form Display | Form displays? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Field Validation | Empty/wrong format fields == invalid form? | Leave fields empty one by one, enter invalid email format + submit each time, finally input correct formats + submit | Submits when fields are valid only. | <img src="static/images/thumbs-up.jpg"> |
+| Success Message on Login | Displays Success Message? Jumbo Wording Change? | Sign-in + Visual Check | Wording changes and success message displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Success Message on Login | Displays Success Message? Jumbo Wording Change? | Sign-in + Visual Check | Wording changes and success message displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 
 ---
 
 - ### Your Workspaces
+- ### Your Workspaces
 | Feature | Expected Outcome | Testing Procedure | Result | Remark |
 |---|---|---|---|---|
 | Due Today Column | Displays workspace names with tasks due today? Congratulatory message if no due tasks? | Visual check for today's tasks + if no tasks due today, check for message and add a task due today. | Displays as intended. | <img src="static/images/thumbs-up.jpg"> |
+| Workspaces List | Displays list of user workspaces? If no spaces, display llamas with a button to add a workspace? | Visual check + delete existing workspaces + add workspace on llama page | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
+| Add Workspace Button | Displays modal with the form? Adds workspace to list? Success Message? | Add workspace + check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
 | Workspaces List | Displays list of user workspaces? If no spaces, display llamas with a button to add a workspace? | Visual check + delete existing workspaces + add workspace on llama page | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
 | Add Workspace Button | Displays modal with the form? Adds workspace to list? Success Message? | Add workspace + check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
 | Delete Workspace Button | Displays confirmation modal? Displays correct workspace name? Deleted workspace from list and database? | Delete a workspace + visual check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
@@ -591,9 +662,13 @@ This section outlines procedures for manual testing. For automated testing, plea
 ---
 
 - ### Inside Workspace
+- ### Inside Workspace
 | Feature | Expected Outcome | Testing Procedure | Result | Remark |
 |---|---|---|---|---|
 | Task Form | Task Form displays? Add Task Successfully? | Add Task Manually | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
+| Status Columns | Display task counts? Display all tasks? Do task accordions work as intended? | Visual check + click on tasks | Behave as intended. | <img src="static/images/thumbs-up.jpg"> |
+| Edit Task | Edit button displayed in accordion? On click, displays all task information correctly in form? After submitting, updates the task in status column? | Manual test | Behaves as expected except that the date gets added back to the form a day later than the due date | <img src="static/images/thumbs-up.jpg"> |
+| Delete Task | Confirmation modal pops up? After confirmation, deleted task? On cancel, returns to full workspace detail view? | Manual check +  visual check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
 | Status Columns | Display task counts? Display all tasks? Do task accordions work as intended? | Visual check + click on tasks | Behave as intended. | <img src="static/images/thumbs-up.jpg"> |
 | Edit Task | Edit button displayed in accordion? On click, displays all task information correctly in form? After submitting, updates the task in status column? | Manual test | Behaves as expected except that the date gets added back to the form a day later than the due date | <img src="static/images/thumbs-up.jpg"> |
 | Delete Task | Confirmation modal pops up? After confirmation, deleted task? On cancel, returns to full workspace detail view? | Manual check +  visual check | Behaves as intended. | <img src="static/images/thumbs-up.jpg"> |
@@ -601,8 +676,10 @@ This section outlines procedures for manual testing. For automated testing, plea
 ---
 
 - ### Logout
+- ### Logout
 | Feature | Expected Outcome | Testing Procedure | Result | Remark |
 |---|---|---|---|---|
+| Nav Display | Link displays only to signed-in users? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Nav Display | Link displays only to signed-in users? | Visual check | Displays as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Button Display | Buttons display? | Visual check | Display as expected. | <img src="static/images/thumbs-up.jpg"> |
 | Cancel Button | Returns to Home page and leaves user signed in? | Click 'cancel' + check if user still has access to workspaces + correct navigation links | Functions as intended. | <img src="static/images/thumbs-up.jpg"> |
@@ -612,59 +689,91 @@ This section outlines procedures for manual testing. For automated testing, plea
 
 - Automated Testing
 
+- Automated Testing
+
 Tests are compiled in files with the following naming convention: '_test_*.py_'. This section is broken down by app, with a brief overview of testing procedures.
 
 ### Scrum App
 - test_forms.py
 
  Contains a class for testing the contact form associated with the Scrum model form and if specific user inputs are correctly placed in the form fields.
+ Contains a class for testing the contact form associated with the Scrum model form and if specific user inputs are correctly placed in the form fields.
 
  Methods: 
+ Methods: 
 
+ '_test_name_required()_':
+ This test verifies that a populated contact form which is missing a name input is not submitted and that the error stems from the missing name field input.
  '_test_name_required()_':
  This test verifies that a populated contact form which is missing a name input is not submitted and that the error stems from the missing name field input.
 
  '_test_email_required()_':
  This test verifies that a populated contact form which is missing an email input is not submitted and that the error stems from the missing email field input.
+ '_test_email_required()_':
+ This test verifies that a populated contact form which is missing an email input is not submitted and that the error stems from the missing email field input.
 
+ '_test_email_correct_format()_':
+ This test verifies that a completed populated contact form is not submitted unless the email adheres to the expected email format and that the error stems from the incorrectly filled email field.
  '_test_email_correct_format()_':
  This test verifies that a completed populated contact form is not submitted unless the email adheres to the expected email format and that the error stems from the incorrectly filled email field.
 
  '_test_message_required()_':
  This test verifies that a populated contact form which is missing a message input is not submitted and that the error stems from the missing message field input.
+ '_test_message_required()_':
+ This test verifies that a populated contact form which is missing a message input is not submitted and that the error stems from the missing message field input.
 
+ '_test_message_max_length_200_char()_':
+ This test verifies that a completed populated contact form is not submitted unless the message input is less than 200 characters and that the error stems from the overfilled message field.
  '_test_message_max_length_200_char()_':
  This test verifies that a completed populated contact form is not submitted unless the message input is less than 200 characters and that the error stems from the overfilled message field.
 
  Note: The application form on the user side does not allow the insertion of more than 200 characters.
+ Note: The application form on the user side does not allow the insertion of more than 200 characters.
 
+ '_test_form_is_valid()_':
+ This test verifies that a correctly filled-out contact form is successfully submitted.
  '_test_form_is_valid()_':
  This test verifies that a correctly filled-out contact form is successfully submitted.
 
 - test_models.py
 
  Contains a class to test all models associated with the Scrum app.
+ Contains a class to test all models associated with the Scrum app.
 
  Methods: 
+ Methods: 
 
+ '_def setUp()_':
+ Simulates the logging in of a user for review model assertion, and creates instances for the Scrum and Review models.
  '_def setUp()_':
  Simulates the logging in of a user for review model assertion, and creates instances for the Scrum and Review models.
 
  '_def test_scrum_model_creation()_':
  Runs a series of assertions for each Scrum Model field to validate the expected values of the instance.
+ '_def test_scrum_model_creation()_':
+ Runs a series of assertions for each Scrum Model field to validate the expected values of the instance.
 
  '_def test_review_model_creation()_':
  Runs a series of assertions for each Review Model field to validate the expected values of the instance.
+ '_def test_review_model_creation()_':
+ Runs a series of assertions for each Review Model field to validate the expected values of the instance.
 
+ '_def test_user_deletion_cascade()_':
+ Deletes the currently logged-in user and checks whether the user's reviews were deleted as well, as per cascade.
  '_def test_user_deletion_cascade()_':
  Deletes the currently logged-in user and checks whether the user's reviews were deleted as well, as per cascade.
 
 - test_urls.py
 
  Contains a class for testing URLs associated with Scrum Views.
+ Contains a class for testing URLs associated with Scrum Views.
 
  Methods: 
+ Methods: 
 
+ '_def test_hello_resolves()_':
+ Reverses the URL name and checks if it returns the correct FBV of HelloScrum.
+ Asserts HelloScrum is resolved from 'hello'.
  '_def test_hello_resolves()_':
  Reverses the URL name and checks if it returns the correct FBV of HelloScrum.
  Asserts HelloScrum is resolved from 'hello'.
@@ -672,7 +781,13 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
  '_def test_contact_resolves()_':
  Reverses the URL name and checks if it returns the correct FBV of Contact_Me.
  Asserts Contact_Me is resolved from 'contact'.
+ '_def test_contact_resolves()_':
+ Reverses the URL name and checks if it returns the correct FBV of Contact_Me.
+ Asserts Contact_Me is resolved from 'contact'.
 
+ '_def test_reviews_resolves():_'
+ Reverses the URL name and checks if it returns the correct FBV of Zenlist_Reviews.
+ Asserts Zenlist_Reviews is resolved from 'reviews'.
  '_def test_reviews_resolves():_'
  Reverses the URL name and checks if it returns the correct FBV of Zenlist_Reviews.
  Asserts Zenlist_Reviews is resolved from 'reviews'.
@@ -683,21 +798,33 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
 - test_forms.py
 
  Contains two classes. The first is a class for testing the workspace form associated with the Workspace Model. This form creates a new workspace instance if specific user inputs are correctly placed in the form fields.
+ Contains two classes. The first is a class for testing the workspace form associated with the Workspace Model. This form creates a new workspace instance if specific user inputs are correctly placed in the form fields.
 
+ Methods: 
  Methods: 
 
  '_def test_title_is_required()_':
  This test verifies that a populated workspace form which is missing a title input is not submitted and that the error stems from the missing title field input.
+ '_def test_title_is_required()_':
+ This test verifies that a populated workspace form which is missing a title input is not submitted and that the error stems from the missing title field input.
 
+ '_def test_form_is_valid()_':
+ This test verifies that a correctly filled-out workspace form is successfully submitted.
  '_def test_form_is_valid()_':
  This test verifies that a correctly filled-out workspace form is successfully submitted.
 
 - test_models.py
 
  Contains a class to test all models associated with the Workspace app.
+ Contains a class to test all models associated with the Workspace app.
 
  Methods: 
+ Methods: 
 
+ '_def setUp()_':
+ Simulates user log-in to allow the creation of workspaces and tasks.
+ Simulates the creation of a workspace where workspace.creator field is automatically assigned the current User instance.
+ Simulates the creation of a task where task.creator is automatically assigned the current User instance, and task.workspace is automatically assigned the current workspace.
  '_def setUp()_':
  Simulates user log-in to allow the creation of workspaces and tasks.
  Simulates the creation of a workspace where workspace.creator field is automatically assigned the current User instance.
@@ -705,22 +832,35 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
 
  '_def test_workspace_model_creation()_':
  Runs a series of assertions for each Workspace Model field to validate the expected values of the instance.
+ '_def test_workspace_model_creation()_':
+ Runs a series of assertions for each Workspace Model field to validate the expected values of the instance.
 
+ '_def test_task_model_creation()_':
+ Runs a series of assertions for each Task Model field to validate the expected values of the instance.
  '_def test_task_model_creation()_':
  Runs a series of assertions for each Task Model field to validate the expected values of the instance.
 
  '_def test_workspace_delete_when_user_delete()_':
  Deletes the user and checks whether workspaces and tasks associated with the user were deleted as well, as per cascade.
+ '_def test_workspace_delete_when_user_delete()_':
+ Deletes the user and checks whether workspaces and tasks associated with the user were deleted as well, as per cascade.
 
+ '_def test_task_delete_when_workspace_delete()_':
+ Deletes the current workspace and checks whether tasks associated with the workspace were deleted as well, as per cascade.
  '_def test_task_delete_when_workspace_delete()_':
  Deletes the current workspace and checks whether tasks associated with the workspace were deleted as well, as per cascade.
 
 - test_urls.py
 
  Contains a class for testing URLs associated with Workspace Views.
+ Contains a class for testing URLs associated with Workspace Views.
 
  Methods:
+ Methods:
 
+ '_def test_workspace_list_resolves()_':
+ Reverses the URL name and checks if it returns the correct CBV of WorkspaceListView.
+ Asserts WorkspaceListView is resolved from 'spaces'.
  '_def test_workspace_list_resolves()_':
  Reverses the URL name and checks if it returns the correct CBV of WorkspaceListView.
  Asserts WorkspaceListView is resolved from 'spaces'.
@@ -728,7 +868,13 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
  '_def test_workspace_detail_resolves()_':
  Reverses the URL name with arguments [slug] and checks if it returns the correct FBV of workspace_detail.
  Asserts workspace_detail is resolved from 'full_workspace'.
+ '_def test_workspace_detail_resolves()_':
+ Reverses the URL name with arguments [slug] and checks if it returns the correct FBV of workspace_detail.
+ Asserts workspace_detail is resolved from 'full_workspace'.
 
+ '_def test_workspace_delete_resolves()_':
+ Reverses the URL name with arguments [int:id] and checks if it returns the correct FBV of delete_ws.
+ Asserts delete_ws is resolved from 'delete_workspace'.
  '_def test_workspace_delete_resolves()_':
  Reverses the URL name with arguments [int:id] and checks if it returns the correct FBV of delete_ws.
  Asserts delete_ws is resolved from 'delete_workspace'.
@@ -736,7 +882,13 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
  '_def test_task_edit_resolves()_':
  Reverses the URL name with arguments [slug, int:id] and checks if it returns the correct FBV of update_ws_task.
  Asserts update_ws_task is resolved from 'task_edit'.
+ '_def test_task_edit_resolves()_':
+ Reverses the URL name with arguments [slug, int:id] and checks if it returns the correct FBV of update_ws_task.
+ Asserts update_ws_task is resolved from 'task_edit'.
 
+ '_def test_task_delete_resolves()_':
+ Reverses the URL name with arguments [slug, int:id] and checks if it returns the correct FBV of delete_ws_task.
+ Asserts delete_ws_task is resolved from 'task_delete'.
  '_def test_task_delete_resolves()_':
  Reverses the URL name with arguments [slug, int:id] and checks if it returns the correct FBV of delete_ws_task.
  Asserts delete_ws_task is resolved from 'task_delete'.
@@ -746,7 +898,15 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
 
 
 
+
+
+
+
 ### Lighthouse
+
+
+
+
 
 
 
@@ -762,6 +922,7 @@ Upon running the application through the [W3C Markup Validation Service](https:/
 
 ![HTML Validation Results](static/images/html-validation-errors.png)
 
+Note: The second error shown above resulted from Summernote's rendering of the Scrum Content text. This was rectified by changing my own HTML 'p' element to a 'div' so that the paragraph would be rendered inside the div and not crop up as an error.
 Note: The second error shown above resulted from Summernote's rendering of the Scrum Content text. This was rectified by changing my own HTML 'p' element to a 'div' so that the paragraph would be rendered inside the div and not crop up as an error.
 
 Homepage - 
@@ -788,6 +949,7 @@ Upon running the application through the [W3C CSS Validation Service](https://ji
 
 ### JSHint Validation
 Each of the application's JS files was run through the [JSHint](https://jshint.com/) separately, to ensure the code was up to standard and functioned as expected. 
+Each of the application's JS files was run through the [JSHint](https://jshint.com/) separately, to ensure the code was up to standard and functioned as expected. 
 
 Below are the results of the js files' validation. 
 
@@ -808,16 +970,20 @@ workspaces.js -
 
 # Deployment
 The application is deployed on Heroku through Git Hub and is available for viewing in the link at the top of this README.md document. To deploy a Heroku project, please refer to the guide below.
+The application is deployed on Heroku through Git Hub and is available for viewing in the link at the top of this README.md document. To deploy a Heroku project, please refer to the guide below.
 
 ## Foreword
 There are some general requirements when it comes to setting up your application and its files: 
 - Your dependencies must be placed in the requirements.txt file.
 - You must strictly adhere to the correct folder structure expected by Django's settings.
 - In Django's settings.py file, setting Debug = True in development will display a detailed errors page if the application comes across an error hindering template rendering. It will also allow the collection of static files (stylesheets, images, and javascript files automatically). Setting Debug = False will display standard error pages under the same conditions and will not update with any changes to static files.
+- In Django's settings.py file, setting Debug = True in development will display a detailed errors page if the application comes across an error hindering template rendering. It will also allow the collection of static files (stylesheets, images, and javascript files automatically). Setting Debug = False will display standard error pages under the same conditions and will not update with any changes to static files.
 
 In Heroku, this is additionally configured under '_Config Vars_', as COLLECT_STATIC, with the value of 0 for blocking automatic collection, and 1 for allowing it.
 - Do not commit to GitHub with Debug = True. Always set Debug = False before committing to avoid exposing personal details.
+- Do not commit to GitHub with Debug = True. Always set Debug = False before committing to avoid exposing personal details.
 
+You will need a two-factor verification setup. I chose Google Authenticator because I already had it pre-installed on my phone.
 You will need a two-factor verification setup. I chose Google Authenticator because I already had it pre-installed on my phone.
 
 ### Step 1: Create an App on Heroku
@@ -833,6 +999,7 @@ You will be asked to pick a name and region for your app before clicking '_Creat
 Once you've created your app, go to the Deploy tab at the top.
 Note: For demonstration purposes, I created a new app called '_testapp-123_'.
 
+Select the middle box with GitHub's logo to connect your Heroku app to a GitHub Repository.
 Select the middle box with GitHub's logo to connect your Heroku app to a GitHub Repository.
 
 If prompted, authorize Heroku to access your GitHub account.
@@ -854,27 +1021,38 @@ If you prefer to deploy manually or want to deploy a branch without enabling aut
 
 ### Step 6: Where is my Application?
 Your application has a similar look to the following Heroku URL: (https://*.herokuapp.com) and can be found after clicking the Open App button on your dashboard in the top right.
+Your application has a similar look to the following Heroku URL: (https://*.herokuapp.com) and can be found after clicking the Open App button on your dashboard in the top right.
 
 ![Open App Button](static/images/open-app.png)
 
 ## Forking a GitHub Repository
 To changes to your repository (or part of it) without affecting its original state, you can 'fork' it (make a copy of it). This ensures the original repository remains unchanged. To fork a GitHub repository, follow the following steps:
+## Forking a GitHub Repository
+To changes to your repository (or part of it) without affecting its original state, you can 'fork' it (make a copy of it). This ensures the original repository remains unchanged. To fork a GitHub repository, follow the following steps:
 
+1. Click into the GitHub repository you want to fork.
+2. Click 'Fork' in the top right-hand side of the top bar, and this should take you to a page titled 'Create a new fork'.
 1. Click into the GitHub repository you want to fork.
 2. Click 'Fork' in the top right-hand side of the top bar, and this should take you to a page titled 'Create a new fork'.
 3. You can now work in this copy of your repository without it affecting the original.
 
 ## Cloning a GitHub Repository
 Cloning a repository essentially means downloading a copy of your repository that can be worked on locally. This method allows for version control and backup of code. To clone a GitHub repository, follow the following steps:
+## Cloning a GitHub Repository
+Cloning a repository essentially means downloading a copy of your repository that can be worked on locally. This method allows for version control and backup of code. To clone a GitHub repository, follow the following steps:
 
+1. Click on the GitHub repository you want to clone.
 1. Click on the GitHub repository you want to clone.
 2. Press the 'Code' button. This should open a section similar to the one below.
 3. Copy the link in this dropdown.
+3. Copy the link in this dropdown.
 
+![github clone URL](static/images/github-clone.png)
 ![github clone URL](static/images/github-clone.png)
 
 4. Open a terminal within your VSC (or whatever IDE you choose to use).
 5. In the terminal type 'git clone' and paste the URL.
+6. Press Enter - you now have a cloned version of your GitHub repository.
 6. Press Enter - you now have a cloned version of your GitHub repository.
 
 # Credits
@@ -889,9 +1067,11 @@ For help understanding how to create a [slug from a title](https://stackoverflow
 Changing [all-auth styling for emails](https://www.reddit.com/r/django/comments/t5o51d/customising_the_djangoallauth_verification_email/)
 
 For removing the background from an image: [remove bg](https://www.remove.bg/upload)
+For removing the background from an image: [remove bg](https://www.remove.bg/upload)
 
 This awesome GeeksforGeeks page for helping to understand [CBV DeleteView](https://www.geeksforgeeks.org/deleteview-class-based-views-django/)
 
+For help understanding how to generate unique IDs for the accordion elements using Django's [forloop.counter](https://stackoverflow.com/questions/1107737/numeric-for-loop-in-django-templates) in Stack Overflow and [Dev](https://dev.to/swesadiqul/activate-the-first-bootstrap-collapse-in-django-for-dynamic-data-3b22).
 For help understanding how to generate unique IDs for the accordion elements using Django's [forloop.counter](https://stackoverflow.com/questions/1107737/numeric-for-loop-in-django-templates) in Stack Overflow and [Dev](https://dev.to/swesadiqul/activate-the-first-bootstrap-collapse-in-django-for-dynamic-data-3b22).
 
 For [date picker](https://mrasimzahid.medium.com/how-to-implement-django-datepicker-calender-in-forms-date-field-9e23479b5db)
@@ -901,4 +1081,5 @@ For [date picker](https://mrasimzahid.medium.com/how-to-implement-django-datepic
 [Reddit's philgyford](https://www.reddit.com/r/django/comments/1aqh4rw/error_with_testing_a_dynamic_url_in_django/) for URL resolve + [Medium Rafał Buczyński](https://medium.com/@buczynski.rafal/nawigacja-przez-django-testowanie-adres%C3%B3w-url-77b05cb30d87) for URL reverse and mentioning resolve.
 
 # Acknowledgements
+As always, a big thank you to my mentor, Harry Dhillon, for helping me with any issues and questions I had during the build, to student support tutors at Code Institute (especially Roman, you're awesome), and to me for not losing my marbles and having the motivation to push my learning, irrespective of the worst May I hope to have.
 As always, a big thank you to my mentor, Harry Dhillon, for helping me with any issues and questions I had during the build, to student support tutors at Code Institute (especially Roman, you're awesome), and to me for not losing my marbles and having the motivation to push my learning, irrespective of the worst May I hope to have.
