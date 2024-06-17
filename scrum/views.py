@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 def HelloScrum(request):
     scrum = Scrum.objects.all().first()
     all_reviews = Review.objects.all()
-    five_stars = Review.objects.filter(rating='★★★★★')
+    five_stars = Review.objects.filter(rating='★★★★★')[:3]
     four_stars = Review.objects.filter(rating='★★★★☆')
     if request.method == 'POST':
         reviewForm = ReviewForm(data=request.POST)
