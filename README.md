@@ -19,7 +19,7 @@ Zenlist is a task-tracking Django application, designed to provide users with an
 
 - Spread knowledge of the Scrum framework and explain how this framework benefits workplaces and personal time management. Add links to relevant media and open-source documents. 
 
-# UX Goals
+## UX Goals
 - Create a simple and intuitive UI for young and first-time users to foster a sense of comfort and reassurance.
 
 - Design a simple and easy navigation system (primary navigation and breadcrumbs so the user knows where they are at all times and can backtrack when needed).
@@ -27,6 +27,23 @@ Zenlist is a task-tracking Django application, designed to provide users with an
 - Establish a colour scheme and font family that ties the theme of _zen_ to create cohesive and comprehensive branding with accents where needed.
 
 - Keep the application visually minimalistic with white spacing and simple accents to maintain the _zen_ theme and branding.
+
+## User Stories
+
+| User Story | User Story Testing |
+| ----- | ----- |
+| 1a. As a site user, I want to be able to view scrum-related information on the home page. 1b. As a site user, I want to be able to easily find and access the scrum website and scrum guide. | There is a paragraph dedicated to the Scrum Framework on the home page under the reviews section, giving users a brief introduction. Additionally, a helpful link is provided to the official Scrum.org website where interested users may download the Scrum Guide free of charge. |
+| 2. As a site visitor, I want to be able to easily send a message to the site owner. | There is a dedicated Contact page with a form for users to contact the Zenlist team. This message gets sent to my email and the sender's email is attached in the reply_to method. Additionally, adhering to good UX practice, users get instant confirmation on whether their message was sent through Django's success messages. Automated testing for this form can be found under scrum/test_forms.py, or under the '_Automated Testing_' section below. |
+| 3a. As a user, I want the ability to register for a Zenlist account. 3b. As a user, I want the ability to easily access a login/signup form. | Users require an account to access most of Zenlist's functionality. Unregistered users have access to the Zenlist Scrum page, Reviews page and Contact page. However, users must be signed in in order to leave a review, view any pending reviews, and access their workspaces. To signup/signin, users can access the page directly in the navigation/footer, or use one of two buttons available on the Scrum page for signing-up. All buttons take users into either the sign-up or sign-in pages. After completing and submitting the forms, users are requested to confirm their email address from a link sent to their emails. This link takes them into a Zenlist confirmation page where they confirm, and asks them to sign in post registration. Links in the navigation and footer accomplish the same. After signing in, users are redirected to the home page, where the jumbotron displays a greeting and the function of the first button changes to a workspace redirect. The review form is now visible, as well as the '_Your Workspaces_' tab in the navigation and footer bars. The signup/signin/signout links in the navigation and footer bars is visible based on the registree's condition, i.e., if the user is signed in, only the '_Sign Out_' link of the three displays. |
+| 4. As a registered user, I want the ability to create a new workspace. | Workspaces can be created through the '_Add Workspace_' button, visible on the '_Your Workspaces_' tab. A modal pops up with a prompt to enter a workspace title, and a note stating that the titles must be unique. After submitting a title, a confirmation message pops up and the workspace is appended to the list. If the user enters a name that already exists in their list, the application will throw a 500 page. A home button is avaiable on this page and redircts users back. |
+| 5. As a registered user, I want the ability to view my existing workspaces and click on them to see any existing tasks in that workspace. | In '_Your Workspaces_', users may view all of their existing workspaces. If there are none, a different page displays with an image and a button to add workspaces. |
+| 6. As a registered user, I want the ability to move tasks between Statuses. | Tasks are visible in the respective columns based on their current status. To change the status of a task, the user needs to edit the task. After the change has been submitted, the tasks moves to its new respective status column. |
+| 7. As a registered user, I want the ability to create a task. | A form for task creation is available inside each workspace for users to create tasks. Once the information is submitted, a message pops up informing the user whether their task was added successfully or if an error occurred |
+| 8. As a registered user, I want the ability to edit my tasks. | Each task, once expanded, shows an edit button. After clicking, the task information displays in the task form, with the form changing colour to indicate a change in functionality. After submitting the change, the task gets updated accordingly. |
+| 9. As a registered user, I want the ability to manage my tasks, including deleting them from my workspace. | Each task, once expanded, shows a delete button. After clicking, a modal pops up asking the user for confirmation that they wish to delete this task. A note in the modal informs the user that this is irreversible. If the user confirms, the task is deleted. If they cancel, they get redirected back inside the workspace and no change occurs. |
+| 10. As a registered user, I want the abiity to manage my workspaces, including the ability to delete them. | Each workspace is appended with a delete button. After clicking, a modal pops up asking the user for confirmation that they wish to delete this workspace, with a title displayed for context. A note in the modal informs the user that this is irreversible. If the user confirms, the workspace is deleted. If they cancel, they get redirected back to the '_Your Workspaces_' tab. |
+| 11. As a registered user, I want the ability to logout without losing my changes. | Users may log out by accessing the '_Sign Out_' button in either the navigation or footer bar. This link takes them to a sign out page where the user confirms whether they wish to sign out. Regardless of confirmation or decline, they get redirected to the home page. If the user signs out, a message informing them of having done so pops up. The jumbotron offers confirmation via greeting and button. |
+| 12. As a non-registered user, I would like to view reviews about Zenlist. | Reviews are available for viewing on the main home page, and on a standalone reviews page. A button under the filtered 5 star reviews takes users to this page. Sorting functionality has been incorporated to allow users to quickly access the type of reviews they are looking for. Additionally, registered users can view any pending reviews. |
 
 ## Wireframes
 ![Zenlist wireframe](static/images/zenlist-wireframe.png)
@@ -609,7 +626,7 @@ This section outlines procedures for manual testing. For automated testing, plea
 
 ---
 
-- Automated Testing
+- ## Automated Testing
 
 Tests are compiled in files with the following naming convention: '_test_*.py_'. This section is broken down by app, with a brief overview of testing procedures.
 
