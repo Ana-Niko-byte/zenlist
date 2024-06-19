@@ -124,7 +124,6 @@ class WorkspaceListView(generic.ListView):
                     'Workspace created successfully!'
                 )
                 return redirect('spaces')
-            # implement error handling here later.
         workspace_form = WorkspaceForm()
 
 

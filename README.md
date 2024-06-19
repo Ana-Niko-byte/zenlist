@@ -6,7 +6,7 @@ The application is available for viewing [here](https://zenlist-b604919b54d1.her
 The application was tested on an ASUS Zenbook, iOS Apple iPhone 11 Pro, and on an Android Google Pixel 6 Pro.
 
 ## Introduction
-Zenlist is a task-tracking Django application, designed to provide users with an easy and quick way of organising and managing day-to-day tasks for different environments. With accessible sorting systems and an intuitive interface, Zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay on top of their day.
+Zenlist is a task-tracking Django application, designed to provide users with an easy and quick way of organising and managing day-to-day tasks for different environments. With accessible sorting systems and an intuitive interface, Zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay on top of their day. It was modeled using Django and elephantSQL.
 
 ## Business/Social Goals
 - Allow for easy and intuitive organisation of assets in user-created environments. These environments should have sorting functionality to make the platform easily accessible and understandable.
@@ -30,20 +30,20 @@ Zenlist is a task-tracking Django application, designed to provide users with an
 
 ## User Stories
 
-| User Story | User Story Testing |
-| ----- | ----- |
-| 1a. As a site user, I want to be able to view scrum-related information on the home page. 1b. As a site user, I want to be able to easily find and access the scrum website and scrum guide. | There is a paragraph dedicated to the Scrum Framework on the home page under the reviews section, giving users a brief introduction. Additionally, a helpful link is provided to the official Scrum.org website where interested users may download the Scrum Guide free of charge. |
-| 2. As a site visitor, I want to be able to easily send a message to the site owner. | There is a dedicated Contact page with a form for users to contact the Zenlist team. This message gets sent to my email and the sender's email is attached in the reply_to method. Additionally, adhering to good UX practice, users get instant confirmation on whether their message was sent through Django's success messages. Automated testing for this form can be found under scrum/test_forms.py, or under the '_Automated Testing_' section below. |
-| 3a. As a user, I want the ability to register for a Zenlist account. 3b. As a user, I want the ability to easily access a login/signup form. | Users require an account to access most of Zenlist's functionality. Unregistered users have access to the Zenlist Scrum page, Reviews page and Contact page. However, users must be signed in in order to leave a review, view any pending reviews, and access their workspaces. To signup/signin, users can access the page directly in the navigation/footer, or use one of two buttons available on the Scrum page for signing-up. All buttons take users into either the sign-up or sign-in pages. After completing and submitting the forms, users are requested to confirm their email address from a link sent to their emails. This link takes them into a Zenlist confirmation page where they confirm, and asks them to sign in post registration. Links in the navigation and footer accomplish the same. After signing in, users are redirected to the home page, where the jumbotron displays a greeting and the function of the first button changes to a workspace redirect. The review form is now visible, as well as the '_Your Workspaces_' tab in the navigation and footer bars. The signup/signin/signout links in the navigation and footer bars is visible based on the registree's condition, i.e., if the user is signed in, only the '_Sign Out_' link of the three displays. |
-| 4. As a registered user, I want the ability to create a new workspace. | Workspaces can be created through the '_Add Workspace_' button, visible on the '_Your Workspaces_' tab. A modal pops up with a prompt to enter a workspace title, and a note stating that the titles must be unique. After submitting a title, a confirmation message pops up and the workspace is appended to the list. If the user enters a name that already exists in their list, the application will throw a 500 page. A home button is avaiable on this page and redircts users back. |
-| 5. As a registered user, I want the ability to view my existing workspaces and click on them to see any existing tasks in that workspace. | In '_Your Workspaces_', users may view all of their existing workspaces. If there are none, a different page displays with an image and a button to add workspaces. |
-| 6. As a registered user, I want the ability to move tasks between Statuses. | Tasks are visible in the respective columns based on their current status. To change the status of a task, the user needs to edit the task. After the change has been submitted, the tasks moves to its new respective status column. |
-| 7. As a registered user, I want the ability to create a task. | A form for task creation is available inside each workspace for users to create tasks. Once the information is submitted, a message pops up informing the user whether their task was added successfully or if an error occurred |
-| 8. As a registered user, I want the ability to edit my tasks. | Each task, once expanded, shows an edit button. After clicking, the task information displays in the task form, with the form changing colour to indicate a change in functionality. After submitting the change, the task gets updated accordingly. |
-| 9. As a registered user, I want the ability to manage my tasks, including deleting them from my workspace. | Each task, once expanded, shows a delete button. After clicking, a modal pops up asking the user for confirmation that they wish to delete this task. A note in the modal informs the user that this is irreversible. If the user confirms, the task is deleted. If they cancel, they get redirected back inside the workspace and no change occurs. |
-| 10. As a registered user, I want the abiity to manage my workspaces, including the ability to delete them. | Each workspace is appended with a delete button. After clicking, a modal pops up asking the user for confirmation that they wish to delete this workspace, with a title displayed for context. A note in the modal informs the user that this is irreversible. If the user confirms, the workspace is deleted. If they cancel, they get redirected back to the '_Your Workspaces_' tab. |
-| 11. As a registered user, I want the ability to logout without losing my changes. | Users may log out by accessing the '_Sign Out_' button in either the navigation or footer bar. This link takes them to a sign out page where the user confirms whether they wish to sign out. Regardless of confirmation or decline, they get redirected to the home page. If the user signs out, a message informing them of having done so pops up. The jumbotron offers confirmation via greeting and button. |
-| 12. As a non-registered user, I would like to view reviews about Zenlist. | Reviews are available for viewing on the main home page, and on a standalone reviews page. A button under the filtered 5 star reviews takes users to this page. Sorting functionality has been incorporated to allow users to quickly access the type of reviews they are looking for. Additionally, registered users can view any pending reviews. |
+| User Story | Label | User Story Testing |
+| ----- | ----- | ----- |
+| 1a. As a site user, I want to be able to view scrum-related information on the home page. 1b. As a site user, I want to be able to easily find and access the scrum website and scrum guide. | must-have, good-to-have respectively | There is a paragraph dedicated to the Scrum Framework on the home page under the reviews section, giving users a brief introduction. Additionally, a helpful link is provided to the official Scrum.org website where interested users may download the Scrum Guide free of charge. |
+| 2. As a site visitor, I want to be able to easily send a message to the site owner. | good-to-have | There is a dedicated Contact page with a form for users to contact the Zenlist team. This message gets sent to my email and the sender's email is attached in the reply_to method. Additionally, adhering to good UX practice, users get instant confirmation on whether their message was sent through Django's success messages. Automated testing for this form can be found under scrum/test_forms.py, or under the `Automated Testing` section below. |
+| 3a. As a user, I want the ability to register for a Zenlist account. 3b. As a user, I want the ability to easily access a login/signup form. | must-have, must-have | Users require an account to access most of Zenlist's functionality. Unregistered users have access to the Zenlist Scrum page, Reviews page and Contact page. However, users must be signed in in order to leave a review, view any pending reviews, and access their workspaces. To signup/signin, users can access the page directly in the navigation/footer, or use one of two buttons available on the Scrum page for signing-up. All buttons take users into either the sign-up or sign-in pages. After completing and submitting the forms, users are requested to confirm their email address from a link sent to their emails. This link takes them into a Zenlist confirmation page where they confirm, and asks them to sign in post registration. Links in the navigation and footer accomplish the same. After signing in, users are redirected to the home page, where the jumbotron displays a greeting and the function of the first button changes to a workspace redirect. The review form is now visible, as well as the `Your Workspaces` tab in the navigation and footer bars. The signup/signin/signout links in the navigation and footer bars is visible based on the registree's condition, i.e., if the user is signed in, only the `Sign Out` link of the three displays. |
+| 4. As a registered user, I want the ability to create a new workspace. | must-have | Workspaces can be created through the `Add Workspace` button, visible on the `Your Workspaces` tab. A modal pops up with a prompt to enter a workspace title, and a note stating that the titles must be unique. After submitting a title, a confirmation message pops up and the workspace is appended to the list. If the user enters a name that already exists in their list, the application will throw a 500 page. A home button is avaiable on this page and redircts users back. |
+| 5. As a registered user, I want the ability to view my existing workspaces and click on them to see any existing tasks in that workspace. | must-have | In `Your Workspaces`, users may view all of their existing workspaces. If there are none, a different page displays with an image and a button to add workspaces. |
+| 6. As a registered user, I want the ability to move tasks between Statuses. | must-have | Tasks are visible in the respective columns based on their current status. To change the status of a task, the user needs to edit the task. After the change has been submitted, the tasks moves to its new respective status column. |
+| 7. As a registered user, I want the ability to create a task. | must-have | A form for task creation is available inside each workspace for users to create tasks. Once the information is submitted, a message pops up informing the user whether their task was added successfully or if an error occurred |
+| 8. As a registered user, I want the ability to edit my tasks. | should-have | Each task, once expanded, shows an edit button. After clicking, the task information displays in the task form, with the form changing colour to indicate a change in functionality. After submitting the change, the task gets updated accordingly. |
+| 9. As a registered user, I want the ability to manage my tasks, including deleting them from my workspace. | must-have | Each task, once expanded, shows a delete button. After clicking, a modal pops up asking the user for confirmation that they wish to delete this task. A note in the modal informs the user that this is irreversible. If the user confirms, the task is deleted. If they cancel, they get redirected back inside the workspace and no change occurs. |
+| 10. As a registered user, I want the abiity to manage my workspaces, including the ability to delete them. | should-have | Each workspace is appended with a delete button. After clicking, a modal pops up asking the user for confirmation that they wish to delete this workspace, with a title displayed for context. A note in the modal informs the user that this is irreversible. If the user confirms, the workspace is deleted. If they cancel, they get redirected back to the `Your Workspaces` tab. |
+| 11. As a registered user, I want the ability to logout without losing my changes. | must-have | Users may log out by accessing the `Sign Out` button in either the navigation or footer bar. This link takes them to a sign out page where the user confirms whether they wish to sign out. Regardless of confirmation or decline, they get redirected to the home page. If the user signs out, a message informing them of having done so pops up. The jumbotron offers confirmation via greeting and button. |
+| 12. As a non-registered user, I would like to view reviews about Zenlist. | good-to-have | Reviews are available for viewing on the main home page, and on a standalone reviews page. A button under the filtered 5 star reviews takes users to this page. Sorting functionality has been incorporated to allow users to quickly access the type of reviews they are looking for. Additionally, registered users can view any pending reviews. |
 
 ## Wireframes
 ![Zenlist wireframe](static/images/zenlist-wireframe.png)
@@ -84,12 +84,12 @@ Here, the user is presented with a button that redirects them to their workspace
 
 - Reviews
 
-Reviews can be found in two places - on the main home page (where they are filtered by 5-star reviews only), as well as on a dedicated reviews page where they can be accessed through the '_Read all Reviews_' button on the home page. 
+Reviews can be found in two places - on the main home page (where they are filtered by 5-star reviews only), as well as on a dedicated reviews page where they can be accessed through the `Read all Reviews` button on the home page. 
 
 Reviews on the main reviews page have additional sorting functionality, where the user can easily and quickly access the type of reviews they are looking for. They can be sorted: 
- - '_by best_'
- - '_by lowest_'
- - '_by recent_'
+ - `by best`
+ - `by lowest`
+ - `by recent`
 
 As well as this, if the user is logged in and has pending reviews for approval, their reviews can be seen under the _Your Reviews Awaiting Approval_ section, under the existing. If there are no pending reviews or if the user has not left any reviews, this section is hidden. Any reviews pending approval can be deleted, but once they are approved, the user must contact the admin to get them deleted. If the user wants to delete the review, a modal will pop up asking for confirmation before deleting the review.
 
@@ -111,7 +111,7 @@ Review delete confirmation modal -
 
 - Review Form
 
-To submit a review, the user must be signed in. On the home page, the user can find a '_Share your Thoughts_' section. If the user is not logged in, a _Sign Up_ button displays with a sentence prompting the user to sign in to leave a review.
+To submit a review, the user must be signed in. On the home page, the user can find a `Share your Thoughts` section. If the user is not logged in, a _Sign Up_ button displays with a sentence prompting the user to sign in to leave a review.
 
 ![thoughts sign in](static/images/thoughts.png)
 
@@ -166,12 +166,12 @@ Signed Out Message -
 
 - Contact Page
 
-Zenlist contains a dedicated '_Contact_' page for users to send questions/queries to the Zenlist team. This page can be accessed either from the main navigation bar at the top of the page, or in the footer navigation at the bottom of the page.
+Zenlist contains a dedicated `Contact` page for users to send questions/queries to the Zenlist team. This page can be accessed either from the main navigation bar at the top of the page, or in the footer navigation at the bottom of the page.
 
 This form contains validation, and correctly-formatted messages that have been submitted will be sent to the Zenlist team via email. After submission, the user is redirected to the home page with a confirmation message letting them know that their message has been sent and should recieve a reply within 2 business days. 
 
-The message shows up on email (my email) as '_New Message from ***_', and has a reply_to plug to reply to the email address from which the message was sent. 
-The message shows up on email (my email) as '_New Message from ***_', and has a reply_to plug to reply to the email address from which the message was sent. 
+The message shows up on email (my email) as `New Message from ***`, and has a reply_to plug to reply to the email address from which the message was sent. 
+The message shows up on email (my email) as `New Message from ***`, and has a reply_to plug to reply to the email address from which the message was sent. 
 
 Contact Page -
 ![contact page](static/images/contact-message.png)
@@ -184,9 +184,9 @@ Message in Email -
 
 - Your Workspaces
 
-Once the user registers an account, they will get access to the '_Your Workspaces tab_' in the navigation bar and footer. This tab will take them to a dedicated page where they may view all of their environments (workspaces) and tasks. If there are no workspaces, the user will see a different design with a button to create their first workspace. 
+Once the user registers an account, they will get access to the `Your Workspaces tab` in the navigation bar and footer. This tab will take them to a dedicated page where they may view all of their environments (workspaces) and tasks. If there are no workspaces, the user will see a different design with a button to create their first workspace. 
 
-Additionally, this tab can be accessed from the home page jumbotron, which displays a '_My Workspaces_' button.
+Additionally, this tab can be accessed from the home page jumbotron, which displays a `My Workspaces` button.
 
 Page with Workspaces - 
 ![workspaces](static/images/workspaces.png)
@@ -221,7 +221,7 @@ A breadcrumb displays under the main navigation bar, informing users of their cu
 
 Tasks have several attributes, such as their name, their status, their priority, and their due date, each of which helps to either visual sort them (priority is indicated by a coloured dot beside the name of the task), or to sort by selection (by due date and by priority). 
 
-Inside Workspace: '_Boston_'
+Inside Workspace: `Boston`
 ![inside environment](static/images/inside-boston.png)
 
 Currently there are no tasks in this environment, but they can be added using the task form on the left hand side of the page. Added tasks can be sorted by due date (nearest date at the top) or by priority (most important at the top). 
@@ -237,7 +237,7 @@ To access the task's information, the user needs to click on it to expand the ac
 Task Accordion -
 ![task accordion](static/images/task-accordion.png)
 
-After submitting the task, it will show up in the relevant status column. If the user wishes to edit the task, they need to expand the accordion body (by clicking on the task they want to update), and clicking the '_Edit Task_' button. This will engage the task form with that specific task's information, and allow the user to make changes to it before re-submitting the task. The form will change colour to indicate a change of functionality. 
+After submitting the task, it will show up in the relevant status column. If the user wishes to edit the task, they need to expand the accordion body (by clicking on the task they want to update), and clicking the `Edit Task` button. This will engage the task form with that specific task's information, and allow the user to make changes to it before re-submitting the task. The form will change colour to indicate a change of functionality. 
 
 Edit a Task -
 ![tasks](static/images/task-edit.png)
@@ -256,29 +256,29 @@ Deleting a Task -
     - Jumbotron 
         - Signed-Out User: 
             - Marketing sentence.
-            - '_Sign Up_' Button.
+            - `Sign Up` Button.
             - 'P.S. It's free ;)'
         - Signed-In User:
             - Motivational sentence.
-            - '_My Workspaces_' Button.
+            - `My Workspaces` Button.
     - Reviews Row
         - 5-star reviews.
-        - '_Read all Reviews_' Button.
+        - `Read all Reviews` Button.
             _Note: Takes the user to a standalone reviews page that cannot be found anywhere in the navigation bar or footer._
     - Scrum Paragaraph
         - Scrum.org website link.
     - Share Your Thoughts (reviewform)
         - Signed-Out User: 
-            - '_Sign In_' Button.
+            - `Sign In` Button.
         - Signed-In User:
             - Review Form.
-            - '_Submit_' Button.
+            - `Submit` Button.
 - Reviews Page
     - Heading
     - Sort by selection
-        - '_by best_'
-        - '_by lowest_'
-        - '_by recent_'
+        - `by best`
+        - `by lowest`
+        - `by recent`
     - Reviews
     - Signed-In User:
             - If the user has pending reviews, they may be viewed here in a faded colour.
@@ -287,7 +287,7 @@ Deleting a Task -
 - Contact Page
     - Heading
     - Contact Form
-    - '_Send Message_' Button
+    - `Send Message` Button
         - Message gets sent to email.
 
 _If the user is signed out:_
@@ -299,20 +299,20 @@ _If the user is signed out:_
 _If the user is signed in:_
 
 - Your Workspaces
-    - '_Due Today_' Column.
+    - `Due Today` Column.
     - List of user's workspaces. 
         - -> On click, takes user into dedicated detail view.
             - Task Form
             - Sort by selection
-                - '_priority_'
-                - '_by due date_'
+                - `priority`
+                - `by due date`
             - Status columns with tasks.
-                - Each task has an '_Edit Task_' Button.
-                - Each task has a '_Delete Task_' Button.
+                - Each task has an `Edit Task` Button.
+                - Each task has a `Delete Task` Button.
                     - Confirmation modal.
-        - '_Delete Workspace_' Button.
+        - `Delete Workspace` Button.
             - Confirmation modal.
-    - '_Add Workspace_' Button.
+    - `Add Workspace` Button.
     - Sign Out
         - Are you sure you want to Sign Out?
 
@@ -328,29 +328,29 @@ Models: Scrum + Review
 
 The scrum model contains all relevant information regarding the Scrum paragraph on the main homepage. While it was valid to add this content directly into the HTML, a model format allows admins to have user-friendly access for maintaining and updating content based on website needs. 
 
-The '_id_' field in the model is automatically provided by Django (and could potentially come into use if the model were to be recycled throughout the application). 
+The `id` field in the model is automatically provided by Django (and could potentially come into use if the model were to be recycled throughout the application). 
 
-The '_title_' field refers to the title of the Scrum paragraph. 
+The `title` field refers to the title of the Scrum paragraph. 
 
-The '_updated_on_' field is read-only and is used mostly for reference whenever the scrum model is modified. 
+The `updated_on` field is read-only and is used mostly for reference whenever the scrum model is modified. 
 
-The '_content_' field is a textField that utilises Summernote for efficient and manageable content-editing. 
+The `content` field is a textField that utilises Summernote for efficient and manageable content-editing. 
 
 - #### The Review Model
 
-The '_id_' field in the model is automatically provided by Django and comes into play in views that need to access specific reviews for editing/deletion.
+The `id` field in the model is automatically provided by Django and comes into play in views that need to access specific reviews for editing/deletion.
 
-The '_author_' field refers to the _Django User_ model in a One-To-Many relationship, referencing the user to whom the review belongs.
+The `author` field refers to the _Django User_ model in a One-To-Many relationship, referencing the user to whom the review belongs.
 
-The '_job_industry_' field is a selection field for selecting the industry in which the reviewer works. This is used purely for contextual purposes and as a means of demonstrating that the application can be used by all, regardless of their professional background. 
+The `job_industry` field is a selection field for selecting the industry in which the reviewer works. This is used purely for contextual purposes and as a means of demonstrating that the application can be used by all, regardless of their professional background. 
 
-The '_rating_' field is a selection field for selecting the star rating the reviewer wishes to give to the appliation during the review process.
+The `rating` field is a selection field for selecting the star rating the reviewer wishes to give to the appliation during the review process.
 
-The '_review_' field is a TextField (max 120 characters), where the user can comment on the application. 
+The `review` field is a TextField (max 120 characters), where the user can comment on the application. 
 
-The '_reviewed-on_' field is a read-only date field refering to the date the review was left on (regardless of when it was approved).
+The `reviewed-on` field is a read-only date field refering to the date the review was left on (regardless of when it was approved).
 
-The '_approved_' field is a boolean field indicating whether the review has been approved by a Zenlist admin. 
+The `approved` field is a boolean field indicating whether the review has been approved by a Zenlist admin. 
 
 ---
 
@@ -359,39 +359,39 @@ Models: Workpace + Task
 
 - #### The Workspace Model
 
-The '_id_' field in the model is automatically provided by Django and comes into play in views that need to access a specific workspace for deletion.
+The `id` field in the model is automatically provided by Django and comes into play in views that need to access a specific workspace for deletion.
 
-The '_title_' field is a modifiable character field referring to the title of the workspace. 
+The `title` field is a modifiable character field referring to the title of the workspace. 
 
-The '_slug_' field contains a slugified '_title_' value, which is used in the creation of unique URLs for each workspace.
+The `slug` field contains a slugified `title` value, which is used in the creation of unique URLs for each workspace.
 
-The '_creator_' field is a One-To-Many relationship database table referring to the Django User model, and references the currently logged in user and their ownership of a specific workspace. This field is used for filtering and displaying only the relevant workspaces to each user.
+The `creator` field is a One-To-Many relationship database table referring to the Django User model, and references the currently logged in user and their ownership of a specific workspace. This field is used for filtering and displaying only the relevant workspaces to each user.
 
-The '_created_on_' field is a read-only date field refering to the date the workspace was created on.
+The `created_on` field is a read-only date field refering to the date the workspace was created on.
 
-The '_updated_on_' field is a read-only date field refering to the date the workspace was modified on.
+The `updated_on` field is a read-only date field refering to the date the workspace was modified on.
 
 - #### The Task Model
 
-The '_id_' field in the model is automatically provided by Django and comes into play in views that need to access specific tasks in each workspace for editing/deletion.
+The `id` field in the model is automatically provided by Django and comes into play in views that need to access specific tasks in each workspace for editing/deletion.
 
-The '_name_' field is a modifiable character field, referring to the name of the task assigned by the user during task creation using the _TaskForm_. 
+The `name` field is a modifiable character field, referring to the name of the task assigned by the user during task creation using the _TaskForm_. 
 
-The '_notes_' field is a modifiable text field with a max length of 100 characters, used for adding notes/comments under each task.
+The `notes` field is a modifiable text field with a max length of 100 characters, used for adding notes/comments under each task.
 
-The '_creator_' field is a One-To-Many relationship database table referring to the Django User model, and references the currently logged in user and their ownership of a specific task.
+The `creator` field is a One-To-Many relationship database table referring to the Django User model, and references the currently logged in user and their ownership of a specific task.
 
-The '_workspace_' field is a One-To-Many relationship database table referring to the '_Workspace_' model, and references the workspace to which the task belongs.
+The `workspace` field is a One-To-Many relationship database table referring to the `Workspace` model, and references the workspace to which the task belongs.
 
-The '_status_' field is a modifiable selection field for selecting one of three avaiable statuses to filter tasks by _To Do_, _In Progress_, and _Completed_.
+The `status` field is a modifiable selection field for selecting one of three avaiable statuses to filter tasks by _To Do_, _In Progress_, and _Completed_.
 
-The '_priority_' field is a modifiable selection field for selecting one of four avaiable priorities to filter tasks by their priority, i.e., by _Critical_, _Major_, _Minor_, and _Nice to have!_.
+The `priority` field is a modifiable selection field for selecting one of four avaiable priorities to filter tasks by their priority, i.e., by _Critical_, _Major_, _Minor_, and _Nice to have!_.
 
-The '_due_date_' field is a modifiable datetime field used for specifying the task's due date.
+The `due_date` field is a modifiable datetime field used for specifying the task's due date.
 
-The '_date_created_' field is a read-only date field refering to the date the task was created on.
+The `date_created` field is a read-only date field refering to the date the task was created on.
 
-The '_last_modified_' field is a read-only date field refering to the date the task was modified on.
+The `last_modified` field is a read-only date field refering to the date the task was modified on.
 
 ## Views & Templates
 _Note: All pages contain the same navigation and footer sections._
@@ -432,24 +432,24 @@ This is a contact page for users to send queries to the Zenlist team (connected 
 ---
 _Note: This page is only visible in the navigation/footer bar to signed in users._
 
-This is a list of workspaces belonging to the user. This page also contains a '_Due Today_' column with lists of tasks that are due in each workspace. If there are no due tasks, a congratulatory message is displayed to the user. 
+This is a list of workspaces belonging to the user. This page also contains a `Due Today` column with lists of tasks that are due in each workspace. If there are no due tasks, a congratulatory message is displayed to the user. 
 
 - Workspace List 
 
 Each workspace box displays the following information:
  - Workspace Name
  - Total number of tasks in workspace.
- - '_Delete Workspace_' Button
+ - `Delete Workspace` Button
 
- - On click, users are taken into a detailed view of their workspace, where they have access to a task form (for adding new tasks), and an overview of all tasks in their status columns - '_To Do_', '_In Progress_', '_Completed_'. Additionally, on clicking on one of these tasks, the task's notes and due date become visible, along with buttons for editing (the task appears in the task form with a different background colour), and deleting the task (through a confirmation modal). A circle beside the name of the task indicates its priority, as follows: 
+ - On click, users are taken into a detailed view of their workspace, where they have access to a task form (for adding new tasks), and an overview of all tasks in their status columns - `To Do`, `In Progress`, `Completed`. Additionally, on clicking on one of these tasks, the task's notes and due date become visible, along with buttons for editing (the task appears in the task form with a different background colour), and deleting the task (through a confirmation modal). A circle beside the name of the task indicates its priority, as follows: 
 
- - red circle - '_Critical_' 
+ - red circle - `Critical` 
 
- - orange circle - '_Major_' 
+ - orange circle - `Major` 
 
- - yellow circle - '_Minor_' 
+ - yellow circle - `Minor` 
 
- - green circle - '_Nice to have!_' 
+ - green circle - `Nice to have!` 
 
 - Due Today List
 
@@ -468,21 +468,21 @@ _Note: These pages are only displayed when the user is not signed in._
 
 - An email authentication prompt for users who have just signed up.
 
-- Visual indication that the user is signed in (jumbotron + '_Your Workspaces_- tab in navigation bar).
+- Visual indication that the user is signed in (jumbotron + `Your Workspaces_- tab in navigation bar).
 
 ### Sign Out
 ---
 A page where the user may logout, using allauth Django.
 _Note: This is only displayed when the user is signed in._
 
-- Visual indication that the user has signed out (jumbotron + no '_Your Workspaces_' tab in navigation bar).
+- Visual indication that the user has signed out (jumbotron + no `Your Workspaces` tab in navigation bar).
 
 ## Scope of Application
 The application encompasses the following scope: 
 
 - User Interaction
 
-Once registered and signed in, the user can access their Zenlist environments in the '_Your Workspaces_' tab. All tasks ('_To Do_', '_In Progress_', and '_Completed_') are visible in their respective status columns. After selecting and entering a workspace, the user can add another task to the list via the form on the left-hand side. Here, they need to give a title, assign a category, a due date, a priority, and a brief can add a brief description (no more than 100 characters) of the task they wish to add. Once the task is submitted, the user may:
+Once registered and signed in, the user can access their Zenlist environments in the `Your Workspaces` tab. All tasks (`To Do`, `In Progress`, and `Completed`) are visible in their respective status columns. After selecting and entering a workspace, the user can add another task to the list via the form on the left-hand side. Here, they need to give a title, assign a category, a due date, a priority, and a brief can add a brief description (no more than 100 characters) of the task they wish to add. Once the task is submitted, the user may:
  - Open the task accordion (by clicking on it) to view the task details (due date, priority (colourful dot), and any associated notes).
 
  - Edit the task (using the form on the left-hand side of the page). The form will take on a different background colour to indicate a change in its behaviour. 
@@ -491,18 +491,18 @@ Once registered and signed in, the user can access their Zenlist environments in
 
  - Delete the task. In this case, a confirmation modal pops up before deleting the task.
 
- - Sort the '_To Do_', '_In Progress_', and '_Completed_' columns either by priority (from '_Critical_' at the top to '_Nice to have!_') or by due date (approaching dates at the top).
+ - Sort the `To Do`, `In Progress`, and `Completed` columns either by priority (from `Critical` at the top to `Nice to have!`) or by due date (approaching dates at the top).
 
 - Environment Categorisation
 
-The purpose of Zenlist is to allow users to categorise their day into environments. Each Zenlist environment, i.e., home chores, study-related tasks, etc., keeps tasks separate and provides users with the clarity and comfort of organising their day. Each space presents tasks due on a particular day under the '_Due Today_' column on the main '_Your Workspaces_' tab.
+The purpose of Zenlist is to allow users to categorise their day into environments. Each Zenlist environment, i.e., home chores, study-related tasks, etc., keeps tasks separate and provides users with the clarity and comfort of organising their day. Each space presents tasks due on a particular day under the `Due Today` column on the main `Your Workspaces` tab.
 
 - Sorting System
 
 A simple sorting system allows users to easily sort their tasks based on their preferences. Tasks can be sorted: 
 
- - '_by priority_'
- - '_by due date_'
+ - `by priority`
+ - `by due date`
 
 - Scrum & Agile Knowledge Sharing
 
@@ -511,7 +511,7 @@ To help users understand the Zenlist framework, the application home page has be
 ## Aesthetics
 The Zenlist theme aims to improve UIUX by leveraging a minimalist theme, with icons and accent colours where necessary. The colour scheme utilises natural dark brown, grey, and blue hues to give the application a strong 'grounding' theme. Accent colours persist in the bright yellow and red - yellow for stand-out functionality such as editing or button redirection and red for deletion of elements. 
 
-Furthermore, accents are applied on tasks in the form of '_priority_' circles, giving users a visual indication of a task's priority by leveraging colours. For example, a dark red circle indicates a '_Critical_' status, while a muted blue indicates a '_Nice to have!_'. The colour scheme for this resembles a sunset.
+Furthermore, accents are applied on tasks in the form of `priority` circles, giving users a visual indication of a task's priority by leveraging colours. For example, a dark red circle indicates a `Critical` status, while a muted blue indicates a `Nice to have!`. The colour scheme for this resembles a sunset.
 
 Task Colour Scheme - 
 ![task sunset colours](static/images/task-sunset.png)
@@ -541,7 +541,7 @@ Task Colour Scheme -
 19. BeFunky Collage Maker - to create the responsive image.
 
 ## Testing & Debugging
-This section outlines procedures for manual testing. For automated testing, please see all files '_test*.py_'.
+This section outlines procedures for manual testing. For automated testing, please see all files `test*.py`.
 
 - ## Manual Testing
 
@@ -628,7 +628,7 @@ This section outlines procedures for manual testing. For automated testing, plea
 
 - ## Automated Testing
 
-Tests are compiled in files with the following naming convention: '_test_*.py_'. This section is broken down by app, with a brief overview of testing procedures.
+Tests are compiled in files with the following naming convention: `test_*.py`. This section is broken down by app, with a brief overview of testing procedures.
 
 ### Scrum App
 - test_forms.py
@@ -637,24 +637,24 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
 
  Methods: 
 
- '_test_name_required()_':
+ `test_name_required()`:
  This test verifies that a populated contact form which is missing a name input is not submitted and that the error stems from the missing name field input.
 
- '_test_email_required()_':
+ `test_email_required()`:
  This test verifies that a populated contact form which is missing an email input is not submitted and that the error stems from the missing email field input.
 
- '_test_email_correct_format()_':
+ `test_email_correct_format()`:
  This test verifies that a completed populated contact form is not submitted unless the email adheres to the expected email format and that the error stems from the incorrectly filled email field.
 
- '_test_message_required()_':
+ `test_message_required()`:
  This test verifies that a populated contact form which is missing a message input is not submitted and that the error stems from the missing message field input.
 
- '_test_message_max_length_200_char()_':
+ `test_message_max_length_200_char()`:
  This test verifies that a completed populated contact form is not submitted unless the message input is less than 200 characters and that the error stems from the overfilled message field.
 
  Note: The application form on the user side does not allow the insertion of more than 200 characters.
 
- '_test_form_is_valid()_':
+ `test_form_is_valid()`:
  This test verifies that a correctly filled-out contact form is successfully submitted.
 
 - test_models.py
@@ -663,16 +663,16 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
 
  Methods: 
 
- '_def setUp()_':
+ `def setUp()`:
  Simulates the logging in of a user for review model assertion, and creates instances for the Scrum and Review models.
 
- '_def test_scrum_model_creation()_':
+ `def test_scrum_model_creation()`:
  Runs a series of assertions for each Scrum Model field to validate the expected values of the instance.
 
- '_def test_review_model_creation()_':
+ `def test_review_model_creation()`:
  Runs a series of assertions for each Review Model field to validate the expected values of the instance.
 
- '_def test_user_deletion_cascade()_':
+ `def test_user_deletion_cascade()`:
  Deletes the currently logged-in user and checks whether the user's reviews were deleted as well, as per cascade.
 
 - test_urls.py
@@ -681,17 +681,46 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
 
  Methods: 
 
- '_def test_hello_resolves()_':
+ `def test_hello_resolves()`:
  Reverses the URL name and checks if it returns the correct FBV of HelloScrum.
  Asserts HelloScrum is resolved from 'hello'.
 
- '_def test_contact_resolves()_':
+ `def test_contact_resolves()`:
  Reverses the URL name and checks if it returns the correct FBV of Contact_Me.
  Asserts Contact_Me is resolved from 'contact'.
 
- '_def test_reviews_resolves():_'
+ `def test_reviews_resolves():`
  Reverses the URL name and checks if it returns the correct FBV of Zenlist_Reviews.
  Asserts Zenlist_Reviews is resolved from 'reviews'.
+
+- test_views.py
+
+Contains a class for testing views and status codes associated with the Scrum App.
+
+`def setUp()`:
+    Creates a Client Instance.
+    Creates a User instance.
+    Simulates user log in to allow for URL testing that require user
+    authentication and the deletion of reviews.
+    Simulates the creation of a review for deletion purposes.
+    Sets up URLs for testing for views associated with the Scrum app.
+
+`def test_scrum_page_GET()`:
+    This test asserts that the Scrum homepage URL is retrieved and
+    rendered successfully and as expected.
+
+`def test_contact_page_GET()`:
+    This test asserts that the Contact URL is retrieved and
+    rendered successfully and as expected.
+
+`def test_reviews_page_GET()`:
+    This test asserts that the Reviews URL is retrieved and
+    rendered successfully and as expected.
+
+`def test_review_delete_GET()`:
+    This test asserts that the review delete URL is retrieved and and
+    rendered successfully with the expected review id
+    as an argument.
 
 ---
 
@@ -702,10 +731,10 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
 
  Methods: 
 
- '_def test_title_is_required()_':
+ `def test_title_is_required()`:
  This test verifies that a populated workspace form which is missing a title input is not submitted and that the error stems from the missing title field input.
 
- '_def test_form_is_valid()_':
+ `def test_form_is_valid()`:
  This test verifies that a correctly filled-out workspace form is successfully submitted.
 
 - test_models.py
@@ -714,21 +743,21 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
 
  Methods: 
 
- '_def setUp()_':
+ `def setUp()`:
  Simulates user log-in to allow the creation of workspaces and tasks.
  Simulates the creation of a workspace where workspace.creator field is automatically assigned the current User instance.
  Simulates the creation of a task where task.creator is automatically assigned the current User instance, and task.workspace is automatically assigned the current workspace.
 
- '_def test_workspace_model_creation()_':
+ `def test_workspace_model_creation()`:
  Runs a series of assertions for each Workspace Model field to validate the expected values of the instance.
 
- '_def test_task_model_creation()_':
+ `def test_task_model_creation()`:
  Runs a series of assertions for each Task Model field to validate the expected values of the instance.
 
- '_def test_workspace_delete_when_user_delete()_':
+ `def test_workspace_delete_when_user_delete()`:
  Deletes the user and checks whether workspaces and tasks associated with the user were deleted as well, as per cascade.
 
- '_def test_task_delete_when_workspace_delete()_':
+ `def test_task_delete_when_workspace_delete()`:
  Deletes the current workspace and checks whether tasks associated with the workspace were deleted as well, as per cascade.
 
 - test_urls.py
@@ -737,32 +766,68 @@ Tests are compiled in files with the following naming convention: '_test_*.py_'.
 
  Methods:
 
- '_def test_workspace_list_resolves()_':
+ `def test_workspace_list_resolves()`:
  Reverses the URL name and checks if it returns the correct CBV of WorkspaceListView.
  Asserts WorkspaceListView is resolved from 'spaces'.
 
- '_def test_workspace_detail_resolves()_':
+ `def test_workspace_detail_resolves()`:
  Reverses the URL name with arguments [slug] and checks if it returns the correct FBV of workspace_detail.
  Asserts workspace_detail is resolved from 'full_workspace'.
 
- '_def test_workspace_delete_resolves()_':
+ `def test_workspace_delete_resolves()`:
  Reverses the URL name with arguments [int:id] and checks if it returns the correct FBV of delete_ws.
  Asserts delete_ws is resolved from 'delete_workspace'.
 
- '_def test_task_edit_resolves()_':
+ `def test_task_edit_resolves()`:
  Reverses the URL name with arguments [slug, int:id] and checks if it returns the correct FBV of update_ws_task.
  Asserts update_ws_task is resolved from 'task_edit'.
 
- '_def test_task_delete_resolves()_':
+ `def test_task_delete_resolves()`:
  Reverses the URL name with arguments [slug, int:id] and checks if it returns the correct FBV of delete_ws_task.
  Asserts delete_ws_task is resolved from 'task_delete'.
+
+- test_views.py
+
+Contains a class for testing views and status codes associated with the Workspace App.
+
+`def setUp()`:
+    Creates a Client Instance.
+    Creates a User instance.
+    Simulates user log in to allow for URL testing that require user
+    authentication and the creation of workspaces and tasks.
+    Simulates the creation of a workspace.
+    Simulates the creation of a task.
+    Sets up URLs for testing for views associated with the Workspace app.
+
+`def test_workspaces_page_GET()`:
+    This test asserts that the common workspaces URL is retrieved and
+    rendered successfully and as expected.
+
+`def test_workspace_detail_page_GET()`:
+    This test asserts that the workspace detail URL is retrieved and
+    rendered successfully with the expected workspace slug as an argument.
+
+`def test_delete_workspace_view()`:
+    This test asserts that the workspace delete URL is retrieved and and
+    rendered successfully with the expected workspace id as an argument.
+
+`def test_task_update_view_POST()`:
+    This test asserts that the task update URL is retrieved and and
+    rendered successfully with the expected workspace slug and task id
+    as arguments.
+
+`def test_task_delete_url()`:
+    This test asserts that the task delete URL is retrieved and and
+    rendered successfully with the expected workspace slug and task id
+    as arguments.
+
  
 ## Accessibility & Performance
 The application takes care in ensuring good UIUX and legibility practices as well as accessibility for screen readers. 
 
 Forms are protected from CSRF attacks by tokens tied to the user's session. Before any information is submitted, form fields are validated for empty values and incorrectly formatted input. 
 
-Additionally, Django messages inform users whether their request was successful. If an error occurs, they are encouraged to contact the Zenlist team with their query using the dedicated contact form on the '_Contact_' page. 
+Additionally, Django messages inform users whether their request was successful. If an error occurs, they are encouraged to contact the Zenlist team with their query using the dedicated contact form on the `Contact` page. 
 
 ### Lighthouse
 
@@ -770,7 +835,7 @@ Below is a report from the [Lighthouse - Chrome for Developers](https://develope
 
 ![lighthouse report](static/images/lighthouse.png)
 
-As can be seen from the report, the application performs well in '_Accessibility_', '_Best Practices_', and '_SEO_', but experiences some delay in the '_Performace_' meter. 
+As can be seen from the report, the application performs well in `Accessibility`, `Best Practices`, and `SEO`, but experiences some delay in the `Performace` meter. 
 
 Some aspects slowing down the application include: 
 
@@ -808,6 +873,9 @@ Sign Out -
 ![Clean SignOut HTML Validation Results](static/images/logout-html-validation.png)
 Your Workspaces - 
 ![Clean Workspaces HTML Validation Results](static/images/workspaces-html-validation.png)
+
+_Note: This error is likely due to the need for the user to be registered._
+
 Inside a Workspace - 
 ![Clean Workspaces Detail HTML Validation Results](static/images/workspace-detail-html-validation.png)
 
@@ -828,7 +896,7 @@ reviews.js -
 ![reviews.js validation results](static/images/reviews-js.png)
 
 #### Warning Explanation: 
-This error is directed at the bootstrap modal being initiated within the button listener. Explanation...
+This error is directed at the bootstrap modal being initiated within the button listener. There seemed to be an issue with how the modal displayed outside of the for loop, hence the decision was made to move it inside. While the semantics may have been affected, the modal functions as expected. 
 
 tasks.js - 
 ![tasks.js validation results](static/images/tasks-js.png)
@@ -845,7 +913,7 @@ There are some general requirements when it comes to setting up your application
 - You must strictly adhere to the correct folder structure expected by Django's settings.
 - In Django's settings.py file, setting Debug = True in development will display a detailed errors page if the application comes across an error hindering template rendering. It will also allow the collection of static files (stylesheets, images, and javascript files automatically). Setting Debug = False will display standard error pages under the same conditions and will not update with any changes to static files.
 
-In Heroku, this is additionally configured under '_Config Vars_', as COLLECT_STATIC, with the value of 0 for blocking automatic collection, and 1 for allowing it.
+In Heroku, this is additionally configured under `Config Vars`, as COLLECT_STATIC, with the value of 0 for blocking automatic collection, and 1 for allowing it.
 - Do not commit to GitHub with Debug = True. Always set Debug = False before committing to avoid exposing personal details.
 
 You will need a two-factor verification setup. I chose Google Authenticator because I already had it pre-installed on my phone.
@@ -856,12 +924,12 @@ Log onto your Heroku dashboard using your username and password, and confirm the
 Create a new Heroku app:
 ![New Heroku App](static/images/new-heroku.png)
 
-You will be asked to pick a name and region for your app before clicking '_Create app_' on the next page.
+You will be asked to pick a name and region for your app before clicking `Create app` on the next page.
 ![New App Options](static/images/new-app-options.png)
 
 ### Step 2: Connect to GitHub
 Once you've created your app, go to the Deploy tab at the top.
-Note: For demonstration purposes, I created a new app called '_testapp-123_'.
+Note: For demonstration purposes, I created a new app called `testapp-123`.
 
 Select the middle box with GitHub's logo to connect your Heroku app to a GitHub Repository.
 
@@ -875,7 +943,7 @@ Under the "Automatic deploys" section, choose a branch from your GitHub reposito
 Enable automatic deploys by clicking Enable Automatic Deploys. With this, every push to the selected branch will automatically deploy a new version of your app.
 
 ### Step 4: Settings
-When you create the app, you will need to add the '_heroku/python_' buildpack in the Settings tab. 
+When you create the app, you will need to add the `heroku/python` buildpack in the Settings tab. 
 
 ### Step 5: Deploy Your Masterpiece
 If you've enabled automatic deploys, any push to the selected branch will automatically deploy your application.
