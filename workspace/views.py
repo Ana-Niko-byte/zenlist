@@ -99,9 +99,6 @@ class WorkspaceListView(generic.ListView):
             )
         )
         none_due = all(amount.due_count == 0 for amount in due_tasks)
-        for item in due_tasks:
-            print(item.due_count)
-        print(none_due)
            
         data['due_tasks'] = due_tasks.order_by('-created_on')
         data['none_due'] = none_due

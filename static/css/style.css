@@ -191,6 +191,11 @@ body {
 }
 
 /* UIUX */
+.alert{
+  background-color: rgb(130, 164, 179); 
+  color: #fff;
+}
+
 .workspace-container a {
   text-decoration: none;
 }
