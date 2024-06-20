@@ -2,355 +2,355 @@
 
 /* General */
 .jumbotron {
-  background-image: url("../images/balance.jpg");
-  background-color: rgb(29, 29, 29);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  min-height: 500px;
+	background-image: url("../images/balance.jpg");
+	background-color: rgb(29, 29, 29);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	min-height: 500px;
 }
 
 .post-subtitle {
-  /* last modified date for workspace */
-  font-size: 10px;
+	/* last modified date for workspace */
+	font-size: 10px;
 }
 
 .profile-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
 }
 
 .breaker {
-  background-image: url("../images/office-chairs.jpg");
-  background-color: rgb(29, 29, 29);
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 350px;
+	background-image: url("../images/office-chairs.jpg");
+	background-color: rgb(29, 29, 29);
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 350px;
 }
 
 /* Colours */
 li a:hover,
 .socials a:hover,
 .download-scrum:hover {
-  color: rgb(255, 146, 0);
+	color: rgb(255, 146, 0);
 }
 
 .nav-item:hover {
-  color: rgb(71, 71, 108);
+	color: rgb(71, 71, 108);
 }
 
 .active {
-  background-color: rgb(130, 164, 179);
-  border-radius: 5px;
+	background-color: rgb(130, 164, 179);
+	border-radius: 5px;
 }
 
 .white-text {
-  color: rgb(246, 246, 246);
+	color: rgb(246, 246, 246);
 }
 
 .visit-scrum {
-  text-decoration: none;
-  color: rgb(29, 29, 29);
+	text-decoration: none;
+	color: rgb(29, 29, 29);
 }
 
-.scrum-framework-container{
-  background-color: rgba(12, 21, 26, 0.8);
+.scrum-framework-container {
+	background-color: rgba(12, 21, 26, 0.8);
 }
 
-.breadcrumb-item a{
-  color: rgb(130, 164, 179);
-  text-decoration: none;
+.breadcrumb-item a {
+	color: rgb(130, 164, 179);
+	text-decoration: none;
 }
 
 .workspace-link {
-  color: rgb(29, 29, 29);
-  transition: all 0.4s ease;
+	color: rgb(29, 29, 29);
+	transition: all 0.4s ease;
 }
 
 .workspace-link:hover {
-  color: rgb(255, 146, 0);
+	color: rgb(255, 146, 0);
 }
 
 .breadcrumb-link-nav:hover {
-  color: rgb(255, 146, 0);
+	color: rgb(255, 146, 0);
 }
 
 .critical {
-  background-color: rgb(245, 61, 82);
+	background-color: rgb(245, 61, 82);
 }
 
 .major {
-  background-color: rgb(255, 146, 0);
+	background-color: rgb(255, 146, 0);
 }
 
 .minor {
-  background-color: rgb(252, 227, 21);
+	background-color: rgb(252, 227, 21);
 }
 
 .nice {
-  background-color: rgb(68, 197, 203);
+	background-color: rgb(68, 197, 203);
 }
 
-.fa-brands, 
-.task-select{
-  color: rgb(29, 29, 29);
+.fa-brands,
+.task-select {
+	color: rgb(29, 29, 29);
 }
 
 .red-font {
-  color: rgb(173, 0, 0);
+	color: rgb(173, 0, 0);
 }
 
 /* Annotations & Makeshift Symbols */
 /* Used instead of .nav-item-line::after content due to height control. */
 .line {
-  height: 100%;
-  width: 1px;
-  background-color: rgb(29, 29, 29)
+	height: 100%;
+	width: 1px;
+	background-color: rgb(29, 29, 29)
 }
 
 .direct-link {
-  transition: all 0.2s ease;
+	transition: all 0.2s ease;
 }
 
 .direct-link:hover {
-  transform: scale(1.02);
-  transform-origin: center center;
+	transform: scale(1.02);
+	transform-origin: center center;
 }
 
 .workspace-container:hover {
-  transform: scaleX(1.02);
+	transform: scaleX(1.02);
 }
 
 .workspace-container {
-  transition: all 0.2s ease;
+	transition: all 0.2s ease;
 }
 
 .nav-link {
-  transition: all 0.2s ease;
-  text-decoration: none;
+	transition: all 0.2s ease;
+	text-decoration: none;
 }
 
 .nav-link:hover {
-  transform: scale(1.04);
+	transform: scale(1.04);
 }
 
 /* Branding */
 body {
-  font-family: "Source Code Pro", monospace;
-  font-weight: 400;
-  font-style: normal;
+	font-family: "Source Code Pro", monospace;
+	font-weight: 400;
+	font-style: normal;
 }
 
 .navbar-brand {
-  font-size: 2rem;
+	font-size: 2rem;
 }
 
 .bb-grey {
-  border-bottom: 1px dashed darkgrey;
+	border-bottom: 1px dashed darkgrey;
 }
 
-.full-width{
-  min-width: 100%;
+.full-width {
+	min-width: 100%;
 }
 
-.zenlist-review{
-  background-color: rgb(232, 236, 242);
-  border-radius: 15px;
-  outline: none; 
-  border: none;
+.zenlist-review {
+	background-color: rgb(232, 236, 242);
+	border-radius: 15px;
+	outline: none;
+	border: none;
 }
 
 .active-breadcrumb {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
-.fa-brands:hover{
-  transform: scale(1.02);
-  transform-origin: center center;
+.fa-brands:hover {
+	transform: scale(1.02);
+	transform-origin: center center;
 }
 
 .priority-indicator {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  margin-right: 10px;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	margin-right: 10px;
 }
 
 /* Button Styling */
 .authentication-button {
-  min-width: 150px;
-  padding: 10px;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  transition: all 0.2s ease;
+	min-width: 150px;
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	transition: all 0.2s ease;
 }
 
 .authentication-button:hover {
-  transform: scale(1.05);
-  transform-origin: center center;
+	transform: scale(1.05);
+	transform-origin: center center;
 }
 
 /* UIUX */
-.django-alert{
-  background-color: rgb(130, 164, 179); 
-  color: #fff;
+.django-alert {
+	background-color: rgb(130, 164, 179);
+	color: #fff;
 }
 
 .workspace-container a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .scrum-content {
-  line-height: 23px;
+	line-height: 23px;
 }
 
 .task-box {
-  min-height: 100px;
+	min-height: 100px;
 }
 
 .analytics-card {
-  min-height: 500px;
+	min-height: 500px;
 }
 
 .breadcrumb-link-nav {
-  text-decoration: none;
-  color: rgb(29, 29, 29);
-  transition: all 1s ease;
+	text-decoration: none;
+	color: rgb(29, 29, 29);
+	transition: all 1s ease;
 }
 
 /* Bootstrap Overrides */
 .accordion-button:not(.collapsed) {
-  background-color: #ffffff;
-  box-shadow: none;
+	background-color: #ffffff;
+	box-shadow: none;
 }
 
 .accordion-button:focus {
-  box-shadow: none;
+	box-shadow: none;
 }
 
 .nav-link-items {
-  width: 100%;
+	width: 100%;
 }
 
 .task-box {
-  background-color: rgb(68, 99, 120);
-  min-height: 250px;
-  border-radius: 10px;
+	background-color: rgb(68, 99, 120);
+	min-height: 250px;
+	border-radius: 10px;
 }
 
 #signup_form ul {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: start;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: start;
 }
 
 #signup_form ul li {
-  font-size: 0.7rem;
-  color: rgb(177, 177, 177);
+	font-size: 0.7rem;
+	color: #525252;
 }
 
 .faded {
-  color: lightgray;
+	color: lightgray;
 }
 
 #hello-content {
-  font-family: "Source Code Pro", monospace;
+	font-family: "Source Code Pro", monospace;
 }
 
-.form-select:focus, 
-.form-control:focus{
-  border: 2px solid rgb(68, 99, 120);
-  box-shadow: none;
+.form-select:focus,
+.form-control:focus {
+	border: 2px solid rgb(68, 99, 120);
+	box-shadow: none;
 }
 
-.due-task-container{
-  background-color: rgb(74, 84, 91); 
-  border-top-right-radius: 20px; 
-  border-bottom-right-radius: 20px;
-  height: 100%;
-  flex-grow: 1;
+.due-task-container {
+	background-color: rgb(74, 84, 91);
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	height: 100%;
+	flex-grow: 1;
 }
 
 /* Form Field Sizes */
-#id_message{
-  height: 120px;
+#id_message {
+	height: 120px;
 }
 
-#id_notes{
-  height: 80px;
+#id_notes {
+	height: 80px;
 }
 
-.contact-text{
-  font-size: 0.9rem;
+.contact-text {
+	font-size: 0.9rem;
 }
 
 /* Media Queries */
-@media all and (max-width: 450px){
-  .heading-container{
-    flex-direction: column;
-    margin: 0 0;
-  }
+@media all and (max-width: 450px) {
+	.heading-container {
+		flex-direction: column;
+		margin: 0 0;
+	}
 }
 
 @media all and (max-width: 760px) {
-  .nav-item {
-    justify-items: start;
-    border-top: 1px solid lightgrey;
-    padding: 10px 0;
-    width: 100%;
-    text-align: left;
-  }
+	.nav-item {
+		justify-items: start;
+		border-top: 1px solid lightgrey;
+		padding: 10px 0;
+		width: 100%;
+		text-align: left;
+	}
 
-  .navbar {
-    padding: 0 20px;
-  }
+	.navbar {
+		padding: 0 20px;
+	}
 
-  .footer-nav{
-    display: flex;
-  }
+	.footer-nav {
+		display: flex;
+	}
 
-  .main-page-container, 
-  .jumbotron-full{
-    margin: 0;
-  }
+	.main-page-container,
+	.jumbotron-full {
+		margin: 0;
+	}
 }
 
 @media all and (max-width: 990px) {
-  #container-scrum-row {
-    flex-direction: column-reverse;
-  }
+	#container-scrum-row {
+		flex-direction: column-reverse;
+	}
 
-  #taskRowContainer {
-    flex-direction: column-reverse;
-  }
+	#taskRowContainer {
+		flex-direction: column-reverse;
+	}
 
-  #workspace-analytics{
-    height: 100px;
-  }
-  
-  .analytic-intro{
-    display: none;
-  }
+	#workspace-analytics {
+		height: 100px;
+	}
 
-  #due-task-container {
-    min-height: 170px;
-    border-radius: 0;
-    text-align: center;
-  }
+	.analytic-intro {
+		display: none;
+	}
+
+	#due-task-container {
+		min-height: 170px;
+		border-radius: 0;
+		text-align: center;
+	}
 }
 
 @media all and (min-width: 760px) {
-  #navbarItems{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-  }
+	#navbarItems {
+		display: flex;
+		align-items: center;
+		justify-content: end;
+	}
 
-  .button-container-workspace{
-    display: flex;
-    align-items: start;
-    justify-content: end;
-  }
+	.button-container-workspace {
+		display: flex;
+		align-items: start;
+		justify-content: end;
+	}
 }

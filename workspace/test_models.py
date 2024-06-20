@@ -49,7 +49,7 @@ class TestWorkspaceModel(TestCase):
             password='test-password'
         )
 
-        title='Test Workspace'
+        title = 'Test Workspace'
         self.workspace = Workspace(
             id=4,
             title=title,

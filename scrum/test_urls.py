@@ -43,4 +43,3 @@ class TestScrumURLs(TestCase):
         '''
         path = reverse('reviews')
         self.assertEqual(resolve(path).func, Zenlist_Reviews)
-        

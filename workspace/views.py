@@ -99,7 +99,7 @@ class WorkspaceListView(generic.ListView):
             )
         )
         none_due = all(amount.due_count == 0 for amount in due_tasks)
-           
+
         data['due_tasks'] = due_tasks.order_by('-created_on')
         data['none_due'] = none_due
         return data
@@ -159,7 +159,7 @@ def update_ws_task(request, slug, task_id):
         else:
             messages.add_message(
                 request, messages.ERROR,
-                '''Oh no! An error occurred while trying to update 
+                '''Oh no! An error occurred while trying to update
                 your task, please try again later.'''
             )
     return HttpResponseRedirect(reverse('full_workspace', args=[slug]))
@@ -176,4 +176,4 @@ def delete_ws_task(request, slug, id):
     # Note to future self because this bug took f* ages, keys must be in ''!
     return HttpResponseRedirect(reverse(
         'full_workspace',
-        kwargs={'slug':task_for_deletion.workspace.slug}))
+        kwargs={'slug' : task_for_deletion.workspace.slug}))

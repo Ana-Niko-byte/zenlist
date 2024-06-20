@@ -12,7 +12,6 @@ class WorkspaceForm(forms.ModelForm):
         labels = {
             'title' : 'Workspace Title: '
         }
-    
 
 
 class DateInput(forms.DateInput):
@@ -28,8 +27,8 @@ class TaskForm(forms.ModelForm):
         fields = ('name', 'notes', 'status', 'priority', 'due_date',)
         # See README for widget code.
         widgets = {
-            'due_date': DateInput(attrs={'type':'date'})
-            }
+            'due_date' : DateInput(attrs={'type' : 'date'})
+        }
 
     def __init__(self, *args, **kwargs):
         super(TaskForm, self).__init__(*args, **kwargs)

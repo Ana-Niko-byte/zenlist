@@ -831,8 +831,9 @@ Additionally, Django messages inform users whether their request was successful.
 
 ### Lighthouse
 
-Below is a report from the [Lighthouse - Chrome for Developers](https://developer.chrome.com/docs/lighthouse/overview), dated 17/06/2024.
+Technology used: [Lighthouse - Chrome for Developers](https://developer.chrome.com/docs/lighthouse/overview).
 
+Home page report -
 ![lighthouse report](static/images/lighthouse.png)
 
 As can be seen from the report, the application performs well in `Accessibility`, `Best Practices`, and `SEO`, but experiences some delay in the `Performace` meter. 
@@ -846,6 +847,27 @@ The image, initially downloaded from [Unsplash](https://unsplash.com/photos/man-
 Additional Considerations: 
 
 ![lighthouse performance optimization suggestions](static/images/lighthouse-performance.png)
+
+Contact Page - 
+![lighthouse contact report](static/images/lighthouse-contact.png)
+
+Reviews Page -
+![lighthouse reviews report](static/images/lighthouse-reviews.png)
+
+_Note: The workspace detail page was tested by direct URL input using [Global Lighthouse](https://lighthouse-metrics.com/), as the extension would validate the `Sign In` page instead due to authentication requirements. Colours are inverted on Prt Sc for unknown reasons._
+
+Workspace Detail Page -
+![global lighthouse inside workspace report](static/images/lighthouse-ws-detail.png)
+![global lighthouse inside workspace results](static/images/lighthouse-ws-detail-results.png)
+![global lighthouse pWa considerations](static/images/lighthouse-ws-detail-pwa.png)
+
+Sign In Page -
+![lighthouse contact report](static/images/lighthouse-signin.png)
+
+Sign Up Page - 
+![lighthouse contact report](static/images/lighthouse-signup.png)
+
+_Note: Lighthouse is unable to test the common `Your Workspaces` page, and the `Sign Out` page, responding with my 500 page and Home page respectively. This is likely due to the need for authentication, which it seems unable to bypass even when the user is signed-in._
 
 ### Colour Accessibility Validator 
 Upon running the application through the [a11y Colour Checker](https://color.a11y.com/) via the URL input, the service displayed no issues. 

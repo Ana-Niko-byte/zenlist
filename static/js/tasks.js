@@ -70,7 +70,7 @@ for (let editButton of edits) {
         taskDateField.value = actualDate;
 
         // Visual indication of where to edit the task.
-        document.getElementById("taskCard").style.backgroundColor = '#FFC107';
+        document.getElementById("taskCard").style.backgroundColor = '#7EBFC2';
 
         submit.innerText = "Update My Task";
         form.setAttribute("action", `update-task/${taskId}`);

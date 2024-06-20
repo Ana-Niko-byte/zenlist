@@ -1,5 +1,5 @@
 // Imports from common.js
-import { resetValues, TaskSort } from "./common.js";
+import { TaskSort } from "./common.js";
 
 // Delete Functionality
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
@@ -17,6 +17,7 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 for (let button of deletes) {
     button.addEventListener("click", (e) => {
         let taskId = e.target.getAttribute("data-task-id");
+        document.getElementById("task-name").innerHTML = `'${e.target.getAttribute("data-task-name")}'`;
         deleteConfirm.href = `delete-task/${taskId}`;
         deleteModal.show();
     });
@@ -69,7 +70,7 @@ for (let editButton of edits) {
         taskDateField.value = actualDate;
 
         // Visual indication of where to edit the task.
-        document.getElementById("taskCard").style.backgroundColor = '#FFC107';
+        document.getElementById("taskCard").style.backgroundColor = '#7EBFC2';
 
         submit.innerText = "Update My Task";
         form.setAttribute("action", `update-task/${taskId}`);
