@@ -8,6 +8,8 @@ The application was tested on an ASUS Zenbook, iOS Apple iPhone 11 Pro, and on a
 ## Introduction
 Zenlist is a task-tracking Django application, designed to provide users with an easy and quick way of organising and managing day-to-day tasks for different environments. With accessible sorting systems and an intuitive interface, Zenlist is the perfect go-to for anyone who wishes to improve their time-management skills and stay on top of their day. It was modeled using Django and elephantSQL.
 
+The code follows Python Code best practice and conventions as set out in PEP 8. The only exception is the following error from the ci python linter : E203 whitespace before ', which occurs frequently throughout the *.py files. There seems to be no fix, but the code functions as expected and meets all other requirements.
+
 ## Business/Social Goals
 - Allow for easy and intuitive organisation of assets in user-created environments. These environments should have sorting functionality to make the platform easily accessible and understandable.
 

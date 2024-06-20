@@ -132,6 +132,10 @@ def delete_ws(request, id):
     workspace = get_object_or_404(Workspace, id=id)
     if workspace.creator == request.user:
         workspace.delete()
+        messages.add_message(
+                request, messages.SUCCESS,
+                '''Your workspace has been successfully deleted.'''
+            )
         return HttpResponseRedirect(reverse('spaces'))
 
 
@@ -154,7 +158,7 @@ def update_ws_task(request, slug, task_id):
             task.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                "Your task has been updated successfully!"
+                "Your task has been successfully updated!"
             )
         else:
             messages.add_message(
@@ -173,6 +177,10 @@ def delete_ws_task(request, slug, id):
     task_for_deletion = get_object_or_404(Task, id=id)
     if task_for_deletion.creator == request.user:
         task_for_deletion.delete()
+        messages.add_message(
+                request, messages.SUCCESS,
+                '''Your task has been successfully deleted.'''
+            )
     # Note to future self because this bug took f* ages, keys must be in ''!
     return HttpResponseRedirect(reverse(
         'full_workspace',

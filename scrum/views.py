@@ -155,4 +155,8 @@ def delete_review(request, id):
     review = get_object_or_404(Review, id=id)
     if review.author == request.user:
         review.delete()
+        messages.add_message(
+                request, messages.SUCCESS,
+                '''Your review has been successfully deleted.'''
+            )
         return HttpResponseRedirect(reverse('reviews'))
