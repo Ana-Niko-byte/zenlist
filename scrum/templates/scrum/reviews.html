@@ -21,7 +21,7 @@
     <div class="row d-flex justify-content-center" id="review-box">
         {% for review in reviews %}
         {% if review.approved %}
-        <div class="card col-md-4 col-sm-12 mb-3 mx-2 zenlist-review" style="background-color: rgb(232, 236, 242); outline: none; border: none;" data-reviewedOn="{{review.reviewed_on}}" data-highestRate="{{review.rating}}" data-review-id="{{review.id}}">
+        <div class="card col-md-4 col-sm-12 mb-3 mx-2 zenlist-review" data-reviewedOn="{{review.reviewed_on}}" data-highestRate="{{review.rating}}" data-review-id="{{review.id}}">
             <div class="card-body">
                 <div class="author-review mb-3 text-center">
 

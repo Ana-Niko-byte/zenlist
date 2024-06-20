@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 
 /* General */
@@ -157,8 +156,10 @@ body {
 }
 
 .zenlist-review{
-  background-color: rgb(244, 244, 244); 
+  background-color: rgb(232, 236, 242);
   border-radius: 15px;
+  outline: none; 
+  border: none;
 }
 
 .active-breadcrumb {
@@ -192,6 +193,11 @@ body {
 }
 
 /* UIUX */
+.django-alert{
+  background-color: rgb(130, 164, 179); 
+  color: #fff;
+}
+
 .workspace-container a {
   text-decoration: none;
 }
@@ -263,11 +269,8 @@ body {
   background-color: rgb(74, 84, 91); 
   border-top-right-radius: 20px; 
   border-bottom-right-radius: 20px;
-  min-height: 500px;
-}
-
-#workspace-analytics{
-  height: 450px;
+  height: 100%;
+  flex-grow: 1;
 }
 
 /* Form Field Sizes */
@@ -333,7 +336,6 @@ body {
 
   #due-task-container {
     min-height: 170px;
-    margin: 30px 0;
     border-radius: 0;
     text-align: center;
   }

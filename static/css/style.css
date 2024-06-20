@@ -156,8 +156,10 @@ body {
 }
 
 .zenlist-review{
-  background-color: rgb(244, 244, 244); 
+  background-color: rgb(232, 236, 242);
   border-radius: 15px;
+  outline: none; 
+  border: none;
 }
 
 .active-breadcrumb {
@@ -191,7 +193,7 @@ body {
 }
 
 /* UIUX */
-.alert{
+.django-alert{
   background-color: rgb(130, 164, 179); 
   color: #fff;
 }
